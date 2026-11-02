@@ -36,7 +36,7 @@ const part = {
     const idle = free.filter((a) => a.state === "idle");
     done.concat(idle).forEach((a, i) => {
       const s = ss[i];
-      if (s) ctx.assign(a, { zone: "lineup", x: s.x, y: s.y, facing: "n", side: s.side });
+      if (s) ctx.assign(a, { zone: "lineup", x: s.x, y: s.y, facing: "s", side: s.side });
     });
   },
 };
