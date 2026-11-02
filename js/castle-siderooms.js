@@ -73,7 +73,15 @@ const part = {
       const list = freeTables[a.room === "lab" ? "lab" : "workshop"];
       const t = list.shift();
       if (!t) continue;
-      ctx.assign(a, { zone: "table", x: t.x + 0.5, y: t.y - 1, facing: "s", table: t.room + ":" + t.x + "," + t.y });
+      // Working bots look busy: a loop table -> their Drive chest (if any) -> the room station
+      // (anvil / cauldron) -> table, typing at each stop.
+      const room = world.sideRooms[t.room];
+      const r = room.def;
+      const loop = [{ x: t.x + 0.5, y: t.y - 1, facing: "s" }];
+      const chest = world.chests.find((c) => c.id === a.id);
+      if (chest) loop.push({ x: chest.x + (r.outer === "left" ? 1 : -1), y: chest.y, facing: r.outer === "left" ? "w" : "e" });
+      loop.push({ x: r.x + 5.5 + (tablesUsed.length % 2 ? 1 : -1), y: r.y + 9, facing: "n" });
+      ctx.assign(a, { zone: "table", x: t.x + 0.5, y: t.y - 1, facing: "s", table: t.room + ":" + t.x + "," + t.y, room: t.room, loop });
       tablesUsed.push({ x: t.x, y: t.y, room: t.room, agent: a.id, name: a.name, full: a.task || a.text || "", label: trunc(a.text || a.task, LABEL_MAX) });
     }
     ctx.town.extras.tables = tablesUsed;
@@ -86,7 +94,15 @@ const part = {
     }
   },
   labels(town) {
-    return (town.extras.tables || []).map((t) => ({ kind: "table", x: (t.x + 1) * 16, y: (t.y + 1) * 16 - 2, text: t.label || "…", accent: "#f0a94a", minAbs: 0.55 }));
+    const out = (town.extras.tables || []).map((t) => ({ kind: "table", x: (t.x + 1) * 16, y: (t.y + 1) * 16 - 2, text: t.label || "…", accent: "#f0a94a", minAbs: 0.55 }));
+    // The short task label also walks with the bot while it is away from its table.
+    for (const t of town.extras.tables || []) {
+      const a = town.agents.get(t.agent);
+      if (!a || !a.spot || !a.spot.loop) continue;
+      if (Math.hypot(a.x - (t.x + 0.5), a.y - (t.y - 1)) < 0.6) continue;
+      out.push({ kind: "task", x: a.x * 16 + 8, y: a.y * 16 + 22, text: t.label || "…", accent: "#ffe680", minAbs: 0.55 });
+    }
+    return out;
   },
   hit(town, wx, wy, ui) {
     for (const t of town.extras.tables || []) {

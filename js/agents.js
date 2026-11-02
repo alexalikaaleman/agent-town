@@ -162,6 +162,19 @@ function createTown(roster, world) {
     return step;
   }
 
+  /** Working bots in a side room walk their loop (table, chest, station), pausing to type at each stop. */
+  function busyLoop(agent, dt) {
+    const s = agent.spot;
+    if (!s || !s.loop || s.loop.length < 2 || agent.path === null || agent.path.length) return;
+    agent.pause -= dt;
+    if (agent.pause > 0) return;
+    agent.pause = 3 + (hashId(agent.id) % 20) / 10;
+    agent.loopI = ((agent.loopI || 0) + 1) % s.loop.length;
+    const next = s.loop[agent.loopI];
+    agent.spot = Object.assign({}, s, { x: next.x, y: next.y, facing: next.facing });
+    agent.path = null;
+  }
+
   function patrol(agent, dt) {
     const s = agent.spot;
     if (!s || !s.patrol || !s.patrol.length || agent.path === null || agent.path.length) return;
@@ -210,7 +223,10 @@ function createTown(roster, world) {
       for (const agent of agents.values()) {
         const step = moveAgent(agent, dt);
         agent.moving = step > 0;
-        if (!agent.moving) patrol(agent, dt);
+        if (!agent.moving) {
+          patrol(agent, dt);
+          busyLoop(agent, dt);
+        }
       }
       for (const p of world.parts) if (p.update) p.update(town, dt, time);
     },
@@ -285,7 +301,7 @@ function poseFor(agent, time) {
   const moving = agent.moving;
   if (moving) return { pose: "walk", frame: Math.floor(agent.walk * 2) % 4, bob: Math.floor(agent.walk * 2) % 2 === 0 ? -1 : 0, shake: 0 };
   if (s.zone === "bed") return { pose: "lie", frame: 0, bob: 0, shake: 0, sleep: true };
-  if (s.zone === "table") return { pose: "type", frame: Math.floor(time / 140) % 4, bob: 1, shake: 0 };
+  if (s.zone === "table" || s.loop) return { pose: "type", frame: Math.floor(time / 140) % 4, bob: 1, shake: 0 };
   if (s.zone === "battle") {
     const beat = Math.floor((time + (hashId(agent.id) % 600)) / 180) % 4;
     return { pose: beat < 2 ? "up" : "type", frame: beat, bob: beat === 1 ? -1 : 0, shake: 0, attack: true };

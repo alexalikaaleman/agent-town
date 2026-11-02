@@ -437,6 +437,46 @@ function drawLying(ctx, ox, oy, style, color) {
   fill(ctx, ox + 1, oy + 16, 10, 1, shade(c, 0.65));
 }
 
+/** Working-bot activity: an icon beside the head (hammer sparks in the Workshop, magic sparkles in
+ *  the Wizard Lab, sword swings on the battlefield), little paper bits while typing at a stop. */
+function drawBusy(ctx, agent, pose, ox, oy, now) {
+  const s = agent.spot || {};
+  const t = now + (hashId(agent.id) % 1000);
+  const ix = ox + 13;
+  const iy = oy - 3;
+  if (s.zone === "battle") {
+    const k = Math.floor(t / 120) % 4;
+    const arc = [[0, 0], [3, -1], [5, 1], [6, 4]][k];
+    fill(ctx, ix + arc[0], iy + arc[1], 2, 2, "#ffffff");
+    fill(ctx, ix + arc[0] - 2, iy + arc[1] + 2, 2, 1, "rgba(255,255,255,0.6)");
+  } else if (s.room === "workshop" || agent.room === "workshop") {
+    // hammer
+    fill(ctx, ix + 1, iy + 2, 1, 6, "#8a5a2a");
+    fill(ctx, ix - 1, iy + 1, 5, 3, "#b8c0c8");
+    if (Math.floor(t / 150) % 2 === 0) {
+      fill(ctx, ix + 5, iy - 1, 1, 1, "#ffcc33");
+      fill(ctx, ix + 6, iy + 3, 1, 1, "#ff9a2a");
+      fill(ctx, ix - 3, iy, 1, 1, "#ffe680");
+    }
+  } else {
+    // magic sparkles
+    const k = Math.floor(t / 180) % 3;
+    const pts = [[0, 0], [5, 3], [2, 6]];
+    for (let i = 0; i < 3; i++) {
+      const [px, py] = pts[(i + k) % 3];
+      fill(ctx, ix + px, iy + py, 1, 3, "#d6b8ff");
+      fill(ctx, ix + px - 1, iy + py + 1, 3, 1, i === 0 ? "#ffffff" : "#b48cff");
+    }
+  }
+  if (pose.pose === "type" && !agent.moving && s.zone !== "battle") {
+    // paper bits flying up from the work spot
+    for (let i = 0; i < 3; i++) {
+      const k = ((t / 900 + i / 3) % 1);
+      fill(ctx, ox + 1 + i * 4 + Math.round(Math.sin(k * 6 + i) * 2), oy + 12 - Math.round(k * 14), 2, 2, "rgba(244,240,226," + (1 - k).toFixed(2) + ")");
+    }
+  }
+}
+
 function drawAgent(ctx, town, agent, now) {
   const pose = poseFor(agent, now);
   const ox = Math.round(agent.x * TILE) + 2 + (pose.shake || 0);
@@ -444,6 +484,15 @@ function drawAgent(ctx, town, agent, now) {
   const dim = town.isDimmed ? town.isDimmed(agent) : false;
   if (dim) ctx.globalAlpha = 0.28;
   const style = styleFor(agent);
+  const busy = agent.state === "working" && pose.pose !== "lie";
+  if (busy) {
+    // Soft glow under working bots, so they read as busy next to idle ones.
+    const g = 0.22 + 0.08 * Math.sin(now / 300 + (hashId(agent.id) % 7));
+    ctx.fillStyle = "rgba(255,226,120," + g.toFixed(3) + ")";
+    ctx.beginPath();
+    ctx.ellipse(ox + 6, oy + 19, 10, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
   if (pose.pose === "lie") drawLying(ctx, ox, oy, style, agent.color);
   else {
     fill(ctx, ox + 2, oy + 18, 8, 3, "rgba(0,0,0,0.28)");
@@ -456,6 +505,7 @@ function drawAgent(ctx, town, agent, now) {
       if (!up) fill(ctx, ox + 12, oy + 9, 5, 2, "#dfe6ee");
     }
   }
+  if (busy) drawBusy(ctx, agent, pose, ox, oy, now);
   ctx.globalAlpha = 1;
   if (town.selected === agent.id) {
     const sx = Math.round(agent.x * TILE);
@@ -466,18 +516,20 @@ function drawAgent(ctx, town, agent, now) {
     fill(ctx, sx + TILE - 2, sy + 1, 1, 4, "#ffe14a");
   }
   const s = agent.spot || {};
-  if (s.tag && !agent.moving) {
+  // A working bot quiet 2h+ keeps working but gets a "stalled?" tag.
+  const tag = s.tag && !agent.moving ? s.tag : agent.state === "working" && agent.stalled ? "stalled?" : "";
+  if (tag) {
     // Small text tag (e.g. "sleepy" for overflow sleepers). Never "zzz" outside the bedrooms.
     // Drawn under the feet so the name label above the head never hides it.
     ctx.font = "bold 6px ui-monospace, monospace";
-    const tw = Math.ceil(ctx.measureText(s.tag).width) + 4;
+    const tw = Math.ceil(ctx.measureText(tag).width) + 4;
     const tx = Math.round(agent.x * TILE + TILE / 2 - tw / 2);
     const ty = oy + 21;
     fill(ctx, tx, ty, tw, 8, "#2c2b4d");
     ctx.fillStyle = "#cfc8ff";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(s.tag, tx + tw / 2, ty + 4);
+    ctx.fillText(tag, tx + tw / 2, ty + 4);
   }
   const bubble = bubbleFor(agent, now);
   if (bubble) drawBubble(ctx, agent.x * TILE + TILE / 2, oy - 14, bubble.kind, now, bubble.text);

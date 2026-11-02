@@ -2,8 +2,8 @@
 (function () {
 const STATUS_BASE = "https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/";
 const POLL_MS = 2 * 60 * 1000;
-const STALL_MS = 30 * 60 * 1000;
-const SLEEP_MS = 10 * 60 * 1000; // idle or working with no new line for 10+ minutes shows as sleeping
+const STALL_MS = 2 * 60 * 60 * 1000; // a working bot quiet 2h+ gets a "stalled?" tag but stays working
+const SLEEP_MS = 10 * 60 * 1000; // a done or idle line 10+ minutes old shows as sleeping
 const FETCH_TIMEOUT_MS = 12000;
 
 /** fetch with a timeout, so a hung request can never leave a panel on "Loading…". */
@@ -90,8 +90,10 @@ function toSnapshot(roster, status, now) {
     }
     const ts0 = e.ts ? Date.parse(String(e.ts)) : NaN;
     let state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle", "sleeping"].includes(e.state) ? e.state : "idle";
-    // Idle or working with no new line for 10+ minutes shows as sleeping. Done, blocked and needs-alex keep their state.
-    if ((state === "idle" || state === "working") && Number.isFinite(ts0) && now - ts0 >= SLEEP_MS) state = "sleeping";
+    // A bot only sleeps after posting "sleeping" itself, or once its last line was done or idle AND
+    // 10+ minutes have passed. Working stays working however long between lines (2h+ adds "stalled?").
+    // Blocked and needs-alex keep their state.
+    if ((state === "idle" || state === "done") && !e.needs && Number.isFinite(ts0) && now - ts0 >= SLEEP_MS) state = "sleeping";
     let needsAlex = null;
     if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;
     else if (e.state === "needs-alex") needsAlex = "question";
