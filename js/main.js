@@ -750,7 +750,7 @@ function endPointer(ev) {
     const r = stage.getBoundingClientRect();
     const lx = ev.clientX - r.left;
     const ly = ev.clientY - r.top;
-    const tl = (debugInfo.partLabels || []).find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
+    const tl = (debugInfo.partLabels || []).slice().reverse().find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
     if (tl) vp = { x: tl.at[0], y: tl.at[1] };
     for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
     return;
