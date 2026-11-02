@@ -218,7 +218,7 @@ resize();
 
 // Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
 // with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
-let needsOpen = window.innerWidth > 640;
+let needsOpen = window.innerWidth > 640 && window.innerHeight >= 500;
 let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
