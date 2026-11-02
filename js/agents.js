@@ -182,6 +182,8 @@ function createTown(roster, world) {
     filter: new Set(),
     extras: {},
     isDimmed(agent) {
+      // Focus (single tap on a bot): every other bot turns see-through.
+      if (this.follow) return agent.id !== this.follow;
       if (this.filter.size) return !this.filter.has(agent.id);
       return false;
     },

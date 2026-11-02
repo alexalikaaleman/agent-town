@@ -81,8 +81,22 @@ function maxZoom() {
 function clampZoom(z) {
   return Math.min(maxZoom(), Math.max(fitZoom(), z));
 }
+/** While following, the part of the stage the info panel covers (right column on desktop, bottom sheet on phones). */
+function panelCover() {
+  const none = { r: 0, b: 0 };
+  if (!following || panel.hidden) return none;
+  const card = panel.querySelector(".panel-card") || panel;
+  const c = card.getBoundingClientRect();
+  const r = stage.getBoundingClientRect();
+  if (!c.width || !c.height) return none;
+  if (c.left > r.left + r.width / 2) return { r: Math.max(0, Math.min(r.width * 0.6, r.right - c.left + 8)), b: 0 };
+  return { r: 0, b: Math.max(0, Math.min(r.height * 0.6, r.bottom - c.top + 8)) };
+}
 function clampCam() {
-  const p = framePad();
+  const p = Object.assign({}, framePad());
+  const cover = panelCover();
+  p.r += cover.r;
+  p.b += cover.b;
   const fitAxis = (cam, view, size, lo, hi) => {
     const min = -lo / zoom;
     const max = size - (view - hi) / zoom;
@@ -141,10 +155,10 @@ function startFollow(id) {
   if (!town || !town.agents.get(id)) return;
   following = id;
   town.follow = id;
-  // Zoom in a little so the followed bot is easy to see.
-  if (zoom < fitZoom() * 2) zoomAt(Math.min(maxZoom(), fitZoom() * 2.5));
+  // Zoom straight in so the followed bot is easy to see.
+  if (zoom < fitZoom() * 3) zoomAt(Math.min(maxZoom(), fitZoom() * 3.5));
   const note = document.getElementById("mode-note");
-  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space to stop.";
+  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or press Escape to stop.";
 }
 
 function stopFollow() {
@@ -154,8 +168,9 @@ function stopFollow() {
 }
 
 function centerOn(agent, ease) {
-  const tx = agent.x * TILE + TILE / 2 - viewW / zoom / 2;
-  const ty = agent.y * TILE + 4 - viewH / zoom / 2;
+  const cover = panelCover();
+  const tx = agent.x * TILE + TILE / 2 - (viewW - cover.r) / zoom / 2;
+  const ty = agent.y * TILE + 4 - (viewH - cover.b) / zoom / 2;
   camX += (tx - camX) * ease;
   camY += (ty - camY) * ease;
   clampCam();
@@ -541,7 +556,10 @@ stage.addEventListener(
 );
 window.addEventListener("keydown", (ev) => {
   if (ev.target && ev.target.closest && ev.target.closest("input, textarea")) return;
-  if (ev.key === "Escape") closePanel();
+  if (ev.key === "Escape") {
+    closePanel();
+    stopFollow();
+  }
   const step = 64 / zoom;
   if (ev.key === "ArrowLeft") camX -= step;
   if (ev.key === "ArrowRight") camX += step;
@@ -664,7 +682,10 @@ function endPointer(ev) {
   const hit = botAt(ev.clientX, ev.clientY);
   lastTap = { t: performance.now(), x: ev.clientX, y: ev.clientY, id: hit ? hit.id : null };
   if (hit) {
+    // Single tap: zoom straight in on the bot, open its panel, follow it and fade the others.
     openPanel(hit);
+    startFollow(hit.id);
+    centerOn(hit, 1);
     return;
   }
   for (const p of world.parts) {
@@ -816,7 +837,10 @@ function drawScreenLabels(c) {
   // Bot names: always on. Each name tries above the head, then higher, below the feet,
   // and to the sides; it takes the free spot, or the one with the least overlap.
   const namePx = Math.round(Math.min(14, Math.max(9, 6.5 * zoom)) * labelSize);
-  const list = Array.from(town.agents.values()).filter((a) => !(town.isDimmed && town.isDimmed(a)));
+  // Chip filter: names of filtered-out bots are hidden. Focus: names of the other bots are drawn
+  // see-through (like their sprites), and the focused bot's name is placed first.
+  const focusId = town.follow;
+  const list = Array.from(town.agents.values()).filter((a) => a.id === focusId || !(town.filter.size && !town.filter.has(a.id)));
   const rank = (a) => (a.id === following || a.id === town.selected ? 0 : 1);
   list.sort((a, b) => rank(a) - rank(b) || a.y - b.y || a.x - b.x);
   let overlaps = 0;
@@ -853,11 +877,16 @@ function drawScreenLabels(c) {
     keepInFrame(best);
     if (bestA > base.w * base.h * 0.25) overlaps++;
     placed.push(best);
+    const faded = focusId && agent.id !== focusId;
+    if (faded) c.globalAlpha = 0.28;
     paintLabel(c, best, text, namePx, agent.color);
+    if (faded) c.globalAlpha = 1;
   }
   debugInfo.labelOverlaps = overlaps;
   debugInfo.boxes = placed.filter((b) => !b.reserve).map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
   debugInfo.labels = list.length;
+  debugInfo.focus = focusId || null;
+  debugInfo.fadedLabels = focusId ? list.length - 1 : 0;
 }
 
 let last = performance.now();
