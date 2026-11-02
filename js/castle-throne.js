@@ -10,7 +10,7 @@ const ROOM = {
   w: 28,
   h: 18,
   // bottom door, top openings (patrol + vault door), side doors to Workshop and Wizard Lab
-  doors: [[27, 33], [28, 33], [17, 16], [38, 16], [27, 16], [28, 16], [14, 24], [14, 25], [41, 24], [41, 25]],
+  doors: [[27, 33], [28, 33], [17, 16], [38, 16], [26, 16], [27, 16], [28, 16], [29, 16], [14, 24], [14, 25], [41, 24], [41, 25]],
   wall: "#6b5a7e",
   wallDk: "#45385a",
   floor: "#a99f8a",
@@ -19,12 +19,12 @@ const ROOM = {
 };
 const THRONE = { x: 27.5, y: 18 };
 const CARPET = { x0: 27, x1: 28, y0: 19, y1: 32 };
-const LINE_STEP = 1.3;
+const LINE_STEP = 1.5;
 const PILLARS = [[17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]];
 
 function lineSpots() {
   const out = [];
-  for (let y = CARPET.y0 + 1; y <= CARPET.y1 - 0.2; y += LINE_STEP) out.push({ x: THRONE.x, y });
+  for (let y = CARPET.y0 + 2; y <= CARPET.y1 - 0.2; y += LINE_STEP) out.push({ x: THRONE.x, y });
   return out;
 }
 
@@ -157,7 +157,7 @@ const part = {
     const dx = target.x - nin.x;
     const dy = target.y - nin.y;
     const dist = Math.hypot(dx, dy);
-    const step = Math.min(dist, 5 * dt);
+    const step = Math.min(dist, 7 * dt);
     if (dist > 0.0001) {
       nin.x += (dx / dist) * step;
       nin.y += (dy / dist) * step;

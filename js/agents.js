@@ -270,7 +270,8 @@ function bubbleFor(agent, time) {
   if (blocked && agent.needsAlex === "question") return { kind: "blocked-question" };
   if (blocked) return { kind: "blocked" };
   if (agent.needsAlex === "urgent") return { kind: "urgent" };
-  if (agent.needsAlex === "question") return { kind: "question" };
+  // On the carpet the line itself says "question"; a bubble there would cover the bot ahead (or Bus Ninja).
+  if (agent.needsAlex === "question") return agent.spot && agent.spot.zone === "carpet" ? null : { kind: "question" };
   // "zzz" only for a bot lying in a bedroom bunk.
   const s = agent.spot;
   if (agent.state === "sleeping" && s && s.zone === "bed" && !agent.moving) return { kind: "zzz", time };

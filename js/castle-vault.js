@@ -190,7 +190,10 @@ function launch(town, slot, url) {
   const ss = slots();
   town.extras.vaultLit = ss.findIndex((s) => s.x === slot.x && s.y === slot.y);
   const nin = town.world.busNinja;
+  let went = false;
   const go = () => {
+    if (went) return;
+    went = true;
     const now = performance.now();
     if (nin) nin.puff = now + PUFF_MS;
     town.extras.vaultLitUntil = now + PUFF_MS + 400;
@@ -206,6 +209,17 @@ function launch(town, slot, url) {
       nin.facing = "n";
       go();
     });
+    // The new tab usually comes to the front, which pauses this tab's animation frames.
+    // A timer (estimated walk time) makes sure the game still loads.
+    let len = 0;
+    let px = nin.x;
+    let py = nin.y;
+    for (const q of nin.path) {
+      len += Math.hypot(q.x - px, q.y - py);
+      px = q.x;
+      py = q.y;
+    }
+    setTimeout(go, (len / 7) * 1000 + 300);
   } else go();
 }
 
