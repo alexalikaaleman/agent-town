@@ -219,6 +219,7 @@ resize();
 // Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
 // with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
 let needsOpen = window.innerWidth > 640 && window.innerHeight >= 500;
+let needsSavedForVault = null; // Needs open-state restored when leaving the vault
 let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
@@ -1121,7 +1122,21 @@ function setScene(name, after) {
     if (name === "vault" && !vworld) vworld = window.AgentTown.vault.createWorld();
     document.body.classList.toggle("in-vault", name === "vault");
     if (sceneBar) sceneBar.hidden = name !== "vault";
+    // Auto-collapse Needs in the vault so short laptop windows keep full cabinet titles;
+    // restore the previous open/closed state when going Back to castle.
+    if (name === "vault") {
+      if (needsSavedForVault == null) needsSavedForVault = needsOpen;
+      needsOpen = false;
+      lastHud = "";
+      renderHud();
+    } else if (name === "castle" && needsSavedForVault != null) {
+      needsOpen = needsSavedForVault;
+      needsSavedForVault = null;
+      lastHud = "";
+      renderHud();
+    }
     hideTip();
+    clearVaultHoverTip();
     closePanel();
     stopFollow();
     mapCanvas = null;
