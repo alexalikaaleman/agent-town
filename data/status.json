@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T21:47:52.823Z",
+  "updatedAt": "2026-11-02T21:47:59.669Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Castle fixes 35-41",
+      "state": "blocked",
+      "text": "Fix 35-36 done; next: 37-41 at reset",
       "project": "Agent Town",
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T20:48:06.925Z",
-      "since": "2026-11-02T20:48:06.925Z"
+      "ts": "2026-11-02T21:47:59.669Z",
+      "since": "2026-11-02T21:47:59.669Z"
     },
     "masterbot": {
       "state": "done",

@@ -67,3 +67,4 @@
 {"ts":"2026-11-02T20:35:25.845Z","bot":"gitwriter-3d-bot","needId":"n202611022035-035c","state":"needs-alex","text":"Usage OK for castle fix 35?","project":"Agent Town"}
 {"ts":"2026-11-02T20:48:06.925Z","bot":"gitwriter-3d-bot","state":"working","text":"Castle fixes 35-41","project":"Agent Town"}
 {"ts":"2026-11-02T21:47:52.823Z","bot":"gitwriter-3d-bot","handled":"n202611022035-035c"}
+{"ts":"2026-11-02T21:47:59.669Z","bot":"gitwriter-3d-bot","state":"blocked","text":"Fix 35-36 done; next: 37-41 at reset","project":"Agent Town"}
