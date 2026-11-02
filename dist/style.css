@@ -561,6 +561,9 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 /* Needs Alex is an in-page strip under the top bar again (old behaviour), not a dropdown over the map. */
 #needs { position: static; max-width: none; max-height: 30vh; flex: none; border-width: 0 0 3px; box-shadow: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
 #needs .need, #needs .needs-label, #needs .needs-none { flex: none; width: 100%; box-sizing: border-box; }
+@media (max-height: 499px) {
+  #needs { max-height: 25vh; }
+}
 #needs .need {
   display: -webkit-box;
   -webkit-line-clamp: 2;
