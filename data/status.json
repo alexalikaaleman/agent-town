@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T18:40:31.715Z",
+  "updatedAt": "2026-11-02T19:23:27.420Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -104,6 +104,15 @@
       "needs": null,
       "ts": "2026-11-02T16:14:11.398Z",
       "since": "2026-11-02T16:14:11.398Z"
+    },
+    "chief-of-staff": {
+      "state": "working",
+      "text": "Weekly rundown",
+      "project": null,
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-02T19:23:27.420Z",
+      "since": "2026-11-02T19:23:27.420Z"
     }
   }
 }
