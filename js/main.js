@@ -468,9 +468,29 @@ function runSearch(ev) {
   input.blur();
 }
 
+/** Fix 24: the panel never slides under the top bar / Needs strip, so Back stays reachable. */
+function placePanel() {
+  if (panel.hidden) return;
+  const vp = document.getElementById("viewport").getBoundingClientRect();
+  if (window.innerWidth >= 900) {
+    panel.style.top = Math.max(0, Math.round(vp.top)) + "px";
+    panel.style.bottom = "";
+    panel.style.maxHeight = "";
+  } else {
+    // Phone: sit between the top UI and the bottom strip (fix 27 keeps the strip visible).
+    const strip = document.getElementById("strip").getBoundingClientRect();
+    const bottom = strip.height ? Math.max(0, Math.round(window.innerHeight - strip.top)) : 0;
+    panel.style.top = "";
+    panel.style.bottom = bottom + "px";
+    panel.style.maxHeight = Math.max(160, Math.round(window.innerHeight - bottom - vp.top)) + "px";
+  }
+}
+window.addEventListener("resize", placePanel);
+
 function openPanel(agent) {
   town.selected = agent.id;
   panel.hidden = false;
+  placePanel();
   document.getElementById("p-name").textContent = agent.name;
   document.getElementById("p-role").textContent = agent.role;
   const state = agent.busy ? agent.state + " · handoff" : agent.state;
