@@ -386,7 +386,11 @@ h2, p { margin: 0; }
 #panel .panel-card { pointer-events: auto; }
 /* Needs Alex: full text, wrapped, no ellipsis. */
 #needs { flex-wrap: wrap; overflow-x: visible; touch-action: auto; }
-.need { flex: 1 1 260px; max-width: none; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; overflow-wrap: anywhere; }
+/* Top UI messages: each one gets its own full-width line and wraps (no ellipsis). */
+.need { flex: 1 1 100%; max-width: none; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; overflow-wrap: anywhere; min-height: 0; }
+.needs-label, .needs-none { flex: 1 1 100%; margin: 0; }
+#mode-note { display: block; width: 100%; box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; padding: 4px 12px; }
+#mode-note:empty { display: none; }
 .tag.s-sleeping { background: #4b4a7a; color: #fff; }
 /* ?view=list */
 body.list-view #viewport, body.list-view #panel, body.list-view #mode-note { display: none !important; }
