@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T08:23:43.628Z",
+  "updatedAt": "2026-11-02T08:24:33.822Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,13 @@
       "since": "2026-11-02T08:23:27.298Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Done-line rule; next: backup check",
+      "state": "done",
+      "text": "Done-line rule done; idle, nothing queu…",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T08:23:43.628Z",
-      "since": "2026-11-02T08:23:43.628Z"
+      "ts": "2026-11-02T08:24:33.822Z",
+      "since": "2026-11-02T08:24:33.822Z"
     },
     "game-revision-logger": {
       "state": "done",
