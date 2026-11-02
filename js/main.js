@@ -685,6 +685,7 @@ stage.addEventListener("pointerdown", (ev) => {
     stage.setPointerCapture(ev.pointerId);
   } catch (_) {}
 });
+let vaultHoverTip = null; // full name shown while hovering a truncated vault title
 stage.addEventListener("pointermove", (ev) => {
   if (touches.has(ev.pointerId)) touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
   if (pinch && touches.size >= 2) {
@@ -697,6 +698,7 @@ stage.addEventListener("pointermove", (ev) => {
     clampCam();
     return;
   }
+  if (scene === "vault" && (!pointer || !pointer.drag)) trackVaultTitleHover(ev);
   if (!pointer || ev.pointerId !== pointer.id) return;
   const dx = ev.clientX - pointer.x;
   const dy = ev.clientY - pointer.y;
@@ -706,13 +708,38 @@ stage.addEventListener("pointermove", (ev) => {
     camY = pointer.cy - dy / zoom;
     clampCam();
     if (town) town.hoverChest = null;
+    clearVaultHoverTip();
     return;
   }
   trackChestHover(ev);
 });
 stage.addEventListener("pointerleave", () => {
   if (town) town.hoverChest = null;
+  clearVaultHoverTip();
 });
+function vaultTitleAt(clientX, clientY) {
+  const r = stage.getBoundingClientRect();
+  const lx = clientX - r.left, ly = clientY - r.top;
+  return (debugInfo.partLabels || []).slice().reverse().find((l) => l.kind === "cabinet" && l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]) || null;
+}
+function trackVaultTitleHover(ev) {
+  // Desktop only: fine pointer. Touch devices get the full name on tap instead.
+  if (ev.pointerType === "touch") return;
+  const tl = vaultTitleAt(ev.clientX, ev.clientY);
+  if (tl && tl.truncated && tl.full) {
+    if (vaultHoverTip !== tl.full) {
+      vaultHoverTip = tl.full;
+      showTip(tl.full, "");
+    }
+  } else {
+    clearVaultHoverTip();
+  }
+}
+function clearVaultHoverTip() {
+  if (vaultHoverTip == null) return;
+  vaultHoverTip = null;
+  hideTip();
+}
 
 function trackChestHover(ev) {
   if (!town) return;
@@ -747,12 +774,17 @@ function endPointer(ev) {
     let vp = toWorld(ev.clientX, ev.clientY);
     // Titles draw on top: the title the viewer taps is the game they mean.
     // Coming-soon cabinets have no title and stay inert via hit().
-    const r = stage.getBoundingClientRect();
-    const lx = ev.clientX - r.left;
-    const ly = ev.clientY - r.top;
-    const tl = (debugInfo.partLabels || []).slice().reverse().find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
+    const tl = vaultTitleAt(ev.clientX, ev.clientY);
     if (tl) vp = { x: tl.at[0], y: tl.at[1] };
-    for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
+    for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) {
+      // Truncated title: show the full name on the cabinet tap (reachable without zooming).
+      const named = tl || (debugInfo.partLabels || []).find((l) => l.kind === "cabinet" && l.truncated && l.at && Math.hypot(l.at[0] - vp.x, l.at[1] - vp.y) < 24);
+      if (named && named.truncated && named.full) {
+        vaultHoverTip = null;
+        showTip(named.full, "");
+      }
+      return;
+    }
     return;
   }
   if (isDouble(ev)) {
