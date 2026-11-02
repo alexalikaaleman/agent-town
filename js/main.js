@@ -74,9 +74,66 @@ function resize() {
   mapKey = "";
 }
 
-function stepZoom(delta) {
-  userZoom = capZoom((userZoom == null ? zoom : userZoom) + delta);
+/** Change zoom by whole steps, keeping the map point under (cx, cy) in place. */
+function stepZoom(delta, cx, cy) {
+  const before = zoom;
+  const next = capZoom((userZoom == null ? zoom : userZoom) + delta);
+  if (next === before) return;
+  const srect = stage.getBoundingClientRect();
+  const px = cx == null ? srect.width / 2 : cx - srect.left;
+  const py = cy == null ? srect.height / 2 : cy - srect.top;
+  const rect = canvas.getBoundingClientRect();
+  const wx = (srect.left + px - rect.left) / before;
+  const wy = (srect.top + py - rect.top) / before;
+  userZoom = next;
   resize();
+  stage.scrollLeft = wx * zoom - px;
+  stage.scrollTop = wy * zoom - py;
+}
+
+/** Home: leave follow mode, close the panel, back to the fitted zoom at the top left. */
+function goHome() {
+  stopFollow();
+  closePanel();
+  if (town) {
+    town.filter.clear();
+    syncFilters();
+  }
+  userZoom = null;
+  resize();
+  stage.scrollTo({ left: 0, top: 0 });
+}
+
+// ---------- follow a bot ----------
+let following = null;
+
+function startFollow(id) {
+  if (!town || !town.agents.get(id)) return;
+  following = id;
+  town.follow = id;
+  const note = document.getElementById("mode-note");
+  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or ⌂ to stop.";
+}
+
+function stopFollow() {
+  following = null;
+  if (town) town.follow = null;
+  document.getElementById("mode-note").textContent = "";
+}
+
+function trackFollow() {
+  if (!following || !town || pointer || pinch) return;
+  const agent = town.agents.get(following);
+  if (!agent) return stopFollow();
+  const rect = canvas.getBoundingClientRect();
+  const srect = stage.getBoundingClientRect();
+  if (!rect.width) return;
+  const px = rect.left + ((agent.x * TILE + TILE / 2) / (MAP_W * TILE)) * rect.width;
+  const py = rect.top + ((agent.y * TILE + 4) / (MAP_H * TILE)) * rect.height;
+  const dx = px - srect.left - srect.width / 2;
+  const dy = py - srect.top - srect.height / 2;
+  if (Math.abs(dx) > 1) stage.scrollLeft += dx * 0.15;
+  if (Math.abs(dy) > 1) stage.scrollTop += dy * 0.15;
 }
 
 function ensureMap() {
@@ -287,6 +344,16 @@ function focusBot(id, open) {
 document.getElementById("panel-close").addEventListener("click", closePanel);
 document.getElementById("zoom-in").addEventListener("click", () => stepZoom(1));
 document.getElementById("zoom-out").addEventListener("click", () => stepZoom(-1));
+document.getElementById("home-btn").addEventListener("click", goHome);
+stage.addEventListener(
+  "wheel",
+  (ev) => {
+    if (!ev.ctrlKey) return;
+    ev.preventDefault();
+    stepZoom(ev.deltaY < 0 ? 1 : -1, ev.clientX, ev.clientY);
+  },
+  { passive: false }
+);
 window.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") closePanel();
   const step = 64;
@@ -297,8 +364,20 @@ window.addEventListener("keydown", (ev) => {
 });
 
 let pointer = null;
+let pinch = null;
+const touches = new Map();
+let lastTap = null;
+
 stage.addEventListener("pointerdown", (ev) => {
   if (ev.target.closest && ev.target.closest("button, a, input, textarea")) return;
+  touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+  if (touches.size === 2) {
+    const [a, b] = Array.from(touches.values());
+    pinch = { dist: Math.hypot(a.x - b.x, a.y - b.y) || 1 };
+    pointer = null;
+    return;
+  }
+  if (touches.size > 2) return;
   pointer = {
     id: ev.pointerId,
     x: ev.clientX,
@@ -309,6 +388,17 @@ stage.addEventListener("pointerdown", (ev) => {
   };
 });
 stage.addEventListener("pointermove", (ev) => {
+  if (touches.has(ev.pointerId)) touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+  if (pinch && touches.size >= 2) {
+    const [a, b] = Array.from(touches.values());
+    const dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+    const ratio = dist / pinch.dist;
+    if (ratio > 1.25 || ratio < 0.8) {
+      stepZoom(ratio > 1 ? 1 : -1, (a.x + b.x) / 2, (a.y + b.y) / 2);
+      pinch.dist = dist;
+    }
+    return;
+  }
   if (!pointer || ev.pointerId !== pointer.id) return;
   const dx = ev.clientX - pointer.x;
   const dy = ev.clientY - pointer.y;
@@ -346,6 +436,12 @@ function trackChestHover(ev) {
 }
 
 function endPointer(ev) {
+  touches.delete(ev.pointerId);
+  if (pinch) {
+    if (touches.size === 0) pinch = null;
+    pointer = null;
+    return;
+  }
   if (!pointer || ev.pointerId !== pointer.id) return;
   const dragged = pointer.drag;
   pointer = null;
@@ -363,8 +459,19 @@ function endPointer(ev) {
     return;
   }
   const hit = town.hitTest(wx, wy);
+  const t = performance.now();
+  const double = hit && lastTap && lastTap.id === hit.id && t - lastTap.t < 400;
+  lastTap = hit ? { id: hit.id, t } : null;
+  if (double) {
+    startFollow(hit.id);
+    lastTap = null;
+    return;
+  }
   if (hit) openPanel(hit);
-  else closePanel();
+  else {
+    closePanel();
+    stopFollow();
+  }
 }
 stage.addEventListener("pointerup", endPointer);
 stage.addEventListener("pointercancel", endPointer);
@@ -375,6 +482,7 @@ function frame(now) {
   last = now;
   if (town) {
     town.update(dt, now);
+    trackFollow();
     renderHud();
     if (town.selected && !panel.hidden) {
       const agent = town.agents.get(town.selected);

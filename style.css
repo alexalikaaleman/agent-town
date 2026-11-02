@@ -143,13 +143,18 @@ h1 {
 .need.urgent { background: #8f2d2d; }
 .need.question { background: #24527a; }
 
-#stage {
+#viewport {
   flex: 1;
   min-height: 0;
+  position: relative;
+}
+
+#stage {
+  position: absolute;
+  inset: 0;
   overflow: auto;
   background: #10151f;
   touch-action: none;
-  position: relative;
 }
 
 #map-wrap {
@@ -176,6 +181,14 @@ h1 {
   gap: 8px;
 }
 
+#home-btn {
+  position: absolute;
+  z-index: 3;
+  left: 12px;
+  top: 12px;
+}
+
+#home-btn,
 #zoom-in,
 #zoom-out {
   width: 48px;
