@@ -248,8 +248,8 @@ function createTown(roster, world) {
       const counts = { working: 0, waiting: 0, blocked: 0, needs: 0 };
       for (const agent of agents.values()) {
         if (agent.state === "working" || agent.state === "talking") counts.working++;
-        // Waiting = blocked (not needs-alex); Needs Alex = needsAlex. No double-count with Needs.
-        if (agent.state === "blocked") counts.waiting++;
+        // Waiting = awake bots with nothing to do (moat line-up: idle or done).
+        if (agent.state === "idle" || agent.state === "done") counts.waiting++;
         if (agent.state === "blocked") counts.blocked++;
         if (agent.needsAlex === "urgent" || agent.needsAlex === "question") counts.needs++;
       }
