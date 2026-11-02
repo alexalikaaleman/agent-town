@@ -836,6 +836,27 @@ function fitLinesToWidth(c, text, px, maxW) {
     return (out.length ? out : "") + "…";
   }).join("\n");
 }
+/** Re-wrap words to fit maxW before cutting with an ellipsis. */
+function rewrapToWidth(c, text, px, maxW) {
+  c.font = px + "px ui-monospace, monospace";
+  const lines = [];
+  for (const w of String(text || "").replace(/\n/g, " ").split(/\s+/).filter(Boolean)) {
+    const i = lines.length - 1;
+    if (i >= 0 && c.measureText(lines[i] + " " + w).width + 6 <= maxW) lines[i] += " " + w;
+    else lines.push(w);
+  }
+  return lines.join("\n");
+}
+/** Smallest font (down to 6) that fits l.text in maxW×maxH, ignoring ellipsis. */
+function vaultTitlePx(c, text, startPx, maxW, maxH) {
+  let px = startPx;
+  for (;;) {
+    const trial = labelBox(c, text, px, 0, 0);
+    if (trial.w <= maxW && trial.h <= maxH) return px;
+    if (px > 6) { px--; continue; }
+    return px;
+  }
+}
 function labelBox(c, text, px, x, y) {
   c.font = px + "px ui-monospace, monospace";
   const lines = String(text || "").split("\n");
@@ -898,6 +919,22 @@ function drawScreenLabels(c) {
   // Part labels (table tasks, monster nameplates, cabinet titles): placed before bot names.
   const partPx = Math.round(Math.min(12, Math.max(8, 5.5 * zoom)) * labelSize);
   const partLabels = [];
+  // Vault: one font size per cabinet row (the tightest title in that row wins).
+  const vaultRowPx = new Map();
+  const vaultMaxW = 5 * TILE * zoom - 6;
+  const vaultMaxH = 4 * TILE * zoom - 4;
+  if (scene === "vault") {
+    for (const p of cur().parts) {
+      if (!p.labels) continue;
+      for (const l of p.labels(town, cur()) || []) {
+        if (l.kind !== "cabinet" || !l.at) continue;
+        const row = l.at[1];
+        const px = vaultTitlePx(c, l.text, partPx, vaultMaxW, vaultMaxH);
+        const prev = vaultRowPx.get(row);
+        vaultRowPx.set(row, prev == null ? px : Math.min(prev, px));
+      }
+    }
+  }
   for (const p of cur().parts) {
     if (!p.labels) continue;
     for (const l of p.labels(town, cur()) || []) {
@@ -914,18 +951,13 @@ function drawScreenLabels(c) {
       let drawText = l.text;
       let drawPx = partPx;
       if (scene === "vault" && l.kind === "cabinet") {
-        // Keep titles inside the 5-tile column pitch and 4-tile row pitch: shrink font first.
-        // Ellipsis only when zoom is low and the font floor still overflows (TITLE_MAX 3-line
-        // wrap stays intact at normal zoom).
-        const maxW = 5 * TILE * zoom - 6;
-        const maxH = 4 * TILE * zoom - 4;
-        for (;;) {
-          drawText = l.text;
-          const trial = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
-          if (trial.w <= maxW && trial.h <= maxH) break;
-          if (drawPx > 6) { drawPx--; continue; }
-          if (zoom < 0.6) drawText = fitLinesToWidth(c, l.text, drawPx, maxW);
-          break;
+        drawPx = (l.at && vaultRowPx.get(l.at[1])) || partPx;
+        drawText = l.text;
+        const trial = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
+        if (!(trial.w <= vaultMaxW && trial.h <= vaultMaxH)) {
+          const re = rewrapToWidth(c, l.text, drawPx, vaultMaxW);
+          const rb = labelBox(c, re, drawPx, 0, 0);
+          drawText = rb.w <= vaultMaxW && rb.h <= vaultMaxH ? re : fitLinesToWidth(c, l.text, drawPx, vaultMaxW);
         }
       }
       let box = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
@@ -947,7 +979,9 @@ function drawScreenLabels(c) {
       if (l.avoid && overlapArea(box, placed) > 0) continue;
       paintLabel(c, box, drawText, drawPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
       placed.push(box);
-      partLabels.push({ kind: l.kind || p.id, text: drawText, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      const full = l.full || String(l.text || "").replace(/\n/g, " ");
+      const truncated = drawText.indexOf("…") >= 0;
+      partLabels.push({ kind: l.kind || p.id, text: drawText, full: full, truncated: truncated, px: drawPx, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;
