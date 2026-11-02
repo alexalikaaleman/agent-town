@@ -114,6 +114,8 @@ h2, p { margin: 0; }
 
 #usage.soft #usage-fill { background: #b8862b; }
 #usage.hard #usage-fill { background: #b03a3a; }
+#usage.stale #usage-fill { background: #6a6a72; }
+#usage.stale #usage-text, #usage.stale { color: #9aa7b8; font-style: italic; }
 
 .usage-slice { height: 100%; border-right: 1px solid #0e131c; }
 
@@ -147,7 +149,7 @@ h2, p { margin: 0; }
 
 #history {
   position: fixed;
-  z-index: 6;
+  z-index: 8;
   left: 12px;
   top: 120px;
   width: min(460px, calc(100vw - 24px));
@@ -482,7 +484,7 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
   left: 8px;
   right: 8px;
   max-width: 640px;
-  max-height: 60vh;
+  max-height: 30vh;
   overflow: auto;
   flex-direction: column;
   align-items: stretch;
@@ -557,8 +559,14 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 #fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 5; }
 #fade.on { opacity: 1; }
 /* Needs Alex is an in-page strip under the top bar again (old behaviour), not a dropdown over the map. */
-#needs { position: static; max-width: none; max-height: 34vh; flex: none; border-width: 0 0 3px; box-shadow: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+#needs { position: static; max-width: none; max-height: 30vh; flex: none; border-width: 0 0 3px; box-shadow: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
 #needs .need, #needs .needs-label, #needs .needs-none { flex: none; width: 100%; box-sizing: border-box; }
+#needs .need {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 /* Chip row (scrolls sideways) with a plain search box beside it. */
 #chiprow { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #0e131c; border-bottom: 3px solid var(--line); }
 #filters { flex: 1; min-width: 0; display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; touch-action: pan-x; padding-bottom: 2px; }

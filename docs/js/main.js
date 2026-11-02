@@ -208,7 +208,7 @@ resize();
 
 // Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
 // with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
-let needsOpen = true;
+let needsOpen = window.innerWidth > 640;
 let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
@@ -260,6 +260,7 @@ function renderHud() {
   const summaryEl = document.getElementById("summary");
   if (summaryEl.textContent !== summary) summaryEl.textContent = summary;
 
+  if (lastUsage !== undefined) renderUsage(lastUsage);
   const clock = honoluluParts();
   const clockText = clock.label + " · " + phaseLabel(clock.phase);
   const clockEl = document.getElementById("clock");
@@ -320,23 +321,29 @@ function renderHud() {
 const USAGE_SOFT = 58;
 const USAGE_HARD = 65;
 let usageKey = "";
+let lastUsage = null;
 function renderUsage(usage) {
+  lastUsage = usage || null;
   const el = document.getElementById("usage");
   const pct = usage && Number.isFinite(usage.weeklyPct) ? Math.max(0, Math.min(100, usage.weeklyPct)) : null;
-  const key = JSON.stringify(usage || null);
+  const age = usage && usage.ts ? ago(usage.ts) : null;
+  const key = JSON.stringify(usage || null) + "|" + (usage && usage.ts ? ago(usage.ts) : "");
   if (key === usageKey) return;
   usageKey = key;
   const fill = document.getElementById("usage-fill");
   const text = document.getElementById("usage-text");
   fill.replaceChildren();
   if (pct == null) {
-    text.textContent = "Usage —";
+    text.textContent = "Usage: not posted yet";
     fill.style.width = "0";
     el.className = "";
     return;
   }
-  el.className = pct >= USAGE_HARD ? "hard" : pct >= USAGE_SOFT ? "soft" : "";
-  text.textContent = "Usage " + Math.round(pct) + "%" + (pct >= USAGE_HARD ? " · stop" : pct >= USAGE_SOFT ? " · no new steps" : "");
+  // Stale when usage.ts is more than 60 min old (feed "Updated" badge must not stand in).
+  const ageMs = usage && usage.ts ? Date.now() - Date.parse(usage.ts) : NaN;
+  const stale = Number.isFinite(ageMs) && ageMs > 60 * 60 * 1000;
+  el.className = (pct >= USAGE_HARD ? "hard" : pct >= USAGE_SOFT ? "soft" : "") + (stale ? " stale" : "");
+  text.textContent = "Usage " + Math.round(pct) + "%" + (age ? " · as of " + age : " · time unknown") + (pct >= USAGE_HARD ? " · stop" : pct >= USAGE_SOFT ? " · no new steps" : "");
   fill.style.width = pct + "%";
   const slices = usage.bots && typeof usage.bots === "object" ? Object.entries(usage.bots) : [];
   let used = 0;
@@ -463,6 +470,15 @@ function findBot(query) {
 function runSearch(ev) {
   if (ev) ev.preventDefault();
   const input = document.getElementById("search");
+  const q = input.value.trim().toLowerCase();
+  // Treasure Vault: same entry as the vault-door tap (not a bot).
+  if (/^(vault|treasure( vault)?)$/.test(q)) {
+    input.classList.remove("miss");
+    input.blur();
+    if (sceneUi && sceneUi.enterVault) sceneUi.enterVault();
+    else if (window.AgentTown && window.AgentTown.debug && window.AgentTown.debug.enterVault) window.AgentTown.debug.enterVault();
+    return;
+  }
   const agent = findBot(input.value);
   input.classList.toggle("miss", !agent && !!input.value.trim());
   if (!agent) return;
@@ -588,7 +604,13 @@ document.getElementById("needs-btn").addEventListener("click", () => {
   lastHud = "";
   if (needsOpen) document.getElementById("history").hidden = true;
 });
-document.getElementById("history-btn").addEventListener("click", openHistory);
+document.getElementById("history-btn").addEventListener("click", () => {
+  needsOpen = false;
+  needsAsked = false;
+  lastHud = "";
+  renderHud();
+  openHistory();
+});
 document.getElementById("history-close").addEventListener("click", () => {
   document.getElementById("history").hidden = true;
 });
@@ -713,12 +735,17 @@ function endPointer(ev) {
   if (ev.type === "pointercancel" || dragged || !town) return;
   if (scene === "vault") {
     let vp = toWorld(ev.clientX, ev.clientY);
-    // a tap on a cabinet's title counts as a tap on that cabinet
+    // a tap on a cabinet's title counts as a tap on that cabinet — but only when the
+    // raw point is not already on a different cabinet (so 2-line titles cannot steal
+    // taps from a neighbouring coming-soon cabinet).
     const r = stage.getBoundingClientRect();
     const lx = ev.clientX - r.left;
     const ly = ev.clientY - r.top;
     const tl = (debugInfo.partLabels || []).find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
-    if (tl) vp = { x: tl.at[0], y: tl.at[1] };
+    if (tl) {
+      const near = Math.hypot(tl.at[0] - vp.x, tl.at[1] - vp.y) < 28;
+      if (near) vp = { x: tl.at[0], y: tl.at[1] };
+    }
     for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
     return;
   }
@@ -795,9 +822,12 @@ const debugInfo = { labelOverlaps: 0, labels: 0 };
 
 function labelBox(c, text, px, x, y) {
   c.font = px + "px ui-monospace, monospace";
-  const w = Math.ceil(c.measureText(text).width) + 6;
-  const h = px + 4;
-  return { left: Math.round(x - w / 2), top: Math.round(y - h), w, h };
+  const lines = String(text || "").split("\n");
+  let tw = 0;
+  for (const ln of lines) tw = Math.max(tw, Math.ceil(c.measureText(ln).width));
+  const w = tw + 6;
+  const h = lines.length * px + 4 + Math.max(0, lines.length - 1) * 2;
+  return { left: Math.round(x - w / 2), top: Math.round(y - h), w, h, lines };
 }
 function overlapArea(a, list) {
   let area = 0;
@@ -817,7 +847,12 @@ function paintLabel(c, box, text, px, accent, bg) {
   c.textAlign = "center";
   c.textBaseline = "middle";
   c.font = px + "px ui-monospace, monospace";
-  c.fillText(text, box.left + box.w / 2 + 1, box.top + box.h / 2 + 0.5);
+  const lines = (box.lines && box.lines.length) ? box.lines : String(text || "").split("\n");
+  const lineH = px + 2;
+  const startY = box.top + box.h / 2 - ((lines.length - 1) * lineH) / 2;
+  for (let i = 0; i < lines.length; i++) {
+    c.fillText(lines[i], box.left + box.w / 2 + 1, startY + i * lineH + 0.5);
+  }
 }
 
 function drawScreenLabels(c) {

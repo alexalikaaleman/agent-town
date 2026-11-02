@@ -1,5 +1,5 @@
 {
-  "note": "Treasure vault arcade. Published games link to https://<name>.grok.me. Coming-soon cabinets have no link. Marquee art is drawn in js/castle-vault.js (original pixel art, no screenshots).",
+  "note": "Treasure vault arcade. Published games link to https://<name>.grok.me. Coming-soon cabinets have no link. Marquees are small pixel versions of each game's banner, embedded in js/marquees.js.",
   "cabinets": [
     { "name": "super-happy-fun-excellent-dragon-game", "title": "Super Happy Fun Excellent Dragon Game", "status": "published", "icon": "dragon", "colors": ["#2fae4f", "#ffd34d"] },
     { "name": "bad-dog", "title": "Bad Dog", "status": "published", "icon": "dog", "colors": ["#b5651d", "#f4e1c1"] },
