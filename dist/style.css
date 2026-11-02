@@ -485,3 +485,11 @@ body.list-view #viewport, body.list-view #filters, body.list-view #panel, body.l
   #needs > :not(.need) { font-size: 12px; }
 }
 body.list-view #usage-row, body.list-view #clock, body.list-view #needs { display: none !important; }
+/* Phones: home, zoom and label buttons sit in a bar under the map, so they never cover the town. */
+@media (max-width: 640px) {
+  #stage { bottom: 48px; }
+  #home-btn { top: auto; bottom: 4px; left: 8px; width: 40px; height: 40px; font-size: 22px; }
+  #zoom-controls { right: 8px; bottom: 4px; flex-direction: row; gap: 6px; }
+  #zoom-in, #zoom-out, #label-size { width: 40px; height: 40px; font-size: 22px; }
+  #label-size { font-size: 14px; }
+}

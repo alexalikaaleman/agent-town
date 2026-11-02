@@ -153,6 +153,10 @@ function createTown(roster, world) {
     agent.stuck = false;
   }
 
+  function spotList(o) {
+    return o.state === "working" ? "work" : o.state === "walking" ? "walk" : "idle";
+  }
+
   function retarget(agent) {
     if (!agent || agent.busy || agent.lockGoal) return;
     let spots;
@@ -192,7 +196,11 @@ function createTown(roster, world) {
       const peers = [];
       for (const other of agents.values()) {
         if (other.busy || other.lockGoal) continue;
-        if (other.home === agent.home && other.state === agent.state) peers.push(other);
+        // Bots that share a spot list (same home, same list) share one numbering, so idle,
+        // blocked and waiting bots in one room never stand on the same tile.
+        if (other.home !== agent.home || other.room != null) continue;
+        if (other.state === "sleeping" || other.state === "done") continue;
+        if (spotList(other) === spotList(agent)) peers.push(other);
       }
       peers.sort((a, b) => (a.id < b.id ? -1 : 1));
       index = peers.findIndex((p) => p.id === agent.id);

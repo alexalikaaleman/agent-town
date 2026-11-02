@@ -47,7 +47,7 @@ Mid-task lines (`working` after `working`, or `blocked` after `working`) must be
 
 ### Sleeping, Bedroom and Done Room
 
-A bot is shown as sleeping when its last line is `--state sleeping`, or when it is `idle` or `working` and its last line is more than 2 hours old (or it has never sent a line). Sleeping bots walk to their own labeled bed in the Bedroom and show a small zzz. `done`, `blocked` and `needs-alex` bots never show as sleeping. `done` bots walk to the Done Room and dance. Everyone else goes where they did before.
+A bot is shown as sleeping when its last line is `--state sleeping`, or when it is `idle` or `working` and its last line is more than 2 hours old. A bot that has never sent a line stays idle in its home room. Sleeping bots walk to their own labeled bed in the Bedroom and show a small zzz. `done`, `blocked` and `needs-alex` bots never show as sleeping. `done` bots walk to the Done Room and dance. Everyone else goes where they did before.
 
 The Bedroom has one bed per bot in `data/bots.json`. The beds are made from the roster when the page loads, so adding a bot adds a bed.
 

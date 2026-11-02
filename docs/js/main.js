@@ -49,8 +49,23 @@ function worldW() {
 function worldH() {
   return world.h * TILE;
 }
+// Frame padding (screen px) so labels at the map edge and the overlaid buttons never
+// cover the town. On phones the buttons sit in a bar under the map (style.css).
+function framePad() {
+  const ctl = document.getElementById("zoom-controls");
+  // The buttons overlay the map unless they sit in the bar below it (phones).
+  const overlay = !!ctl && ctl.getBoundingClientRect().top < stage.getBoundingClientRect().bottom - 1;
+  const side = Math.round(30 * labelSize);
+  return {
+    l: overlay ? Math.max(side, 64) : side,
+    r: overlay ? Math.max(side, ctl.offsetWidth + 24) : side,
+    t: Math.round(16 * labelSize),
+    b: 6,
+  };
+}
 function fitZoom() {
-  return Math.min(viewW / worldW(), viewH / worldH());
+  const p = framePad();
+  return Math.max(0.05, Math.min((viewW - p.l - p.r) / worldW(), (viewH - p.t - p.b) / worldH()));
 }
 function maxZoom() {
   // About four tiles across the shorter side: one bot fills the view.
@@ -60,10 +75,15 @@ function clampZoom(z) {
   return Math.min(maxZoom(), Math.max(fitZoom(), z));
 }
 function clampCam() {
-  const vw = viewW / zoom;
-  const vh = viewH / zoom;
-  camX = vw >= worldW() ? (worldW() - vw) / 2 : Math.min(worldW() - vw, Math.max(0, camX));
-  camY = vh >= worldH() ? (worldH() - vh) / 2 : Math.min(worldH() - vh, Math.max(0, camY));
+  const p = framePad();
+  const fitAxis = (cam, view, size, lo, hi) => {
+    const min = -lo / zoom;
+    const max = size - (view - hi) / zoom;
+    if (max <= min) return -(lo + (view - lo - hi - size * zoom) / 2) / zoom;
+    return Math.min(max, Math.max(min, cam));
+  };
+  camX = fitAxis(camX, viewW, worldW(), p.l, p.r);
+  camY = fitAxis(camY, viewH, worldH(), p.t, p.b);
 }
 function pixelRatio() {
   dpr = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
@@ -453,6 +473,7 @@ document.getElementById("zoom-out").addEventListener("click", () => stepZoom(0.8
 document.getElementById("label-size").addEventListener("click", () => {
   labelSize = LABEL_SIZES[(LABEL_SIZES.indexOf(labelSize) + 1) % LABEL_SIZES.length];
   localStorage.setItem("agentTownLabelSize", String(labelSize));
+  resize();
 });
 document.getElementById("home-btn").addEventListener("click", goHome);
 document.getElementById("history-btn").addEventListener("click", openHistory);
@@ -649,11 +670,22 @@ function drawScreenLabels(c) {
   const placed = [];
   const sx = (wx) => (wx - camX) * zoom;
   const sy = (wy) => (wy - camY) * zoom;
+  // Labels stay inside the visible part of the map.
+  const fx0 = Math.max(0, sx(0)) + 1;
+  const fy0 = Math.max(0, sy(0)) + 1;
+  const fx1 = Math.min(viewW, sx(worldW())) - 1;
+  const fy1 = Math.min(viewH, sy(worldH())) - 1;
+  const keepInFrame = (box) => {
+    box.left = Math.round(Math.max(fx0, Math.min(fx1 - box.w, box.left)));
+    box.top = Math.round(Math.max(fy0, Math.min(fy1 - box.h, box.top)));
+  };
+  debugInfo.frame = [fx0, fy0, fx1, fy1];
   // Room names: bigger, on each building's top wall.
   const roomPx = Math.round(Math.min(22, Math.max(11, 9 * zoom)) * labelSize);
   for (const b of world.buildings) {
     const box = labelBox(c, b.name, roomPx, sx((b.x + b.w / 2) * TILE), sy(b.y * TILE) + roomPx + 6);
     if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
+    keepInFrame(box);
     paintLabel(c, box, b.name, roomPx, b.trim, "rgba(20,18,15,0.82)");
     placed.push(box);
   }
@@ -681,6 +713,7 @@ function drawScreenLabels(c) {
     let bestA = Infinity;
     for (const [dx, dy] of cands) {
       const box = { left: Math.round(base.left + dx), top: Math.round(base.top + dy), w: base.w, h: base.h };
+      keepInFrame(box);
       const a = overlapArea(box, placed);
       if (a < bestA) {
         bestA = a;
@@ -688,11 +721,13 @@ function drawScreenLabels(c) {
       }
       if (a === 0) break;
     }
+    keepInFrame(best);
     if (bestA > base.w * base.h * 0.25) overlaps++;
     placed.push(best);
     paintLabel(c, best, text, namePx, agent.color);
   }
   debugInfo.labelOverlaps = overlaps;
+  debugInfo.boxes = placed.map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
   debugInfo.labels = list.length;
 }
 

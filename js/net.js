@@ -84,14 +84,14 @@ function toSnapshot(roster, status, now) {
   for (const bot of roster) {
     const e = entries.get(bot.id);
     if (!e) {
-      // No status line at all: shown asleep in the Bedroom.
-      bots.push({ id: bot.id, state: "sleeping", text: "", task: "", needsAlex: null, ts: null, with: [], project: null, stalled: false, reported: false });
+      // No status line ever: the bot stays idle in its home room (not the Bedroom).
+      bots.push({ id: bot.id, state: "idle", text: "", task: "", needsAlex: null, ts: null, with: [], project: null, stalled: false, reported: false });
       continue;
     }
     const ts0 = e.ts ? Date.parse(String(e.ts)) : NaN;
     let state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle", "sleeping"].includes(e.state) ? e.state : "idle";
     // Idle or working with no new line for 2+ hours shows as sleeping. Done, blocked and needs-alex keep their state.
-    if ((state === "idle" || state === "working") && (!Number.isFinite(ts0) || now - ts0 >= SLEEP_MS)) state = "sleeping";
+    if ((state === "idle" || state === "working") && Number.isFinite(ts0) && now - ts0 >= SLEEP_MS) state = "sleeping";
     let needsAlex = null;
     if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;
     else if (e.state === "needs-alex") needsAlex = "question";
