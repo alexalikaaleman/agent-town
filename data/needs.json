@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T20:35:25.845Z",
+  "updatedAt": "2026-11-02T21:47:52.823Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -49,8 +49,8 @@
       "text": "Usage OK for castle fix 35?",
       "project": "Agent Town",
       "ts": "2026-11-02T20:35:25.845Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-02T21:47:52.823Z"
     }
   ]
 }

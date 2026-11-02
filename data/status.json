@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T20:48:06.925Z",
+  "updatedAt": "2026-11-02T21:47:52.823Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -11,10 +11,7 @@
       "text": "Castle fixes 35-41",
       "project": "Agent Town",
       "with": [],
-      "needs": {
-        "id": "n202611022035-035c",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-02T20:48:06.925Z",
       "since": "2026-11-02T20:48:06.925Z"
     },
