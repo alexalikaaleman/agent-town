@@ -785,9 +785,20 @@ function drawScreenLabels(c) {
       if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
       // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
       if (l.minAbs && zoom < l.minAbs) continue;
-      const box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
+      let box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       keepInFrame(box);
+      if (!l.avoid && overlapArea(box, placed) > 0) {
+        // nudge down, then up, until it is clear of room names and other part labels
+        for (const dy of [box.h + 1, -(box.h + 1), 2 * (box.h + 1)]) {
+          const alt = { left: box.left, top: box.top + dy, w: box.w, h: box.h };
+          keepInFrame(alt);
+          if (overlapArea(alt, placed) === 0) {
+            box = alt;
+            break;
+          }
+        }
+      }
       // "avoid" labels (dense rows such as cabinet titles) are skipped when they would overlap.
       if (l.avoid && overlapArea(box, placed) > 0) continue;
       paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
@@ -817,10 +828,16 @@ function drawScreenLabels(c) {
     const base = labelBox(c, text, namePx, ax, head);
     if (base.left + base.w < -40 || base.left > viewW + 40 || base.top > viewH + 40 || feet < -40) continue;
     const h = base.h + 1;
-    const cands = [
-      [0, 0], [0, -h], [0, feet - head + h], [-base.w * 0.55, 0], [base.w * 0.55, 0],
-      [0, -2 * h], [-base.w * 0.55, -h], [base.w * 0.55, -h], [0, feet - head + 2 * h], [0, -3 * h],
-    ];
+    // Candidates nearest first: above the head (stacking up), below the feet (stacking down), and
+    // shifted sideways; the first free one wins, else the one with the least overlap.
+    const below = feet - head + h;
+    const cands = [];
+    for (const [dy, dyCost] of [[0, 0], [-h, 1], [below, 1.2], [-2 * h, 2], [below + h, 2.2], [-3 * h, 3], [below + 2 * h, 3.2], [-4 * h, 4], [below + 3 * h, 4.2], [-5 * h, 5]]) {
+      for (const [dx, dxCost] of [[0, 0], [-base.w * 0.55, 0.9], [base.w * 0.55, 0.9], [-base.w * 1.1, 1.8], [base.w * 1.1, 1.8]]) {
+        cands.push([dx, dy, dyCost + dxCost]);
+      }
+    }
+    cands.sort((p, q) => p[2] - q[2]);
     let best = null;
     let bestA = Infinity;
     for (const [dx, dy] of cands) {
