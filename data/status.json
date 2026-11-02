@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T07:22:17.466Z",
+  "updatedAt": "2026-11-02T07:22:54.032Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,16 @@
       "since": "2026-11-02T07:22:06.758Z"
     },
     "game-design-document-bot": {
-      "state": "working",
-      "text": "Dragon Android fixes (15 min)",
+      "state": "needs-alex",
+      "text": "Dragon fixes: 2 changes need OK",
       "project": "Dragon rebuild",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-02T07:22:17.466Z",
-      "since": "2026-11-02T07:22:17.466Z"
+      "needs": {
+        "id": "n202611020722-2d1a",
+        "kind": "question"
+      },
+      "ts": "2026-11-02T07:22:54.032Z",
+      "since": "2026-11-02T07:22:54.032Z"
     }
   }
 }

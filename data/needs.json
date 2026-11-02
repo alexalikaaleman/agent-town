@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T07:15:11.852Z",
+  "updatedAt": "2026-11-02T07:22:54.032Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -9,6 +9,16 @@
       "text": "Mark two old cores replaced?",
       "project": null,
       "ts": "2026-11-02T07:15:11.852Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611020722-2d1a",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "Dragon fixes: 2 changes need OK",
+      "project": "Dragon rebuild",
+      "ts": "2026-11-02T07:22:54.032Z",
       "handled": false,
       "handledAt": null
     }
