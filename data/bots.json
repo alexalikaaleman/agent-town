@@ -26,7 +26,7 @@
   {
     "id": "grok-build-worker",
     "name": "Grok Build Worker",
-    "role": "Builds features in the repo",
+    "role": "Builds and deploys live apps to Alex's GitHub",
     "home": "workshop",
     "color": "#7d5cff",
     "driveFolderUrl": ""
@@ -130,7 +130,7 @@
   {
     "id": "robotemplate",
     "name": "RoboTemplate",
-    "role": "Starter templates for robots",
+    "role": "Designs bot prompt templates",
     "home": "workshop",
     "color": "#5c6b73",
     "driveFolderUrl": ""
