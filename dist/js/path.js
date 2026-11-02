@@ -117,6 +117,35 @@ function findPath(world, sx, sy, gx, gy) {
   return null;
 }
 
+/** Fix 36: tiles nobody may ever step on (room walls, castle walls, battlements, water). */
+const WALL_GROUND = { wall: 1, castlewall: 1, battlement: 1, water: 1 };
+function isWallTile(world, x, y) {
+  x = Math.round(x);
+  y = Math.round(y);
+  if (x < 0 || y < 0 || x >= world.w || y >= world.h) return true;
+  return !!WALL_GROUND[world.ground[y][x]];
+}
+
+/** Fix 36: a floor-only walk from (fx,fy) to (tx,ty). Starts at the walker's own tile centre (so an
+ *  off-grid walker never cuts a wall corner) and ends on the exact goal. null when there is no path:
+ *  callers must then NOT walk (never a straight line through walls). */
+function walkPath(world, fx, fy, tx, ty) {
+  const p = findPath(world, fx, fy, tx, ty);
+  if (!p) return null;
+  const sx = Math.round(fx);
+  const sy = Math.round(fy);
+  if (Math.abs(fx - sx) > 0.001 || Math.abs(fy - sy) > 0.001) p.unshift({ x: sx, y: sy });
+  p.push({ x: tx, y: ty });
+  return p;
+}
+
+/** Fix 36: every tile a walker actually steps on is checked; a wall step is recorded for the tests. */
+const wallSteps = [];
+function noteStep(world, who, x, y) {
+  if (!isWallTile(world, x, y)) return;
+  if (wallSteps.length < 200) wallSteps.push({ who: who, x: Math.round(x), y: Math.round(y), g: world.ground[Math.round(y)] && world.ground[Math.round(y)][Math.round(x)] });
+}
+
 window.AgentTown = window.AgentTown || {};
-Object.assign(window.AgentTown, { walkable: walkable, findPath: findPath });
+Object.assign(window.AgentTown, { walkable: walkable, findPath: findPath, walkPath: walkPath, isWallTile: isWallTile, noteStep: noteStep, wallSteps: wallSteps });
 })();

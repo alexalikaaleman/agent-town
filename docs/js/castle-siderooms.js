@@ -39,6 +39,14 @@ const part = {
     world.sideRooms = {};
     for (const r of ROOMS) {
       world.addRoom(r);
+      // fix 36: the one-tile gap between this room's inner door and the throne room's side door is a
+      // doorway too, so the Workshop/Wizard Lab <-> castle walk is doorway and floor tiles only
+      const gapX = r.outer === "left" ? r.x + r.w : r.x - 1;
+      for (const [dx, dy] of r.doors) {
+        if (dx !== r.x && dx !== r.x + r.w - 1) continue;
+        world.ground[dy][gapX] = "door";
+        world.solid[dy][gapX] = false;
+      }
       const L = layoutRoom(r);
       world.sideRooms[r.key] = Object.assign({ def: r }, L);
       for (const t of L.tables) {

@@ -35,12 +35,13 @@ function lineSpots() {
 function makeNinja(world) {
   const nin = { x: THRONE.x, y: THRONE.y, mode: "throne", path: [], walk: 0, facing: "s", done: null, puff: 0 };
   nin.goTo = function (tx, ty, done) {
-    const findPath = window.AgentTown.findPath;
-    const p = findPath(world, nin.x, nin.y, tx, ty) || [];
-    p.push({ x: tx, y: ty });
-    nin.path = p;
+    // fix 36: floor-only path; with no path he does not walk (returns false, done still runs so entry never hangs)
+    const p = window.AgentTown.walkPath(world, nin.x, nin.y, tx, ty);
+    nin.path = p || [];
     nin.mode = "walk";
     nin.done = done || null;
+    nin.world = world;
+    return !!p;
   };
   nin.goHome = function () {
     nin.goTo(THRONE.x, THRONE.y, () => {
@@ -71,6 +72,7 @@ function stepNinja(nin, dt) {
     nin.y += (dy / dist) * step;
     nin.walk += step;
     nin.facing = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "e" : "w") : dy > 0 ? "s" : "n";
+    if (nin.world) window.AgentTown.noteStep(nin.world, "busNinja", nin.x, nin.y);
   }
   if (step >= dist - 0.0001) nin.path.shift();
 }

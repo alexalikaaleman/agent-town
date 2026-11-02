@@ -138,8 +138,14 @@ function createTown(roster, world) {
     const s = agent.spot;
     if (!s) return 0;
     if (!agent.path) {
-      const p = findPath(world, agent.x, agent.y, s.x, s.y) || [];
-      p.push({ x: s.x, y: s.y });
+      const p = window.AgentTown.walkPath(world, agent.x, agent.y, s.x, s.y);
+      if (!p) {
+        // fix 36: no floor path, so no walk at all (never straight through a wall); just appear at the spot
+        agent.x = s.x;
+        agent.y = s.y;
+        agent.path = [];
+        return 0;
+      }
       agent.path = p;
     }
     if (!agent.path.length) {
@@ -165,6 +171,7 @@ function createTown(roster, world) {
       agent.y = target.y;
       agent.path.shift();
     }
+    window.AgentTown.noteStep(world, agent.id, agent.x, agent.y);
     return step;
   }
 
