@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T08:11:03.848Z",
+  "updatedAt": "2026-11-02T08:20:06.553Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "Agent Town bedroom + fixes live",
+      "state": "working",
+      "text": "Bedroom sleep rule: 10 min",
       "project": "Agent Town",
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T08:11:03.848Z",
-      "since": "2026-11-02T08:11:03.848Z"
+      "ts": "2026-11-02T08:20:06.553Z",
+      "since": "2026-11-02T08:20:06.553Z"
     },
     "masterbot": {
       "state": "done",
