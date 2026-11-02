@@ -413,10 +413,26 @@ function createWorld() {
     meetPairs.push([pairSource[i], pairSource[i + 1]]);
   }
 
+  // Project rooms: the four corners of the plaza around the fountain.
+  const projectRooms = [
+    { x: 17, y: 13, w: 6, h: 4 },
+    { x: 27, y: 13, w: 6, h: 4 },
+    { x: 17, y: 19, w: 6, h: 4 },
+    { x: 27, y: 19, w: 6, h: 4 },
+  ].map((r, i) => {
+    const cells = [];
+    for (let y = r.y; y < r.y + r.h - 1; y++) {
+      for (let x = r.x; x < r.x + r.w; x++) if (!solid[y][x]) cells.push({ x, y, facing: i < 2 ? "s" : "n" });
+    }
+    const spread = spreadSpots(cells, 2);
+    return Object.assign({ index: i, spots: spread.length >= 4 ? spread : cells }, r);
+  });
+
   return {
     w,
     h,
     tile: TILE,
+    projectRooms,
     ground,
     solid,
     bid,

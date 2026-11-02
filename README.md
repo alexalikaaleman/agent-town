@@ -1,111 +1,86 @@
 # Agent Town
 
-A top-down pixel town where each bot is a character. Open the page on a computer, phone, or iPad and everyone sees the same town.
+A top-down pixel town where each bot is a character. Open the page on a computer, phone, iPad or car browser and everyone sees the same town.
 
-## Run locally
+## How live status works
+
+- The site is GitHub Pages from `main` `/docs`. It never needs a rebuild to show new status.
+- Bots write their status to a separate branch called `status` with `report.js`. That branch holds only `data/status.json`, `data/needs.json` and `data/history-YYYY-MM.jsonl` (one file per month, Hawaii time).
+- The page reads `https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/status.json` (with a `?t=` cache-buster) every 2 minutes and when the tab comes back into view. The badge shows "Updated N min ago", or "Offline" in amber when a read fails.
+- A bot that has been `working` for 30 minutes or more with no new line gets a red "stalled" tag.
+
+## report.js
 
 ```bash
-node server.js
+node report.js --bot budget-bot --state working --text "Monthly sheet" --project "Budget"
+node report.js --bot budget-bot --state done --text "Sheet updated"
+node report.js --bot help-bot --state needs-alex --needs question --text "Pick a menu?"
+node report.js --bot help-bot --handled <needId>
+node report.js --bot masterbot --usage 61.5
+node report.js --list
 ```
 
-Then open the URL it prints (by default <http://localhost:8080>). If that port is taken, the server tries the next one and prints the real URL. Override it with `PORT=9000 node server.js`.
-
-The server listens on `127.0.0.1` only, so other devices cannot connect. For a phone or iPad on the same home network, run `HOST=0.0.0.0 node server.js` (or `HOST=0.0.0.0 PORT=9000 node server.js`) and open `http://<computer-LAN-IP>:PORT` — the printed lines include that address.
-
-The page is plain HTML, CSS, and classic JavaScript (no `type="module"`). Scripts share one `window.AgentTown` namespace and load from `index.html` in order. There is no install step and no build. `js/model.js` is the shared event merge: the browser attaches it to `window.AgentTown`, and Node loads it with `require("./js/model.js")`.
-
-`server.js` serves the town, watches `feed/`, and pushes updates to every open browser on `GET /events` (server-sent events).
-
-## Event format
-
-Bots write status into `feed/` as `.json` or `.jsonl`. A `.json` file can be one event, an array of events, or `{"events":[...]}`. A `.jsonl` file is one event per line. Appending a line updates the town.
-
-```json
-{
-  "ts": "2026-11-01T20:15:00.000Z",
-  "botId": "budget-bot",
-  "state": "working",
-  "task": "Updating the monthly sheet",
-  "text": "Reconciling October budget",
-  "needsAlex": null
-}
-```
-
-| Field | Meaning |
+| Flag | Meaning |
 | --- | --- |
-| `ts` | ISO timestamp. Newest event per bot wins. |
-| `botId` | `id` from `data/bots.json`. |
-| `state` | `idle`, `walking`, `working`, `waiting`, `blocked`, or `done`. |
-| `task` | Full task line shown in the tap panel. No secrets or personal data. |
-| `text` | Short task description for the working bubble, about 40 characters. `summary` is an alias. If both are missing, `task` is used and cut to 40 characters. |
-| `needsAlex` | `urgent`, `question`, or `null`. Omit it and the flag clears. |
-| `handoffTo` | Optional bot id that receives an item. |
-| `item` | Optional short label for the thing being passed. |
-| `with` | Optional list of other bot ids working together. |
-| `collabId` | Optional shared id. Bots with the same `collabId`, or the same task, meet at the Workshop. |
-| `collabEnd` | `true` sends that bot home. `idle`, `done`, or an event with no `with` also ends the collaboration. |
+| `--bot` | `id` (or an alias) from `data/bots.json`. |
+| `--state` | `working`, `done`, `blocked`, `needs-alex` or `idle`. |
+| `--text` | Bubble text, 40 characters max after the privacy filter. Emails, links, Drive links, paths, money and long ids are removed. Plain file names like `report.js` stay. |
+| `--project` | Optional. Bots on the same project gather in a project room with a billboard. |
+| `--with` | Optional comma list of bot ids working together (they meet at the Workshop). |
+| `--needs` | `urgent` or `question`, with `--state needs-alex`. Adds an item to `needs.json`. |
+| `--handled` | Marks a need handled (see below). |
+| `--usage` | Sets the overall weekly usage % shown in the usage bar. |
+| `--list` | Prints the current status and open needs. Writes nothing. |
+| `--dry-run` | Shows what would be written. Writes nothing. |
 
-`urgent` shows an ! bubble (red if the bot is also blocked). `question` shows a ? bubble. `working` shows the short description (`text`, `summary`, or a trimmed `task`) and falls back to animated dots when that line is empty. `idle` shows zzz, `done` shows a check, and `blocked` shows a red bubble.
+Each write is one commit on `status`: it updates this bot's entry in `status.json`, appends one line to this month's history file and, when needed, updates `needs.json`. It uses the GitHub Git Data API through `gh` (tree + commit + fast-forward ref update), so the status line and its history line land together. If another bot moved the branch first, it waits 0.4 to 2 seconds and retries, up to 3 times. There is no queue, lock, timer or polling loop. Before writing, it refuses anything that looks private (emails, Drive links, tokens, keys).
 
-```json
-{"ts":"2026-11-01T20:15:30.000Z","botId":"budget-bot","state":"working","task":"Updating the monthly sheet","text":"Reconciling October budget","needsAlex":null}
-```
+Override the target with `AGENT_TOWN_REPO` and `AGENT_TOWN_BRANCH` for testing.
 
-Handoff example:
+### The 6-minute rule
 
-```json
-{"ts":"2026-11-01T20:16:00.000Z","botId":"concept-art-bot","state":"done","task":"Passed the color script","text":"Passed the color script","needsAlex":null,"handoffTo":"cutscene-bot","item":"color script"}
-```
+Mid-task lines (`working` after `working`, or `blocked` after `working`) must be at least 6 minutes apart. A line sent sooner is refused with exit code 2 and nothing is written. Exempt, always written at once:
 
-The sender and receiver walk to the Workshop, stand side by side, and a scroll or box passes between them. A bubble shows the item name. When the handoff finishes, each bot walks home.
+- the start line (the first `working` line of a task),
+- `done` and `idle` lines (finishing),
+- `needs-alex` lines.
 
-Workshop collaboration example:
+### Needs Alex
 
-```json
-{"ts":"2026-11-01T20:17:00.000Z","botId":"game-design-document-bot","state":"working","task":"Drafting the level 3 cutscene with the crew","text":"Drafting level 3 cutscene","needsAlex":null,"with":["cutscene-bot","concept-art-bot"],"collabId":"level-3-cutscene"}
-```
-
-Bots named in `with`, bots that share a `collabId`, and bots that share the same task walk to the Workshop, stand in a row, and use the working animation plus the short description bubble. `collabEnd: true`, a later event without `with`, or state `done` / `idle` sends each one home.
+A `needs-alex` line adds an item to `needs.json` with an id such as `n202611011930-ab12`. `report.js` prints the id. The item shows in the Needs Alex strip on the page until it is handled. When Alex has answered, the same bot marks it handled:
 
 ```bash
-echo '{"ts":"2026-11-01T20:16:00.000Z","botId":"help-bot","state":"waiting","task":"Need a decision on the menu","needsAlex":"question"}' >> feed/help.jsonl
+node report.js --bot help-bot --handled n202611011930-ab12
 ```
 
-`data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, and `driveFolderUrl`. Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post` (the Post Office), and `house`. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot has a treasure chest beside its home spot. An unlocked chest opens that folder in a new tab. A locked chest stays grey, shows a padlock, and the label "no Drive folder yet". Locked chests are listed in `CHESTS_TO_DISCUSS.md`. `data/events.json` is the sample snapshot loaded at startup.
+Only the bot that raised a need can mark it handled. Handled items drop off the page and are removed from `needs.json` after 30 days. `--list` shows the open ones.
 
-Opening `index.html` as a `file://` URL cannot `fetch` those JSON files (Chrome blocks it). `data/fallback-data.js` is a generated classic script, `window.AgentTownFallback = { bots, events }`, with the same content. `index.html` loads it before the app. If `data/bots.json` or `data/events.json` fails to load, DEMO mode uses that fallback. Regenerate it after editing the JSON:
+## The roster
 
-```bash
-node sync-data.js
-```
+`data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, `driveFolderUrl`, and optional `aliases` (old ids that still map to this bot). Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post` (the Post Office), and `house`. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot has a treasure chest beside its home spot. An unlocked chest opens that folder in a new tab. A locked chest stays grey, shows a padlock, and the label "no Drive folder yet". Locked chests are listed in `CHESTS_TO_DISCUSS.md`.
 
-`node server.js` and `node export-static.js` rewrite `data/fallback-data.js` when they start, so the script stays in step with the two JSON files. Edit `data/bots.json` and `data/events.json`, not the generated script.
+## What you can do on the page
 
-## If the live server is not available
+- Pinch, or use + and −, to zoom. ⌂ at the top left goes back to the home view.
+- Drag or use the arrow keys to pan.
+- Tap a character for name, role, state, task, project, last update (Hawaii time), and an Open Drive folder link when that bot has one.
+- Double-click or double-tap a character to follow it. The other bots fade. Tap empty space or ⌂ to stop following.
+- Use the filter buttons under the header to show only some bots. "All" clears the filter.
+- Tap a treasure chest to open that bot's Drive folder. A locked chest only shows "no Drive folder yet".
+- Tap an item in the Needs Alex strip to jump to that character.
+- The usage bar shows the weekly %. The yellow line at 58% means no new steps; the red line at 65% means hard stop. Per-bot slices show only when `status.json` has `usage.bots`.
+- History lists this month's lines, newest first.
 
-1. The page connects to `/events` when this server is running (**LIVE**).
-2. Otherwise it polls `data/status.json` every 10 seconds (**POLLING**).
-3. If that file is missing too, it runs **DEMO MODE**: sample bots walk, work, hand off, raise ! and ? bubbles, and gather at the Workshop (Game Design Document Bot, Cutscene Bot, and Concept Art Bot). A yellow badge and a note say it is sample activity.
+The HUD clock and the day, dawn, dusk and night tint use `Pacific/Honolulu`.
 
-Add `?demo=1` to force that labeled DEMO mode even when `/events` or `data/status.json` is available (for example <http://localhost:8080/?demo=1>, or `index.html?demo=1` opened as a file). Opening `index.html` directly from disk (`file:///.../index.html`) also runs DEMO mode. The sample roster and events come from `data/fallback-data.js`, because the browser will not `fetch` JSON from `file://`. `export-static.js` does not write `data/status.json` next to the project `index.html`.
-
-Build a self-contained static site with:
+## Build the public site
 
 ```bash
 node export-static.js
 ```
 
-That copies `index.html`, `style.css`, `js/`, `data/bots.json`, `data/events.json`, and `data/fallback-data.js` into `dist/`, and writes `dist/data/status.json` from the roster, `data/events.json`, and anything in `feed/`. It regenerates `data/fallback-data.js` first, and removes a root `data/status.json` if one is present. Upload **`dist/` only** to a static host (GitHub Pages, Netlify, or any file host) after Alex says yes. This repo does not publish or deploy itself. Opening `dist/index.html` from disk uses the copied fallback and shows DEMO mode.
+This copies `index.html`, `style.css`, `js/` and `data/bots.json` into `dist/` and `docs/` (plus `docs/.nojekyll`). No status data is baked in. It then runs a leak check: the build may contain no Drive links or ids except the chest links in `data/bots.json`, and no emails or tokens. If the check fails, `docs/` is not written.
 
-On a static host, serve `dist/` as the site root. The browser loads `index.html` and polls `data/status.json`. Re-run `node export-static.js` when the feed changes, then upload the new `dist/`.
+The page is plain HTML, CSS and classic JavaScript with no install step. Scripts share one `window.AgentTown` namespace and load from `index.html` in order. To try it locally, serve the folder (for example `python3 -m http.server`) and open `index.html`. It still reads the live `status` branch.
 
-## Hawaii clock
-
-The HUD clock and the day, dawn, dusk, and night tint use `Pacific/Honolulu`.
-
-## What you can do on the page
-
-- The map uses the largest integer zoom that fits the window width, and at least 2× when the window is wider than 900px. If the map is taller than the screen, drag or use the arrow keys to pan vertically. The + and − buttons step the zoom by whole numbers.
-- Tap a character for name, role, state, full task text, last update (Hawaii time), and an Open Drive folder link when that bot has a `driveFolderUrl`.
-- Tap a treasure chest to open that bot's Drive folder. A locked chest only shows "no Drive folder yet".
-- Tap a name in the Needs Alex list to jump to that character.
+`server.js`, `sync-data.js`, `feed/` and `data/events.json` are from the older local version and are not used by the live page.

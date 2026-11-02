@@ -1,57 +1,82 @@
 "use strict";
 
+/**
+ * Builds the public site: dist/ and docs/ (GitHub Pages serves main /docs).
+ * The page reads live status from the status branch, so no status data is
+ * baked in here. Only static files and the roster are copied.
+ *
+ * Leak check: the build may contain no Drive links or ids except the chest
+ * links in data/bots.json (driveFolderUrl), which are approved. Any other
+ * Drive link, email or token fails the build.
+ */
+
 const fs = require("fs");
 const path = require("path");
-const { loadParts } = require("./lib/load");
-const { reduceEvents, coerceEventList } = require("./js/model.js");
-const { writeFallback } = require("./sync-data.js");
+const { walk } = require("./lib/public");
+
+const ROOT = __dirname;
+const FILES = ["index.html", "style.css"];
 
 function copyFile(from, to) {
   fs.mkdirSync(path.dirname(to), { recursive: true });
   fs.copyFileSync(from, to);
 }
 
-function main() {
-  const root = __dirname;
-  writeFallback(root);
-  const parts = loadParts(root);
-  const events = [];
-  for (const value of parts.jsonValues) events.push(...coerceEventList(value));
-  for (const value of parts.lineValues) events.push(...coerceEventList(value));
-  const reduced = reduceEvents(parts.roster, events);
-  const state = {
-    type: "snapshot",
-    updatedAt: new Date().toISOString(),
-    bots: reduced.bots,
-    events: reduced.events,
-  };
-
-  const rootStatus = path.join(root, "data", "status.json");
-  if (fs.existsSync(rootStatus)) fs.unlinkSync(rootStatus);
-
-  const dist = path.join(root, "dist");
-  fs.rmSync(dist, { recursive: true, force: true });
-  fs.mkdirSync(path.join(dist, "data"), { recursive: true });
-  fs.mkdirSync(path.join(dist, "js"), { recursive: true });
-
-  copyFile(path.join(root, "index.html"), path.join(dist, "index.html"));
-  copyFile(path.join(root, "style.css"), path.join(dist, "style.css"));
-  for (const name of fs.readdirSync(path.join(root, "js"))) {
-    if (!name.endsWith(".js")) continue;
-    copyFile(path.join(root, "js", name), path.join(dist, "js", name));
+function build(out) {
+  fs.rmSync(out, { recursive: true, force: true });
+  for (const name of FILES) copyFile(path.join(ROOT, name), path.join(out, name));
+  for (const name of fs.readdirSync(path.join(ROOT, "js"))) {
+    if (name.endsWith(".js")) copyFile(path.join(ROOT, "js", name), path.join(out, "js", name));
   }
-  copyFile(path.join(root, "data", "bots.json"), path.join(dist, "data", "bots.json"));
-  copyFile(path.join(root, "data", "events.json"), path.join(dist, "data", "events.json"));
-  copyFile(path.join(root, "data", "fallback-data.js"), path.join(dist, "data", "fallback-data.js"));
-
-  const out = path.join(dist, "data", "status.json");
-  fs.writeFileSync(out, JSON.stringify(state, null, 2) + "\n");
-  console.log("Wrote dist/ (" + state.bots.length + " bots). Open dist/index.html or upload dist/ only.");
+  copyFile(path.join(ROOT, "data", "bots.json"), path.join(out, "data", "bots.json"));
 }
 
-try {
-  main();
-} catch (err) {
-  console.error(err.message || err);
-  process.exit(1);
+/** Approved chest links: the driveFolderUrl values in data/bots.json. */
+function approvedLinks() {
+  const roster = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "bots.json"), "utf8"));
+  const list = Array.isArray(roster) ? roster : roster.bots || [];
+  return new Set(list.map((b) => b && b.driveFolderUrl).filter(Boolean));
 }
+
+function leakCheck(dir) {
+  const approved = approvedLinks();
+  const problems = [];
+  for (const file of walk(dir)) {
+    let text = fs.readFileSync(file, "utf8");
+    const rel = path.relative(ROOT, file);
+    if (rel.endsWith(path.join("data", "bots.json"))) {
+      const data = JSON.parse(text);
+      for (const b of Array.isArray(data) ? data : data.bots || []) {
+        if (b && b.driveFolderUrl && !approved.has(b.driveFolderUrl)) problems.push(rel + ": unapproved Drive link for " + b.id);
+        if (b && b.driveFolderUrl) b.driveFolderUrl = "";
+      }
+      text = JSON.stringify(data);
+    }
+    if (/(drive|docs)\.google\.com\/[^\s"'`]*[-\w]{20,}/i.test(text)) problems.push(rel + ": Drive link outside the chest links");
+    if (/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(text)) problems.push(rel + ": email address");
+    if (/gh[pousr]_[A-Za-z0-9]{20,}|github_pat_|sk-[A-Za-z0-9]{20,}|xox[abprs]-|AIza[0-9A-Za-z_-]{30,}|BEGIN [A-Z ]*PRIVATE KEY/.test(text)) problems.push(rel + ": token-like string");
+  }
+  return problems;
+}
+
+function main() {
+  const dist = path.join(ROOT, "dist");
+  const docs = path.join(ROOT, "docs");
+  build(dist);
+  const problems = leakCheck(dist);
+  if (problems.length) {
+    console.error("Leak check failed, nothing copied to docs/:\n  " + problems.join("\n  "));
+    process.exit(1);
+  }
+  build(docs);
+  fs.writeFileSync(path.join(docs, ".nojekyll"), "");
+  const again = leakCheck(docs);
+  if (again.length) {
+    console.error("Leak check failed on docs/:\n  " + again.join("\n  "));
+    process.exit(1);
+  }
+  console.log("Wrote dist/ and docs/. Leak check clean (" + approvedLinks().size + " approved chest links).");
+}
+
+if (require.main === module) main();
+module.exports = { leakCheck, approvedLinks };

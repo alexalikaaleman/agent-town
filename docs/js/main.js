@@ -8,6 +8,7 @@ const createTown = window.AgentTown.createTown;
 const drawMap = window.AgentTown.drawMap;
 const drawScene = window.AgentTown.drawScene;
 const connectFeed = window.AgentTown.connectFeed;
+const loadHistory = window.AgentTown.loadHistory;
 const formatStamp = window.AgentTown.formatStamp;
 const honoluluParts = window.AgentTown.honoluluParts;
 const phaseLabel = window.AgentTown.phaseLabel;
@@ -74,9 +75,66 @@ function resize() {
   mapKey = "";
 }
 
-function stepZoom(delta) {
-  userZoom = capZoom((userZoom == null ? zoom : userZoom) + delta);
+/** Change zoom by whole steps, keeping the map point under (cx, cy) in place. */
+function stepZoom(delta, cx, cy) {
+  const before = zoom;
+  const next = capZoom((userZoom == null ? zoom : userZoom) + delta);
+  if (next === before) return;
+  const srect = stage.getBoundingClientRect();
+  const px = cx == null ? srect.width / 2 : cx - srect.left;
+  const py = cy == null ? srect.height / 2 : cy - srect.top;
+  const rect = canvas.getBoundingClientRect();
+  const wx = (srect.left + px - rect.left) / before;
+  const wy = (srect.top + py - rect.top) / before;
+  userZoom = next;
   resize();
+  stage.scrollLeft = wx * zoom - px;
+  stage.scrollTop = wy * zoom - py;
+}
+
+/** Home: leave follow mode, close the panel, back to the fitted zoom at the top left. */
+function goHome() {
+  stopFollow();
+  closePanel();
+  if (town) {
+    town.filter.clear();
+    syncFilters();
+  }
+  userZoom = null;
+  resize();
+  stage.scrollTo({ left: 0, top: 0 });
+}
+
+// ---------- follow a bot ----------
+let following = null;
+
+function startFollow(id) {
+  if (!town || !town.agents.get(id)) return;
+  following = id;
+  town.follow = id;
+  const note = document.getElementById("mode-note");
+  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or ⌂ to stop.";
+}
+
+function stopFollow() {
+  following = null;
+  if (town) town.follow = null;
+  document.getElementById("mode-note").textContent = "";
+}
+
+function trackFollow() {
+  if (!following || !town || pointer || pinch) return;
+  const agent = town.agents.get(following);
+  if (!agent) return stopFollow();
+  const rect = canvas.getBoundingClientRect();
+  const srect = stage.getBoundingClientRect();
+  if (!rect.width) return;
+  const px = rect.left + ((agent.x * TILE + TILE / 2) / (MAP_W * TILE)) * rect.width;
+  const py = rect.top + ((agent.y * TILE + 4) / (MAP_H * TILE)) * rect.height;
+  const dx = px - srect.left - srect.width / 2;
+  const dy = py - srect.top - srect.height / 2;
+  if (Math.abs(dx) > 1) stage.scrollLeft += dx * 0.15;
+  if (Math.abs(dy) > 1) stage.scrollTop += dy * 0.15;
 }
 
 function ensureMap() {
@@ -102,20 +160,41 @@ new ResizeObserver(resizeAndDraw).observe(stage);
 window.addEventListener("resize", resizeAndDraw);
 resize();
 
-function setMode(next) {
-  mode = next;
+let needItems = null; // unhandled items from needs.json, null when unreadable
+let feedOk = null;
+let feedUpdatedAt = null;
+let lastModeText = "";
+
+function ago(iso) {
+  const t = Date.parse(iso || "");
+  if (!Number.isFinite(t)) return "never";
+  const min = Math.max(0, Math.floor((Date.now() - t) / 60000));
+  if (min < 1) return "just now";
+  if (min < 60) return min + " min ago";
+  const h = Math.floor(min / 60);
+  if (h < 48) return h + " h ago";
+  return Math.floor(h / 24) + " days ago";
+}
+
+/** "Updated N min ago" badge. Grey while loading, amber when the last read failed. */
+function renderMode() {
   const el = document.getElementById("mode");
-  el.className = "mode " + (next === "loading" ? "loading" : next);
-  if (next === "live") el.textContent = "LIVE";
-  else if (next === "poll") el.textContent = "POLLING";
-  else if (next === "demo") el.textContent = "DEMO MODE";
-  else el.textContent = "LOADING";
-  const note = document.getElementById("mode-note");
-  note.textContent = next === "demo" ? "Sample activity. Not a live feed." : "";
+  let text = "Loading…";
+  let cls = "mode loading";
+  if (feedOk !== null) {
+    text = feedUpdatedAt ? "Updated " + ago(feedUpdatedAt) : "No updates yet";
+    if (!feedOk) text = "Offline · " + text;
+    cls = "mode " + (feedOk ? "live" : "stale");
+  }
+  if (text === lastModeText && el.className === cls) return;
+  lastModeText = text;
+  el.className = cls;
+  el.textContent = text;
 }
 
 function renderHud() {
   if (!town) return;
+  renderMode();
   const counts = town.counts();
   const parts = [
     ["c-work", "Working " + counts.working],
@@ -139,12 +218,23 @@ function renderHud() {
     lastClock = clockText;
   }
 
-  const needs = town.needsList();
-  const key = needs.map((a) => a.id + ":" + a.needsAlex).join("|");
+  // Needs-Alex strip: unhandled items from needs.json, plus any bot asking without an item.
+  const items = [];
+  const seen = new Set();
+  for (const it of needItems || []) {
+    if (it.handled || !town.agents.get(it.bot)) continue;
+    items.push({ bot: it.bot, kind: it.kind === "urgent" ? "urgent" : "question", text: it.text || "", ts: it.ts });
+    seen.add(it.bot);
+  }
+  for (const agent of town.needsList()) {
+    if (!seen.has(agent.id)) items.push({ bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
+  }
+  items.sort((a, b) => (a.kind === b.kind ? String(a.ts).localeCompare(String(b.ts)) : a.kind === "urgent" ? -1 : 1));
+  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|");
   if (key === lastHud) return;
   lastHud = key;
   needsEl.replaceChildren();
-  if (!needs.length) {
+  if (!items.length) {
     needsEl.hidden = true;
     return;
   }
@@ -153,13 +243,124 @@ function renderHud() {
   label.className = "needs-label";
   label.textContent = "Needs Alex";
   needsEl.appendChild(label);
-  for (const agent of needs) {
+  for (const it of items) {
+    const agent = town.agents.get(it.bot);
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "need " + agent.needsAlex;
-    btn.textContent = (agent.needsAlex === "urgent" ? "! " : "? ") + agent.name;
-    btn.addEventListener("click", () => focusBot(agent.id, true));
+    btn.className = "need " + it.kind;
+    btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
+    btn.title = ago(it.ts);
+    btn.addEventListener("click", () => focusBot(it.bot, true));
     needsEl.appendChild(btn);
+  }
+}
+
+/** Usage bar: overall weekly %, cap lines at 58 and 65, per-bot slices when present. */
+const USAGE_SOFT = 58;
+const USAGE_HARD = 65;
+let usageKey = "";
+function renderUsage(usage) {
+  const el = document.getElementById("usage");
+  const pct = usage && Number.isFinite(usage.weeklyPct) ? Math.max(0, Math.min(100, usage.weeklyPct)) : null;
+  const key = JSON.stringify(usage || null);
+  if (key === usageKey) return;
+  usageKey = key;
+  const fill = document.getElementById("usage-fill");
+  const text = document.getElementById("usage-text");
+  fill.replaceChildren();
+  if (pct == null) {
+    text.textContent = "Usage —";
+    fill.style.width = "0";
+    el.className = "";
+    return;
+  }
+  el.className = pct >= USAGE_HARD ? "hard" : pct >= USAGE_SOFT ? "soft" : "";
+  text.textContent = "Usage " + Math.round(pct) + "%" + (pct >= USAGE_HARD ? " · stop" : pct >= USAGE_SOFT ? " · no new steps" : "");
+  fill.style.width = pct + "%";
+  const slices = usage.bots && typeof usage.bots === "object" ? Object.entries(usage.bots) : [];
+  let used = 0;
+  for (const [id, v] of slices) {
+    const n = Number(v);
+    if (!Number.isFinite(n) || n <= 0 || used + n > pct + 0.01) continue;
+    const bot = roster.find((b) => b.id === id || (b.aliases || []).includes(id));
+    const seg = document.createElement("span");
+    seg.className = "usage-slice";
+    seg.style.width = (n / pct) * 100 + "%";
+    seg.style.background = (bot && bot.color) || "#9aa7b8";
+    seg.title = (bot ? bot.name : id) + " " + n + "%";
+    fill.appendChild(seg);
+    used += n;
+  }
+}
+
+/** Small history list from this month's file, newest first. */
+async function openHistory() {
+  const box = document.getElementById("history");
+  const list = document.getElementById("history-list");
+  box.hidden = false;
+  list.replaceChildren();
+  const add = (txt, cls) => {
+    const li = document.createElement("li");
+    li.textContent = txt;
+    if (cls) li.className = cls;
+    list.appendChild(li);
+  };
+  add("Loading…", "muted");
+  try {
+    const lines = (await loadHistory(new Date())).slice(0, 40);
+    list.replaceChildren();
+    if (!lines.length) add("Nothing yet this month.", "muted");
+    for (const h of lines) {
+      const bot = roster.find((b) => b.id === h.bot || (b.aliases || []).includes(h.bot));
+      const name = bot ? bot.name : h.bot;
+      let what = h.state ? h.state + (h.text ? ": " + h.text : "") : "";
+      if (h.handled) what = "need handled";
+      if (h.usage != null && !h.state) what = "usage " + h.usage + "%";
+      add(formatStamp(h.ts) + " · " + name + " · " + what);
+    }
+  } catch (_) {
+    list.replaceChildren();
+    add("Could not load history.", "muted");
+  }
+}
+
+/** Per-bot filter chips. Tap chips to show only those bots; "All" clears. */
+function buildFilters(list) {
+  const bar = document.getElementById("filters");
+  bar.replaceChildren();
+  const all = document.createElement("button");
+  all.type = "button";
+  all.className = "chip on";
+  all.dataset.id = "";
+  all.textContent = "All";
+  bar.appendChild(all);
+  for (const bot of list) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip";
+    chip.dataset.id = bot.id;
+    chip.style.setProperty("--dot", bot.color || "#888");
+    chip.textContent = bot.name;
+    bar.appendChild(chip);
+  }
+  bar.addEventListener("click", (ev) => {
+    const chip = ev.target.closest(".chip");
+    if (!chip || !town) return;
+    const id = chip.dataset.id;
+    if (!id) town.filter.clear();
+    else if (town.filter.has(id)) town.filter.delete(id);
+    else town.filter.add(id);
+    syncFilters();
+  });
+}
+
+function syncFilters() {
+  if (!town) return;
+  for (const chip of document.querySelectorAll("#filters .chip")) {
+    const id = chip.dataset.id;
+    const on = id ? town.filter.has(id) : town.filter.size === 0;
+    chip.classList.toggle("on", on);
+    chip.setAttribute("aria-pressed", on ? "true" : "false");
   }
 }
 
@@ -196,8 +397,10 @@ function openPanel(agent) {
       driveEl.appendChild(link);
     }
   }
-  document.getElementById("p-time").textContent = "Updated " + formatStamp(agent.ts);
-  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home);
+  let timeText = agent.ts ? "Updated " + formatStamp(agent.ts) : "No status line yet";
+  if (agent.stalled) timeText += " · stalled (no new line for " + ago(agent.ts).replace(" ago", "") + ")";
+  document.getElementById("p-time").textContent = timeText;
+  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home) + (agent.project ? " · Project: " + agent.project : "");
 }
 
 function closePanel() {
@@ -225,6 +428,20 @@ function focusBot(id, open) {
 document.getElementById("panel-close").addEventListener("click", closePanel);
 document.getElementById("zoom-in").addEventListener("click", () => stepZoom(1));
 document.getElementById("zoom-out").addEventListener("click", () => stepZoom(-1));
+document.getElementById("home-btn").addEventListener("click", goHome);
+document.getElementById("history-btn").addEventListener("click", openHistory);
+document.getElementById("history-close").addEventListener("click", () => {
+  document.getElementById("history").hidden = true;
+});
+stage.addEventListener(
+  "wheel",
+  (ev) => {
+    if (!ev.ctrlKey) return;
+    ev.preventDefault();
+    stepZoom(ev.deltaY < 0 ? 1 : -1, ev.clientX, ev.clientY);
+  },
+  { passive: false }
+);
 window.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") closePanel();
   const step = 64;
@@ -235,8 +452,20 @@ window.addEventListener("keydown", (ev) => {
 });
 
 let pointer = null;
+let pinch = null;
+const touches = new Map();
+let lastTap = null;
+
 stage.addEventListener("pointerdown", (ev) => {
   if (ev.target.closest && ev.target.closest("button, a, input, textarea")) return;
+  touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+  if (touches.size === 2) {
+    const [a, b] = Array.from(touches.values());
+    pinch = { dist: Math.hypot(a.x - b.x, a.y - b.y) || 1 };
+    pointer = null;
+    return;
+  }
+  if (touches.size > 2) return;
   pointer = {
     id: ev.pointerId,
     x: ev.clientX,
@@ -247,6 +476,17 @@ stage.addEventListener("pointerdown", (ev) => {
   };
 });
 stage.addEventListener("pointermove", (ev) => {
+  if (touches.has(ev.pointerId)) touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+  if (pinch && touches.size >= 2) {
+    const [a, b] = Array.from(touches.values());
+    const dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+    const ratio = dist / pinch.dist;
+    if (ratio > 1.25 || ratio < 0.8) {
+      stepZoom(ratio > 1 ? 1 : -1, (a.x + b.x) / 2, (a.y + b.y) / 2);
+      pinch.dist = dist;
+    }
+    return;
+  }
   if (!pointer || ev.pointerId !== pointer.id) return;
   const dx = ev.clientX - pointer.x;
   const dy = ev.clientY - pointer.y;
@@ -284,6 +524,12 @@ function trackChestHover(ev) {
 }
 
 function endPointer(ev) {
+  touches.delete(ev.pointerId);
+  if (pinch) {
+    if (touches.size === 0) pinch = null;
+    pointer = null;
+    return;
+  }
   if (!pointer || ev.pointerId !== pointer.id) return;
   const dragged = pointer.drag;
   pointer = null;
@@ -301,8 +547,19 @@ function endPointer(ev) {
     return;
   }
   const hit = town.hitTest(wx, wy);
+  const t = performance.now();
+  const double = hit && lastTap && lastTap.id === hit.id && t - lastTap.t < 400;
+  lastTap = hit ? { id: hit.id, t } : null;
+  if (double) {
+    startFollow(hit.id);
+    lastTap = null;
+    return;
+  }
   if (hit) openPanel(hit);
-  else closePanel();
+  else {
+    closePanel();
+    stopFollow();
+  }
 }
 stage.addEventListener("pointerup", endPointer);
 stage.addEventListener("pointercancel", endPointer);
@@ -313,6 +570,7 @@ function frame(now) {
   last = now;
   if (town) {
     town.update(dt, now);
+    trackFollow();
     renderHud();
     if (town.selected && !panel.hidden) {
       const agent = town.agents.get(town.selected);
@@ -344,22 +602,31 @@ function bootTown(list) {
 async function boot() {
   try {
     await connectFeed({
-      onSnapshot(data) {
-        if (!town) bootTown(data.bots || roster);
-        if (data && Array.isArray(data.bots)) town.applySnapshot(data.bots);
+      onSnapshot(bots, status) {
+        if (!town) bootTown(roster);
+        town.applySnapshot(bots);
+        renderUsage(status && status.usage);
       },
-      onMode: setMode,
-      onDemo(reduced) {
-        if (!town) bootTown(reduced.bots);
-        town.applySnapshot(reduced.bots);
-        town.enableDemo();
+      onNeeds(items) {
+        needItems = items;
+        lastHud = null;
+      },
+      onStatus(info) {
+        feedOk = info.ok;
+        feedUpdatedAt = info.updatedAt;
+        renderMode();
+      },
+      onRoster(list) {
+        roster = list;
+        buildFilters(list);
       },
     });
   } catch (err) {
     const fatal = document.getElementById("fatal");
     fatal.hidden = false;
-    fatal.textContent = "Could not load data/bots.json. From this folder run: node server.js";
-    setMode("demo");
+    fatal.textContent = "Could not load the town. Check the connection and reload.";
+    feedOk = false;
+    renderMode();
   }
 }
 

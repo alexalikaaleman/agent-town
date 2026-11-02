@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="icon" href="data:,">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Agent Town</title>
   <link rel="stylesheet" href="style.css">
@@ -19,21 +20,38 @@
       <span id="c-alex" class="count alex">Needs Alex 0</span>
     </div>
     <div class="status-side">
-      <p id="mode" class="mode loading" aria-live="polite">LOADING</p>
+      <p id="mode" class="mode loading" aria-live="polite">Loading…</p>
       <p id="clock" class="clock">—</p>
     </div>
   </header>
   <p id="mode-note"></p>
-  <div id="needs" hidden></div>
-  <div id="stage">
-    <div id="map-wrap">
-      <canvas id="town" width="800" height="576" aria-label="Agent Town map"></canvas>
+  <div id="usage-row">
+    <div id="usage" title="Weekly usage. Line at 58%: no new steps. Line at 65%: hard stop.">
+      <div id="usage-fill"></div>
+      <span class="cap soft" style="left:58%"></span>
+      <span class="cap hard" style="left:65%"></span>
     </div>
+    <span id="usage-text">Usage —</span>
+    <button type="button" id="history-btn">History</button>
+  </div>
+  <div id="needs" hidden></div>
+  <div id="filters" role="toolbar" aria-label="Show only these bots"></div>
+  <div id="viewport">
+    <div id="stage">
+      <div id="map-wrap">
+        <canvas id="town" width="800" height="576" aria-label="Agent Town map"></canvas>
+      </div>
+    </div>
+    <button type="button" id="home-btn" aria-label="Home view">⌂</button>
     <div id="zoom-controls">
       <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
       <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
     </div>
   </div>
+  <aside id="history" hidden>
+    <div class="history-head"><strong>This month</strong><button type="button" id="history-close">Close</button></div>
+    <ul id="history-list"></ul>
+  </aside>
   <aside id="panel" hidden>
     <div class="panel-card">
       <button type="button" id="panel-close" aria-label="Close">Close</button>
@@ -47,7 +65,6 @@
     </div>
   </aside>
   <p id="fatal" class="fatal" hidden></p>
-  <script src="data/fallback-data.js"></script>
   <script src="js/model.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/world.js"></script>

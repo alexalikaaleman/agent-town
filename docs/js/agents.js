@@ -146,6 +146,16 @@ function createTown(roster, world) {
     if (!agent || agent.busy || agent.lockGoal) return;
     let spots;
     let prefix = agent.state;
+    if (agent.room != null && world.projectRooms && world.projectRooms[agent.room]) {
+      const room = world.projectRooms[agent.room];
+      const mates = Array.from(agents.values())
+        .filter((o) => o.room === agent.room && !o.busy)
+        .sort((a, b) => (a.id < b.id ? -1 : 1));
+      const at = Math.max(0, mates.findIndex((o) => o.id === agent.id));
+      const spot = room.spots[at % room.spots.length];
+      setGoal(agent, spot, "room" + agent.room + ":" + spot.x + "," + spot.y);
+      return;
+    }
     if (agent.state === "working") spots = world.spots[agent.home].work;
     else if (agent.state === "walking") spots = world.plazaSpots;
     else spots = world.spots[agent.home].idle;
@@ -325,8 +335,47 @@ function createTown(roster, world) {
     }
   }
 
+  /** Group active bots by --project into the plaza rooms (oldest project first). */
+  let roomNames = [];
+  function assignRooms() {
+    const rooms = world.projectRooms || [];
+    const firstSeen = new Map();
+    for (const agent of agents.values()) {
+      const active = agent.project && agent.state !== "idle" && agent.state !== "done";
+      if (!active) continue;
+      const t = String(agent.since || agent.ts || "");
+      if (!firstSeen.has(agent.project) || t < firstSeen.get(agent.project)) firstSeen.set(agent.project, t);
+    }
+    const ordered = Array.from(firstSeen.keys()).sort((a, b) => firstSeen.get(a).localeCompare(firstSeen.get(b)) || a.localeCompare(b));
+    // Keep a project in the room it already has, so signs do not jump around.
+    const next = new Array(rooms.length).fill(null);
+    for (const name of ordered) {
+      const old = roomNames.indexOf(name);
+      if (old >= 0 && old < next.length) next[old] = name;
+    }
+    for (const name of ordered) {
+      if (next.includes(name)) continue;
+      const free = next.indexOf(null);
+      if (free >= 0) next[free] = name;
+    }
+    roomNames = next;
+    for (const agent of agents.values()) {
+      const active = agent.project && agent.state !== "idle" && agent.state !== "done";
+      const index = active ? roomNames.indexOf(agent.project) : -1;
+      const room = index >= 0 ? index : null;
+      if (agent.room !== room) {
+        agent.room = room;
+        if (!agent.busy) {
+          agent.lockGoal = false;
+          agent.goalKey = "";
+        }
+      }
+    }
+  }
+
   function eligibleCollab(agent) {
     if (!agent || agent.busy) return false;
+    if (agent.room != null) return false;
     if (agent.state === "idle" || agent.state === "done") return false;
     return true;
   }
@@ -575,6 +624,26 @@ function createTown(roster, world) {
     hoverChest: null,
     tipChest: null,
     selected: null,
+    filter: new Set(),
+    follow: null,
+    isDimmed(agent) {
+      if (this.follow) return agent.id !== this.follow;
+      if (this.filter.size) return !this.filter.has(agent.id);
+      return false;
+    },
+    activeRooms() {
+      const out = [];
+      roomNames.forEach((name, i) => {
+        if (!name || !world.projectRooms[i]) return;
+        let count = 0;
+        for (const a of agents.values()) if (a.room === i) count++;
+        out.push({ room: world.projectRooms[i], name, count });
+      });
+      return out;
+    },
+    projects() {
+      return roomNames.filter(Boolean);
+    },
     applySnapshot(bots) {
       for (const data of bots || []) {
         const agent = agents.get(data.id);
@@ -605,6 +674,10 @@ function createTown(roster, world) {
         agent.item = data.item || null;
         agent.with = Array.isArray(data.with) ? data.with.slice() : [];
         agent.collabId = data.collabId || null;
+        agent.stalled = Boolean(data.stalled);
+        agent.project = data.project || null;
+        agent.since = data.since || null;
+        agent.reported = Boolean(data.reported);
         if (data.driveFolderUrl != null) {
           agent.driveFolderUrl = driveFolderUrl(data.driveFolderUrl);
           const chest = chestById.get(agent.id);
@@ -615,6 +688,7 @@ function createTown(roster, world) {
           agent.goalKey = "";
         }
       }
+      assignRooms();
       for (const agent of agents.values()) retarget(agent);
       for (const agent of agents.values()) maybeHandoff(agent);
       pump();

@@ -1,7 +1,8 @@
-/** Live SSE, static polling, then a clearly labeled demo fallback. */
+/** Live status from the public `status` branch, re-read every 2 minutes. No demo data. */
 (function () {
-const coerceEventList = window.AgentTown.coerceEventList;
-const reduceEvents = window.AgentTown.reduceEvents;
+const STATUS_BASE = "https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/";
+const POLL_MS = 2 * 60 * 1000;
+const STALL_MS = 30 * 60 * 1000;
 
 async function fetchJson(url) {
   const res = await fetch(url, { cache: "no-store" });
@@ -9,145 +10,134 @@ async function fetchJson(url) {
   return res.json();
 }
 
-function tryLive(onMessage) {
-  return new Promise((resolve) => {
-    let settled = false;
-    let source = null;
-    const finish = (ok) => {
-      if (settled) return;
-      settled = true;
-      if (!ok && source) source.close();
-      resolve(ok ? source : null);
-    };
-    try {
-      source = new EventSource(new URL("events", document.baseURI).href);
-    } catch (err) {
-      finish(false);
-      return;
-    }
-    const timer = setTimeout(() => finish(false), 1800);
-    source.onmessage = (ev) => {
-      clearTimeout(timer);
-      let data = null;
-      try {
-        data = JSON.parse(ev.data);
-      } catch (err) {
-        return;
-      }
-      if (!settled) {
-        settled = true;
-        resolve(source);
-      }
-      onMessage(data);
-    };
-    source.onerror = () => {
-      if (!settled) {
-        clearTimeout(timer);
-        finish(false);
-      }
-    };
-  });
+async function fetchText(url) {
+  const res = await fetch(url, { cache: "no-store" });
+  if (res.status === 404) return "";
+  if (!res.ok) throw new Error(String(res.status));
+  return res.text();
 }
 
-function demoQuery() {
-  try {
-    return new URLSearchParams(window.location.search).get("demo") === "1";
-  } catch (err) {
-    return false;
-  }
-}
-
-function isFilePage() {
-  try {
-    return window.location.protocol === "file:";
-  } catch (err) {
-    return false;
-  }
-}
-
-function fallbackBundle() {
-  const fb = window.AgentTownFallback;
-  if (!fb || typeof fb !== "object") return null;
-  return fb;
+/** URL of a file on the status branch, with a cache-busting query. */
+function statusUrl(name) {
+  return STATUS_BASE + name + "?t=" + Date.now();
 }
 
 async function loadRoster() {
-  try {
-    const roster = await fetchJson(new URL("data/bots.json", document.baseURI).href);
-    if (!Array.isArray(roster)) throw new Error("bots.json");
-    return roster;
-  } catch (err) {
-    const fb = fallbackBundle();
-    if (fb && Array.isArray(fb.bots)) return fb.bots;
-    throw err;
-  }
+  const roster = await fetchJson(new URL("data/bots.json", document.baseURI).href);
+  if (!Array.isArray(roster)) throw new Error("bots.json");
+  return roster;
 }
 
-async function loadSampleEvents() {
-  try {
-    const raw = await fetchJson(new URL("data/events.json", document.baseURI).href);
-    return coerceEventList(raw);
-  } catch (err) {
-    const fb = fallbackBundle();
-    if (fb) return coerceEventList(fb.events);
-    return [];
+/** status.json (bots keyed by id) -> array the town understands. */
+function toSnapshot(roster, status, now) {
+  const byAlias = new Map();
+  for (const bot of roster) {
+    byAlias.set(bot.id, bot.id);
+    for (const alias of bot.aliases || []) byAlias.set(alias, bot.id);
   }
+  const entries = new Map();
+  const raw = (status && status.bots) || {};
+  for (const key of Object.keys(raw)) {
+    const id = byAlias.get(key);
+    const e = raw[key];
+    if (!id || !e || typeof e !== "object") continue;
+    const prev = entries.get(id);
+    if (!prev || String(e.ts || "") > String(prev.ts || "")) entries.set(id, e);
+  }
+  const bots = [];
+  for (const bot of roster) {
+    const e = entries.get(bot.id);
+    if (!e) {
+      bots.push({ id: bot.id, state: "idle", text: "", task: "", needsAlex: null, ts: null, with: [], project: null, stalled: false, reported: false });
+      continue;
+    }
+    const state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle"].includes(e.state) ? e.state : "idle";
+    let needsAlex = null;
+    if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;
+    else if (e.state === "needs-alex") needsAlex = "question";
+    const ts = e.ts ? String(e.ts) : null;
+    const age = ts ? now - Date.parse(ts) : 0;
+    bots.push({
+      id: bot.id,
+      state,
+      rawState: e.state,
+      text: String(e.text || "").slice(0, 40),
+      task: String(e.text || "").slice(0, 40),
+      needsAlex,
+      ts,
+      since: e.since || ts,
+      with: Array.isArray(e.with) ? e.with.map((w) => byAlias.get(w)).filter(Boolean) : [],
+      project: e.project ? String(e.project).slice(0, 24) : null,
+      stalled: e.state === "working" && age >= STALL_MS,
+      reported: true,
+    });
+  }
+  return bots;
 }
 
-async function connectFeed({ onSnapshot, onMode, onDemo }) {
+/**
+ * onSnapshot(bots, status) on every read; onStatus({ ok, updatedAt }) for the HUD.
+ * Returns { roster, refresh(), stop() }.
+ */
+async function connectFeed({ onSnapshot, onStatus, onRoster, onNeeds }) {
   const roster = await loadRoster();
+  if (onRoster) onRoster(roster);
+  let last = null;
+  let timer = 0;
+  let busy = false;
 
-  let pollTimer = 0;
-  let demoStarted = false;
-  const beginDemo = async () => {
-    if (demoStarted) return;
-    demoStarted = true;
-    if (pollTimer) clearInterval(pollTimer);
-    const events = await loadSampleEvents();
-    onMode("demo");
-    onDemo(reduceEvents(roster, events));
-  };
-
-  if (demoQuery() || isFilePage()) {
-    await beginDemo();
-    return { roster, stop() {} };
-  }
-
-  const live = await tryLive(onSnapshot);
-  if (live) {
-    onMode("live");
-    return { roster, stop() { live.close(); } };
-  }
-
-  let failures = 0;
-  const poll = async () => {
+  const read = async () => {
+    if (busy) return;
+    busy = true;
     try {
-      const url = new URL("data/status.json", document.baseURI);
-      url.searchParams.set("t", String(Date.now()));
-      const data = await fetchJson(url.href);
-      failures = 0;
-      onMode("poll");
-      onSnapshot(data);
+      const status = await fetchJson(statusUrl("status.json"));
+      last = status;
+      onSnapshot(toSnapshot(roster, status, Date.now()), status);
+      onStatus({ ok: true, updatedAt: status.updatedAt || null });
+      if (onNeeds) {
+        try {
+          const needs = await fetchJson(statusUrl("needs.json"));
+          onNeeds(Array.isArray(needs.items) ? needs.items : []);
+        } catch (_) {
+          onNeeds(null);
+        }
+      }
     } catch (err) {
-      failures += 1;
-      if (failures === 1) beginDemo();
+      if (last) onSnapshot(toSnapshot(roster, last, Date.now()), last);
+      onStatus({ ok: false, updatedAt: last ? last.updatedAt : null });
+    } finally {
+      busy = false;
     }
   };
 
-  try {
-    const url = new URL("data/status.json", document.baseURI);
-    url.searchParams.set("t", String(Date.now()));
-    const data = await fetchJson(url.href);
-    onMode("poll");
-    onSnapshot(data);
-    pollTimer = setInterval(poll, 10000);
-    return { roster, stop() { clearInterval(pollTimer); } };
-  } catch (err) {
-    await beginDemo();
-    return { roster, stop() {} };
+  await read();
+  timer = setInterval(read, POLL_MS);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") read();
+  });
+  return { roster, refresh: read, stop() { clearInterval(timer); } };
+}
+
+/** Month key (YYYY-MM) in Alex's time zone, matching report.js history files. */
+function monthKey(date) {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Pacific/Honolulu", year: "numeric", month: "2-digit" }).formatToParts(date);
+  const get = (t) => (parts.find((p) => p.type === t) || {}).value;
+  return get("year") + "-" + get("month");
+}
+
+/** This month's history lines, newest first. Bad lines are skipped. */
+async function loadHistory(date) {
+  const text = await fetchText(statusUrl("history-" + monthKey(date || new Date()) + ".jsonl"));
+  const out = [];
+  for (const line of text.split("\n")) {
+    if (!line.trim()) continue;
+    try {
+      out.push(JSON.parse(line));
+    } catch (_) {}
   }
+  return out.reverse();
 }
 
 window.AgentTown = window.AgentTown || {};
-window.AgentTown.connectFeed = connectFeed;
+Object.assign(window.AgentTown, { loadHistory, monthKey, connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS });
 })();
