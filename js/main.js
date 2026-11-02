@@ -588,7 +588,13 @@ document.getElementById("needs-btn").addEventListener("click", () => {
   lastHud = "";
   if (needsOpen) document.getElementById("history").hidden = true;
 });
-document.getElementById("history-btn").addEventListener("click", openHistory);
+document.getElementById("history-btn").addEventListener("click", () => {
+  needsOpen = false;
+  needsAsked = false;
+  lastHud = "";
+  renderHud();
+  openHistory();
+});
 document.getElementById("history-close").addEventListener("click", () => {
   document.getElementById("history").hidden = true;
 });
