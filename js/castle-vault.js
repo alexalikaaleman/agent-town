@@ -19,7 +19,7 @@ const RESERVED = { x: 28, y: 2, w: 22, h: 20 };
 const NINJA_HOME = { x: 25, y: 22 };
 const COLS = [3, 8, 13, 18, 23];
 const ROWS = [3, 7, 11, 15, 19];
-const TITLE_MAX = 12;
+const TITLE_MAX = 26;
 const PUFF_MS = 700;
 let vaultWorldRef = null;
 
@@ -51,6 +51,19 @@ function slots() {
 
 function trunc(t, n) {
   return t.length > n ? t.slice(0, n - 1) + "…" : t;
+}
+
+/** Split a long title near the middle on a space so labels wrap to 2 lines. */
+function wrapTitle(t, n) {
+  const s = trunc(String(t || ""), n);
+  if (s.length <= 14) return s;
+  const mid = Math.ceil(s.length / 2);
+  let best = -1;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === " " && Math.abs(i - mid) <= Math.abs(best - mid)) best = i;
+  }
+  if (best < 1) return s;
+  return s.slice(0, best) + "\n" + s.slice(best + 1);
 }
 
 // 7x5 original icons, "1" = icon colour, "2" = accent.
@@ -112,7 +125,16 @@ function drawCabinet(ctx, P, c, s, now, lit) {
     P.fill(ctx, x - 1, top - 2, 18, 6, "#14110a");
     ctx.drawImage(img, x, top - 1, 16, 4);
     P.fill(ctx, x + 1, top + 4, 14, 4, P.shade(col, 0.5));
-  } else if (pub) drawIcon(ctx, P, c.icon, x + 4, top + 2, col, P.shade(col, 0.5));
+  } else if (pub) {
+    // Plain FF6-style title plate when the game has no X-banner marquee (no watermark).
+    P.fill(ctx, x - 1, top - 2, 18, 8, "#14110a");
+    P.fill(ctx, x, top - 1, 16, 6, "#2a2210");
+    P.fill(ctx, x, top - 1, 16, 1, "#ffd34d");
+    P.fill(ctx, x, top + 4, 16, 1, "#c9a23a");
+    P.fill(ctx, x, top - 1, 1, 6, "#ffd34d");
+    P.fill(ctx, x + 15, top - 1, 1, 6, "#c9a23a");
+    drawIcon(ctx, P, c.icon, x + 4, top + 1, col, P.shade(col, 0.5));
+  }
   // screen
   P.fill(ctx, x + 2, top + 9, 12, 9, "#0b0b12");
   if (pub) {
@@ -173,7 +195,7 @@ const scene = {
       at: [ss[i].x * 16 + 8, ss[i].y * 16 + 4],
       x: ss[i].x * 16 + 8,
       y: ss[i].y * 16 + 18,
-      text: trunc(c.title || "", TITLE_MAX),
+      text: wrapTitle(c.title || "", TITLE_MAX),
       accent: c.status === "published" ? (c.colors || [])[1] || "#ffd34d" : "#8a8a96",
       bg: "rgba(20,16,6,0.9)",
       });

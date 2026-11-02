@@ -817,9 +817,12 @@ const debugInfo = { labelOverlaps: 0, labels: 0 };
 
 function labelBox(c, text, px, x, y) {
   c.font = px + "px ui-monospace, monospace";
-  const w = Math.ceil(c.measureText(text).width) + 6;
-  const h = px + 4;
-  return { left: Math.round(x - w / 2), top: Math.round(y - h), w, h };
+  const lines = String(text || "").split("\n");
+  let tw = 0;
+  for (const ln of lines) tw = Math.max(tw, Math.ceil(c.measureText(ln).width));
+  const w = tw + 6;
+  const h = lines.length * px + 4 + Math.max(0, lines.length - 1) * 2;
+  return { left: Math.round(x - w / 2), top: Math.round(y - h), w, h, lines };
 }
 function overlapArea(a, list) {
   let area = 0;
@@ -839,7 +842,12 @@ function paintLabel(c, box, text, px, accent, bg) {
   c.textAlign = "center";
   c.textBaseline = "middle";
   c.font = px + "px ui-monospace, monospace";
-  c.fillText(text, box.left + box.w / 2 + 1, box.top + box.h / 2 + 0.5);
+  const lines = (box.lines && box.lines.length) ? box.lines : String(text || "").split("\n");
+  const lineH = px + 2;
+  const startY = box.top + box.h / 2 - ((lines.length - 1) * lineH) / 2;
+  for (let i = 0; i < lines.length; i++) {
+    c.fillText(lines[i], box.left + box.w / 2 + 1, startY + i * lineH + 0.5);
+  }
 }
 
 function drawScreenLabels(c) {
