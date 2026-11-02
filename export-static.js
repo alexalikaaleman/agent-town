@@ -12,6 +12,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { walk } = require("./lib/public");
 
 const ROOT = __dirname;
@@ -22,9 +23,34 @@ function copyFile(from, to) {
   fs.copyFileSync(from, to);
 }
 
+/** Build hash: a short sha256 over every file that ships (CSS, JS, roster, cabinets). */
+function buildHash() {
+  const h = crypto.createHash("sha256");
+  const add = (file) => {
+    if (!fs.existsSync(file)) return;
+    h.update(path.relative(ROOT, file));
+    h.update(fs.readFileSync(file));
+  };
+  for (const name of FILES) add(path.join(ROOT, name));
+  for (const name of fs.readdirSync(path.join(ROOT, "js")).sort()) if (name.endsWith(".js")) add(path.join(ROOT, "js", name));
+  add(path.join(ROOT, "data", "bots.json"));
+  add(path.join(ROOT, "data", "cabinets.json"));
+  return h.digest("hex").slice(0, 10);
+}
+
+/** Cache-busting: every local JS/CSS reference in index.html gets ?v=<build hash>. */
+function stampIndex(file, hash) {
+  let html = fs.readFileSync(file, "utf8");
+  html = html.replace(/(<script\s+src=")(js\/[^"?]+\.js)(")/g, "$1$2?v=" + hash + "$3");
+  html = html.replace(/(<link\s+rel="stylesheet"\s+href=")([^"?:]+\.css)(")/g, "$1$2?v=" + hash + "$3");
+  html = html.replace(/<meta name="build" content="[^"]*">/, '<meta name="build" content="' + hash + '">');
+  fs.writeFileSync(file, html);
+}
+
 function build(out) {
   fs.rmSync(out, { recursive: true, force: true });
   for (const name of FILES) copyFile(path.join(ROOT, name), path.join(out, name));
+  stampIndex(path.join(out, "index.html"), buildHash());
   for (const name of fs.readdirSync(path.join(ROOT, "js"))) {
     if (name.endsWith(".js")) copyFile(path.join(ROOT, "js", name), path.join(out, "js", name));
   }
@@ -82,4 +108,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { leakCheck, approvedLinks };
+module.exports = { leakCheck, approvedLinks, buildHash };
