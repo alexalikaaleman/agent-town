@@ -18,8 +18,10 @@ const ROOM = {
   floor2: "#9d937e",
   trim: "#e0b84a",
 };
-const THRONE = { x: 27.5, y: 18 };
-const CARPET = { x0: 27, x1: 28, y0: 19, y1: 32 };
+// Fix 35: the carpet runs ~75% up the room (y10-32 of y3-33); the throne and its dais sit at its top end.
+const THRONE = { x: 27.5, y: 9 };
+const DY = THRONE.y - 18; // offset from the original throne row (dais/throne/rock art was drawn for y18)
+const CARPET = { x0: 27, x1: 28, y0: THRONE.y + 1, y1: 32 };
 const LINE_STEP = 1.5;
 const VAULT_DOOR = { x: 27, y: 3, w: 2 }; // the big vault door in the back wall (tiles x..x+w-1)
 const PILLARS = [[17, 8], [38, 8], [17, 14], [38, 14], [17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]];
@@ -220,6 +222,54 @@ function drawVaultDoor(ctx, P) {
   P.fill(ctx, x + w / 2 - 4, y + 16, 8, 2, "#6b4614");
 }
 
+/** Fix 35: honour the OS "reduce motion" setting (static door, static gold text). */
+function reducedMotion() {
+  try {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  } catch (e) {
+    return false;
+  }
+}
+
+/** Slow, smooth rainbow for the "Vault door" text (one full cycle every 12 s). Static gold when motion is reduced. */
+function vaultDoorTextColor(now) {
+  if (reducedMotion()) return "#ffd34d";
+  const hue = Math.round(((now || 0) / 12000) * 360) % 360;
+  return "hsl(" + hue + ", 95%, 72%)";
+}
+
+/** Fix 35: a soft light band sweeps across the vault door every few seconds. */
+function drawDoorShimmer(ctx, P, now) {
+  if (reducedMotion()) return;
+  const T = P.TILE;
+  const d = VAULT_DOOR;
+  const x = (d.x - 1) * T;
+  const w = (d.w + 2) * T;
+  const y = (d.y - 1) * T - 4;
+  const h = 2 * T + 4;
+  const period = 3200;
+  const k = (now % period) / period; // 0..1
+  const bandX = x - 12 + k * (w + 24);
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x, y, w, h);
+  ctx.clip();
+  for (let i = 0; i < 3; i++) {
+    ctx.globalAlpha = [0.18, 0.35, 0.18][i];
+    ctx.fillStyle = "#fff6c8";
+    ctx.beginPath();
+    const bx = bandX + i * 3;
+    ctx.moveTo(bx, y);
+    ctx.lineTo(bx + 3, y);
+    ctx.lineTo(bx + 3 - h * 0.5, y + h);
+    ctx.lineTo(bx - h * 0.5, y + h);
+    ctx.closePath();
+    ctx.fill();
+  }
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+
 const part = {
   id: "throne",
   order: 20,
@@ -227,15 +277,16 @@ const part = {
     world.addRoom(ROOM);
     for (const [x, y] of PILLARS) world.block(x, y);
     // throne dais and rock are solid
-    world.block(27, 17);
-    world.block(28, 17);
-    world.block(30, 18);
+    world.block(27, 17 + DY);
+    world.block(28, 17 + DY);
+    world.block(30, 18 + DY);
     world.throne = { x: THRONE.x, y: THRONE.y, carpet: CARPET };
     world.busNinja = makeNinja(world);
     world.vaultDoor = VAULT_DOOR;
+    world.vaultDoorFx = { reducedMotion, textColor: vaultDoorTextColor };
     const spots = [];
     for (let y = 5; y <= 31; y += 2) {
-      if (y >= 15 && y <= 20) continue; // keep the throne and dais clear
+      if (y >= THRONE.y - 3 && y <= THRONE.y + 2) continue; // keep the throne and dais clear
       for (let x = 16; x <= 39; x += 3) {
         if (x >= CARPET.x0 - 1 && x <= CARPET.x1 + 1) continue;
         if (!world.solid[y][x]) spots.push({ x, y, facing: "s" });
@@ -249,7 +300,7 @@ const part = {
     const out = [];
     if (nin) out.push({ reserve: [nin.x * 16 - 6, nin.y * 16 - 24, nin.x * 16 + 22, nin.y * 16 + 16] });
     if (nin) out.push({ kind: "busninja", x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
-    return out.concat([{ kind: "vaultdoor", x: (VAULT_DOOR.x + VAULT_DOOR.w / 2) * 16, y: (VAULT_DOOR.y + 1) * 16 + 8, text: "Vault door", accent: "#ffd34d", bg: "rgba(42,32,8,0.94)" }]);
+    return out.concat([{ kind: "vaultdoor", x: (VAULT_DOOR.x + VAULT_DOOR.w / 2) * 16, y: (VAULT_DOOR.y + 1) * 16 + 8, text: "Vault door", accent: "#ffd34d", textColor: vaultDoorTextColor(performance.now()), bg: "rgba(42,32,8,0.94)" }]);
   },
   place(ctx) {
     const town = ctx.town;
@@ -291,12 +342,12 @@ const part = {
     P.fill(ctx, cx + 2, CARPET.y0 * T, 2, (CARPET.y1 - CARPET.y0 + 1) * T, "#e0b84a");
     P.fill(ctx, cx + 2 * T - 4, CARPET.y0 * T, 2, (CARPET.y1 - CARPET.y0 + 1) * T, "#e0b84a");
     // dais
-    P.fill(ctx, 25 * T, 17 * T, 6 * T, 2 * T + 6, "#7d6a4c");
-    P.fill(ctx, 25 * T, 19 * T + 2, 6 * T, 4, "#5c4c34");
-    P.fill(ctx, 25 * T, 17 * T, 6 * T, 1, "#a8916a");
+    P.fill(ctx, 25 * T, (17 + DY) * T, 6 * T, 2 * T + 6, "#7d6a4c");
+    P.fill(ctx, 25 * T, (19 + DY) * T + 2, 6 * T, 4, "#5c4c34");
+    P.fill(ctx, 25 * T, (17 + DY) * T, 6 * T, 1, "#a8916a");
     // throne: high back, red cushion, gold trim
     const tx = 27 * T + 3;
-    const ty = 16 * T + 4;
+    const ty = (16 + DY) * T + 4;
     P.fill(ctx, tx - 1, ty - 1, 2 * T - 4, 30, "#5a3f12");
     P.fill(ctx, tx, ty, 2 * T - 6, 28, "#d9a63a");
     P.fill(ctx, tx + 3, ty + 3, 2 * T - 12, 14, "#a3202a");
@@ -305,7 +356,7 @@ const part = {
     P.fill(ctx, tx + 12, ty - 6, 2, 2, "#ff5a5a");
     // the rock Bus Ninja punches
     const rx = 30 * T;
-    const ry = 18 * T;
+    const ry = (18 + DY) * T;
     P.fill(ctx, rx + 1, ry + 4, 14, 11, "#4e4b55");
     P.fill(ctx, rx + 3, ry + 2, 10, 3, "#6b6873");
     P.fill(ctx, rx + 3, ry + 5, 4, 2, "#8a8791");
@@ -329,6 +380,7 @@ const part = {
   },
   drawUnder(ctx, town, world, now, P) {
     const T = P.TILE;
+    drawDoorShimmer(ctx, P, now);
     for (const tx of [15, 40]) {
       const flick = Math.floor(now / 120) % 3;
       P.fill(ctx, tx * T + 6, 18 * T + 2, 4, 8, "#5a3f12");
@@ -341,8 +393,8 @@ const part = {
     if (hitRock) {
       // rock shakes and chips fly
       const t = now % 1800;
-      P.fill(ctx, 30 * T + 15 + ((t / 40) % 4), 18 * T + 3 - ((t / 60) % 5), 2, 2, "#8a8791");
-      P.fill(ctx, 30 * T + 14 + ((t / 30) % 5), 18 * T + 8 - ((t / 50) % 4), 1, 1, "#8a8791");
+      P.fill(ctx, 30 * T + 15 + ((t / 40) % 4), (18 + DY) * T + 3 - ((t / 60) % 5), 2, 2, "#8a8791");
+      P.fill(ctx, 30 * T + 14 + ((t / 30) % 5), (18 + DY) * T + 8 - ((t / 50) % 4), 1, 1, "#8a8791");
     }
     drawPuff(ctx, P, nin, now);
     // Fix 9: Bus Ninja shows "..." while any bot is on a voice call beside the throne.

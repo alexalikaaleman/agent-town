@@ -908,12 +908,12 @@ function overlapArea(a, list) {
   }
   return area;
 }
-function paintLabel(c, box, text, px, accent, bg) {
+function paintLabel(c, box, text, px, accent, bg, textColor) {
   c.fillStyle = bg || "rgba(20,18,15,0.9)";
   c.fillRect(box.left, box.top, box.w, box.h);
   c.fillStyle = accent || "#ffe14a";
   c.fillRect(box.left, box.top, 2, box.h);
-  c.fillStyle = "#fff8e6";
+  c.fillStyle = textColor || "#fff8e6";
   c.textAlign = "center";
   c.textBaseline = "middle";
   c.font = px + "px ui-monospace, monospace";
@@ -1010,11 +1010,11 @@ function drawScreenLabels(c) {
       }
       // "avoid" labels (dense rows such as cabinet titles) are skipped when they would overlap.
       if (l.avoid && overlapArea(box, placed) > 0) continue;
-      paintLabel(c, box, drawText, drawPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
+      paintLabel(c, box, drawText, drawPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)", l.textColor);
       placed.push(box);
       const full = l.full || String(l.text || "").replace(/\n/g, " ");
       const truncated = drawText.indexOf("…") >= 0;
-      partLabels.push({ kind: l.kind || p.id, text: drawText, full: full, truncated: truncated, px: drawPx, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      partLabels.push({ kind: l.kind || p.id, textColor: l.textColor || null, text: drawText, full: full, truncated: truncated, px: drawPx, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;
