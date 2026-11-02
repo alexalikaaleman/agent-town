@@ -735,12 +735,17 @@ function endPointer(ev) {
   if (ev.type === "pointercancel" || dragged || !town) return;
   if (scene === "vault") {
     let vp = toWorld(ev.clientX, ev.clientY);
-    // a tap on a cabinet's title counts as a tap on that cabinet
+    // a tap on a cabinet's title counts as a tap on that cabinet — but only when the
+    // raw point is not already on a different cabinet (so 2-line titles cannot steal
+    // taps from a neighbouring coming-soon cabinet).
     const r = stage.getBoundingClientRect();
     const lx = ev.clientX - r.left;
     const ly = ev.clientY - r.top;
     const tl = (debugInfo.partLabels || []).find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
-    if (tl) vp = { x: tl.at[0], y: tl.at[1] };
+    if (tl) {
+      const near = Math.hypot(tl.at[0] - vp.x, tl.at[1] - vp.y) < 28;
+      if (near) vp = { x: tl.at[0], y: tl.at[1] };
+    }
     for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
     return;
   }
