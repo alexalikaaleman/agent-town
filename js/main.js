@@ -356,6 +356,7 @@ function renderUsage(usage) {
 
 /** Small history list from this month's file, newest first. */
 let historyRun = 0;
+const HISTORY_DEADLINE_MS = 10000;
 async function openHistory() {
   const box = document.getElementById("history");
   const list = document.getElementById("history-list");
@@ -371,7 +372,9 @@ async function openHistory() {
   };
   add("Loading…", "muted");
   try {
-    const lines = (await loadHistory(new Date())).slice(0, 60);
+    // One overall deadline: even if the pinned read and its fallback both hang, the list never sits on "Loading…".
+    const deadline = new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), HISTORY_DEADLINE_MS));
+    const lines = (await Promise.race([loadHistory(new Date()), deadline])).slice(0, 60);
     if (run !== historyRun) return;
     list.replaceChildren();
     if (!lines.length) add("Nothing yet this month.", "muted");
