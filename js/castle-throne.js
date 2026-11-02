@@ -1,16 +1,16 @@
 /** Castle part: THRONE ROOM in the center. Bus Ninja sits on the throne with a rock-punch idle loop.
  *  A red carpet runs from the throne to the door; needs-Alex bots line up on it facing the throne,
- *  urgent first, then oldest. Also gives the throne-room patrol spots for overflow sleepers. */
+ *  urgent first, then oldest. The room runs from the castle's back wall (y3, with the big vault door) down to y33, between the bedrooms. Also gives the throne-room patrol spots for overflow sleepers. */
 (function () {
 const ROOM = {
   id: "throne",
   name: "Throne Room",
   x: 14,
-  y: 16,
+  y: 3,
   w: 28,
-  h: 18,
-  // bottom door, top openings (patrol), side doors to Workshop and Wizard Lab
-  doors: [[27, 33], [28, 33], [17, 16], [38, 16], [14, 24], [14, 25], [41, 24], [41, 25]],
+  h: 31,
+  // bottom door, side doors to Workshop and Wizard Lab
+  doors: [[27, 33], [28, 33], [14, 24], [14, 25], [41, 24], [41, 25]],
   wall: "#6b5a7e",
   wallDk: "#45385a",
   floor: "#a99f8a",
@@ -20,8 +20,8 @@ const ROOM = {
 const THRONE = { x: 27.5, y: 18 };
 const CARPET = { x0: 27, x1: 28, y0: 19, y1: 32 };
 const LINE_STEP = 1.5;
-const VAULT_DOOR = { x: 27, y: 16, w: 2 }; // the big vault door in the back wall (tiles x..x+w-1)
-const PILLARS = [[17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]];
+const VAULT_DOOR = { x: 27, y: 3, w: 2 }; // the big vault door in the back wall (tiles x..x+w-1)
+const PILLARS = [[17, 8], [38, 8], [17, 14], [38, 14], [17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]];
 
 function lineSpots() {
   const out = [];
@@ -144,7 +144,8 @@ const part = {
     world.busNinja = makeNinja(world);
     world.vaultDoor = VAULT_DOOR;
     const spots = [];
-    for (let y = 22; y <= 31; y += 2) {
+    for (let y = 5; y <= 31; y += 2) {
+      if (y >= 15 && y <= 20) continue; // keep the throne and dais clear
       for (let x = 16; x <= 39; x += 3) {
         if (x >= CARPET.x0 - 1 && x <= CARPET.x1 + 1) continue;
         if (!world.solid[y][x]) spots.push({ x, y, facing: "s" });
@@ -217,18 +218,19 @@ const part = {
     P.fill(ctx, rx + 9, ry + 9, 3, 1, "#2f2d35");
     drawVaultDoor(ctx, P);
     // pillars, banners, torches
-    for (const [x, y] of [[17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]]) {
+    for (const [x, y] of PILLARS) {
       P.fill(ctx, x * T + 2, y * T - 8, 12, 24, "#d8d2c2");
       P.fill(ctx, x * T + 4, y * T - 8, 2, 24, "#f2eee2");
       P.fill(ctx, x * T, y * T - 10, 16, 3, "#b8b0a0");
       P.fill(ctx, x * T, y * T + 14, 16, 3, "#b8b0a0");
     }
     for (const bx of [20, 23, 32, 35]) {
-      P.fill(ctx, bx * T + 3, 16 * T + 4, 10, 18, "#3b4fa8");
-      P.fill(ctx, bx * T + 3, 16 * T + 4, 10, 2, "#e0b84a");
-      P.fill(ctx, bx * T + 7, 16 * T + 9, 2, 6, "#e0b84a");
-      P.fill(ctx, bx * T + 3, 16 * T + 22, 4, 3, "#3b4fa8");
-      P.fill(ctx, bx * T + 9, 16 * T + 22, 4, 3, "#3b4fa8");
+      // banners hang on the back wall
+      P.fill(ctx, bx * T + 3, 3 * T + 4, 10, 18, "#3b4fa8");
+      P.fill(ctx, bx * T + 3, 3 * T + 4, 10, 2, "#e0b84a");
+      P.fill(ctx, bx * T + 7, 3 * T + 9, 2, 6, "#e0b84a");
+      P.fill(ctx, bx * T + 3, 3 * T + 22, 4, 3, "#3b4fa8");
+      P.fill(ctx, bx * T + 9, 3 * T + 22, 4, 3, "#3b4fa8");
     }
   },
   drawUnder(ctx, town, world, now, P) {
