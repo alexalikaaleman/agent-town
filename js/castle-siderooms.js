@@ -1,4 +1,4 @@
-/** Castle part: SIDE ROOMS. Workshop on the left (crafting tables), Wizard Lab on the right (potion tables).
+/** Castle part: SIDE ROOMS. Wizard Lab on the left (potion tables), Workshop on the right (crafting tables).
  *  Working bots stand at a table with a task label under it (truncated; tap for the full text).
  *  Only working bots stay here (room per HOME_ROOMS in world.js); idle, done and never-posted bots
  *  stand in the moat line-up (js/castle-lineup.js).
@@ -7,14 +7,14 @@
 const LABEL_MAX = 18;
 const ROOMS = [
   {
-    key: "workshop", id: "workshop", name: "Workshop", x: 1, y: 16, w: 12, h: 18, outer: "left",
+    key: "lab", id: "lab", name: "Wizard Lab", x: 1, y: 16, w: 12, h: 18, outer: "left",
     doors: [[12, 24], [12, 25], [6, 33], [7, 33]],
-    wall: "#6e4a2c", wallDk: "#4a2f1a", floor: "#b08856", floor2: "#a27c4c", trim: "#f0a94a",
+    wall: "#40366e", wallDk: "#28204a", floor: "#5e5a8c", floor2: "#555182", trim: "#b48cff",
   },
   {
-    key: "lab", id: "lab", name: "Wizard Lab", x: 43, y: 16, w: 12, h: 18, outer: "right",
+    key: "workshop", id: "workshop", name: "Workshop", x: 43, y: 16, w: 12, h: 18, outer: "right",
     doors: [[43, 24], [43, 25], [48, 33], [49, 33]],
-    wall: "#40366e", wallDk: "#28204a", floor: "#5e5a8c", floor2: "#555182", trim: "#b48cff",
+    wall: "#6e4a2c", wallDk: "#4a2f1a", floor: "#b08856", floor2: "#a27c4c", trim: "#f0a94a",
   },
 ];
 
