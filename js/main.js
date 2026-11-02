@@ -71,10 +71,10 @@ function framePad() {
   };
 }
 /** World-px rect to fit when framed. On narrow screens the vault zooms to the
- *  cabinet block (tiles x 2-26, y 1-23) so each title sits under its own cabinet. */
+ *  cabinet block (tiles x 2-26, y 1-26) so each title sits under its cabinet and the Exit door shows. */
 function fitBounds() {
   if (scene === "vault" && window.innerWidth < 900) {
-    return { x: 2 * TILE, y: 1 * TILE, w: (26 - 2) * TILE, h: (23 - 1) * TILE };
+    return { x: 2 * TILE, y: 1 * TILE, w: (26 - 2) * TILE, h: (26 - 1) * TILE };
   }
   return { x: 0, y: 0, w: worldW(), h: worldH() };
 }
