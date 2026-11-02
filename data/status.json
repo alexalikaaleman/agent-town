@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T10:38:42.195Z",
+  "updatedAt": "2026-11-02T10:48:46.896Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -11,10 +11,7 @@
       "text": "Bowl ring v03 done; next: AT sleep push",
       "project": "Alika TreeD",
       "with": [],
-      "needs": {
-        "id": "n202611020823-9d47",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-02T09:56:15.899Z",
       "since": "2026-11-02T09:56:15.899Z"
     },

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T08:23:27.298Z",
+  "updatedAt": "2026-11-02T10:48:46.896Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -29,8 +29,8 @@
       "text": "Yes to push 10-min sleep rule?",
       "project": "Agent Town",
       "ts": "2026-11-02T08:23:27.298Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-02T10:48:46.896Z"
     }
   ]
 }
