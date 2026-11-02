@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T09:56:15.899Z",
+  "updatedAt": "2026-11-02T10:38:15.509Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-02T07:50:34.404Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Resent two revision notes",
+      "state": "working",
+      "text": "Game list for RoboTemplate",
       "project": "Pandoras Xbox",
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T07:18:23.940Z",
-      "since": "2026-11-02T07:18:23.940Z"
+      "ts": "2026-11-02T10:38:15.509Z",
+      "since": "2026-11-02T10:38:15.509Z"
     },
     "cutscene-bot": {
       "state": "done",
