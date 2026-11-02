@@ -183,6 +183,46 @@ function renderHud() {
   }
 }
 
+/** Per-bot filter chips. Tap chips to show only those bots; "All" clears. */
+function buildFilters(list) {
+  const bar = document.getElementById("filters");
+  bar.replaceChildren();
+  const all = document.createElement("button");
+  all.type = "button";
+  all.className = "chip on";
+  all.dataset.id = "";
+  all.textContent = "All";
+  bar.appendChild(all);
+  for (const bot of list) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip";
+    chip.dataset.id = bot.id;
+    chip.style.setProperty("--dot", bot.color || "#888");
+    chip.textContent = bot.name;
+    bar.appendChild(chip);
+  }
+  bar.addEventListener("click", (ev) => {
+    const chip = ev.target.closest(".chip");
+    if (!chip || !town) return;
+    const id = chip.dataset.id;
+    if (!id) town.filter.clear();
+    else if (town.filter.has(id)) town.filter.delete(id);
+    else town.filter.add(id);
+    syncFilters();
+  });
+}
+
+function syncFilters() {
+  if (!town) return;
+  for (const chip of document.querySelectorAll("#filters .chip")) {
+    const id = chip.dataset.id;
+    const on = id ? town.filter.has(id) : town.filter.size === 0;
+    chip.classList.toggle("on", on);
+    chip.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+}
+
 function homeName(id) {
   const b = world.byId.get(id);
   return b ? b.name : id;
@@ -219,7 +259,7 @@ function openPanel(agent) {
   let timeText = agent.ts ? "Updated " + formatStamp(agent.ts) : "No status line yet";
   if (agent.stalled) timeText += " · stalled (no new line for " + ago(agent.ts).replace(" ago", "") + ")";
   document.getElementById("p-time").textContent = timeText;
-  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home);
+  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home) + (agent.project ? " · Project: " + agent.project : "");
 }
 
 function closePanel() {
@@ -377,6 +417,7 @@ async function boot() {
       },
       onRoster(list) {
         roster = list;
+        buildFilters(list);
       },
     });
   } catch (err) {

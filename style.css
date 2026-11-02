@@ -302,3 +302,24 @@ h1 {
   h1 { font-size: 16px; }
   .status-side { width: 100%; margin-left: 0; }
 }
+
+#filters {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 10px 6px;
+  background: #14120f;
+  scrollbar-width: thin;
+}
+#filters .chip {
+  flex: 0 0 auto;
+  font: 12px ui-monospace, monospace;
+  padding: 4px 8px 4px 18px;
+  border: 1px solid #4a4438;
+  border-radius: 4px;
+  background: #24201a radial-gradient(circle at 9px 50%, var(--dot, #e8e2d0) 3px, transparent 4px);
+  color: #e8e2d0;
+  cursor: pointer;
+}
+#filters .chip:first-child { padding-left: 8px; background-image: none; }
+#filters .chip.on { background-color: #24418f; border-color: #e8e2d0; color: #fff; }

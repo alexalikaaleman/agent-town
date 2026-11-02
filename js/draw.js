@@ -9,7 +9,7 @@ const SHORT = {
   masterbot: "Master",
   "brainstorm-bot": "Brainstorm",
   "game-design-document-bot": "Design Doc",
-  "grok-build-worker": "Grok Build",
+  "gitwriter-3d-bot": "GitWriter",
   "website-builder-bot": "Web Build",
   "cutscene-bot": "Cutscene",
   "concept-art-bot": "Concept",
@@ -541,6 +541,66 @@ function drawLabel(ctx, text, x, y, accent) {
   ctx.fillText(text, Math.round(left + boxW / 2), top + 1);
 }
 
+/** Project rooms on the plaza: a rope outline and an FF-style billboard with the project name. */
+function drawRooms(ctx, town, world) {
+  const rooms = town.activeRooms ? town.activeRooms() : [];
+  for (const { room, name, count } of rooms) {
+    const x = room.x * TILE;
+    const y = room.y * TILE;
+    const w = room.w * TILE;
+    const h = room.h * TILE;
+    ctx.globalAlpha = 0.18;
+    fill(ctx, x, y, w, h, "#f2d58a");
+    ctx.globalAlpha = 1;
+    for (let i = 0; i < w; i += 4) {
+      fill(ctx, x + i, y, 2, 1, "#8a5a2b");
+      fill(ctx, x + i, y + h - 1, 2, 1, "#8a5a2b");
+    }
+    for (let i = 0; i < h; i += 4) {
+      fill(ctx, x, y + i, 1, 2, "#8a5a2b");
+      fill(ctx, x + w - 1, y + i, 1, 2, "#8a5a2b");
+    }
+    for (const px of [x + 2, x + w - 4]) {
+      fill(ctx, px, y, 2, 4, "#6b4226");
+      fill(ctx, px, y + h - 4, 2, 4, "#6b4226");
+    }
+  }
+}
+
+/** Billboard on the bottom edge of each room, drawn above bots; labels steer around it. */
+function drawBillboards(ctx, town) {
+  const rooms = town.activeRooms ? town.activeRooms() : [];
+  for (const { room, name, count } of rooms) {
+    const x = room.x * TILE;
+    const y = room.y * TILE;
+    const w = room.w * TILE;
+    const h = room.h * TILE;
+    // Two posts, dark frame, blue FF-style panel, cream text.
+    ctx.font = "7px ui-monospace, monospace";
+    const label = String(name).slice(0, 18) + (count > 1 ? " ·" + count : "");
+    const tw = Math.ceil(ctx.measureText(label).width);
+    const bw = Math.min(w - 4, Math.max(28, tw + 8));
+    const bx = Math.round(x + (w - bw) / 2);
+    const by = y + h - 16;
+    fill(ctx, bx + 3, by + 10, 2, 7, "#4a2e18");
+    fill(ctx, bx + bw - 5, by + 10, 2, 7, "#4a2e18");
+    placedLabels.push({ left: bx, top: by, right: bx + bw, bottom: by + 17 });
+    fill(ctx, bx, by, bw, 12, "#14120f");
+    fill(ctx, bx + 1, by + 1, bw - 2, 10, "#e8e2d0");
+    fill(ctx, bx + 2, by + 2, bw - 4, 8, "#24418f");
+    fill(ctx, bx + 2, by + 2, bw - 4, 1, "#3f63c4");
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(bx + 2, by + 2, bw - 4, 8);
+    ctx.clip();
+    ctx.fillStyle = "#fff8e6";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(label, bx + bw / 2, by + 6.5);
+    ctx.restore();
+  }
+}
+
 /** Red "stalled" tag under a bot that has been working 30+ min with no new line. */
 function drawStalled(ctx, x, y) {
   ctx.font = "7px ui-monospace, monospace";
@@ -583,6 +643,7 @@ function drawScene(ctx, town, world, now, phase) {
   for (const d of world.decor) {
     if (d.kind === "forge") drawForgeGlow(ctx, d, now);
   }
+  drawRooms(ctx, town, world);
   if (town.chests) {
     for (const chest of town.chests) drawChest(ctx, chest);
   }
@@ -605,13 +666,15 @@ function drawScene(ctx, town, world, now, phase) {
     }
     const ox = Math.round(agent.x * TILE) + 2 + (pose.shake || 0);
     const oy = Math.round(agent.y * TILE) - 6 + (pose.bob || 0);
+    const dim = town.isDimmed ? town.isDimmed(agent) : false;
+    if (dim) ctx.globalAlpha = 0.28;
     fill(ctx, ox + 2, oy + 18, 8, 3, "rgba(0,0,0,0.28)");
     drawPerson(ctx, ox, oy, styleFor(agent), pose, pose.frame, agent.facing);
     if (agent.state === "blocked") {
-      ctx.globalAlpha = 0.33;
+      ctx.globalAlpha = dim ? 0.12 : 0.33;
       fill(ctx, ox, oy + 2, 12, 16, "#e02020");
-      ctx.globalAlpha = 1;
     }
+    ctx.globalAlpha = 1;
     if (town.selected === agent.id) {
       const sx = Math.round(agent.x * TILE);
       const sy = Math.round(agent.y * TILE);
@@ -638,10 +701,12 @@ function drawScene(ctx, town, world, now, phase) {
     }
   }
 
+  drawBillboards(ctx, town);
   for (const agent of list) {
     const ox = Math.round(agent.x * TILE + TILE / 2);
     const oy = Math.round(agent.y * TILE) - 8;
     const short = SHORT[agent.id] || agent.name.slice(0, 12);
+    if (town.isDimmed && town.isDimmed(agent)) continue;
     drawLabel(ctx, short, ox, oy - 12, agent.color);
     if (agent.stalled) drawStalled(ctx, ox, Math.round(agent.y * TILE) + 15);
     if (!quiet.has(agent.id)) {
