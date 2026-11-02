@@ -506,6 +506,7 @@ function openPanel(agent) {
     }
   }
   let timeText = agent.ts ? "Updated " + formatStamp(agent.ts) : "No status line yet";
+  if (agent.ping) timeText += " · last ping " + ago(agent.ping);
   if (agent.stalled) timeText += " · stalled (no new line for " + ago(agent.ts).replace(" ago", "") + ")";
   document.getElementById("p-time").textContent = timeText;
   document.getElementById("p-home").textContent = "Home: " + homeName(agent.home) + (agent.project ? " · Project: " + agent.project : "");

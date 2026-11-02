@@ -213,6 +213,7 @@ function createTown(roster, world) {
         agent.with = Array.isArray(data.with) ? data.with.filter((id) => agents.has(id) && id !== agent.id) : [];
         agent.project = data.project || null;
         agent.stalled = Boolean(data.stalled);
+        agent.ping = data.ping || null;
         agent.reported = Boolean(data.reported);
       }
       layout();

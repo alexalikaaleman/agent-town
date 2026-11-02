@@ -98,7 +98,10 @@ function toSnapshot(roster, status, now) {
     if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;
     else if (e.state === "needs-alex") needsAlex = "question";
     const ts = e.ts ? String(e.ts) : null;
-    const age = ts ? now - Date.parse(ts) : 0;
+    const ping = e.ping ? String(e.ping) : null;
+    // Last sign of life: the newer of the last line and the last 30-minute ping.
+    const seen = Math.max(ts ? Date.parse(ts) : 0, ping ? Date.parse(ping) : 0) || 0;
+    const age = seen ? now - seen : 0;
     bots.push({
       id: bot.id,
       state,
@@ -112,6 +115,7 @@ function toSnapshot(roster, status, now) {
       project: e.project ? String(e.project).slice(0, 24) : null,
       stalled: state === "working" && age >= STALL_MS,
       reported: true,
+      ping,
     });
   }
   return bots;

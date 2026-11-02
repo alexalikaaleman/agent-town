@@ -7,6 +7,13 @@
  *   node report.js --bot <id> --state <working|done|blocked|needs-alex|idle|sleeping> --text "<=40 chars"
  *                  [--project <name>] [--with id,id] [--needs urgent|question]
  *                  [--handled <needId>] [--usage <pct>] [--list] [--dry-run]
+ *   node report.js --bot <id> --ping
+ *
+ * Reporting: every bot writes a line on start (working), finish (done/idle), blocked and
+ * needs-alex, plus a heartbeat ping every 30 minutes. A ping (--ping) keeps the bot's state,
+ * text and timestamp exactly as they are and only sets "ping" to now, so the town knows the bot
+ * is alive (no "stalled?" tag) without waking a done/idle bot or resetting its 10-minute sleep
+ * clock. Pings are not added to the History log.
  *
  * Every write is ONE commit on the `status` branch (never main, so GitHub Pages
  * does not rebuild). The commit changes only this bot's entry in
@@ -41,7 +48,7 @@ function fail(msg, code) {
 
 function parseArgs(argv) {
   const out = {};
-  const flags = new Set(["list", "dry-run", "help"]);
+  const flags = new Set(["list", "dry-run", "help", "ping"]);
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith("--")) fail("unexpected argument: " + a);
@@ -216,6 +223,12 @@ function applyReport(current, req, now) {
     touchedStatus = true;
   }
 
+  if (req.ping) {
+    if (!prev) throw new Rejected("ping: " + req.bot + " has no status line yet; post a start line (--state working) first");
+    status.bots[req.bot] = Object.assign({}, prev, { ping: nowIso });
+    touchedStatus = true;
+  }
+
   if (req.handled) {
     const item = needs.items.find((n) => n.id === req.handled);
     if (!item) throw new Rejected("no need with id " + req.handled);
@@ -249,7 +262,8 @@ function applyReport(current, req, now) {
     files["data/status.json"] = JSON.stringify(status, null, 2) + "\n";
   }
   const histName = "data/history-" + monthKey(now) + ".jsonl";
-  files[histName] = (current.history[histName] || "") + JSON.stringify(history) + "\n";
+  // A ping alone is a heartbeat, not an event: it does not go into History.
+  if (!(req.ping && !req.state && !req.handled && req.usage == null)) files[histName] = (current.history[histName] || "") + JSON.stringify(history) + "\n";
   return files;
 }
 
@@ -303,7 +317,11 @@ function buildRequest(args, aliases) {
     if (!Number.isFinite(pct) || pct < 0 || pct > 100) fail("--usage must be a number from 0 to 100");
     req.usage = Math.round(pct * 10) / 10;
   }
-  if (!req.state && !req.handled && req.usage == null) fail("nothing to write: give --state, --handled or --usage");
+  if (args.ping) {
+    if (args.state != null) fail("--ping goes alone (it keeps the current state)");
+    req.ping = true;
+  }
+  if (!req.state && !req.handled && req.usage == null && !req.ping) fail("nothing to write: give --state, --handled, --usage or --ping");
   return req;
 }
 
@@ -337,7 +355,7 @@ function main() {
     const sha = headCommit();
     const files = applyReport(readCurrent(sha, now), req, now);
     assertPublicSafe(files);
-    const message = "status: " + req.bot + " " + (req.state || (req.handled ? "handled " + req.handled : "usage " + req.usage + "%"));
+    const message = "status: " + req.bot + " " + (req.state || (req.handled ? "handled " + req.handled : req.ping ? "ping" : "usage " + req.usage + "%"));
     if (args["dry-run"]) {
       console.log("dry run, would commit on " + BRANCH + " @ " + sha.slice(0, 7) + ": " + message);
       for (const [name, content] of Object.entries(files)) console.log("--- " + name + " (" + content.length + " bytes)");
