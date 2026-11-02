@@ -44,3 +44,4 @@
 {"ts":"2026-11-02T11:02:46.297Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
 {"ts":"2026-11-02T11:06:01.766Z","bot":"playtest-qa-bot","state":"done","text":"Changelog check done; idle, nothing que…"}
 {"ts":"2026-11-02T11:39:43.443Z","bot":"gitwriter-3d-bot","state":"done","text":"Castle live; next: PROJECTS.md update","project":"Agent Town"}
+{"ts":"2026-11-02T11:59:28.041Z","bot":"gitwriter-3d-bot","state":"working","text":"Castle fixes v2 (16 items)","project":"Agent Town"}
