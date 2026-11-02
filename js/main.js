@@ -429,8 +429,11 @@ function openPanel(agent) {
   stateEl.textContent = state;
   stateEl.className = "tag s-" + agent.state;
   const needEl = document.getElementById("p-need");
-  if (agent.needsAlex === "urgent") needEl.textContent = "Needs Alex: urgent";
-  else if (agent.needsAlex === "question") needEl.textContent = "Needs Alex: question";
+  // The full question from needs.json (bots in the carpet line show it on tap).
+  const item = (needItems || []).find((it) => it.bot === agent.id && !it.handled);
+  const full = item && item.text ? ": " + item.text : "";
+  if (agent.needsAlex === "urgent") needEl.textContent = "Needs Alex (urgent)" + full;
+  else if (agent.needsAlex === "question") needEl.textContent = "Needs Alex (question)" + full;
   else needEl.textContent = "";
   document.getElementById("p-task").textContent = agent.task || agent.text || "No current task.";
   const driveEl = document.getElementById("p-drive");

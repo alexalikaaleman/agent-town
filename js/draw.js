@@ -460,15 +460,16 @@ function drawAgent(ctx, town, agent, now) {
   const s = agent.spot || {};
   if (s.tag && !agent.moving) {
     // Small text tag (e.g. "sleepy" for overflow sleepers). Never "zzz" outside the bedrooms.
-    ctx.font = "5px ui-monospace, monospace";
+    // Drawn under the feet so the name label above the head never hides it.
+    ctx.font = "bold 6px ui-monospace, monospace";
     const tw = Math.ceil(ctx.measureText(s.tag).width) + 4;
     const tx = Math.round(agent.x * TILE + TILE / 2 - tw / 2);
-    const ty = oy - 6;
-    fill(ctx, tx, ty, tw, 7, "#2c2b4d");
+    const ty = oy + 21;
+    fill(ctx, tx, ty, tw, 8, "#2c2b4d");
     ctx.fillStyle = "#cfc8ff";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(s.tag, tx + tw / 2, ty + 3.5);
+    ctx.fillText(s.tag, tx + tw / 2, ty + 4);
   }
   const bubble = bubbleFor(agent, now);
   if (bubble) drawBubble(ctx, agent.x * TILE + TILE / 2, oy - 14, bubble.kind, now, bubble.text);
