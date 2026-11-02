@@ -220,8 +220,18 @@ function drawDecor(ctx, world, d) {
   }
   if (d.kind === "bed") {
     fill(ctx, px + 2, py + 3, 12, 11, "#f4f1ea");
-    fill(ctx, px + 3, py + 7, 10, 6, "#b6403a");
+    fill(ctx, px + 3, py + 7, 10, 6, d.color || "#b6403a");
     fill(ctx, px + 3, py + 4, 6, 3, "#d9d3c5");
+    if (d.owner) {
+      // Name plate under the bed, so each bot's bed is labeled.
+      const label = (SHORT[d.owner] || d.name || d.owner).slice(0, 8);
+      ctx.font = "4px ui-monospace, monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      fill(ctx, px - 1, py + 13, 18, 4, "rgba(20,18,15,0.75)");
+      ctx.fillStyle = "#fff8e6";
+      ctx.fillText(label, px + 8, py + 15);
+    }
     return;
   }
   if (d.kind === "anvil") {
@@ -670,6 +680,11 @@ function drawScene(ctx, town, world, now, phase) {
     if (dim) ctx.globalAlpha = 0.28;
     fill(ctx, ox + 2, oy + 18, 8, 3, "rgba(0,0,0,0.28)");
     drawPerson(ctx, ox, oy, styleFor(agent), pose, pose.frame, agent.facing);
+    if (pose.sleep) {
+      // Tucked in: a blanket in the bot's color over the body.
+      fill(ctx, ox - 1, oy + 10, 14, 9, shade(agent.color || "#b6403a", 0.8));
+      fill(ctx, ox - 1, oy + 10, 14, 2, "#f4f1ea");
+    }
     if (agent.state === "blocked") {
       ctx.globalAlpha = dim ? 0.12 : 0.33;
       fill(ctx, ox, oy + 2, 12, 16, "#e02020");
@@ -707,7 +722,7 @@ function drawScene(ctx, town, world, now, phase) {
     const oy = Math.round(agent.y * TILE) - 8;
     const short = SHORT[agent.id] || agent.name.slice(0, 12);
     if (town.isDimmed && town.isDimmed(agent)) continue;
-    drawLabel(ctx, short, ox, oy - 12, agent.color);
+    if (!town.screenNames) drawLabel(ctx, short, ox, oy - 12, agent.color);
     if (agent.stalled) drawStalled(ctx, ox, Math.round(agent.y * TILE) + 15);
     if (!quiet.has(agent.id)) {
       const bubble = bubbleFor(agent, now);
@@ -727,5 +742,9 @@ function drawScene(ctx, town, world, now, phase) {
 }
 
 window.AgentTown = window.AgentTown || {};
-Object.assign(window.AgentTown, { drawMap: drawMap, drawScene: drawScene });
+Object.assign(window.AgentTown, {
+  drawMap: drawMap,
+  drawScene: drawScene,
+  shortName: (agent) => SHORT[agent.id] || String(agent.name || agent.id).slice(0, 12),
+});
 })();

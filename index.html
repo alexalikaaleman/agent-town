@@ -46,6 +46,7 @@
     <div id="zoom-controls">
       <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
       <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+      <button type="button" id="label-size" aria-label="Label size" title="Label size">Aa</button>
     </div>
   </div>
   <aside id="history" hidden>
@@ -64,6 +65,9 @@
       <p id="p-home"></p>
     </div>
   </aside>
+  <main id="list-view" hidden>
+    <ul id="bot-list"></ul>
+  </main>
   <p id="fatal" class="fatal" hidden></p>
   <script src="js/model.js"></script>
   <script src="js/clock.js"></script>
@@ -72,6 +76,7 @@
   <script src="js/agents.js"></script>
   <script src="js/draw.js"></script>
   <script src="js/net.js"></script>
+  <script src="js/list.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

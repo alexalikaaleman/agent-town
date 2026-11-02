@@ -431,3 +431,57 @@ h1 {
 }
 #filters .chip:first-child { padding-left: 8px; background-image: none; }
 #filters .chip.on { background-color: #24418f; border-color: #e8e2d0; color: #fff; }
+
+
+/* ---- town-v2 ---- */
+#stage { overflow: hidden; }
+#map-wrap { width: 100%; height: 100%; display: block; min-width: 0; min-height: 0; }
+#town { display: block; }
+#label-size { font-size: 14px; }
+/* The panel wrapper spans the screen width; only the card takes taps, so taps on the map reach the map. */
+#panel { pointer-events: none; }
+#panel .panel-card { pointer-events: auto; }
+/* Needs Alex: full text, wrapped, no ellipsis. */
+#needs { flex-wrap: wrap; overflow-x: visible; touch-action: auto; }
+.need { flex: 1 1 260px; max-width: none; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; overflow-wrap: anywhere; }
+/* Filter chips wrap instead of scrolling sideways; compact on phones. */
+#filters { flex-wrap: wrap; overflow-x: visible; gap: 4px; }
+#filters .chip { font-size: 11px; padding: 2px 6px 2px 15px; background-position: 0 0; background-image: radial-gradient(circle at 7px 50%, var(--dot, #e8e2d0) 3px, transparent 4px); }
+#filters .chip:first-child { padding-left: 6px; }
+#filters .chip.more { padding-left: 6px; background-image: none; }
+@media (max-width: 899px) {
+  #filters:not(.open) .chip:not(:first-child):not(.more):not(.on) { display: none; }
+}
+@media (min-width: 900px) {
+  #filters .chip.more { display: none; }
+}
+.tag.s-sleeping { background: #4b4a7a; color: #fff; }
+/* ?view=list */
+body.list-view #viewport, body.list-view #filters, body.list-view #panel, body.list-view #mode-note { display: none !important; }
+#list-view { flex: 1; overflow: auto; padding: 8px 10px 24px; }
+#list-view[hidden] { display: none; }
+#bot-list { list-style: none; margin: 0; padding: 0; }
+#bot-list li { border: 2px solid var(--line); border-left: 6px solid var(--dot, #888); background: #18202e; margin: 0 0 8px; padding: 8px 10px; font-size: 15px; line-height: 1.35; }
+#bot-list .row1 { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+#bot-list .nm { font-weight: bold; }
+#bot-list .st { font-size: 13px; padding: 1px 6px; background: #2c3d63; white-space: nowrap; }
+#bot-list .st.s-working { background: #2f6a3a; }
+#bot-list .st.s-waiting { background: #24527a; }
+#bot-list .st.s-blocked { background: #8f2d2d; }
+#bot-list .st.s-done { background: #6b5a1e; }
+#bot-list .st.s-sleeping { background: #4b4a7a; }
+#bot-list .tk { margin-top: 3px; overflow-wrap: anywhere; }
+#bot-list .meta { margin-top: 2px; font-size: 12px; color: #9aa7b8; }
+/* Phones: a compact header so the town gets the space. */
+@media (max-width: 640px) {
+  #hud { flex-wrap: wrap; gap: 4px 6px; padding: 6px 8px; align-items: center; }
+  #hud .brand h1, #hud .brand { font-size: 15px; }
+  #hud .counts { display: flex; flex-wrap: wrap; gap: 4px; }
+  #hud .count, #hud .mode, #hud .clock { font-size: 12px; padding: 2px 6px; margin: 0; }
+  #hud .status-side { display: flex; gap: 4px; flex-wrap: wrap; }
+  #usage-row { padding: 4px 8px; gap: 6px; font-size: 12px; }
+  #needs { padding: 4px 8px; gap: 4px; }
+  #needs .need { font-size: 13px; padding: 4px 6px; }
+  #needs > :not(.need) { font-size: 12px; }
+}
+body.list-view #usage-row, body.list-view #clock, body.list-view #needs { display: none !important; }

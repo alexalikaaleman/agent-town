@@ -23,7 +23,7 @@ node report.js --list
 | Flag | Meaning |
 | --- | --- |
 | `--bot` | `id` (or an alias) from `data/bots.json`. |
-| `--state` | `working`, `done`, `blocked`, `needs-alex` or `idle`. |
+| `--state` | `working`, `done`, `blocked`, `needs-alex`, `idle` or `sleeping`. |
 | `--text` | Bubble text, 40 characters max after the privacy filter. Emails, links, Drive links, paths, money and long ids are removed. Plain file names like `report.js` stay. |
 | `--project` | Optional. Bots on the same project gather in a project room with a billboard. |
 | `--with` | Optional comma list of bot ids working together (they meet at the Workshop). |
@@ -42,8 +42,14 @@ Override the target with `AGENT_TOWN_REPO` and `AGENT_TOWN_BRANCH` for testing.
 Mid-task lines (`working` after `working`, or `blocked` after `working`) must be at least 6 minutes apart. A line sent sooner is refused with exit code 2 and nothing is written. Exempt, always written at once:
 
 - the start line (the first `working` line of a task),
-- `done` and `idle` lines (finishing),
+- `done`, `idle` and `sleeping` lines (finishing),
 - `needs-alex` lines.
+
+### Sleeping, Bedroom and Done Room
+
+A bot is shown as sleeping when its last line is `--state sleeping`, or when it is `idle` or `working` and its last line is more than 2 hours old (or it has never sent a line). Sleeping bots walk to their own labeled bed in the Bedroom and show a small zzz. `done`, `blocked` and `needs-alex` bots never show as sleeping. `done` bots walk to the Done Room and dance. Everyone else goes where they did before.
+
+The Bedroom has one bed per bot in `data/bots.json`. The beds are made from the roster when the page loads, so adding a bot adds a bed.
 
 ### Needs Alex
 
@@ -57,15 +63,18 @@ Only the bot that raised a need can mark it handled. Handled items drop off the 
 
 ## The roster
 
-`data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, `driveFolderUrl`, and optional `aliases` (old ids that still map to this bot). Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post` (the Post Office), and `house`. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot has a treasure chest beside its home spot. An unlocked chest opens that folder in a new tab. A locked chest stays grey, shows a padlock, and the label "no Drive folder yet". Locked chests are listed in `CHESTS_TO_DISCUSS.md`.
+`data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, `driveFolderUrl`, and optional `aliases` (old ids that still map to this bot). Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post` (the Post Office), and `house`. The Bedroom and Done Room are not homes; bots go there by state. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot has a treasure chest beside its home spot. An unlocked chest opens that folder in a new tab. A locked chest stays grey, shows a padlock, and the label "no Drive folder yet". Locked chests are listed in `CHESTS_TO_DISCUSS.md`.
 
 ## What you can do on the page
 
-- Pinch, or use + and −, to zoom. ⌂ at the top left goes back to the home view.
+- The page frames the whole town on load at any screen size (desktop, phone, car browser).
+- Pinch, the mouse wheel, or + and − zoom smoothly. Zoom stops at the framed view (all of the town) and at a close-up of one bot. ⌂ at the top left goes back to the framed view.
+- Bot names are always shown. Names that would overlap are moved aside. **Aa** cycles the size of room and bot names (small, medium, large); the choice is remembered.
+- Open `index.html?view=list` for a plain list of bots (state, task, project), with no map. Good on a phone.
 - Drag or use the arrow keys to pan.
 - Tap a character for name, role, state, task, project, last update (Hawaii time), and an Open Drive folder link when that bot has one.
 - Double-click or double-tap a character to follow it. The other bots fade. Tap empty space or ⌂ to stop following.
-- Use the filter buttons under the header to show only some bots. "All" clears the filter.
+- Use the filter buttons under the header to show only some bots. "All" clears the filter. On a phone, tap "Bots ▾" to show the bot buttons.
 - Tap a treasure chest to open that bot's Drive folder. A locked chest only shows "no Drive folder yet".
 - Tap an item in the Needs Alex strip to jump to that character.
 - The usage bar shows the weekly %. The yellow line at 58% means no new steps; the red line at 65% means hard stop. Per-bot slices show only when `status.json` has `usage.bots`.

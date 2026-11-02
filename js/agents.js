@@ -67,12 +67,24 @@ function arrived(agent) {
 
 function createTown(roster, world) {
   const agents = new Map();
+  // Spawn spread: each bot gets its own idle spot by its order among bots with the same home.
+  const homeIndex = new Map();
+  const homeCount = new Map();
+  for (const bot of roster) {
+    const n = homeCount.get(bot.home) || 0;
+    homeIndex.set(bot.id, n);
+    homeCount.set(bot.home, n + 1);
+  }
+  const spawnOf = (bot) => {
+    const idle = world.spots[bot.home].idle;
+    return idle[homeIndex.get(bot.id) % idle.length];
+  };
   for (const bot of roster) {
     const homeSpots = world.spots[bot.home];
     if (!homeSpots || !homeSpots.idle.length) {
       throw new Error("Unknown home \"" + bot.home + "\" for " + bot.id);
     }
-    const spawn = homeSpots.idle[hashId(bot.id) % homeSpots.idle.length];
+    const spawn = spawnOf(bot);
     agents.set(bot.id, {
       id: bot.id,
       name: bot.name,
@@ -113,8 +125,7 @@ function createTown(roster, world) {
   const chestById = new Map();
   const chestTaken = new Set();
   for (const bot of roster) {
-    const homeSpots = world.spots[bot.home];
-    const spawn = homeSpots.idle[hashId(bot.id) % homeSpots.idle.length];
+    const spawn = spawnOf(bot);
     const tile = findChestTile(world, spawn, chestTaken);
     chestTaken.add(tile.x + "," + tile.y);
     const chest = {
@@ -154,6 +165,21 @@ function createTown(roster, world) {
       const at = Math.max(0, mates.findIndex((o) => o.id === agent.id));
       const spot = room.spots[at % room.spots.length];
       setGoal(agent, spot, "room" + agent.room + ":" + spot.x + "," + spot.y);
+      return;
+    }
+    // Sleeping bots go to their own bed; done bots dance in the Done room.
+    if (agent.state === "sleeping" && world.bedOf && world.bedOf.get(agent.id)) {
+      const bed = world.bedOf.get(agent.id);
+      setGoal(agent, { x: bed.x, y: bed.y, facing: "s" }, "bed:" + bed.x + "," + bed.y);
+      return;
+    }
+    if (agent.state === "done" && world.danceSpots && world.danceSpots.length) {
+      const dancers = Array.from(agents.values())
+        .filter((o) => o.state === "done" && !o.busy)
+        .sort((a, b) => (a.id < b.id ? -1 : 1));
+      const at = Math.max(0, dancers.findIndex((o) => o.id === agent.id));
+      const spot = world.danceSpots[at % world.danceSpots.length];
+      setGoal(agent, spot, "dance:" + spot.x + "," + spot.y);
       return;
     }
     if (agent.state === "working") spots = world.spots[agent.home].work;
@@ -341,7 +367,7 @@ function createTown(roster, world) {
     const rooms = world.projectRooms || [];
     const firstSeen = new Map();
     for (const agent of agents.values()) {
-      const active = agent.project && agent.state !== "idle" && agent.state !== "done";
+      const active = agent.project && agent.state !== "idle" && agent.state !== "done" && agent.state !== "sleeping";
       if (!active) continue;
       const t = String(agent.since || agent.ts || "");
       if (!firstSeen.has(agent.project) || t < firstSeen.get(agent.project)) firstSeen.set(agent.project, t);
@@ -360,7 +386,7 @@ function createTown(roster, world) {
     }
     roomNames = next;
     for (const agent of agents.values()) {
-      const active = agent.project && agent.state !== "idle" && agent.state !== "done";
+      const active = agent.project && agent.state !== "idle" && agent.state !== "done" && agent.state !== "sleeping";
       const index = active ? roomNames.indexOf(agent.project) : -1;
       const room = index >= 0 ? index : null;
       if (agent.room !== room) {
@@ -376,7 +402,7 @@ function createTown(roster, world) {
   function eligibleCollab(agent) {
     if (!agent || agent.busy) return false;
     if (agent.room != null) return false;
-    if (agent.state === "idle" || agent.state === "done") return false;
+    if (agent.state === "idle" || agent.state === "done" || agent.state === "sleeping") return false;
     return true;
   }
 
@@ -690,6 +716,18 @@ function createTown(roster, world) {
       }
       assignRooms();
       for (const agent of agents.values()) retarget(agent);
+      // First snapshot: place everyone at their spot at once, so the town loads settled.
+      if (!this.settled) {
+        this.settled = true;
+        for (const agent of agents.values()) {
+          if (agent.goal && !agent.busy) {
+            agent.x = agent.goal.x;
+            agent.y = agent.goal.y;
+            agent.facing = agent.goal.facing || "s";
+            agent.path = null;
+          }
+        }
+      }
       for (const agent of agents.values()) maybeHandoff(agent);
       pump();
       syncCollab();
@@ -777,9 +815,9 @@ function createTown(roster, world) {
       chest.kick = (time || 0) + 700;
       if (!chest.url) this.tipChest = id;
     },
-    hitTest(worldX, worldY) {
+    hitTest(worldX, worldY, radius) {
       let best = null;
-      let bestD = 14;
+      let bestD = radius || 14;
       for (const agent of agents.values()) {
         const px = agent.x * TILE + TILE / 2;
         const py = agent.y * TILE + 6;
@@ -826,7 +864,7 @@ function bubbleFor(agent, time) {
     if (agent.collab || agent.state === "working") return { kind: "working", time };
   }
   if (agent.state === "done") return { kind: "done" };
-  if (agent.state === "idle" && !agent.moving) return { kind: "zzz", time };
+  if ((agent.state === "idle" || agent.state === "sleeping") && !agent.moving) return { kind: "zzz", time };
   return null;
 }
 
@@ -844,9 +882,11 @@ function poseFor(agent, time) {
     return { pose: "hips", frame: Math.floor(time / 700) % 4, bob: 0, shake: 0, look: true };
   }
   if (agent.state === "done" && !moving) {
-    const hop = Math.floor(time / 160) % 2 === 0 ? -1 : 0;
-    return { pose: "up", frame: 0, bob: hop, shake: 0 };
+    // Dance loop: hop, arms up and down, and turn on the spot.
+    const beat = Math.floor((time + hashId(agent.id) % 400) / 200);
+    return { pose: beat % 2 === 0 ? "up" : "idle", frame: Math.floor(beat / 2) % 4, bob: beat % 2 === 0 ? -2 : 0, shake: 0, look: true, dance: true };
   }
+  if (agent.state === "sleeping" && !moving) return { pose: "idle", frame: 0, bob: 0, shake: 0, sleep: true };
   if (moving) return { pose: "walk", frame: Math.floor(agent.walk * 2) % 4, bob: Math.floor(agent.walk * 2) % 2 === 0 ? -1 : 0, shake: 0 };
   const breathe = Math.floor(time / 500) % 2 === 0 ? 0 : -1;
   return { pose: "idle", frame: 0, bob: breathe, shake: 0 };

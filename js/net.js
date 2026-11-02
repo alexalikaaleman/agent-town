@@ -3,15 +3,28 @@
 const STATUS_BASE = "https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/";
 const POLL_MS = 2 * 60 * 1000;
 const STALL_MS = 30 * 60 * 1000;
+const SLEEP_MS = 2 * 60 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 12000;
+
+/** fetch with a timeout, so a hung request can never leave a panel on "Loading…". */
+async function fetchT(url, opts) {
+  const ctl = typeof AbortController === "function" ? new AbortController() : null;
+  const timer = ctl ? setTimeout(() => ctl.abort(), FETCH_TIMEOUT_MS) : 0;
+  try {
+    return await fetch(url, Object.assign({}, opts, ctl ? { signal: ctl.signal } : {}));
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 async function fetchJson(url) {
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetchT(url, { cache: "no-store" });
   if (!res.ok) throw new Error(String(res.status));
   return res.json();
 }
 
 async function fetchText(url) {
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetchT(url, { cache: "no-store" });
   if (res.status === 404) return "";
   if (!res.ok) throw new Error(String(res.status));
   return res.text();
@@ -28,7 +41,7 @@ let headSha = null;
 
 async function refreshHead() {
   try {
-    const res = await fetch(REF_API, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
+    const res = await fetchT(REF_API, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
     const sha = data && data.object && data.object.sha;
@@ -71,10 +84,14 @@ function toSnapshot(roster, status, now) {
   for (const bot of roster) {
     const e = entries.get(bot.id);
     if (!e) {
-      bots.push({ id: bot.id, state: "idle", text: "", task: "", needsAlex: null, ts: null, with: [], project: null, stalled: false, reported: false });
+      // No status line at all: shown asleep in the Bedroom.
+      bots.push({ id: bot.id, state: "sleeping", text: "", task: "", needsAlex: null, ts: null, with: [], project: null, stalled: false, reported: false });
       continue;
     }
-    const state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle"].includes(e.state) ? e.state : "idle";
+    const ts0 = e.ts ? Date.parse(String(e.ts)) : NaN;
+    let state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle", "sleeping"].includes(e.state) ? e.state : "idle";
+    // Idle or working with no new line for 2+ hours shows as sleeping. Done, blocked and needs-alex keep their state.
+    if ((state === "idle" || state === "working") && (!Number.isFinite(ts0) || now - ts0 >= SLEEP_MS)) state = "sleeping";
     let needsAlex = null;
     if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;
     else if (e.state === "needs-alex") needsAlex = "question";
@@ -91,7 +108,7 @@ function toSnapshot(roster, status, now) {
       since: e.since || ts,
       with: Array.isArray(e.with) ? e.with.map((w) => byAlias.get(w)).filter(Boolean) : [],
       project: e.project ? String(e.project).slice(0, 24) : null,
-      stalled: e.state === "working" && age >= STALL_MS,
+      stalled: state === "working" && age >= STALL_MS,
       reported: true,
     });
   }
@@ -151,7 +168,16 @@ function monthKey(date) {
 
 /** This month's history lines, newest first. Bad lines are skipped. */
 async function loadHistory(date) {
-  const text = await fetchText(statusUrl("history-" + monthKey(date || new Date()) + ".jsonl"));
+  const name = "history-" + monthKey(date || new Date()) + ".jsonl";
+  if (!headSha) await refreshHead();
+  let text;
+  try {
+    text = await fetchText(statusUrl(name));
+  } catch (err) {
+    // Commit-pinned read failed: fall back to the branch URL.
+    if (!headSha) throw err;
+    text = await fetchText(STATUS_BASE + name + "?t=" + Date.now());
+  }
   const out = [];
   for (const line of text.split("\n")) {
     if (!line.trim()) continue;
@@ -163,5 +189,5 @@ async function loadHistory(date) {
 }
 
 window.AgentTown = window.AgentTown || {};
-Object.assign(window.AgentTown, { loadHistory, monthKey, connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS });
+Object.assign(window.AgentTown, { loadHistory, monthKey, connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS, SLEEP_MS });
 })();

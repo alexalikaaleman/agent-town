@@ -2,7 +2,7 @@
 (function () {
 const TILE = 16;
 const MAP_W = 50;
-const MAP_H = 36;
+const MAP_H = 46;
 
 const BUILDING_DEFS = [
   {
@@ -133,6 +133,38 @@ const BUILDING_DEFS = [
     trim: "#b6403a",
     roof: "#a33b3b",
   },
+  {
+    id: "bedroom",
+    name: "Bedroom",
+    x: 1,
+    y: 37,
+    w: 32,
+    h: 8,
+    door: "n",
+    sign: "BED",
+    wall: "#4b4a7a",
+    wallDk: "#2c2b4d",
+    floor: "#8f8bb8",
+    floor2: "#837fab",
+    trim: "#a99be0",
+    roof: "#3b3a66",
+  },
+  {
+    id: "done",
+    name: "Done Room",
+    x: 35,
+    y: 37,
+    w: 14,
+    h: 8,
+    door: "n",
+    sign: "DONE",
+    wall: "#3f7a4a",
+    wallDk: "#24502c",
+    floor: "#d8c27a",
+    floor2: "#cbb36a",
+    trim: "#6fd17f",
+    roof: "#2f6a3a",
+  },
 ];
 
 function hash(x, y) {
@@ -144,7 +176,7 @@ function hash(x, y) {
 function inRoad(x, y) {
   if (x === 0 || y === 0 || x === MAP_W - 1 || y === MAP_H - 1) return false;
   const col = x === 15 || x === 16 || x === 33 || x === 34;
-  const row = y === 11 || y === 12 || y === 23 || y === 24;
+  const row = y === 11 || y === 12 || y === 23 || y === 24 || y === 35 || y === 36;
   return col || row;
 }
 
@@ -165,10 +197,31 @@ function spreadSpots(spots, minDist) {
     }
     if (ok) chosen.push(spot);
   }
-  return chosen.length ? chosen : sorted;
+  return farOrder(chosen.length ? chosen : sorted);
 }
 
-function createWorld() {
+/** Reorder spots so each next spot is as far as possible from the ones before (bots spread across the room). */
+function farOrder(list) {
+  if (list.length < 3) return list.slice();
+  const left = list.slice();
+  const out = [left.splice(0, 1)[0]];
+  while (left.length) {
+    let bi = 0;
+    let bd = -1;
+    for (let i = 0; i < left.length; i++) {
+      let d = Infinity;
+      for (const o of out) d = Math.min(d, Math.abs(o.x - left[i].x) + Math.abs(o.y - left[i].y));
+      if (d > bd) {
+        bd = d;
+        bi = i;
+      }
+    }
+    out.push(left.splice(bi, 1)[0]);
+  }
+  return out;
+}
+
+function createWorld(roster) {
   const w = MAP_W;
   const h = MAP_H;
   const ground = [];
@@ -336,6 +389,32 @@ function createWorld() {
   windowAt(house.x + house.w - 1, house.y + 3, house.id);
   windowAt(house.x + house.w - 1, house.y + 6, house.id);
 
+  // Bedroom: one bed per roster bot, in rows, generated from data/bots.json.
+  const bedroom = byId.get("bedroom");
+  const beds = [];
+  const bedCells = [];
+  for (const pass of [0, 1]) {
+    for (let y = bedroom.y + 2 - pass; y <= bedroom.y + bedroom.h - 2; y += 2) {
+      for (let x = bedroom.x + 1 + pass; x <= bedroom.x + bedroom.w - 2; x += 2) {
+        if (entry.has(x + "," + y) || ground[y][x] !== "floor") continue;
+        bedCells.push({ x, y });
+      }
+    }
+  }
+  (roster || []).forEach((bot, i) => {
+    const cell = bedCells[i % Math.max(1, bedCells.length)];
+    if (!cell) return;
+    beds.push({ x: cell.x, y: cell.y, id: bot.id, color: bot.color || "#b6403a" });
+    decor.push({ x: cell.x, y: cell.y, kind: "bed", bid: "bedroom", color: bot.color || "#b6403a", owner: bot.id, name: bot.name || bot.id });
+  });
+  const doneRoom = byId.get("done");
+  rel(doneRoom, [[1, 1], [12, 1]], "table");
+  const danceCells = [];
+  for (let y = doneRoom.y + 2; y <= doneRoom.y + doneRoom.h - 2; y++) {
+    for (let x = doneRoom.x + 1; x <= doneRoom.x + doneRoom.w - 2; x++) {
+      if (!entry.has(x + "," + y) && !solid[y][x]) danceCells.push({ x, y, facing: "s" });
+    }
+  }
   for (const b of buildings) {
     let sx = b.x + Math.floor(b.w / 2);
     if (b.doorY === b.y && Math.abs(b.doorX - sx) < 2) sx = Math.min(b.x + b.w - 2, b.doorX + 2);
@@ -441,6 +520,9 @@ function createWorld() {
     decor,
     spots,
     plazaSpots: spreadSpots(plazaSpots, 3),
+    beds,
+    bedOf: new Map(beds.map((b) => [b.id, b])),
+    danceSpots: spreadSpots(danceCells, 2),
     meetPairs,
     collabSpots,
     water,

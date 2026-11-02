@@ -4,7 +4,7 @@
 /**
  * report.js: one bot writes one status line to the public `status` branch.
  *
- *   node report.js --bot <id> --state <working|done|blocked|needs-alex|idle> --text "<=40 chars"
+ *   node report.js --bot <id> --state <working|done|blocked|needs-alex|idle|sleeping> --text "<=40 chars"
  *                  [--project <name>] [--with id,id] [--needs urgent|question]
  *                  [--handled <needId>] [--usage <pct>] [--list] [--dry-run]
  *
@@ -16,7 +16,7 @@
  * short random wait. No queue, no lock, no background timer, no polling loop.
  *
  * Rate guard: mid-task lines (working -> working, working -> blocked) must be
- * at least 6 minutes apart. Start lines (first "working" line), done/idle
+ * at least 6 minutes apart. Start lines (first "working" line), done/idle/sleeping
  * (finish) lines and needs-alex lines always write at once.
  */
 
@@ -27,7 +27,7 @@ const { cleanBubble } = require("./lib/privacy");
 
 const REPO = process.env.AGENT_TOWN_REPO || "alexalikaaleman/agent-town";
 const BRANCH = process.env.AGENT_TOWN_BRANCH || "status";
-const STATES = ["working", "done", "blocked", "needs-alex", "idle"];
+const STATES = ["working", "done", "blocked", "needs-alex", "idle", "sleeping"];
 const GUARD_MS = 6 * 60 * 1000;
 const MAX_RETRIES = 3;
 const KEEP_HANDLED_MS = 30 * 24 * 60 * 60 * 1000;
@@ -185,7 +185,7 @@ function applyReport(current, req, now) {
       throw new Rejected(
         "rate guard: mid-task lines for " + req.bot + " must be 6 minutes apart. Last line was " +
           Math.floor((now.getTime() - prevTs) / 60000) + " min ago; try again in about " + waitMin +
-          " min. (Start, done, idle and needs-alex lines always write.)"
+          " min. (Start, done, idle, sleeping and needs-alex lines always write.)"
       );
     }
     const entry = {
