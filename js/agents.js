@@ -247,7 +247,7 @@ function createTown(roster, world) {
     counts() {
       const counts = { working: 0, waiting: 0, blocked: 0, needs: 0 };
       for (const agent of agents.values()) {
-        if (agent.state === "working") counts.working++;
+        if (agent.state === "working" || agent.state === "talking") counts.working++;
         if (agent.state === "waiting") counts.waiting++;
         if (agent.state === "blocked") counts.blocked++;
         if (agent.needsAlex === "urgent" || agent.needsAlex === "question") counts.needs++;
@@ -307,6 +307,8 @@ function bubbleFor(agent, time) {
   // "zzz" only for a bot lying in a bedroom bunk.
   const s = agent.spot;
   if (agent.state === "sleeping" && s && s.zone === "bed" && !agent.moving) return { kind: "zzz", time };
+  // Fix 9: talking bots (and the ninja, drawn separately) get an animated "..." bubble.
+  if (agent.state === "talking") return { kind: "working", time };
   return null;
 }
 
@@ -324,6 +326,7 @@ function poseFor(agent, time) {
   if (s.zone === "wall") return { pose: "idle", frame: 0, bob: 0, shake: 0 };
   if (agent.state === "blocked") return { pose: "crossed", frame: 0, bob: 0, shake: Math.floor(time / 70) % 2 };
   if (s.zone === "carpet") return { pose: "hips", frame: Math.floor(time / 700) % 4, bob: 0, shake: 0 };
+  if (s.zone === "talk") return { pose: "hips", frame: Math.floor(time / 500) % 4, bob: 0, shake: 0 };
   const breathe = Math.floor(time / 500) % 2 === 0 ? 0 : -1;
   return { pose: "idle", frame: 0, bob: breathe, shake: 0 };
 }

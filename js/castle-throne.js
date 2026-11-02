@@ -253,14 +253,30 @@ const part = {
   },
   place(ctx) {
     const town = ctx.town;
-    const taken = new Set(ctx.free().map((a) => a.id));
-    const line = town.needsList().filter((a) => taken.has(a.id));
+    // Voice-call bots stand beside the throne (fix 9 / FIXES #6): 2 sides, extras below the dais.
+    const talkers = ctx.free().filter((a) => a.state === "talking").sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
+    const talkSpots = [
+      { x: THRONE.x - 2, y: THRONE.y, facing: "e" },
+      { x: THRONE.x + 2, y: THRONE.y, facing: "w" },
+    ];
+    talkers.forEach((a, i) => {
+      let s;
+      if (i < 2) s = talkSpots[i];
+      else {
+        const k = i - 2;
+        s = { x: THRONE.x + (k % 2 ? 2.5 : -2.5), y: THRONE.y + 2 + Math.floor(k / 2) * 1.5, facing: "n" };
+      }
+      ctx.assign(a, { zone: "talk", x: s.x, y: s.y, facing: s.facing, line: i + 1 });
+    });
+    town.extras.talkLine = talkers.map((a) => a.id);
+    const freeIds = new Set(ctx.free().map((a) => a.id));
+    const carpet = town.needsList().filter((a) => freeIds.has(a.id));
     const spots = lineSpots();
-    line.forEach((a, i) => {
+    carpet.forEach((a, i) => {
       const s = spots[i] || { x: THRONE.x + (i % 2 ? -2 : 2), y: CARPET.y1 - Math.floor((i - spots.length) / 2) * LINE_STEP };
       ctx.assign(a, { zone: "carpet", x: s.x, y: s.y, facing: "n", line: i + 1 });
     });
-    town.extras.carpetLine = line.map((a) => a.id);
+    town.extras.carpetLine = carpet.map((a) => a.id);
   },
   update(town, dt) {
     stepNinja(town.world.busNinja, dt);
@@ -329,6 +345,9 @@ const part = {
       P.fill(ctx, 30 * T + 14 + ((t / 30) % 5), 18 * T + 8 - ((t / 50) % 4), 1, 1, "#8a8791");
     }
     drawPuff(ctx, P, nin, now);
+    // Fix 9: Bus Ninja shows "..." while any bot is on a voice call beside the throne.
+    const talking = town && town.agents && [...town.agents.values()].some((a) => a.state === "talking");
+    if (talking && P.drawBubble) P.drawBubble(ctx, nin.x * T + T / 2, nin.y * T - 10, "working", now);
   },
 };
 window.AgentTown.castleParts.push(part);

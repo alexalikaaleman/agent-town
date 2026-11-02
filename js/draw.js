@@ -484,7 +484,7 @@ function drawAgent(ctx, town, agent, now) {
   const dim = town.isDimmed ? town.isDimmed(agent) : false;
   if (dim) ctx.globalAlpha = 0.28;
   const style = styleFor(agent);
-  const busy = agent.state === "working" && pose.pose !== "lie";
+  const busy = (agent.state === "working" || agent.state === "talking") && pose.pose !== "lie";
   if (busy) {
     // Soft glow under working bots, so they read as busy next to idle ones.
     const g = 0.22 + 0.08 * Math.sin(now / 300 + (hashId(agent.id) % 7));

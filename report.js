@@ -4,7 +4,7 @@
 /**
  * report.js: one bot writes one status line to the public `status` branch.
  *
- *   node report.js --bot <id> --state <working|done|blocked|needs-alex|idle|sleeping> --text "<=40 chars"
+ *   node report.js --bot <id> --state <working|done|blocked|needs-alex|idle|sleeping|talking> --text "<=40 chars"
  *                  [--project <name>] [--with id,id] [--needs urgent|question]
  *                  [--handled <needId>] [--usage <pct>] [--list] [--dry-run]
  *   node report.js --bot <id> --ping
@@ -24,7 +24,7 @@
  *
  * Rate guard: mid-task lines (working -> working, working -> blocked) must be
  * at least 6 minutes apart. Start lines (first "working" line), done/idle/sleeping
- * (finish) lines and needs-alex lines always write at once.
+ * (finish) lines, needs-alex and talking lines always write at once.
  */
 
 const fs = require("fs");
@@ -34,7 +34,7 @@ const { cleanBubble } = require("./lib/privacy");
 
 const REPO = process.env.AGENT_TOWN_REPO || "alexalikaaleman/agent-town";
 const BRANCH = process.env.AGENT_TOWN_BRANCH || "status";
-const STATES = ["working", "done", "blocked", "needs-alex", "idle", "sleeping"];
+const STATES = ["working", "done", "blocked", "needs-alex", "idle", "sleeping", "talking"];
 const GUARD_MS = 6 * 60 * 1000;
 const MAX_RETRIES = 3;
 const KEEP_HANDLED_MS = 30 * 24 * 60 * 60 * 1000;
@@ -300,6 +300,7 @@ function buildRequest(args, aliases) {
     req.text = cleanBubble(rawText);
     if (Array.from(rawText.trim()).length > 40) console.warn("report.js: text is over 40 characters; it was cut to: " + req.text);
     if (!req.text && ["working", "blocked", "needs-alex"].includes(req.state)) fail("--text is required for state " + req.state + " (after the privacy filter it was empty)");
+    if (req.state === "talking" && req.text == null) req.text = "";
     req.project = args.project ? cleanBubble(args.project, 24) : null;
     req.with = [];
     for (const id of String(args.with || "").split(",").map((s) => s.trim()).filter(Boolean)) {

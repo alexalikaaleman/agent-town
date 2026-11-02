@@ -326,6 +326,7 @@ h2, p { margin: 0; }
 }
 
 .tag.s-working { background: #1f6b4a; }
+.tag.s-talking { background: #1f5a6b; }
 .tag.s-waiting { background: #8a6420; }
 .tag.s-blocked { background: #8f2d2d; }
 .tag.s-done { background: #2a6f3a; }
