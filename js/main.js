@@ -880,15 +880,19 @@ function rewrapToWidth(c, text, px, maxW) {
   }
   return lines.join("\n");
 }
-/** Smallest font (down to 6) that fits l.text in maxW×maxH, ignoring ellipsis. */
+/** Fix 37: the title as drawn at px: as written, else re-wrapped, so it fits maxW×maxH; null if neither fits. */
+function vaultFitText(c, text, px, maxW, maxH) {
+  const a = labelBox(c, text, px, 0, 0);
+  if (a.w <= maxW && a.h <= maxH) return text;
+  const re = rewrapToWidth(c, text, px, maxW);
+  const b = labelBox(c, re, px, 0, 0);
+  if (b.w <= maxW && b.h <= maxH) return re;
+  return null;
+}
+/** Largest font (from startPx down to 6) at which the title fits its box, as written or re-wrapped. */
 function vaultTitlePx(c, text, startPx, maxW, maxH) {
-  let px = startPx;
-  for (;;) {
-    const trial = labelBox(c, text, px, 0, 0);
-    if (trial.w <= maxW && trial.h <= maxH) return px;
-    if (px > 6) { px--; continue; }
-    return px;
-  }
+  for (let px = startPx; px > 6; px--) if (vaultFitText(c, text, px, maxW, maxH) != null) return px;
+  return 6;
 }
 function labelBox(c, text, px, x, y) {
   c.font = px + "px ui-monospace, monospace";
@@ -956,13 +960,16 @@ function drawScreenLabels(c) {
   const vaultRowPx = new Map();
   const vaultMaxW = 5 * TILE * zoom - 6;
   const vaultMaxH = 4 * TILE * zoom - 4;
+  // Fix 37: arcade titles start ~10% bigger than other part labels, then shrink/re-wrap to fit their box.
+  const cabPx = Math.round(Math.min(13.2, Math.max(8.8, 6.05 * zoom)) * labelSize);
+  debugInfo.vaultText = { partPx: partPx, cabPx: cabPx, maxW: vaultMaxW, maxH: vaultMaxH };
   if (scene === "vault") {
     for (const p of cur().parts) {
       if (!p.labels) continue;
       for (const l of p.labels(town, cur()) || []) {
         if (l.kind !== "cabinet" || !l.at) continue;
         const row = l.at[1];
-        const px = vaultTitlePx(c, l.text, partPx, vaultMaxW, vaultMaxH);
+        const px = vaultTitlePx(c, l.text, cabPx, vaultMaxW, vaultMaxH);
         const prev = vaultRowPx.get(row);
         vaultRowPx.set(row, prev == null ? px : Math.min(prev, px));
       }
@@ -984,13 +991,15 @@ function drawScreenLabels(c) {
       let drawText = l.text;
       let drawPx = partPx;
       if (scene === "vault" && l.kind === "cabinet") {
-        drawPx = (l.at && vaultRowPx.get(l.at[1])) || partPx;
-        drawText = l.text;
-        const trial = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
-        if (!(trial.w <= vaultMaxW && trial.h <= vaultMaxH)) {
-          const re = rewrapToWidth(c, l.text, drawPx, vaultMaxW);
-          const rb = labelBox(c, re, drawPx, 0, 0);
-          drawText = rb.w <= vaultMaxW && rb.h <= vaultMaxH ? re : fitLinesToWidth(c, l.text, drawPx, vaultMaxW);
+        drawPx = (l.at && vaultRowPx.get(l.at[1])) || cabPx;
+        const fitT = vaultFitText(c, l.text, drawPx, vaultMaxW, vaultMaxH);
+        // never overflow: a title that still won't fit at the smallest size is re-wrapped, then cut with "…"
+        if (fitT != null) drawText = fitT;
+        else {
+          const all = rewrapToWidth(c, l.text, drawPx, vaultMaxW).split("\n");
+          const keep = all.slice(0, Math.max(1, Math.floor((vaultMaxH - 2) / (drawPx + 2))));
+          if (keep.length < all.length) keep[keep.length - 1] += "…";
+          drawText = fitLinesToWidth(c, keep.join("\n"), drawPx, vaultMaxW);
         }
       }
       let box = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
