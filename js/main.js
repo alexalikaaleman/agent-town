@@ -127,18 +127,6 @@ function toWorld(clientX, clientY) {
   return { x: camX + (clientX - r.left) / zoom, y: camY + (clientY - r.top) / zoom };
 }
 
-/** Home: leave follow mode, close the panel, back to the framed view. */
-function goHome() {
-  stopFollow();
-  closePanel();
-  if (town) {
-    town.filter.clear();
-    syncFilters();
-  }
-  framed = true;
-  resize();
-}
-
 // ---------- follow a bot ----------
 let following = null;
 
@@ -149,7 +137,7 @@ function startFollow(id) {
   // Zoom in a little so the followed bot is easy to see.
   if (zoom < fitZoom() * 2) zoomAt(Math.min(maxZoom(), fitZoom() * 2.5));
   const note = document.getElementById("mode-note");
-  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or ⌂ to stop.";
+  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space to stop.";
 }
 
 function stopFollow() {
@@ -196,6 +184,7 @@ window.addEventListener("resize", resize);
 resize();
 
 
+let needsOpen = false; // the Needs Alex list drops down from the top bar
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
 let feedUpdatedAt = null;
@@ -266,19 +255,25 @@ function renderHud() {
     if (!seen.has(agent.id)) items.push({ bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
   }
   items.sort((a, b) => (a.kind === b.kind ? String(a.ts).localeCompare(String(b.ts)) : a.kind === "urgent" ? -1 : 1));
-  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|");
+  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|") + "#" + needsOpen;
   if (key === lastHud) return;
   lastHud = key;
+  const countEl = document.getElementById("needs-count");
+  countEl.textContent = String(items.length);
+  const needsBtn = document.getElementById("needs-btn");
+  needsBtn.classList.toggle("has", items.length > 0);
+  needsBtn.classList.toggle("urgent", items.some((i) => i.kind === "urgent"));
+  needsBtn.setAttribute("aria-expanded", needsOpen ? "true" : "false");
   needsEl.replaceChildren();
+  needsEl.hidden = !needsOpen;
+  if (!needsOpen) return;
   if (!items.length) {
-    needsEl.hidden = true;
+    const none = document.createElement("p");
+    none.className = "needs-none";
+    none.textContent = "Nothing needs Alex right now.";
+    needsEl.appendChild(none);
     return;
   }
-  needsEl.hidden = false;
-  const label = document.createElement("span");
-  label.className = "needs-label";
-  label.textContent = "Needs Alex";
-  needsEl.appendChild(label);
   for (const it of items) {
     const agent = town.agents.get(it.bot);
     const btn = document.createElement("button");
@@ -286,7 +281,11 @@ function renderHud() {
     btn.className = "need " + it.kind;
     btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
     btn.title = ago(it.ts);
-    btn.addEventListener("click", () => focusBot(it.bot, true));
+    btn.addEventListener("click", () => {
+      needsOpen = false;
+      lastHud = "";
+      focusBot(it.bot, true);
+    });
     needsEl.appendChild(btn);
   }
 }
@@ -335,6 +334,8 @@ async function openHistory() {
   const box = document.getElementById("history");
   const list = document.getElementById("history-list");
   const run = ++historyRun;
+  needsOpen = false;
+  lastHud = "";
   box.hidden = false;
   list.replaceChildren();
   const add = (txt, cls) => {
@@ -364,54 +365,38 @@ async function openHistory() {
   }
 }
 
-/** Per-bot filter chips. Tap chips to show only those bots; "All" clears. */
-function buildFilters(list) {
-  const bar = document.getElementById("filters");
-  bar.replaceChildren();
-  const all = document.createElement("button");
-  all.type = "button";
-  all.className = "chip on";
-  all.dataset.id = "";
-  all.textContent = "All";
-  bar.appendChild(all);
-  const more = document.createElement("button");
-  more.type = "button";
-  more.className = "chip more";
-  more.textContent = "Bots ▾";
-  more.addEventListener("click", (ev) => {
-    ev.stopPropagation();
-    bar.classList.toggle("open");
-    more.textContent = bar.classList.contains("open") ? "Bots ▴" : "Bots ▾";
-  });
-  bar.appendChild(more);
+/** Top-bar search: type a bot name (or id), pick it, and the map pans to it and opens its panel. */
+function buildSearch(list) {
+  const dl = document.getElementById("bot-names");
+  dl.replaceChildren();
   for (const bot of list) {
-    const chip = document.createElement("button");
-    chip.type = "button";
-    chip.className = "chip";
-    chip.dataset.id = bot.id;
-    chip.style.setProperty("--dot", bot.color || "#888");
-    chip.textContent = bot.name;
-    bar.appendChild(chip);
+    const opt = document.createElement("option");
+    opt.value = bot.name;
+    dl.appendChild(opt);
   }
-  bar.addEventListener("click", (ev) => {
-    const chip = ev.target.closest(".chip");
-    if (!chip || !town || chip.classList.contains("more")) return;
-    const id = chip.dataset.id;
-    if (!id) town.filter.clear();
-    else if (town.filter.has(id)) town.filter.delete(id);
-    else town.filter.add(id);
-    syncFilters();
-  });
 }
 
-function syncFilters() {
-  if (!town) return;
-  for (const chip of document.querySelectorAll("#filters .chip:not(.more)")) {
-    const id = chip.dataset.id;
-    const on = id ? town.filter.has(id) : town.filter.size === 0;
-    chip.classList.toggle("on", on);
-    chip.setAttribute("aria-pressed", on ? "true" : "false");
-  }
+function findBot(query) {
+  const q = String(query || "").trim().toLowerCase();
+  if (!q || !town) return null;
+  const all = Array.from(town.agents.values());
+  return (
+    all.find((a) => a.name.toLowerCase() === q || a.id.toLowerCase() === q) ||
+    all.find((a) => a.name.toLowerCase().startsWith(q)) ||
+    all.find((a) => a.name.toLowerCase().includes(q) || a.id.toLowerCase().includes(q)) ||
+    null
+  );
+}
+
+function runSearch(ev) {
+  if (ev) ev.preventDefault();
+  const input = document.getElementById("search");
+  const agent = findBot(input.value);
+  input.classList.toggle("miss", !agent && !!input.value.trim());
+  if (!agent) return;
+  stopFollow();
+  focusBot(agent.id, true);
+  input.blur();
 }
 
 function homeName(id) {
@@ -446,7 +431,8 @@ function openPanel(agent) {
       link.href = driveUrl;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = "Open Drive folder";
+      link.className = "drive-btn";
+      link.textContent = "Drive folder";
       driveEl.appendChild(link);
     }
   }
@@ -478,7 +464,13 @@ document.getElementById("label-size").addEventListener("click", () => {
   localStorage.setItem("agentTownLabelSize", String(labelSize));
   resize();
 });
-document.getElementById("home-btn").addEventListener("click", goHome);
+document.getElementById("search-form").addEventListener("submit", runSearch);
+document.getElementById("search").addEventListener("change", runSearch);
+document.getElementById("needs-btn").addEventListener("click", () => {
+  needsOpen = !needsOpen;
+  lastHud = "";
+  if (needsOpen) document.getElementById("history").hidden = true;
+});
 document.getElementById("history-btn").addEventListener("click", openHistory);
 document.getElementById("history-close").addEventListener("click", () => {
   document.getElementById("history").hidden = true;
@@ -725,6 +717,8 @@ function drawScreenLabels(c) {
     if (!p.labels) continue;
     for (const l of p.labels(town, world) || []) {
       if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
+      // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
+      if (l.minAbs && zoom < l.minAbs) continue;
       const box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       keepInFrame(box);
@@ -863,7 +857,7 @@ async function boot() {
       },
       onRoster(list) {
         roster = list;
-        buildFilters(list);
+        buildSearch(list);
       },
     });
   } catch (err) {

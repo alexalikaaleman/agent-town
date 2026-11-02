@@ -134,7 +134,7 @@ const late = {
     });
   },
   labels(town) {
-    return (town.extras.monsters || []).map((m) => ({ kind: "monster", x: m.x * 16 + 8, y: m.y * 16 + 12 + m.size * 3, text: m.label, accent: "#ff5f5f", bg: "rgba(60,10,14,0.9)" }));
+    return (town.extras.monsters || []).map((m) => ({ kind: "monster", x: m.x * 16 + 8, y: m.y * 16 + 12 + m.size * 3, text: m.label, accent: "#ff5f5f", bg: "rgba(60,10,14,0.9)", minAbs: 0.55 }));
   },
   hit(town, wx, wy, ui) {
     for (const m of town.extras.monsters || []) {

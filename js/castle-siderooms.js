@@ -95,7 +95,7 @@ const part = {
     }
   },
   labels(town) {
-    return (town.extras.tables || []).map((t) => ({ kind: "table", x: (t.x + 1) * 16, y: (t.y + 1) * 16 - 2, text: t.label || "…", accent: "#f0a94a" }));
+    return (town.extras.tables || []).map((t) => ({ kind: "table", x: (t.x + 1) * 16, y: (t.y + 1) * 16 - 2, text: t.label || "…", accent: "#f0a94a", minAbs: 0.55 }));
   },
   hit(town, wx, wy, ui) {
     for (const t of town.extras.tables || []) {

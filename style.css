@@ -29,24 +29,7 @@ button, .count, .mode {
   font: inherit;
 }
 
-h1, h2, p { margin: 0; }
-
-#hud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  align-items: center;
-  padding: 10px 12px 8px;
-  background: #0e131c;
-  border-bottom: 3px solid var(--line);
-}
-
-.brand { min-width: 140px; }
-
-h1 {
-  font-size: 18px;
-  letter-spacing: 0.04em;
-}
+h2, p { margin: 0; }
 
 .counts {
   display: flex;
@@ -69,14 +52,6 @@ h1 {
 }
 
 .count.alex { background: #6d3418; }
-
-.status-side {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-  margin-left: auto;
-}
 
 .mode {
   min-height: 36px;
@@ -276,14 +251,6 @@ h1 {
   gap: 8px;
 }
 
-#home-btn {
-  position: absolute;
-  z-index: 3;
-  left: 12px;
-  top: 12px;
-}
-
-#home-btn,
 #zoom-in,
 #zoom-out {
   width: 48px;
@@ -406,31 +373,7 @@ h1 {
   }
 }
 
-@media (max-width: 640px) {
-  h1 { font-size: 16px; }
-  .status-side { width: 100%; margin-left: 0; }
-}
 
-#filters {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 4px 10px 6px;
-  background: #14120f;
-  scrollbar-width: thin;
-}
-#filters .chip {
-  flex: 0 0 auto;
-  font: 12px ui-monospace, monospace;
-  padding: 4px 8px 4px 18px;
-  border: 1px solid #4a4438;
-  border-radius: 4px;
-  background: #24201a radial-gradient(circle at 9px 50%, var(--dot, #e8e2d0) 3px, transparent 4px);
-  color: #e8e2d0;
-  cursor: pointer;
-}
-#filters .chip:first-child { padding-left: 8px; background-image: none; }
-#filters .chip.on { background-color: #24418f; border-color: #e8e2d0; color: #fff; }
 
 
 /* ---- town-v2 ---- */
@@ -444,20 +387,9 @@ h1 {
 /* Needs Alex: full text, wrapped, no ellipsis. */
 #needs { flex-wrap: wrap; overflow-x: visible; touch-action: auto; }
 .need { flex: 1 1 260px; max-width: none; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; overflow-wrap: anywhere; }
-/* Filter chips wrap instead of scrolling sideways; compact on phones. */
-#filters { flex-wrap: wrap; overflow-x: visible; gap: 4px; }
-#filters .chip { font-size: 11px; padding: 2px 6px 2px 15px; background-position: 0 0; background-image: radial-gradient(circle at 7px 50%, var(--dot, #e8e2d0) 3px, transparent 4px); }
-#filters .chip:first-child { padding-left: 6px; }
-#filters .chip.more { padding-left: 6px; background-image: none; }
-@media (max-width: 899px) {
-  #filters:not(.open) .chip:not(:first-child):not(.more):not(.on) { display: none; }
-}
-@media (min-width: 900px) {
-  #filters .chip.more { display: none; }
-}
 .tag.s-sleeping { background: #4b4a7a; color: #fff; }
 /* ?view=list */
-body.list-view #viewport, body.list-view #filters, body.list-view #panel, body.list-view #mode-note { display: none !important; }
+body.list-view #viewport, body.list-view #panel, body.list-view #mode-note { display: none !important; }
 #list-view { flex: 1; overflow: auto; padding: 8px 10px 24px; }
 #list-view[hidden] { display: none; }
 #bot-list { list-style: none; margin: 0; padding: 0; }
@@ -472,23 +404,10 @@ body.list-view #viewport, body.list-view #filters, body.list-view #panel, body.l
 #bot-list .st.s-sleeping { background: #4b4a7a; }
 #bot-list .tk { margin-top: 3px; overflow-wrap: anywhere; }
 #bot-list .meta { margin-top: 2px; font-size: 12px; color: #9aa7b8; }
-/* Phones: a compact header so the town gets the space. */
-@media (max-width: 640px) {
-  #hud { flex-wrap: wrap; gap: 4px 6px; padding: 6px 8px; align-items: center; }
-  #hud .brand h1, #hud .brand { font-size: 15px; }
-  #hud .counts { display: flex; flex-wrap: wrap; gap: 4px; }
-  #hud .count, #hud .mode, #hud .clock { font-size: 12px; padding: 2px 6px; margin: 0; }
-  #hud .status-side { display: flex; gap: 4px; flex-wrap: wrap; }
-  #usage-row { padding: 4px 8px; gap: 6px; font-size: 12px; }
-  #needs { padding: 4px 8px; gap: 4px; }
-  #needs .need { font-size: 13px; padding: 4px 6px; }
-  #needs > :not(.need) { font-size: 12px; }
-}
-body.list-view #usage-row, body.list-view #clock, body.list-view #needs { display: none !important; }
-/* Phones: home, zoom and label buttons sit in a bar under the map, so they never cover the town. */
+body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.list-view #needs-btn, body.list-view #search-form { display: none !important; }
+/* Phones: zoom and label buttons sit in a bar under the map, so they never cover the town. */
 @media (max-width: 640px) {
   #stage { bottom: 48px; }
-  #home-btn { top: auto; bottom: 4px; left: 8px; width: 40px; height: 40px; font-size: 22px; }
   #zoom-controls { right: 8px; bottom: 4px; flex-direction: row; gap: 6px; }
   #zoom-in, #zoom-out, #label-size { width: 40px; height: 40px; font-size: 22px; }
   #label-size { font-size: 14px; }
@@ -514,3 +433,103 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs { displa
 #tip .tip-title { display: block; color: #ffe14a; margin-bottom: 4px; }
 #tip .tip-text { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 #tip .tip-close { position: absolute; top: 4px; right: 6px; background: none; border: 0; color: #fff8e6; font-size: 18px; cursor: pointer; }
+
+/* ---- castle UI: top bar (History, Needs Alex, search), map, fixed bottom strip ---- */
+#topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #0e131c;
+  border-bottom: 3px solid var(--line);
+}
+#topbar button, #history-close {
+  flex: none;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 var(--line);
+  background: var(--chip);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+#needs-btn b { display: inline-block; min-width: 1.6em; margin-left: 4px; padding: 0 4px; background: #0e131c; text-align: center; }
+#needs-btn.has { background: #24527a; }
+#needs-btn.urgent { background: #8f2d2d; }
+#search-form { flex: 1; min-width: 0; max-width: 360px; margin-left: auto; }
+#search {
+  width: 100%;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 2px solid var(--line);
+  background: #1b2333;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+#search.miss { border-color: #b03a3a; }
+#needs {
+  position: fixed;
+  z-index: 7;
+  top: 52px;
+  left: 8px;
+  right: 8px;
+  max-width: 640px;
+  max-height: 60vh;
+  overflow: auto;
+  flex-direction: column;
+  align-items: stretch;
+  border: 3px solid var(--line);
+  box-shadow: 4px 4px 0 var(--line);
+}
+#needs .need { flex: none; }
+@media (max-width: 640px) {
+  #needs { top: 46px; padding: 6px; gap: 4px; }
+  #needs .need { font-size: 13px; padding: 4px 6px; min-height: 36px; }
+}
+.needs-none { color: var(--muted); }
+#strip {
+  order: 5;
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
+  background: #0e131c;
+  border-top: 3px solid var(--line);
+}
+#strip .counts { flex: none; }
+#strip .count, #strip .mode, #strip .clock { min-height: 30px; font-size: 13px; padding: 2px 8px; }
+#strip #usage-row { flex: 1 1 200px; padding: 0; background: none; }
+#history { top: 56px; }
+#tip { bottom: 84px; }
+/* Panel: scrolls when long, Back button, Drive folder button. */
+.panel-card { max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain; }
+#panel-close { position: sticky; float: right; top: 0; min-width: 72px; }
+#p-drive a.drive-btn {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 6px 12px;
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 var(--line);
+  background: #24527a;
+  color: #fff;
+  text-decoration: none;
+}
+@media (min-width: 900px) {
+  #panel { top: 56px; bottom: 60px; }
+}
+@media (max-width: 640px) {
+  #topbar { gap: 6px; padding: 5px 6px; }
+  #topbar button { font-size: 12px; padding: 2px 6px; }
+  #search { font-size: 16px; min-height: 34px; }
+  #strip { gap: 4px 6px; padding: 4px 6px calc(4px + env(safe-area-inset-bottom)); }
+  #strip .counts { gap: 3px; }
+  #strip .count, #strip .mode, #strip .clock { min-height: 24px; font-size: 11px; padding: 1px 4px; box-shadow: none; }
+  #strip #usage-row { flex-basis: 100%; font-size: 11px; }
+  #tip { bottom: 120px; }
+  .panel-card { max-height: 55vh; }
+}
