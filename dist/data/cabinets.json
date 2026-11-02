@@ -1,0 +1,30 @@
+{
+  "note": "Treasure vault arcade. Published games link to https://<name>.grok.me. Coming-soon cabinets have no link. Marquee art is drawn in js/castle-vault.js (original pixel art, no screenshots).",
+  "cabinets": [
+    { "name": "super-happy-fun-excellent-dragon-game", "title": "Super Happy Fun Excellent Dragon Game", "status": "published", "icon": "dragon", "colors": ["#2fae4f", "#ffd34d"] },
+    { "name": "bad-dog", "title": "Bad Dog", "status": "published", "icon": "dog", "colors": ["#b5651d", "#f4e1c1"] },
+    { "name": "evil-king", "title": "Evil King", "status": "published", "icon": "crown", "colors": ["#6a1b9a", "#ffd34d"] },
+    { "name": "hall-of-worlds", "title": "Hall of Worlds", "status": "published", "icon": "portal", "colors": ["#1e3a8a", "#7dd3fc"] },
+    { "name": "leimilia-cookie-trail", "title": "Leimilia Cookie Trail", "status": "published", "icon": "cookie", "colors": ["#f9a8d4", "#a0522d"] },
+    { "name": "murica-super-eagle", "title": "Murica Super Eagle", "status": "published", "icon": "eagle", "colors": ["#b91c1c", "#1d4ed8"] },
+    { "name": "wish-machine-super-house", "title": "Wish Machine Super House", "status": "published", "icon": "house", "colors": ["#0d9488", "#fde68a"] },
+    { "name": "just-whistle-it", "title": "Just Whistle It", "status": "published", "icon": "note", "colors": ["#f97316", "#fff7ed"] },
+    { "name": "non-violence-the-game", "title": "Non-Violence: The Game", "status": "published", "icon": "dove", "colors": ["#38bdf8", "#ffffff"] },
+    { "name": "i-ka-olelo-no-ke-ola", "title": "I Ka ʻŌlelo No Ke Ola", "status": "published", "icon": "leaf", "colors": ["#15803d", "#fef3c7"] },
+    { "name": "moolelo-hawaii", "title": "Moʻolelo Hawaiʻi", "status": "published", "icon": "wave", "colors": ["#0369a1", "#e0f2fe"] },
+    { "name": "shorts-studio", "title": "Shorts Studio", "status": "published", "icon": "clapper", "colors": ["#dc2626", "#111827"] },
+    { "title": "Game Under", "status": "coming-soon" },
+    { "title": "Wizard Game FPS", "status": "coming-soon" },
+    { "title": "Island Soar", "status": "coming-soon" },
+    { "title": "Unhinged Game of Life", "status": "coming-soon" },
+    { "title": "Sidewalk Wrestlers", "status": "coming-soon" },
+    { "title": "Bus Ninjas OG", "status": "coming-soon" },
+    { "title": "Bus Ninjas Remake", "status": "coming-soon" },
+    { "title": "Space Jesus", "status": "coming-soon" },
+    { "title": "Lootbox", "status": "coming-soon" },
+    { "title": "Parallel Chaos", "status": "coming-soon" },
+    { "title": "Awkward", "status": "coming-soon" },
+    { "title": "Janky the Unicorn", "status": "coming-soon" },
+    { "title": "My Legacy", "status": "coming-soon" }
+  ]
+}

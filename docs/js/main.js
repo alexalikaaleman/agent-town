@@ -127,18 +127,6 @@ function toWorld(clientX, clientY) {
   return { x: camX + (clientX - r.left) / zoom, y: camY + (clientY - r.top) / zoom };
 }
 
-/** Home: leave follow mode, close the panel, back to the framed view. */
-function goHome() {
-  stopFollow();
-  closePanel();
-  if (town) {
-    town.filter.clear();
-    syncFilters();
-  }
-  framed = true;
-  resize();
-}
-
 // ---------- follow a bot ----------
 let following = null;
 
@@ -149,7 +137,7 @@ function startFollow(id) {
   // Zoom in a little so the followed bot is easy to see.
   if (zoom < fitZoom() * 2) zoomAt(Math.min(maxZoom(), fitZoom() * 2.5));
   const note = document.getElementById("mode-note");
-  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or ⌂ to stop.";
+  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space to stop.";
 }
 
 function stopFollow() {
@@ -178,7 +166,7 @@ function ensureMap() {
   const want = Math.max(1, Math.ceil(zoom * dpr));
   const cap = Math.max(1, Math.floor(4096 / Math.max(worldW(), worldH())));
   const s = Math.min(want, cap);
-  const key = s + ":" + world.w + "x" + world.h + ":" + world.beds.length;
+  const key = s + ":" + world.w + "x" + world.h + ":" + world.buildings.length;
   if (mapCanvas && mapKey === key) return;
   const off = document.createElement("canvas");
   off.width = worldW() * s;
@@ -196,6 +184,7 @@ window.addEventListener("resize", resize);
 resize();
 
 
+let needsOpen = false; // the Needs Alex list drops down from the top bar
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
 let feedUpdatedAt = null;
@@ -266,19 +255,25 @@ function renderHud() {
     if (!seen.has(agent.id)) items.push({ bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
   }
   items.sort((a, b) => (a.kind === b.kind ? String(a.ts).localeCompare(String(b.ts)) : a.kind === "urgent" ? -1 : 1));
-  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|");
+  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|") + "#" + needsOpen;
   if (key === lastHud) return;
   lastHud = key;
+  const countEl = document.getElementById("needs-count");
+  countEl.textContent = String(items.length);
+  const needsBtn = document.getElementById("needs-btn");
+  needsBtn.classList.toggle("has", items.length > 0);
+  needsBtn.classList.toggle("urgent", items.some((i) => i.kind === "urgent"));
+  needsBtn.setAttribute("aria-expanded", needsOpen ? "true" : "false");
   needsEl.replaceChildren();
+  needsEl.hidden = !needsOpen;
+  if (!needsOpen) return;
   if (!items.length) {
-    needsEl.hidden = true;
+    const none = document.createElement("p");
+    none.className = "needs-none";
+    none.textContent = "Nothing needs Alex right now.";
+    needsEl.appendChild(none);
     return;
   }
-  needsEl.hidden = false;
-  const label = document.createElement("span");
-  label.className = "needs-label";
-  label.textContent = "Needs Alex";
-  needsEl.appendChild(label);
   for (const it of items) {
     const agent = town.agents.get(it.bot);
     const btn = document.createElement("button");
@@ -286,7 +281,11 @@ function renderHud() {
     btn.className = "need " + it.kind;
     btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
     btn.title = ago(it.ts);
-    btn.addEventListener("click", () => focusBot(it.bot, true));
+    btn.addEventListener("click", () => {
+      needsOpen = false;
+      lastHud = "";
+      focusBot(it.bot, true);
+    });
     needsEl.appendChild(btn);
   }
 }
@@ -335,6 +334,8 @@ async function openHistory() {
   const box = document.getElementById("history");
   const list = document.getElementById("history-list");
   const run = ++historyRun;
+  needsOpen = false;
+  lastHud = "";
   box.hidden = false;
   list.replaceChildren();
   const add = (txt, cls) => {
@@ -364,54 +365,38 @@ async function openHistory() {
   }
 }
 
-/** Per-bot filter chips. Tap chips to show only those bots; "All" clears. */
-function buildFilters(list) {
-  const bar = document.getElementById("filters");
-  bar.replaceChildren();
-  const all = document.createElement("button");
-  all.type = "button";
-  all.className = "chip on";
-  all.dataset.id = "";
-  all.textContent = "All";
-  bar.appendChild(all);
-  const more = document.createElement("button");
-  more.type = "button";
-  more.className = "chip more";
-  more.textContent = "Bots ▾";
-  more.addEventListener("click", (ev) => {
-    ev.stopPropagation();
-    bar.classList.toggle("open");
-    more.textContent = bar.classList.contains("open") ? "Bots ▴" : "Bots ▾";
-  });
-  bar.appendChild(more);
+/** Top-bar search: type a bot name (or id), pick it, and the map pans to it and opens its panel. */
+function buildSearch(list) {
+  const dl = document.getElementById("bot-names");
+  dl.replaceChildren();
   for (const bot of list) {
-    const chip = document.createElement("button");
-    chip.type = "button";
-    chip.className = "chip";
-    chip.dataset.id = bot.id;
-    chip.style.setProperty("--dot", bot.color || "#888");
-    chip.textContent = bot.name;
-    bar.appendChild(chip);
+    const opt = document.createElement("option");
+    opt.value = bot.name;
+    dl.appendChild(opt);
   }
-  bar.addEventListener("click", (ev) => {
-    const chip = ev.target.closest(".chip");
-    if (!chip || !town || chip.classList.contains("more")) return;
-    const id = chip.dataset.id;
-    if (!id) town.filter.clear();
-    else if (town.filter.has(id)) town.filter.delete(id);
-    else town.filter.add(id);
-    syncFilters();
-  });
 }
 
-function syncFilters() {
-  if (!town) return;
-  for (const chip of document.querySelectorAll("#filters .chip:not(.more)")) {
-    const id = chip.dataset.id;
-    const on = id ? town.filter.has(id) : town.filter.size === 0;
-    chip.classList.toggle("on", on);
-    chip.setAttribute("aria-pressed", on ? "true" : "false");
-  }
+function findBot(query) {
+  const q = String(query || "").trim().toLowerCase();
+  if (!q || !town) return null;
+  const all = Array.from(town.agents.values());
+  return (
+    all.find((a) => a.name.toLowerCase() === q || a.id.toLowerCase() === q) ||
+    all.find((a) => a.name.toLowerCase().startsWith(q)) ||
+    all.find((a) => a.name.toLowerCase().includes(q) || a.id.toLowerCase().includes(q)) ||
+    null
+  );
+}
+
+function runSearch(ev) {
+  if (ev) ev.preventDefault();
+  const input = document.getElementById("search");
+  const agent = findBot(input.value);
+  input.classList.toggle("miss", !agent && !!input.value.trim());
+  if (!agent) return;
+  stopFollow();
+  focusBot(agent.id, true);
+  input.blur();
 }
 
 function homeName(id) {
@@ -429,8 +414,11 @@ function openPanel(agent) {
   stateEl.textContent = state;
   stateEl.className = "tag s-" + agent.state;
   const needEl = document.getElementById("p-need");
-  if (agent.needsAlex === "urgent") needEl.textContent = "Needs Alex: urgent";
-  else if (agent.needsAlex === "question") needEl.textContent = "Needs Alex: question";
+  // The full question from needs.json (bots in the carpet line show it on tap).
+  const item = (needItems || []).find((it) => it.bot === agent.id && !it.handled);
+  const full = item && item.text ? ": " + item.text : "";
+  if (agent.needsAlex === "urgent") needEl.textContent = "Needs Alex (urgent)" + full;
+  else if (agent.needsAlex === "question") needEl.textContent = "Needs Alex (question)" + full;
   else needEl.textContent = "";
   document.getElementById("p-task").textContent = agent.task || agent.text || "No current task.";
   const driveEl = document.getElementById("p-drive");
@@ -443,7 +431,8 @@ function openPanel(agent) {
       link.href = driveUrl;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = "Open Drive folder";
+      link.className = "drive-btn";
+      link.textContent = "Drive folder";
       driveEl.appendChild(link);
     }
   }
@@ -475,7 +464,13 @@ document.getElementById("label-size").addEventListener("click", () => {
   localStorage.setItem("agentTownLabelSize", String(labelSize));
   resize();
 });
-document.getElementById("home-btn").addEventListener("click", goHome);
+document.getElementById("search-form").addEventListener("submit", runSearch);
+document.getElementById("search").addEventListener("change", runSearch);
+document.getElementById("needs-btn").addEventListener("click", () => {
+  needsOpen = !needsOpen;
+  lastHud = "";
+  if (needsOpen) document.getElementById("history").hidden = true;
+});
 document.getElementById("history-btn").addEventListener("click", openHistory);
 document.getElementById("history-close").addEventListener("click", () => {
   document.getElementById("history").hidden = true;
@@ -612,12 +607,16 @@ function endPointer(ev) {
     openPanel(hit);
     return;
   }
+  for (const p of world.parts) {
+    if (p.hit && p.hit(town, pt.x, pt.y, { zoom, showTip, now: performance.now(), radius: Math.max(10, 18 / zoom) })) return;
+  }
   const chest = town.hitChest(pt.x, pt.y);
   if (chest) {
     town.pokeChest(chest.id, performance.now());
     if (chest.url) window.open(chest.url, "_blank", "noopener");
     return;
   }
+  hideTip();
   closePanel();
   stopFollow();
 }
@@ -635,6 +634,27 @@ panel.addEventListener("pointerup", (ev) => {
   startFollow(lastTap.id);
   lastTap = null;
 });
+
+/** Small popup with the full text of a table task, monster name or question. */
+function showTip(title, text) {
+  let tip = document.getElementById("tip");
+  if (!tip) {
+    tip = document.createElement("div");
+    tip.id = "tip";
+    tip.setAttribute("role", "dialog");
+    tip.innerHTML = '<button type="button" class="tip-close" aria-label="Close">×</button><b class="tip-title"></b><p class="tip-text"></p>';
+    document.body.appendChild(tip);
+    tip.querySelector(".tip-close").addEventListener("click", hideTip);
+  }
+  tip.querySelector(".tip-title").textContent = title || "";
+  tip.querySelector(".tip-text").textContent = text || "";
+  tip.hidden = false;
+  return true;
+}
+function hideTip() {
+  const tip = document.getElementById("tip");
+  if (tip) tip.hidden = true;
+}
 
 // ---------- screen-space labels (room names and bot names) ----------
 const debugInfo = { labelOverlaps: 0, labels: 0 };
@@ -690,6 +710,26 @@ function drawScreenLabels(c) {
     placed.push(box);
   }
   if (!town) return;
+  // Part labels (table tasks, monster nameplates, cabinet titles): placed before bot names.
+  const partPx = Math.round(Math.min(12, Math.max(8, 5.5 * zoom)) * labelSize);
+  const partLabels = [];
+  for (const p of world.parts) {
+    if (!p.labels) continue;
+    for (const l of p.labels(town, world) || []) {
+      if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
+      // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
+      if (l.minAbs && zoom < l.minAbs) continue;
+      const box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
+      if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
+      keepInFrame(box);
+      // "avoid" labels (dense rows such as cabinet titles) are skipped when they would overlap.
+      if (l.avoid && overlapArea(box, placed) > 0) continue;
+      paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
+      placed.push(box);
+      partLabels.push({ kind: l.kind || p.id, text: l.text, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+    }
+  }
+  debugInfo.partLabels = partLabels;
   // Bot names: always on. Each name tries above the head, then higher, below the feet,
   // and to the sides; it takes the free spot, or the one with the least overlap.
   const namePx = Math.round(Math.min(14, Math.max(9, 6.5 * zoom)) * labelSize);
@@ -783,6 +823,14 @@ window.AgentTown.debug = {
   get labels() {
     return Object.assign({}, debugInfo);
   },
+  get world() {
+    return world;
+  },
+  /** Stage-relative screen point of a world tile point. */
+  screenOfWorld(wx, wy) {
+    const r = stage.getBoundingClientRect();
+    return { x: r.left + (wx - camX) * zoom, y: r.top + (wy - camY) * zoom };
+  },
   screenOf(id) {
     const a = town && town.agents.get(id);
     const r = stage.getBoundingClientRect();
@@ -809,7 +857,7 @@ async function boot() {
       },
       onRoster(list) {
         roster = list;
-        buildFilters(list);
+        buildSearch(list);
       },
     });
   } catch (err) {

@@ -3,7 +3,7 @@
 const STATUS_BASE = "https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/";
 const POLL_MS = 2 * 60 * 1000;
 const STALL_MS = 30 * 60 * 1000;
-const SLEEP_MS = 2 * 60 * 60 * 1000;
+const SLEEP_MS = 10 * 60 * 1000; // idle or working with no new line for 10+ minutes shows as sleeping
 const FETCH_TIMEOUT_MS = 12000;
 
 /** fetch with a timeout, so a hung request can never leave a panel on "Loading…". */
@@ -90,7 +90,7 @@ function toSnapshot(roster, status, now) {
     }
     const ts0 = e.ts ? Date.parse(String(e.ts)) : NaN;
     let state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle", "sleeping"].includes(e.state) ? e.state : "idle";
-    // Idle or working with no new line for 2+ hours shows as sleeping. Done, blocked and needs-alex keep their state.
+    // Idle or working with no new line for 10+ minutes shows as sleeping. Done, blocked and needs-alex keep their state.
     if ((state === "idle" || state === "working") && Number.isFinite(ts0) && now - ts0 >= SLEEP_MS) state = "sleeping";
     let needsAlex = null;
     if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;

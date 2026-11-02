@@ -8,54 +8,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header id="hud">
-    <div class="brand">
-      <h1>Agent Town</h1>
-      <p id="summary" class="sr">Loading the town.</p>
-    </div>
-    <div class="counts" role="status">
-      <span id="c-work" class="count">Working 0</span>
-      <span id="c-wait" class="count">Waiting 0</span>
-      <span id="c-block" class="count">Blocked 0</span>
-      <span id="c-alex" class="count alex">Needs Alex 0</span>
-    </div>
-    <div class="status-side">
-      <p id="mode" class="mode loading" aria-live="polite">Loading…</p>
-      <p id="clock" class="clock">—</p>
-    </div>
+  <header id="topbar">
+    <button type="button" id="history-btn">History</button>
+    <button type="button" id="needs-btn" aria-expanded="false" aria-controls="needs">Needs Alex <b id="needs-count">0</b></button>
+    <form id="search-form" role="search" autocomplete="off">
+      <input id="search" type="search" list="bot-names" placeholder="Find a bot" aria-label="Find a bot" enterkeyhint="search">
+      <datalist id="bot-names"></datalist>
+    </form>
+    <p id="summary" class="sr">Loading the castle.</p>
   </header>
   <p id="mode-note"></p>
-  <div id="usage-row">
-    <div id="usage" title="Weekly usage. Line at 58%: no new steps. Line at 65%: hard stop.">
-      <div id="usage-fill"></div>
-      <span class="cap soft" style="left:58%"></span>
-      <span class="cap hard" style="left:65%"></span>
-    </div>
-    <span id="usage-text">Usage —</span>
-    <button type="button" id="history-btn">History</button>
-  </div>
   <div id="needs" hidden></div>
-  <div id="filters" role="toolbar" aria-label="Show only these bots"></div>
   <div id="viewport">
     <div id="stage">
       <div id="map-wrap">
-        <canvas id="town" width="800" height="576" aria-label="Agent Town map"></canvas>
+        <canvas id="town" width="800" height="576" aria-label="Agent Town castle map"></canvas>
       </div>
     </div>
-    <button type="button" id="home-btn" aria-label="Home view">⌂</button>
     <div id="zoom-controls">
       <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
       <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
       <button type="button" id="label-size" aria-label="Label size" title="Label size">Aa</button>
     </div>
   </div>
+  <footer id="strip">
+    <div class="counts" role="status">
+      <span id="c-work" class="count">Working 0</span>
+      <span id="c-wait" class="count">Waiting 0</span>
+      <span id="c-block" class="count">Blocked 0</span>
+      <span id="c-alex" class="count alex">Needs Alex 0</span>
+    </div>
+    <p id="clock" class="clock">—</p>
+    <p id="mode" class="mode loading" aria-live="polite">Loading…</p>
+    <div id="usage-row">
+      <div id="usage" title="Weekly usage. Line at 58%: no new steps. Line at 65%: hard stop.">
+        <div id="usage-fill"></div>
+        <span class="cap soft" style="left:58%"></span>
+        <span class="cap hard" style="left:65%"></span>
+      </div>
+      <span id="usage-text">Usage —</span>
+    </div>
+  </footer>
   <aside id="history" hidden>
     <div class="history-head"><strong>This month</strong><button type="button" id="history-close">Close</button></div>
     <ul id="history-list"></ul>
   </aside>
   <aside id="panel" hidden>
     <div class="panel-card">
-      <button type="button" id="panel-close" aria-label="Close">Close</button>
+      <button type="button" id="panel-close" aria-label="Back to the map">← Back</button>
       <h2 id="p-name"></h2>
       <p id="p-role"></p>
       <p class="panel-row"><span id="p-state" class="tag"></span> <span id="p-need"></span></p>
@@ -75,6 +75,13 @@
   <script src="js/path.js"></script>
   <script src="js/agents.js"></script>
   <script src="js/draw.js"></script>
+  <!-- castle parts (each one can be removed on its own) -->
+  <script src="js/castle-bedrooms.js"></script>
+  <script src="js/castle-throne.js"></script>
+  <script src="js/castle-siderooms.js"></script>
+  <script src="js/castle-battlefield.js"></script>
+  <script src="js/castle-donewall.js"></script>
+  <script src="js/castle-vault.js"></script>
   <script src="js/net.js"></script>
   <script src="js/list.js"></script>
   <script src="js/main.js"></script>
