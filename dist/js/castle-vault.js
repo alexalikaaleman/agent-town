@@ -204,6 +204,7 @@ const scene = {
       x: ss[i].x * 16 + 8,
       y: ss[i].y * 16 + 18,
       text: wrapTitle(c.title || "", TITLE_MAX),
+      full: c.title || "",
       accent: c.status === "published" ? (c.colors || [])[1] || "#ffd34d" : "#8a8a96",
       bg: "rgba(20,16,6,0.9)",
       });

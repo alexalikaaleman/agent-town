@@ -71,10 +71,10 @@ function framePad() {
   };
 }
 /** World-px rect to fit when framed. On narrow screens the vault zooms to the
- *  cabinet block (tiles x 2-26, y 1-26) so each title sits under its cabinet and the Exit door shows. */
+ *  cabinet block (tiles x 2-27, y 1-26) so each title sits under its cabinet and the Exit door shows. */
 function fitBounds() {
   if (scene === "vault" && window.innerWidth < 900) {
-    return { x: 2 * TILE, y: 1 * TILE, w: (26 - 2) * TILE, h: (26 - 1) * TILE };
+    return { x: 2 * TILE, y: 1 * TILE, w: (27 - 2) * TILE, h: (26 - 1) * TILE };
   }
   return { x: 0, y: 0, w: worldW(), h: worldH() };
 }
@@ -219,6 +219,7 @@ resize();
 // Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
 // with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
 let needsOpen = window.innerWidth > 640 && window.innerHeight >= 500;
+let needsSavedForVault = null; // Needs open-state restored when leaving the vault
 let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
@@ -685,6 +686,7 @@ stage.addEventListener("pointerdown", (ev) => {
     stage.setPointerCapture(ev.pointerId);
   } catch (_) {}
 });
+let vaultHoverTip = null; // full name shown while hovering a truncated vault title
 stage.addEventListener("pointermove", (ev) => {
   if (touches.has(ev.pointerId)) touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
   if (pinch && touches.size >= 2) {
@@ -697,6 +699,7 @@ stage.addEventListener("pointermove", (ev) => {
     clampCam();
     return;
   }
+  if (scene === "vault" && (!pointer || !pointer.drag)) trackVaultTitleHover(ev);
   if (!pointer || ev.pointerId !== pointer.id) return;
   const dx = ev.clientX - pointer.x;
   const dy = ev.clientY - pointer.y;
@@ -706,13 +709,38 @@ stage.addEventListener("pointermove", (ev) => {
     camY = pointer.cy - dy / zoom;
     clampCam();
     if (town) town.hoverChest = null;
+    clearVaultHoverTip();
     return;
   }
   trackChestHover(ev);
 });
 stage.addEventListener("pointerleave", () => {
   if (town) town.hoverChest = null;
+  clearVaultHoverTip();
 });
+function vaultTitleAt(clientX, clientY) {
+  const r = stage.getBoundingClientRect();
+  const lx = clientX - r.left, ly = clientY - r.top;
+  return (debugInfo.partLabels || []).slice().reverse().find((l) => l.kind === "cabinet" && l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]) || null;
+}
+function trackVaultTitleHover(ev) {
+  // Desktop only: fine pointer. Touch devices get the full name on tap instead.
+  if (ev.pointerType === "touch") return;
+  const tl = vaultTitleAt(ev.clientX, ev.clientY);
+  if (tl && tl.truncated && tl.full) {
+    if (vaultHoverTip !== tl.full) {
+      vaultHoverTip = tl.full;
+      showTip(tl.full, "");
+    }
+  } else {
+    clearVaultHoverTip();
+  }
+}
+function clearVaultHoverTip() {
+  if (vaultHoverTip == null) return;
+  vaultHoverTip = null;
+  hideTip();
+}
 
 function trackChestHover(ev) {
   if (!town) return;
@@ -747,12 +775,17 @@ function endPointer(ev) {
     let vp = toWorld(ev.clientX, ev.clientY);
     // Titles draw on top: the title the viewer taps is the game they mean.
     // Coming-soon cabinets have no title and stay inert via hit().
-    const r = stage.getBoundingClientRect();
-    const lx = ev.clientX - r.left;
-    const ly = ev.clientY - r.top;
-    const tl = (debugInfo.partLabels || []).slice().reverse().find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
+    const tl = vaultTitleAt(ev.clientX, ev.clientY);
     if (tl) vp = { x: tl.at[0], y: tl.at[1] };
-    for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
+    for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) {
+      // Truncated title: show the full name on the cabinet tap (reachable without zooming).
+      const named = tl || (debugInfo.partLabels || []).find((l) => l.kind === "cabinet" && l.truncated && l.at && Math.hypot(l.at[0] - vp.x, l.at[1] - vp.y) < 24);
+      if (named && named.truncated && named.full) {
+        vaultHoverTip = null;
+        showTip(named.full, "");
+      }
+      return;
+    }
     return;
   }
   if (isDouble(ev)) {
@@ -836,6 +869,27 @@ function fitLinesToWidth(c, text, px, maxW) {
     return (out.length ? out : "") + "…";
   }).join("\n");
 }
+/** Re-wrap words to fit maxW before cutting with an ellipsis. */
+function rewrapToWidth(c, text, px, maxW) {
+  c.font = px + "px ui-monospace, monospace";
+  const lines = [];
+  for (const w of String(text || "").replace(/\n/g, " ").split(/\s+/).filter(Boolean)) {
+    const i = lines.length - 1;
+    if (i >= 0 && c.measureText(lines[i] + " " + w).width + 6 <= maxW) lines[i] += " " + w;
+    else lines.push(w);
+  }
+  return lines.join("\n");
+}
+/** Smallest font (down to 6) that fits l.text in maxW×maxH, ignoring ellipsis. */
+function vaultTitlePx(c, text, startPx, maxW, maxH) {
+  let px = startPx;
+  for (;;) {
+    const trial = labelBox(c, text, px, 0, 0);
+    if (trial.w <= maxW && trial.h <= maxH) return px;
+    if (px > 6) { px--; continue; }
+    return px;
+  }
+}
 function labelBox(c, text, px, x, y) {
   c.font = px + "px ui-monospace, monospace";
   const lines = String(text || "").split("\n");
@@ -898,6 +952,22 @@ function drawScreenLabels(c) {
   // Part labels (table tasks, monster nameplates, cabinet titles): placed before bot names.
   const partPx = Math.round(Math.min(12, Math.max(8, 5.5 * zoom)) * labelSize);
   const partLabels = [];
+  // Vault: one font size per cabinet row (the tightest title in that row wins).
+  const vaultRowPx = new Map();
+  const vaultMaxW = 5 * TILE * zoom - 6;
+  const vaultMaxH = 4 * TILE * zoom - 4;
+  if (scene === "vault") {
+    for (const p of cur().parts) {
+      if (!p.labels) continue;
+      for (const l of p.labels(town, cur()) || []) {
+        if (l.kind !== "cabinet" || !l.at) continue;
+        const row = l.at[1];
+        const px = vaultTitlePx(c, l.text, partPx, vaultMaxW, vaultMaxH);
+        const prev = vaultRowPx.get(row);
+        vaultRowPx.set(row, prev == null ? px : Math.min(prev, px));
+      }
+    }
+  }
   for (const p of cur().parts) {
     if (!p.labels) continue;
     for (const l of p.labels(town, cur()) || []) {
@@ -914,18 +984,13 @@ function drawScreenLabels(c) {
       let drawText = l.text;
       let drawPx = partPx;
       if (scene === "vault" && l.kind === "cabinet") {
-        // Keep titles inside the 5-tile column pitch and 4-tile row pitch: shrink font first.
-        // Ellipsis only when zoom is low and the font floor still overflows (TITLE_MAX 3-line
-        // wrap stays intact at normal zoom).
-        const maxW = 5 * TILE * zoom - 6;
-        const maxH = 4 * TILE * zoom - 4;
-        for (;;) {
-          drawText = l.text;
-          const trial = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
-          if (trial.w <= maxW && trial.h <= maxH) break;
-          if (drawPx > 6) { drawPx--; continue; }
-          if (zoom < 0.6) drawText = fitLinesToWidth(c, l.text, drawPx, maxW);
-          break;
+        drawPx = (l.at && vaultRowPx.get(l.at[1])) || partPx;
+        drawText = l.text;
+        const trial = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
+        if (!(trial.w <= vaultMaxW && trial.h <= vaultMaxH)) {
+          const re = rewrapToWidth(c, l.text, drawPx, vaultMaxW);
+          const rb = labelBox(c, re, drawPx, 0, 0);
+          drawText = rb.w <= vaultMaxW && rb.h <= vaultMaxH ? re : fitLinesToWidth(c, l.text, drawPx, vaultMaxW);
         }
       }
       let box = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
@@ -947,7 +1012,9 @@ function drawScreenLabels(c) {
       if (l.avoid && overlapArea(box, placed) > 0) continue;
       paintLabel(c, box, drawText, drawPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
       placed.push(box);
-      partLabels.push({ kind: l.kind || p.id, text: drawText, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      const full = l.full || String(l.text || "").replace(/\n/g, " ");
+      const truncated = drawText.indexOf("…") >= 0;
+      partLabels.push({ kind: l.kind || p.id, text: drawText, full: full, truncated: truncated, px: drawPx, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;
@@ -1055,7 +1122,21 @@ function setScene(name, after) {
     if (name === "vault" && !vworld) vworld = window.AgentTown.vault.createWorld();
     document.body.classList.toggle("in-vault", name === "vault");
     if (sceneBar) sceneBar.hidden = name !== "vault";
+    // Auto-collapse Needs in the vault so short laptop windows keep full cabinet titles;
+    // restore the previous open/closed state when going Back to castle.
+    if (name === "vault") {
+      if (needsSavedForVault == null) needsSavedForVault = needsOpen;
+      needsOpen = false;
+      lastHud = "";
+      renderHud();
+    } else if (name === "castle" && needsSavedForVault != null) {
+      needsOpen = needsSavedForVault;
+      needsSavedForVault = null;
+      lastHud = "";
+      renderHud();
+    }
     hideTip();
+    clearVaultHoverTip();
     closePanel();
     stopFollow();
     mapCanvas = null;
