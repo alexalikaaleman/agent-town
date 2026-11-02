@@ -728,6 +728,8 @@ function drawScreenLabels(c) {
       const box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       keepInFrame(box);
+      // "avoid" labels (dense rows such as cabinet titles) are skipped when they would overlap.
+      if (l.avoid && overlapArea(box, placed) > 0) continue;
       paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
       placed.push(box);
       partLabels.push({ kind: l.kind || p.id, text: l.text, box: [box.left, box.top, box.left + box.w, box.top + box.h] });

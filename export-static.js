@@ -29,6 +29,9 @@ function build(out) {
     if (name.endsWith(".js")) copyFile(path.join(ROOT, "js", name), path.join(out, "js", name));
   }
   copyFile(path.join(ROOT, "data", "bots.json"), path.join(out, "data", "bots.json"));
+  // Arcade cabinet list for the treasure vault (titles and grok.me game names only).
+  const cabinets = path.join(ROOT, "data", "cabinets.json");
+  if (fs.existsSync(cabinets)) copyFile(cabinets, path.join(out, "data", "cabinets.json"));
 }
 
 /** Approved chest links: the driveFolderUrl values in data/bots.json. */
