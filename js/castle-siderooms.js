@@ -1,6 +1,7 @@
 /** Castle part: SIDE ROOMS. Workshop on the left (crafting tables), Wizard Lab on the right (potion tables).
  *  Working bots stand at a table with a task label under it (truncated; tap for the full text).
- *  Idle and never-posted bots stand at a station in their room (mapping table: HOME_ROOMS in world.js).
+ *  Only working bots stay here (room per HOME_ROOMS in world.js); idle, done and never-posted bots
+ *  stand in the moat line-up (js/castle-lineup.js).
  *  Bots with a Drive folder have a chest on the room's outer wall. */
 (function () {
 const LABEL_MAX = 18;
@@ -25,13 +26,10 @@ function trunc(text, n) {
 function layoutRoom(r) {
   const tables = [];
   for (const ty of [r.y + 4, r.y + 11]) for (const dx of [2, 7]) tables.push({ room: r.key, x: r.x + dx, y: ty });
-  const stations = [];
-  const cols = r.outer === "left" ? [3, 4.5, 6, 7.5, 9, 10.5] : [1.5, 3, 4.5, 6, 7.5, 9];
-  for (const dy of [1, 7, 14, 16]) for (const c of cols) stations.push({ x: r.x + c, y: r.y + dy, facing: "s" });
   const chestX = r.outer === "left" ? r.x + 1 : r.x + r.w - 2;
   const chestSlots = [];
   for (let y = r.y + 2; y <= r.y + r.h - 2; y++) chestSlots.push({ x: chestX, y });
-  return { tables, stations, chestSlots };
+  return { tables, chestSlots };
 }
 
 const part = {
@@ -79,14 +77,7 @@ const part = {
       tablesUsed.push({ x: t.x, y: t.y, room: t.room, agent: a.id, name: a.name, full: a.task || a.text || "", label: trunc(a.text || a.task, LABEL_MAX) });
     }
     ctx.town.extras.tables = tablesUsed;
-    // Idle bots (including never-posted ones) stand at a station in their room.
-    const used = { workshop: 0, lab: 0 };
-    for (const a of ctx.free()) {
-      if (a.state !== "idle") continue;
-      const key = a.room === "lab" ? "lab" : "workshop";
-      const s = world.sideRooms[key].stations[used[key]++];
-      if (s) ctx.assign(a, { zone: "station", x: s.x, y: s.y, facing: "s" });
-    }
+    // Only working bots stay in the side rooms; idle and never-posted bots go to the moat line-up.
   },
   update(town, dt, time) {
     for (const chest of town.world.chests) {
