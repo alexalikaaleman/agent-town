@@ -34,11 +34,16 @@ const part = {
     const world = ctx.world;
     const sleepers = ctx.free().filter((a) => a.state === "sleeping");
     const patrol = world.patrolSpots && world.patrolSpots.length ? world.patrolSpots : world.yardSpots;
+    const taken = new Set();
     sleepers.forEach((a, i) => {
       const bed = world.beds[i];
       if (bed) ctx.assign(a, { zone: "bed", x: bed.x, y: bed.y, facing: "s", bed: bed.room });
       else {
-        const p = patrol[(i * 7) % patrol.length];
+        // spread out, and never two sleepy patrollers on one spot
+        let k = (i * 7) % patrol.length;
+        for (let n = 0; n < patrol.length && taken.has(k); n++) k = (k + 1) % patrol.length;
+        taken.add(k);
+        const p = patrol[k];
         ctx.assign(a, { zone: "patrol", x: p.x, y: p.y, facing: "s", tag: "sleepy", patrol });
       }
     });

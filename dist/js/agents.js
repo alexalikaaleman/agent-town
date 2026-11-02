@@ -72,6 +72,12 @@ function createTown(roster, world) {
       stalled: false,
       reported: false,
       driveFolderUrl: driveFolderUrl(bot.driveFolderUrl),
+      // Names only (fix 21); a folder is clickable only through the approved driveFolderUrl.
+      folders: (Array.isArray(bot.folders) ? bot.folders : []).slice(0, 12).map((f) => ({
+        name: String((f && f.name) || "").replace(/[\u0000-\u001f]/g, "").slice(0, 60),
+        where: String((f && f.where) || "").slice(0, 40),
+        link: Boolean(f && f.link),
+      })).filter((f) => f.name),
       x: spot.x,
       y: spot.y,
       facing: "s",
@@ -162,13 +168,33 @@ function createTown(roster, world) {
     return step;
   }
 
+  /** Working bots in a side room walk their loop (table, chest, station), pausing to type at each stop. */
+  function busyLoop(agent, dt) {
+    const s = agent.spot;
+    if (!s || !s.loop || s.loop.length < 2 || agent.path === null || agent.path.length) return;
+    agent.pause -= dt;
+    if (agent.pause > 0) return;
+    agent.pause = 3 + (hashId(agent.id) % 20) / 10;
+    agent.loopI = ((agent.loopI || 0) + 1) % s.loop.length;
+    const next = s.loop[agent.loopI];
+    agent.spot = Object.assign({}, s, { x: next.x, y: next.y, facing: next.facing });
+    agent.path = null;
+  }
+
   function patrol(agent, dt) {
     const s = agent.spot;
     if (!s || !s.patrol || !s.patrol.length || agent.path === null || agent.path.length) return;
     agent.pause -= dt;
     if (agent.pause > 0) return;
     agent.pause = 2 + Math.random() * 4;
-    const next = s.patrol[Math.floor(Math.random() * s.patrol.length)];
+    // pick a spot no other bot is heading to or standing on
+    const busy = (p) => {
+      for (const o of agents.values()) if (o !== agent && o.spot && Math.hypot(o.spot.x - p.x, o.spot.y - p.y) < 1) return true;
+      return false;
+    };
+    const open = s.patrol.filter((p) => !busy(p));
+    if (!open.length) return;
+    const next = open[Math.floor(Math.random() * open.length)];
     agent.spot = Object.assign({}, s, { x: next.x, y: next.y });
     agent.path = null;
   }
@@ -182,6 +208,8 @@ function createTown(roster, world) {
     filter: new Set(),
     extras: {},
     isDimmed(agent) {
+      // Focus (single tap on a bot): every other bot turns see-through.
+      if (this.follow) return agent.id !== this.follow;
       if (this.filter.size) return !this.filter.has(agent.id);
       return false;
     },
@@ -198,6 +226,7 @@ function createTown(roster, world) {
         agent.with = Array.isArray(data.with) ? data.with.filter((id) => agents.has(id) && id !== agent.id) : [];
         agent.project = data.project || null;
         agent.stalled = Boolean(data.stalled);
+        agent.ping = data.ping || null;
         agent.reported = Boolean(data.reported);
       }
       layout();
@@ -208,14 +237,17 @@ function createTown(roster, world) {
       for (const agent of agents.values()) {
         const step = moveAgent(agent, dt);
         agent.moving = step > 0;
-        if (!agent.moving) patrol(agent, dt);
+        if (!agent.moving) {
+          patrol(agent, dt);
+          busyLoop(agent, dt);
+        }
       }
       for (const p of world.parts) if (p.update) p.update(town, dt, time);
     },
     counts() {
       const counts = { working: 0, waiting: 0, blocked: 0, needs: 0 };
       for (const agent of agents.values()) {
-        if (agent.state === "working") counts.working++;
+        if (agent.state === "working" || agent.state === "talking") counts.working++;
         if (agent.state === "waiting") counts.waiting++;
         if (agent.state === "blocked") counts.blocked++;
         if (agent.needsAlex === "urgent" || agent.needsAlex === "question") counts.needs++;
@@ -275,6 +307,8 @@ function bubbleFor(agent, time) {
   // "zzz" only for a bot lying in a bedroom bunk.
   const s = agent.spot;
   if (agent.state === "sleeping" && s && s.zone === "bed" && !agent.moving) return { kind: "zzz", time };
+  // Fix 9: talking bots (and the ninja, drawn separately) get an animated "..." bubble.
+  if (agent.state === "talking") return { kind: "working", time };
   return null;
 }
 
@@ -283,7 +317,7 @@ function poseFor(agent, time) {
   const moving = agent.moving;
   if (moving) return { pose: "walk", frame: Math.floor(agent.walk * 2) % 4, bob: Math.floor(agent.walk * 2) % 2 === 0 ? -1 : 0, shake: 0 };
   if (s.zone === "bed") return { pose: "lie", frame: 0, bob: 0, shake: 0, sleep: true };
-  if (s.zone === "table") return { pose: "type", frame: Math.floor(time / 140) % 4, bob: 1, shake: 0 };
+  if (s.zone === "table" || s.loop) return { pose: "type", frame: Math.floor(time / 140) % 4, bob: 1, shake: 0 };
   if (s.zone === "battle") {
     const beat = Math.floor((time + (hashId(agent.id) % 600)) / 180) % 4;
     return { pose: beat < 2 ? "up" : "type", frame: beat, bob: beat === 1 ? -1 : 0, shake: 0, attack: true };
@@ -292,6 +326,7 @@ function poseFor(agent, time) {
   if (s.zone === "wall") return { pose: "idle", frame: 0, bob: 0, shake: 0 };
   if (agent.state === "blocked") return { pose: "crossed", frame: 0, bob: 0, shake: Math.floor(time / 70) % 2 };
   if (s.zone === "carpet") return { pose: "hips", frame: Math.floor(time / 700) % 4, bob: 0, shake: 0 };
+  if (s.zone === "talk") return { pose: "hips", frame: Math.floor(time / 500) % 4, bob: 0, shake: 0 };
   const breathe = Math.floor(time / 500) % 2 === 0 ? 0 : -1;
   return { pose: "idle", frame: 0, bob: breathe, shake: 0 };
 }

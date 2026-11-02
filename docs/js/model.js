@@ -9,7 +9,7 @@
 })(function () {
   "use strict";
 
-  var STATES = new Set(["idle", "walking", "working", "waiting", "blocked", "done", "sleeping"]);
+  var STATES = new Set(["idle", "walking", "working", "waiting", "blocked", "done", "sleeping", "talking"]);
 
   function coerceEventList(value) {
     if (!value) return [];

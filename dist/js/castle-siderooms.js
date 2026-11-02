@@ -1,19 +1,20 @@
-/** Castle part: SIDE ROOMS. Workshop on the left (crafting tables), Wizard Lab on the right (potion tables).
+/** Castle part: SIDE ROOMS. Wizard Lab on the left (potion tables), Workshop on the right (crafting tables).
  *  Working bots stand at a table with a task label under it (truncated; tap for the full text).
- *  Idle and never-posted bots stand at a station in their room (mapping table: HOME_ROOMS in world.js).
+ *  Only working bots stay here (room per HOME_ROOMS in world.js); idle, done and never-posted bots
+ *  stand in the moat line-up (js/castle-lineup.js).
  *  Bots with a Drive folder have a chest on the room's outer wall. */
 (function () {
 const LABEL_MAX = 18;
 const ROOMS = [
   {
-    key: "workshop", id: "workshop", name: "Workshop", x: 1, y: 16, w: 12, h: 18, outer: "left",
+    key: "lab", id: "lab", name: "Wizard Lab", x: 1, y: 16, w: 12, h: 18, outer: "left",
     doors: [[12, 24], [12, 25], [6, 33], [7, 33]],
-    wall: "#6e4a2c", wallDk: "#4a2f1a", floor: "#b08856", floor2: "#a27c4c", trim: "#f0a94a",
+    wall: "#40366e", wallDk: "#28204a", floor: "#5e5a8c", floor2: "#555182", trim: "#b48cff",
   },
   {
-    key: "lab", id: "lab", name: "Wizard Lab", x: 43, y: 16, w: 12, h: 18, outer: "right",
+    key: "workshop", id: "workshop", name: "Workshop", x: 43, y: 16, w: 12, h: 18, outer: "right",
     doors: [[43, 24], [43, 25], [48, 33], [49, 33]],
-    wall: "#40366e", wallDk: "#28204a", floor: "#5e5a8c", floor2: "#555182", trim: "#b48cff",
+    wall: "#6e4a2c", wallDk: "#4a2f1a", floor: "#b08856", floor2: "#a27c4c", trim: "#f0a94a",
   },
 ];
 
@@ -25,13 +26,10 @@ function trunc(text, n) {
 function layoutRoom(r) {
   const tables = [];
   for (const ty of [r.y + 4, r.y + 11]) for (const dx of [2, 7]) tables.push({ room: r.key, x: r.x + dx, y: ty });
-  const stations = [];
-  const cols = r.outer === "left" ? [3, 4.5, 6, 7.5, 9, 10.5] : [1.5, 3, 4.5, 6, 7.5, 9];
-  for (const dy of [1, 7, 14, 16]) for (const c of cols) stations.push({ x: r.x + c, y: r.y + dy, facing: "s" });
   const chestX = r.outer === "left" ? r.x + 1 : r.x + r.w - 2;
   const chestSlots = [];
   for (let y = r.y + 2; y <= r.y + r.h - 2; y++) chestSlots.push({ x: chestX, y });
-  return { tables, stations, chestSlots };
+  return { tables, chestSlots };
 }
 
 const part = {
@@ -75,18 +73,23 @@ const part = {
       const list = freeTables[a.room === "lab" ? "lab" : "workshop"];
       const t = list.shift();
       if (!t) continue;
-      ctx.assign(a, { zone: "table", x: t.x + 0.5, y: t.y - 1, facing: "s", table: t.room + ":" + t.x + "," + t.y });
+      // Working bots look busy: a loop table -> their Drive chest (if any) -> the room station
+      // (anvil / cauldron) -> table, typing at each stop.
+      const room = world.sideRooms[t.room];
+      const r = room.def;
+      const loop = [{ x: t.x + 0.5, y: t.y - 1, facing: "s" }];
+      const chest = world.chests.find((c) => c.id === a.id);
+      if (chest) loop.push({ x: chest.x + (r.outer === "left" ? 1 : -1), y: chest.y, facing: r.outer === "left" ? "w" : "e" });
+      // each of the 4 seats has its own spot at the station, so two bots never stand on one tile
+      const seat = room.tables.indexOf(t);
+      const STATION_STOPS = [[4, 9, "n"], [6, 9, "n"], [4, 8, "e"], [6, 8, "w"]];
+      const st = STATION_STOPS[seat % STATION_STOPS.length];
+      loop.push({ x: r.x + st[0], y: r.y + st[1], facing: st[2] });
+      ctx.assign(a, { zone: "table", x: t.x + 0.5, y: t.y - 1, facing: "s", table: t.room + ":" + t.x + "," + t.y, room: t.room, loop });
       tablesUsed.push({ x: t.x, y: t.y, room: t.room, agent: a.id, name: a.name, full: a.task || a.text || "", label: trunc(a.text || a.task, LABEL_MAX) });
     }
     ctx.town.extras.tables = tablesUsed;
-    // Idle bots (including never-posted ones) stand at a station in their room.
-    const used = { workshop: 0, lab: 0 };
-    for (const a of ctx.free()) {
-      if (a.state !== "idle") continue;
-      const key = a.room === "lab" ? "lab" : "workshop";
-      const s = world.sideRooms[key].stations[used[key]++];
-      if (s) ctx.assign(a, { zone: "station", x: s.x, y: s.y, facing: "s" });
-    }
+    // Only working bots stay in the side rooms; idle and never-posted bots go to the moat line-up.
   },
   update(town, dt, time) {
     for (const chest of town.world.chests) {
@@ -95,7 +98,15 @@ const part = {
     }
   },
   labels(town) {
-    return (town.extras.tables || []).map((t) => ({ kind: "table", x: (t.x + 1) * 16, y: (t.y + 1) * 16 - 2, text: t.label || "…", accent: "#f0a94a", minAbs: 0.55 }));
+    const out = (town.extras.tables || []).map((t) => ({ kind: "table", x: (t.x + 1) * 16, y: (t.y + 1) * 16 - 2, text: t.label || "…", accent: "#f0a94a", minAbs: 0.55 }));
+    // The short task label also walks with the bot while it is away from its table.
+    for (const t of town.extras.tables || []) {
+      const a = town.agents.get(t.agent);
+      if (!a || !a.spot || !a.spot.loop) continue;
+      if (Math.hypot(a.x - (t.x + 0.5), a.y - (t.y - 1)) < 0.6) continue;
+      out.push({ kind: "task", x: a.x * 16 + 8, y: a.y * 16 + 22, text: t.label || "…", accent: "#ffe680", minAbs: 0.55 });
+    }
+    return out;
   },
   hit(town, wx, wy, ui) {
     for (const t of town.extras.tables || []) {

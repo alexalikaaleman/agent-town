@@ -6,8 +6,8 @@ const MAP_H = 60;
 
 /**
  * HOME-ROOM MAPPING (change here). Key = the bot's "home" in data/bots.json.
- * "workshop" = Workshop (crafty and builder bots, left of the throne room).
- * "lab" = Wizard Lab (knowledge, art, language and records bots, right of the throne room).
+ * "workshop" = Workshop (crafty and builder bots, right of the throne room).
+ * "lab" = Wizard Lab (knowledge, art, language and records bots, left of the throne room).
  * BOT_ROOMS overrides one bot by id, e.g. { "budget-bot": "workshop" }.
  */
 const HOME_ROOMS = {

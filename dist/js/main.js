@@ -21,6 +21,12 @@ const panel = document.getElementById("panel");
 const ctx = canvas.getContext("2d");
 
 let world = createWorld([]);
+// Which map is shown: "castle" or "vault" (the vault is its own map, see js/castle-vault.js).
+let scene = "castle";
+let vworld = null;
+function cur() {
+  return scene === "vault" && vworld ? vworld : world;
+}
 let roster = [];
 let town = null;
 let mode = "loading";
@@ -44,10 +50,10 @@ let labelSize = Number(localStorage.getItem("agentTownLabelSize") || 1) || 1;
 if (!LABEL_SIZES.includes(labelSize)) labelSize = 1;
 
 function worldW() {
-  return world.w * TILE;
+  return cur().w * TILE;
 }
 function worldH() {
-  return world.h * TILE;
+  return cur().h * TILE;
 }
 // Frame padding (screen px) so labels at the map edge and the overlaid buttons never
 // cover the town. On phones the buttons sit in a bar under the map (style.css).
@@ -75,8 +81,22 @@ function maxZoom() {
 function clampZoom(z) {
   return Math.min(maxZoom(), Math.max(fitZoom(), z));
 }
+/** While following, the part of the stage the info panel covers (right column on desktop, bottom sheet on phones). */
+function panelCover() {
+  const none = { r: 0, b: 0 };
+  if (!following || panel.hidden) return none;
+  const card = panel.querySelector(".panel-card") || panel;
+  const c = card.getBoundingClientRect();
+  const r = stage.getBoundingClientRect();
+  if (!c.width || !c.height) return none;
+  if (c.left > r.left + r.width / 2) return { r: Math.max(0, Math.min(r.width * 0.6, r.right - c.left + 8)), b: 0 };
+  return { r: 0, b: Math.max(0, Math.min(r.height * 0.6, r.bottom - c.top + 8)) };
+}
 function clampCam() {
-  const p = framePad();
+  const p = Object.assign({}, framePad());
+  const cover = panelCover();
+  p.r += cover.r;
+  p.b += cover.b;
   const fitAxis = (cam, view, size, lo, hi) => {
     const min = -lo / zoom;
     const max = size - (view - hi) / zoom;
@@ -135,10 +155,10 @@ function startFollow(id) {
   if (!town || !town.agents.get(id)) return;
   following = id;
   town.follow = id;
-  // Zoom in a little so the followed bot is easy to see.
-  if (zoom < fitZoom() * 2) zoomAt(Math.min(maxZoom(), fitZoom() * 2.5));
+  // Zoom straight in so the followed bot is easy to see.
+  if (zoom < fitZoom() * 3) zoomAt(Math.min(maxZoom(), fitZoom() * 3.5));
   const note = document.getElementById("mode-note");
-  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space to stop.";
+  note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or press Escape to stop.";
 }
 
 function stopFollow() {
@@ -148,8 +168,9 @@ function stopFollow() {
 }
 
 function centerOn(agent, ease) {
-  const tx = agent.x * TILE + TILE / 2 - viewW / zoom / 2;
-  const ty = agent.y * TILE + 4 - viewH / zoom / 2;
+  const cover = panelCover();
+  const tx = agent.x * TILE + TILE / 2 - (viewW - cover.r) / zoom / 2;
+  const ty = agent.y * TILE + 4 - (viewH - cover.b) / zoom / 2;
   camX += (tx - camX) * ease;
   camY += (ty - camY) * ease;
   clampCam();
@@ -167,7 +188,7 @@ function ensureMap() {
   const want = Math.max(1, Math.ceil(zoom * dpr));
   const cap = Math.max(1, Math.floor(4096 / Math.max(worldW(), worldH())));
   const s = Math.min(want, cap);
-  const key = s + ":" + world.w + "x" + world.h + ":" + world.buildings.length;
+  const key = scene + ":" + s + ":" + cur().w + "x" + cur().h + ":" + cur().buildings.length;
   if (mapCanvas && mapKey === key) return;
   const off = document.createElement("canvas");
   off.width = worldW() * s;
@@ -175,7 +196,7 @@ function ensureMap() {
   const octx = off.getContext("2d");
   octx.imageSmoothingEnabled = false;
   octx.setTransform(s, 0, 0, s, 0, 0);
-  drawMap(octx, world);
+  drawMap(octx, cur());
   mapCanvas = off;
   mapKey = key;
 }
@@ -185,7 +206,10 @@ window.addEventListener("resize", resize);
 resize();
 
 
-let needsOpen = false; // the Needs Alex list drops down from the top bar
+// Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
+// with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
+let needsOpen = true;
+let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
 let feedUpdatedAt = null;
@@ -266,15 +290,20 @@ function renderHud() {
   needsBtn.classList.toggle("urgent", items.some((i) => i.kind === "urgent"));
   needsBtn.setAttribute("aria-expanded", needsOpen ? "true" : "false");
   needsEl.replaceChildren();
-  needsEl.hidden = !needsOpen;
-  if (!needsOpen) return;
+  needsEl.hidden = !needsOpen || (!items.length && !needsAsked);
+  if (needsEl.hidden) return;
   if (!items.length) {
     const none = document.createElement("p");
     none.className = "needs-none";
+    needsAsked = false;
     none.textContent = "Nothing needs Alex right now.";
     needsEl.appendChild(none);
     return;
   }
+  const label = document.createElement("span");
+  label.className = "needs-label";
+  label.textContent = "Needs Alex (urgent first, then oldest)";
+  needsEl.appendChild(label);
   for (const it of items) {
     const agent = town.agents.get(it.bot);
     const btn = document.createElement("button");
@@ -282,11 +311,7 @@ function renderHud() {
     btn.className = "need " + it.kind;
     btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
     btn.title = ago(it.ts);
-    btn.addEventListener("click", () => {
-      needsOpen = false;
-      lastHud = "";
-      focusBot(it.bot, true);
-    });
+    btn.addEventListener("click", () => focusBot(it.bot, true));
     needsEl.appendChild(btn);
   }
 }
@@ -331,11 +356,11 @@ function renderUsage(usage) {
 
 /** Small history list from this month's file, newest first. */
 let historyRun = 0;
+const HISTORY_DEADLINE_MS = 10000;
 async function openHistory() {
   const box = document.getElementById("history");
   const list = document.getElementById("history-list");
   const run = ++historyRun;
-  needsOpen = false;
   lastHud = "";
   box.hidden = false;
   list.replaceChildren();
@@ -347,7 +372,9 @@ async function openHistory() {
   };
   add("Loading…", "muted");
   try {
-    const lines = (await loadHistory(new Date())).slice(0, 60);
+    // One overall deadline: even if the pinned read and its fallback both hang, the list never sits on "Loading…".
+    const deadline = new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), HISTORY_DEADLINE_MS));
+    const lines = (await Promise.race([loadHistory(new Date()), deadline])).slice(0, 60);
     if (run !== historyRun) return;
     list.replaceChildren();
     if (!lines.length) add("Nothing yet this month.", "muted");
@@ -366,16 +393,60 @@ async function openHistory() {
   }
 }
 
-/** Top-bar search: type a bot name (or id), pick it, and the map pans to it and opens its panel. */
-function buildSearch(list) {
-  const dl = document.getElementById("bot-names");
-  dl.replaceChildren();
+/** Chip row: "All" first (highlighted when no filter), then one chip per bot with its coloured dot.
+ *  Tap chips to show only those bots; "All" clears. Scrolls sideways. */
+function buildFilters(list) {
+  const bar = document.getElementById("filters");
+  bar.replaceChildren();
+  const all = document.createElement("button");
+  all.type = "button";
+  all.className = "chip all on";
+  all.dataset.id = "";
+  all.textContent = "All";
+  bar.appendChild(all);
   for (const bot of list) {
-    const opt = document.createElement("option");
-    opt.value = bot.name;
-    dl.appendChild(opt);
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip";
+    chip.dataset.id = bot.id;
+    chip.style.setProperty("--dot", bot.color || "#888");
+    chip.textContent = bot.name;
+    bar.appendChild(chip);
+  }
+  if (!bar.dataset.wired) {
+    bar.dataset.wired = "1";
+    bar.addEventListener("click", (ev) => {
+      const chip = ev.target.closest(".chip");
+      if (!chip || !town) return;
+      const id = chip.dataset.id;
+      if (!id) town.filter.clear();
+      else if (town.filter.has(id)) town.filter.delete(id);
+      else town.filter.add(id);
+      syncFilters();
+    });
+  }
+  syncFilters();
+}
+
+function syncFilters() {
+  if (!town) return;
+  for (const chip of document.querySelectorAll("#filters .chip")) {
+    const id = chip.dataset.id;
+    const on = id ? town.filter.has(id) : town.filter.size === 0;
+    chip.classList.toggle("on", on);
+    chip.setAttribute("aria-pressed", on ? "true" : "false");
   }
 }
+
+/** Plain search box (no dropdown): Enter or change pans to the bot and opens its panel. It starts
+ *  empty on every load (also when the browser restores the page from its back/forward cache). */
+function resetSearch() {
+  const input = document.getElementById("search");
+  input.value = "";
+  input.classList.remove("miss");
+}
+resetSearch();
+window.addEventListener("pageshow", resetSearch);
 
 function findBot(query) {
   const q = String(query || "").trim().toLowerCase();
@@ -400,14 +471,29 @@ function runSearch(ev) {
   input.blur();
 }
 
-function homeName(id) {
-  const b = world.byId.get(id);
-  return b ? b.name : id;
+/** Fix 24: the panel never slides under the top bar / Needs strip, so Back stays reachable. */
+function placePanel() {
+  if (panel.hidden) return;
+  const vp = document.getElementById("viewport").getBoundingClientRect();
+  if (window.innerWidth >= 900) {
+    panel.style.top = Math.max(0, Math.round(vp.top)) + "px";
+    panel.style.bottom = "";
+    panel.style.maxHeight = "";
+  } else {
+    // Phone: sit between the top UI and the bottom strip (fix 27 keeps the strip visible).
+    const strip = document.getElementById("strip").getBoundingClientRect();
+    const bottom = strip.height ? Math.max(0, Math.round(window.innerHeight - strip.top)) : 0;
+    panel.style.top = "";
+    panel.style.bottom = bottom + "px";
+    panel.style.maxHeight = Math.max(160, Math.round(window.innerHeight - bottom - vp.top)) + "px";
+  }
 }
+window.addEventListener("resize", placePanel);
 
 function openPanel(agent) {
   town.selected = agent.id;
   panel.hidden = false;
+  placePanel();
   document.getElementById("p-name").textContent = agent.name;
   document.getElementById("p-role").textContent = agent.role;
   const state = agent.busy ? agent.state + " · handoff" : agent.state;
@@ -424,23 +510,52 @@ function openPanel(agent) {
   document.getElementById("p-task").textContent = agent.task || agent.text || "No current task.";
   const driveEl = document.getElementById("p-drive");
   const driveUrl = agent.driveFolderUrl || "";
-  if (driveEl.dataset.url !== driveUrl) {
-    driveEl.dataset.url = driveUrl;
-    driveEl.replaceChildren();
-    if (driveUrl) {
-      const link = document.createElement("a");
-      link.href = driveUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.className = "drive-btn";
-      link.textContent = "Drive folder";
-      driveEl.appendChild(link);
-    }
+  const folders = agent.folders || [];
+  const main = folders.find((f) => f.link) || null;
+  // Fix 25: a Drive folder button at the bottom of every panel. Fix 20: it shows the folder by name.
+  // Only the approved chest link is clickable; other folders are names only.
+  // Rebuild only when the bot changes: openPanel runs every frame, and a button that is
+  // replaced between press and release never gets its click.
+  const key = agent.id + "|" + driveUrl + "|" + folders.map((f) => f.name).join("/");
+  const fresh = driveEl.dataset.key !== key;
+  if (fresh) driveEl.dataset.key = key;
+  if (fresh) driveEl.replaceChildren();
+  if (!fresh) {
+    // nothing to rebuild
+  } else if (driveUrl) {
+    const link = document.createElement("a");
+    link.href = driveUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.className = "drive-btn";
+    link.textContent = "Drive folder: " + (main ? main.name : agent.name);
+    driveEl.appendChild(link);
+  } else {
+    const off = document.createElement("span");
+    off.className = "drive-btn off";
+    off.textContent = "Drive folder: no approved link";
+    driveEl.appendChild(off);
+  }
+  // Fix 21: every folder and file location we know for this bot (names only).
+  const list = document.getElementById("p-folder-list");
+  if (fresh) list.replaceChildren();
+  for (const f of fresh ? folders : []) {
+    const li = document.createElement("li");
+    const nm = document.createElement("b");
+    nm.textContent = f.name;
+    li.append(nm, document.createTextNode(" · " + f.where + (f.link ? " (link below)" : "")));
+    list.appendChild(li);
+  }
+  if (fresh && !folders.length) {
+    const li = document.createElement("li");
+    li.textContent = "No folder data yet.";
+    list.appendChild(li);
   }
   let timeText = agent.ts ? "Updated " + formatStamp(agent.ts) : "No status line yet";
+  if (agent.ping) timeText += " · last ping " + ago(agent.ping);
   if (agent.stalled) timeText += " · stalled (no new line for " + ago(agent.ts).replace(" ago", "") + ")";
   document.getElementById("p-time").textContent = timeText;
-  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home) + (agent.project ? " · Project: " + agent.project : "");
+  document.getElementById("p-project").textContent = agent.project ? "Project: " + agent.project : "";
 }
 
 function closePanel() {
@@ -469,6 +584,7 @@ document.getElementById("search-form").addEventListener("submit", runSearch);
 document.getElementById("search").addEventListener("change", runSearch);
 document.getElementById("needs-btn").addEventListener("click", () => {
   needsOpen = !needsOpen;
+  needsAsked = needsOpen;
   lastHud = "";
   if (needsOpen) document.getElementById("history").hidden = true;
 });
@@ -487,7 +603,10 @@ stage.addEventListener(
 );
 window.addEventListener("keydown", (ev) => {
   if (ev.target && ev.target.closest && ev.target.closest("input, textarea")) return;
-  if (ev.key === "Escape") closePanel();
+  if (ev.key === "Escape") {
+    closePanel();
+    stopFollow();
+  }
   const step = 64 / zoom;
   if (ev.key === "ArrowLeft") camX -= step;
   if (ev.key === "ArrowRight") camX += step;
@@ -592,6 +711,17 @@ function endPointer(ev) {
   const dragged = pointer.drag;
   pointer = null;
   if (ev.type === "pointercancel" || dragged || !town) return;
+  if (scene === "vault") {
+    let vp = toWorld(ev.clientX, ev.clientY);
+    // a tap on a cabinet's title counts as a tap on that cabinet
+    const r = stage.getBoundingClientRect();
+    const lx = ev.clientX - r.left;
+    const ly = ev.clientY - r.top;
+    const tl = (debugInfo.partLabels || []).find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
+    if (tl) vp = { x: tl.at[0], y: tl.at[1] };
+    for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
+    return;
+  }
   if (isDouble(ev)) {
     const id = lastTap.id || (botAt(ev.clientX, ev.clientY) || {}).id;
     lastTap = null;
@@ -605,11 +735,14 @@ function endPointer(ev) {
   const hit = botAt(ev.clientX, ev.clientY);
   lastTap = { t: performance.now(), x: ev.clientX, y: ev.clientY, id: hit ? hit.id : null };
   if (hit) {
+    // Single tap: zoom straight in on the bot, open its panel, follow it and fade the others.
     openPanel(hit);
+    startFollow(hit.id);
+    centerOn(hit, 1);
     return;
   }
   for (const p of world.parts) {
-    if (p.hit && p.hit(town, pt.x, pt.y, { zoom, showTip, now: performance.now(), radius: Math.max(10, 18 / zoom) })) return;
+    if (p.hit && p.hit(town, pt.x, pt.y, Object.assign({ zoom, showTip, now: performance.now(), radius: Math.max(10, 18 / zoom) }, sceneUi))) return;
   }
   const chest = town.hitChest(pt.x, pt.y);
   if (chest) {
@@ -703,8 +836,8 @@ function drawScreenLabels(c) {
   debugInfo.frame = [fx0, fy0, fx1, fy1];
   // Room names: bigger, on each building's top wall.
   const roomPx = Math.round(Math.min(22, Math.max(11, 9 * zoom)) * labelSize);
-  for (const b of world.buildings) {
-    const box = labelBox(c, b.name, roomPx, sx((b.x + b.w / 2) * TILE), sy(b.y * TILE) + roomPx + 6);
+  for (const b of cur().buildings) {
+    const box = labelBox(c, b.name, roomPx, sx((b.labelX != null ? b.labelX : b.x + b.w / 2) * TILE), sy(b.y * TILE) + roomPx + 6);
     if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
     keepInFrame(box);
     paintLabel(c, box, b.name, roomPx, b.trim, "rgba(20,18,15,0.82)");
@@ -714,27 +847,53 @@ function drawScreenLabels(c) {
   // Part labels (table tasks, monster nameplates, cabinet titles): placed before bot names.
   const partPx = Math.round(Math.min(12, Math.max(8, 5.5 * zoom)) * labelSize);
   const partLabels = [];
-  for (const p of world.parts) {
+  for (const p of cur().parts) {
     if (!p.labels) continue;
-    for (const l of p.labels(town, world) || []) {
+    for (const l of p.labels(town, cur()) || []) {
+      if (l.reserve) {
+        // a keep-out area (e.g. Bus Ninja's sprite): names are not placed over it
+        const [x0, y0, x1, y1] = l.reserve;
+        placed.push({ left: sx(x0), top: sy(y0), w: (x1 - x0) * zoom, h: (y1 - y0) * zoom, reserve: true });
+        continue;
+      }
       if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
       // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
       if (l.minAbs && zoom < l.minAbs) continue;
-      const box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
+      let box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       keepInFrame(box);
+      if (!l.avoid && overlapArea(box, placed) > 0) {
+        // nudge down, then up, until it is clear of room names and other part labels
+        for (const dy of [box.h + 1, -(box.h + 1), 2 * (box.h + 1)]) {
+          const alt = { left: box.left, top: box.top + dy, w: box.w, h: box.h };
+          keepInFrame(alt);
+          if (overlapArea(alt, placed) === 0) {
+            box = alt;
+            break;
+          }
+        }
+      }
       // "avoid" labels (dense rows such as cabinet titles) are skipped when they would overlap.
       if (l.avoid && overlapArea(box, placed) > 0) continue;
       paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
       placed.push(box);
-      partLabels.push({ kind: l.kind || p.id, text: l.text, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      partLabels.push({ kind: l.kind || p.id, text: l.text, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;
+  if (scene === "vault") {
+    debugInfo.labels = 0;
+    debugInfo.labelOverlaps = 0;
+    debugInfo.boxes = placed.filter((b) => !b.reserve).map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
+    return;
+  }
   // Bot names: always on. Each name tries above the head, then higher, below the feet,
   // and to the sides; it takes the free spot, or the one with the least overlap.
   const namePx = Math.round(Math.min(14, Math.max(9, 6.5 * zoom)) * labelSize);
-  const list = Array.from(town.agents.values()).filter((a) => !(town.isDimmed && town.isDimmed(a)));
+  // Chip filter: names of filtered-out bots are hidden. Focus: names of the other bots are drawn
+  // see-through (like their sprites), and the focused bot's name is placed first.
+  const focusId = town.follow;
+  const list = Array.from(town.agents.values()).filter((a) => a.id === focusId || !(town.filter.size && !town.filter.has(a.id)));
   const rank = (a) => (a.id === following || a.id === town.selected ? 0 : 1);
   list.sort((a, b) => rank(a) - rank(b) || a.y - b.y || a.x - b.x);
   let overlaps = 0;
@@ -746,10 +905,16 @@ function drawScreenLabels(c) {
     const base = labelBox(c, text, namePx, ax, head);
     if (base.left + base.w < -40 || base.left > viewW + 40 || base.top > viewH + 40 || feet < -40) continue;
     const h = base.h + 1;
-    const cands = [
-      [0, 0], [0, -h], [0, feet - head + h], [-base.w * 0.55, 0], [base.w * 0.55, 0],
-      [0, -2 * h], [-base.w * 0.55, -h], [base.w * 0.55, -h], [0, feet - head + 2 * h], [0, -3 * h],
-    ];
+    // Candidates nearest first: above the head (stacking up), below the feet (stacking down), and
+    // shifted sideways; the first free one wins, else the one with the least overlap.
+    const below = feet - head + h;
+    const cands = [];
+    for (const [dy, dyCost] of [[0, 0], [-h, 1], [below, 1.2], [-2 * h, 2], [below + h, 2.2], [-3 * h, 3], [below + 2 * h, 3.2], [-4 * h, 4], [below + 3 * h, 4.2], [-5 * h, 5]]) {
+      for (const [dx, dxCost] of [[0, 0], [-base.w * 0.55, 0.9], [base.w * 0.55, 0.9], [-base.w * 1.1, 1.8], [base.w * 1.1, 1.8]]) {
+        cands.push([dx, dy, dyCost + dxCost]);
+      }
+    }
+    cands.sort((p, q) => p[2] - q[2]);
     let best = null;
     let bestA = Infinity;
     for (const [dx, dy] of cands) {
@@ -765,11 +930,16 @@ function drawScreenLabels(c) {
     keepInFrame(best);
     if (bestA > base.w * base.h * 0.25) overlaps++;
     placed.push(best);
+    const faded = focusId && agent.id !== focusId;
+    if (faded) c.globalAlpha = 0.28;
     paintLabel(c, best, text, namePx, agent.color);
+    if (faded) c.globalAlpha = 1;
   }
   debugInfo.labelOverlaps = overlaps;
-  debugInfo.boxes = placed.map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
+  debugInfo.boxes = placed.filter((b) => !b.reserve).map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
   debugInfo.labels = list.length;
+  debugInfo.focus = focusId || null;
+  debugInfo.fadedLabels = focusId ? list.length - 1 : 0;
 }
 
 let last = performance.now();
@@ -796,13 +966,44 @@ function frame(now) {
   if (mapCanvas) ctx.drawImage(mapCanvas, 0, 0, worldW(), worldH());
   if (town) {
     town.screenNames = true;
-    drawScene(ctx, town, world, now, honoluluParts().phase);
+    if (scene === "vault") for (const p of vworld.parts) p.drawUnder(ctx, town, vworld, now, window.AgentTown.PIX);
+    else drawScene(ctx, town, world, now, honoluluParts().phase);
   }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   drawScreenLabels(ctx);
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
+
+/** Switch maps with a short fade. */
+const fade = document.getElementById("fade");
+const sceneBar = document.getElementById("scene-bar");
+function setScene(name, after) {
+  if (fade) fade.classList.add("on");
+  setTimeout(() => {
+    scene = name;
+    if (name === "vault" && !vworld) vworld = window.AgentTown.vault.createWorld();
+    document.body.classList.toggle("in-vault", name === "vault");
+    if (sceneBar) sceneBar.hidden = name !== "vault";
+    hideTip();
+    closePanel();
+    stopFollow();
+    mapCanvas = null;
+    framed = true;
+    resize();
+    if (fade) fade.classList.remove("on");
+    if (after) after();
+  }, fade ? 320 : 0);
+}
+const sceneUi = {
+  enterVault: (after) => setScene("vault", after),
+  leaveVault: (after) => setScene("castle", after),
+};
+const backBtn = document.getElementById("vault-back");
+if (backBtn) backBtn.addEventListener("click", () => sceneUi.leaveVault());
+window.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape" && scene === "vault") sceneUi.leaveVault();
+});
 
 function bootTown(list) {
   roster = list;
@@ -827,6 +1028,14 @@ window.AgentTown.debug = {
   get world() {
     return world;
   },
+  get scene() {
+    return scene;
+  },
+  get vaultWorld() {
+    return vworld;
+  },
+  enterVault: () => sceneUi.enterVault(),
+  leaveVault: () => sceneUi.leaveVault(),
   /** Stage-relative screen point of a world tile point. */
   screenOfWorld(wx, wy) {
     const r = stage.getBoundingClientRect();
@@ -858,7 +1067,7 @@ async function boot() {
       },
       onRoster(list) {
         roster = list;
-        buildSearch(list);
+        buildFilters(list);
       },
     });
   } catch (err) {

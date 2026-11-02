@@ -2,8 +2,9 @@
 (function () {
 const STATUS_BASE = "https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/";
 const POLL_MS = 2 * 60 * 1000;
-const STALL_MS = 30 * 60 * 1000;
-const SLEEP_MS = 10 * 60 * 1000; // idle or working with no new line for 10+ minutes shows as sleeping
+const STALL_MS = 2 * 60 * 60 * 1000; // a working bot quiet 2h+ gets a "stalled?" tag but stays working
+const SLEEP_MS = 10 * 60 * 1000; // a done or idle line 10+ minutes old shows as sleeping
+const TALK_MS = 15 * 60 * 1000; // talking expires 15 min after the last talking post
 const FETCH_TIMEOUT_MS = 12000;
 
 /** fetch with a timeout, so a hung request can never leave a panel on "Loading…". */
@@ -89,14 +90,25 @@ function toSnapshot(roster, status, now) {
       continue;
     }
     const ts0 = e.ts ? Date.parse(String(e.ts)) : NaN;
-    let state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle", "sleeping"].includes(e.state) ? e.state : "idle";
-    // Idle or working with no new line for 10+ minutes shows as sleeping. Done, blocked and needs-alex keep their state.
-    if ((state === "idle" || state === "working") && Number.isFinite(ts0) && now - ts0 >= SLEEP_MS) state = "sleeping";
+    let state;
+    if (e.state === "talking") {
+      // Talking ends on any other posted state, or 15 min after the talking post (missed end → idle, not sleep).
+      state = Number.isFinite(ts0) && now - ts0 >= TALK_MS ? "idle" : "talking";
+    } else {
+      state = e.state === "needs-alex" ? "waiting" : ["working", "done", "blocked", "idle", "sleeping"].includes(e.state) ? e.state : "idle";
+      // A bot only sleeps after posting "sleeping" itself, or once its last line was done or idle AND
+      // 10+ minutes have passed. Working stays working however long between lines (2h+ adds "stalled?").
+      // Blocked and needs-alex keep their state.
+      if ((state === "idle" || state === "done") && !e.needs && Number.isFinite(ts0) && now - ts0 >= SLEEP_MS) state = "sleeping";
+    }
     let needsAlex = null;
     if (e.needs && (e.needs.kind === "urgent" || e.needs.kind === "question")) needsAlex = e.needs.kind;
     else if (e.state === "needs-alex") needsAlex = "question";
     const ts = e.ts ? String(e.ts) : null;
-    const age = ts ? now - Date.parse(ts) : 0;
+    const ping = e.ping ? String(e.ping) : null;
+    // Last sign of life: the newer of the last line and the last 30-minute ping.
+    const seen = Math.max(ts ? Date.parse(ts) : 0, ping ? Date.parse(ping) : 0) || 0;
+    const age = seen ? now - seen : 0;
     bots.push({
       id: bot.id,
       state,
@@ -110,6 +122,7 @@ function toSnapshot(roster, status, now) {
       project: e.project ? String(e.project).slice(0, 24) : null,
       stalled: state === "working" && age >= STALL_MS,
       reported: true,
+      ping,
     });
   }
   return bots;
@@ -189,5 +202,5 @@ async function loadHistory(date) {
 }
 
 window.AgentTown = window.AgentTown || {};
-Object.assign(window.AgentTown, { loadHistory, monthKey, connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS, SLEEP_MS });
+Object.assign(window.AgentTown, { loadHistory, monthKey, connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS, SLEEP_MS, TALK_MS });
 })();

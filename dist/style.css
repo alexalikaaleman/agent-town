@@ -305,7 +305,7 @@ h2, p { margin: 0; }
 }
 
 #p-name { font-size: 20px; padding-right: 72px; }
-#p-role, #p-task, #p-time, #p-home, #p-drive { color: var(--muted); margin-top: 6px; }
+#p-role, #p-task, #p-time, #p-project, #p-drive { color: var(--muted); margin-top: 6px; }
 #p-task { color: var(--ink); }
 #p-drive a {
   color: #9fd0ff;
@@ -326,6 +326,7 @@ h2, p { margin: 0; }
 }
 
 .tag.s-working { background: #1f6b4a; }
+.tag.s-talking { background: #1f5a6b; }
 .tag.s-waiting { background: #8a6420; }
 .tag.s-blocked { background: #8f2d2d; }
 .tag.s-done { background: #2a6f3a; }
@@ -386,7 +387,11 @@ h2, p { margin: 0; }
 #panel .panel-card { pointer-events: auto; }
 /* Needs Alex: full text, wrapped, no ellipsis. */
 #needs { flex-wrap: wrap; overflow-x: visible; touch-action: auto; }
-.need { flex: 1 1 260px; max-width: none; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; overflow-wrap: anywhere; }
+/* Top UI messages: each one gets its own full-width line and wraps (no ellipsis). */
+.need { flex: 1 1 100%; max-width: none; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; overflow-wrap: anywhere; min-height: 0; }
+.needs-label, .needs-none { flex: 1 1 100%; margin: 0; }
+#mode-note { display: block; width: 100%; box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; padding: 4px 12px; }
+#mode-note:empty { display: none; }
 .tag.s-sleeping { background: #4b4a7a; color: #fff; }
 /* ?view=list */
 body.list-view #viewport, body.list-view #panel, body.list-view #mode-note { display: none !important; }
@@ -458,7 +463,7 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 #needs-btn b { display: inline-block; min-width: 1.6em; margin-left: 4px; padding: 0 4px; background: #0e131c; text-align: center; }
 #needs-btn.has { background: #24527a; }
 #needs-btn.urgent { background: #8f2d2d; }
-#search-form { flex: 1; min-width: 0; max-width: 360px; margin-left: auto; }
+#search-form { flex: none; width: 210px; min-width: 0; }
 #search {
   width: 100%;
   min-height: 36px;
@@ -509,7 +514,13 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 /* Panel: scrolls when long, Back button, Drive folder button. */
 .panel-card { max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain; }
 #panel-close { position: sticky; float: right; top: 0; min-width: 72px; }
-#p-drive a.drive-btn {
+#p-folders { margin-top: 10px; border-top: 2px solid var(--line); padding-top: 6px; }
+#p-folders h3 { font-size: 13px; color: var(--ink); }
+#p-folder-list { list-style: none; margin: 4px 0 0; padding: 0; max-height: 180px; overflow-y: auto; overscroll-behavior: contain; }
+#p-folder-list li { padding: 3px 0; color: var(--muted); font-size: 13px; }
+#p-folder-list li b { color: var(--ink); font-weight: 700; }
+#p-drive .drive-btn.off { background: #3a3f4a; color: #b9bfcc; cursor: default; }
+#p-drive a.drive-btn, #p-drive span.drive-btn {
   display: inline-block;
   margin-top: 4px;
   padding: 6px 12px;
@@ -521,6 +532,11 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 }
 @media (min-width: 900px) {
   #panel { top: 56px; bottom: 60px; }
+  #panel .panel-card { max-height: 100%; }
+}
+@media (max-width: 899px) {
+  #panel { display: flex; flex-direction: column; justify-content: flex-end; }
+  #panel .panel-card { max-height: min(55vh, 100%); width: 100%; }
 }
 @media (max-width: 640px) {
   #topbar { gap: 6px; padding: 5px 6px; }
@@ -533,3 +549,24 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
   #tip { bottom: 120px; }
   .panel-card { max-height: 55vh; }
 }
+
+/* Vault map: its own scene with a full-width bar holding the way back. */
+#scene-bar { display: flex; align-items: center; gap: 10px; padding: 6px 10px; background: #2a2210; color: #ffd34d; font-weight: 700; }
+#scene-bar[hidden] { display: none; }
+#vault-back { background: #ffd34d; color: #2a2210; border: 0; border-radius: 6px; padding: 8px 14px; font: inherit; font-weight: 700; min-height: 40px; cursor: pointer; }
+#fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 5; }
+#fade.on { opacity: 1; }
+/* Needs Alex is an in-page strip under the top bar again (old behaviour), not a dropdown over the map. */
+#needs { position: static; max-width: none; max-height: 34vh; flex: none; border-width: 0 0 3px; box-shadow: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+#needs .need, #needs .needs-label, #needs .needs-none { flex: none; width: 100%; box-sizing: border-box; }
+/* Chip row (scrolls sideways) with a plain search box beside it. */
+#chiprow { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #0e131c; border-bottom: 3px solid var(--line); }
+#filters { flex: 1; min-width: 0; display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; touch-action: pan-x; padding-bottom: 2px; }
+#filters .chip { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 2px 10px; border: 2px solid var(--line); background: var(--chip); color: var(--ink); font: inherit; font-size: 13px; white-space: nowrap; cursor: pointer; }
+#filters .chip:not(.all)::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, #888); flex: none; }
+#filters .chip.on { background: #24527a; border-color: #8fc0ff; }
+#filters .chip.all.on { background: #f0c14a; color: #1a1408; border-color: #f0c14a; font-weight: 700; }
+#search { padding-left: 30px !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='6.5' cy='6.5' r='4.5' fill='none' stroke='%239aa7b8' stroke-width='2'/%3E%3Cpath d='M10 10l4 4' stroke='%239aa7b8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 9px 50%; }
+#search::placeholder { color: #8a93a3; opacity: 1; }
+body.list-view #chiprow { display: none !important; }
+@media (max-width: 640px) { #search-form { width: 150px; } #search { padding-right: 6px !important; } #filters .chip { font-size: 12px; min-height: 30px; padding: 2px 8px; } }
