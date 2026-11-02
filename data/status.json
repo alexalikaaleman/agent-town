@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T19:23:27.420Z",
+  "updatedAt": "2026-11-02T19:23:43.721Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -106,13 +106,13 @@
       "since": "2026-11-02T16:14:11.398Z"
     },
     "chief-of-staff": {
-      "state": "working",
-      "text": "Weekly rundown",
+      "state": "done",
+      "text": "Rundown done; next: urgent check 10:23",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T19:23:27.420Z",
-      "since": "2026-11-02T19:23:27.420Z"
+      "ts": "2026-11-02T19:23:43.721Z",
+      "since": "2026-11-02T19:23:43.721Z"
     }
   }
 }
