@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T18:40:17.987Z",
+  "updatedAt": "2026-11-02T18:40:31.715Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -53,12 +53,12 @@
     },
     "robotemplate": {
       "state": "done",
-      "text": "Castle passed; next: verify live",
+      "text": "Castle live; next: talking-state paste",
       "project": "Agent Town castle",
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T18:35:23.339Z",
-      "since": "2026-11-02T18:35:23.339Z"
+      "ts": "2026-11-02T18:40:31.715Z",
+      "since": "2026-11-02T18:40:31.715Z"
     },
     "game-design-document-bot": {
       "state": "done",
