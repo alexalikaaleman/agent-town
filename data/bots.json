@@ -5,7 +5,14 @@
     "role": "Orchestrates the other bots",
     "home": "townhall",
     "color": "#d64545",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1KmrSW7E97ZodshPFjAu8Bt47pYY6uxkx"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1KmrSW7E97ZodshPFjAu8Bt47pYY6uxkx",
+    "folders": [
+      {
+        "name": "MasterBot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "brainstorm-bot",
@@ -13,7 +20,14 @@
     "role": "Ideas and prompts for Alex",
     "home": "tavern",
     "color": "#f2a03d",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1Fu5gQsFwn0aWA8gMCKkf3rQEPU2Amr6f"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1Fu5gQsFwn0aWA8gMCKkf3rQEPU2Amr6f",
+    "folders": [
+      {
+        "name": "Brainstorm Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "game-design-document-bot",
@@ -21,7 +35,29 @@
     "role": "Writes and keeps the game design doc",
     "home": "library",
     "color": "#3d6fd8",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Game Design Document Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "GDD Bot Behavior Update",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "GDD-Prompt-Blocks",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "GDD_Dragon_Game_Slimdown",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "gitwriter-3d-bot",
@@ -32,7 +68,8 @@
     "role": "Builds and deploys live apps to Alex's GitHub",
     "home": "workshop",
     "color": "#7d5cff",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": []
   },
   {
     "id": "website-builder-bot",
@@ -40,7 +77,14 @@
     "role": "Builds and updates websites",
     "home": "workshop",
     "color": "#1f9d8a",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/15RvhVNdEcKpQkG3kldgjYd9Ov5-8v2BN"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/15RvhVNdEcKpQkG3kldgjYd9Ov5-8v2BN",
+    "folders": [
+      {
+        "name": "Website Builder Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "cutscene-bot",
@@ -48,7 +92,14 @@
     "role": "Plans and writes cutscenes",
     "home": "studio",
     "color": "#e25ca8",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Cutscene Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "concept-art-bot",
@@ -56,7 +107,14 @@
     "role": "Concept art direction",
     "home": "studio",
     "color": "#ff7a59",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Concept Art Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "ai-prompt-bot",
@@ -64,7 +122,14 @@
     "role": "Writes image and video prompts",
     "home": "studio",
     "color": "#c06bff",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1PbJO8d9lBs95V-ZweQB5pdf0D9YBQdus"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1PbJO8d9lBs95V-ZweQB5pdf0D9YBQdus",
+    "folders": [
+      {
+        "name": "AI Prompt Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "google-drive-manager",
@@ -72,7 +137,14 @@
     "role": "Organizes notes and drive files",
     "home": "library",
     "color": "#4aa3df",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1hHJ6FLOzCfWhvwei4Bh2AKCNCF4M37D6"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1hHJ6FLOzCfWhvwei4Bh2AKCNCF4M37D6",
+    "folders": [
+      {
+        "name": "Google Drive Manager",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "hustle-bot",
@@ -80,7 +152,14 @@
     "role": "Finds offers and opportunities",
     "home": "bank",
     "color": "#e0a82a",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1bdUpGZhy24wLUOh1ulUCVGZx9uUJJgPB"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1bdUpGZhy24wLUOh1ulUCVGZx9uUJJgPB",
+    "folders": [
+      {
+        "name": "Hustle Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "budget-bot",
@@ -88,7 +167,14 @@
     "role": "Tracks budgets",
     "home": "bank",
     "color": "#2f9e44",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1JK150XidL-adUZckO-ewCSLjJ07J0HrL"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1JK150XidL-adUZckO-ewCSLjJ07J0HrL",
+    "folders": [
+      {
+        "name": "Budget Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "accounting-bot",
@@ -96,7 +182,14 @@
     "role": "Books and balances",
     "home": "bank",
     "color": "#1f7a4d",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Accounting Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "playtest-qa-bot",
@@ -104,7 +197,14 @@
     "role": "Playtests and files bugs",
     "home": "workshop",
     "color": "#e05252",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1XrJKTAuzHZDIrQoMB5A1XgpO8FOLEshH"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1XrJKTAuzHZDIrQoMB5A1XgpO8FOLEshH",
+    "folders": [
+      {
+        "name": "Playtest and QA Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "release-marketing-bot",
@@ -112,7 +212,14 @@
     "role": "Release notes and announcements",
     "home": "post",
     "color": "#ff5d8f",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1YmFi_8Mjq1URiZEzxPmVoA45RAIbiP4O"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1YmFi_8Mjq1URiZEzxPmVoA45RAIbiP4O",
+    "folders": [
+      {
+        "name": "Release and Marketing Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "alika-treed-business-bot",
@@ -120,7 +227,8 @@
     "role": "TreeD business tasks",
     "home": "bank",
     "color": "#c9842a",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": []
   },
   {
     "id": "larry-h-robot",
@@ -128,7 +236,14 @@
     "role": "Robot builds and chores",
     "home": "workshop",
     "color": "#8d99ae",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1sxihmlZOZkvNDzSZ4qoPtm-U_I5S-_fw"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1sxihmlZOZkvNDzSZ4qoPtm-U_I5S-_fw",
+    "folders": [
+      {
+        "name": "Larry H Robot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "robotemplate",
@@ -136,7 +251,14 @@
     "role": "Designs bot prompt templates",
     "home": "workshop",
     "color": "#5c6b73",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "RoboTemplate",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "robo-maintenance-bot",
@@ -144,7 +266,19 @@
     "role": "Keeps robots running",
     "home": "workshop",
     "color": "#3d5a80",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Robo Maintenance Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Robo_Maintenance",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "robo-library",
@@ -152,7 +286,19 @@
     "role": "Indexes robot notes",
     "home": "library",
     "color": "#6a4c93",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Robo Library",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Robo_Library",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "robo-helper-bot",
@@ -160,7 +306,19 @@
     "role": "Helps around Alex's house",
     "home": "house",
     "color": "#d97642",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Robo Helper Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Robo_Helper",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "context-bot",
@@ -168,7 +326,14 @@
     "role": "Keeps working context",
     "home": "library",
     "color": "#3a86ff",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Context Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "bot-scout",
@@ -176,7 +341,14 @@
     "role": "Scouts new bots and tools",
     "home": "post",
     "color": "#2ec4b6",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1KpXzgopIV0L-DJqTv7YJfuxRKZYofHyw"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1KpXzgopIV0L-DJqTv7YJfuxRKZYofHyw",
+    "folders": [
+      {
+        "name": "Bot Scout",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "chief-of-staff",
@@ -184,7 +356,14 @@
     "role": "Priorities and the daily brief",
     "home": "townhall",
     "color": "#b08968",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1mleuGK1Z0sDQhaD2LwizeeQmrtvgfgnM"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1mleuGK1Z0sDQhaD2LwizeeQmrtvgfgnM",
+    "folders": [
+      {
+        "name": "Chief of Staff",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "help-bot",
@@ -192,7 +371,14 @@
     "role": "Answers how-to questions",
     "home": "townhall",
     "color": "#52b788",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/11z3JdkpKrne3ys4k3bLrcAQiujs5Dcf6"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/11z3JdkpKrne3ys4k3bLrcAQiujs5Dcf6",
+    "folders": [
+      {
+        "name": "Help Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "feedback-bot",
@@ -200,7 +386,8 @@
     "role": "Collects feedback",
     "home": "tavern",
     "color": "#e9c46a",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": []
   },
   {
     "id": "language-bot",
@@ -208,7 +395,14 @@
     "role": "Language and wording",
     "home": "library",
     "color": "#4cc9f0",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Language_Bot",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "mochizuki-bot",
@@ -216,7 +410,14 @@
     "role": "Style and scene notes",
     "home": "studio",
     "color": "#9b5de5",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Mochizuki Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "job-lander-resume-bot",
@@ -224,7 +425,29 @@
     "role": "Resume and job-search drafts",
     "home": "post",
     "color": "#f4a261",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Job Lander Resume Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Job Lander Resume Bot",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "Combined Resume Bot",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "Resume Bot Research",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "garage-sale-bot",
@@ -232,7 +455,14 @@
     "role": "Lists and prices items",
     "home": "bank",
     "color": "#bc6c25",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1urm6KWMrHwpPhWXecbyod2t45dXgZtEN"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1urm6KWMrHwpPhWXecbyod2t45dXgZtEN",
+    "folders": [
+      {
+        "name": "Garage Sale Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "malu-bot",
@@ -240,7 +470,24 @@
     "role": "Personal assistant at home",
     "home": "house",
     "color": "#ff8fab",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Malu bot",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "MaluBot",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "YouTube Video Editing Bot",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "game-build-bible",
@@ -248,7 +495,24 @@
     "role": "Canonical build notes",
     "home": "library",
     "color": "#8a9a4a",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Game Build Bible",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Game Build Bible",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "Game Bible and Logger - Shared Design",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "game-revision-logger",
@@ -256,7 +520,24 @@
     "role": "Logs game revisions",
     "home": "library",
     "color": "#c47b4a",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Game Revision Logger",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Game Revision Logger",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      },
+      {
+        "name": "Game Bible and Logger - Shared Design",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "game-additions-bot",
@@ -264,7 +545,14 @@
     "role": "Proposes and adds game features",
     "home": "workshop",
     "color": "#e76f51",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Game Additions Bot",
+        "where": "Drive · bot folder",
+        "link": false
+      }
+    ]
   },
   {
     "id": "trivia-bot",
@@ -272,7 +560,14 @@
     "role": "Trivia and break-time facts",
     "home": "tavern",
     "color": "#f72585",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1xMfiE0U-nvah-6tXf4nOPCNH_iGRvMfa"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1xMfiE0U-nvah-6tXf4nOPCNH_iGRvMfa",
+    "folders": [
+      {
+        "name": "Trivia Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "proportion-bot",
@@ -280,7 +575,14 @@
     "role": "Checks art proportions",
     "home": "studio",
     "color": "#48bfe3",
-    "driveFolderUrl": "https://drive.google.com/drive/folders/1LSk7uqXrxmaaMch4GHgb14OukVaUrxFS"
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1LSk7uqXrxmaaMch4GHgb14OukVaUrxFS",
+    "folders": [
+      {
+        "name": "Proportion Bot",
+        "where": "Drive · bot folder",
+        "link": true
+      }
+    ]
   },
   {
     "id": "video-backup-helper-v2",
@@ -288,6 +590,18 @@
     "role": "Tracks video backups",
     "home": "library",
     "color": "#577590",
-    "driveFolderUrl": ""
+    "driveFolderUrl": "",
+    "folders": [
+      {
+        "name": "Video Backup Helper v2",
+        "where": "Drive · bot folder",
+        "link": false
+      },
+      {
+        "name": "Phone Video Backup Bot",
+        "where": "Drive · RoboTemplate design folder",
+        "link": false
+      }
+    ]
   }
 ]

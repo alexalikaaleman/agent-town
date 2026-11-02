@@ -72,6 +72,12 @@ function createTown(roster, world) {
       stalled: false,
       reported: false,
       driveFolderUrl: driveFolderUrl(bot.driveFolderUrl),
+      // Names only (fix 21); a folder is clickable only through the approved driveFolderUrl.
+      folders: (Array.isArray(bot.folders) ? bot.folders : []).slice(0, 12).map((f) => ({
+        name: String((f && f.name) || "").replace(/[\u0000-\u001f]/g, "").slice(0, 60),
+        where: String((f && f.where) || "").slice(0, 40),
+        link: Boolean(f && f.link),
+      })).filter((f) => f.name),
       x: spot.x,
       y: spot.y,
       facing: "s",
