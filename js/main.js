@@ -70,9 +70,18 @@ function framePad() {
     b: 6,
   };
 }
+/** World-px rect to fit when framed. On narrow screens the vault zooms to the
+ *  cabinet block (tiles x 2-26, y 1-23) so each title sits under its own cabinet. */
+function fitBounds() {
+  if (scene === "vault" && window.innerWidth < 900) {
+    return { x: 2 * TILE, y: 1 * TILE, w: (26 - 2) * TILE, h: (23 - 1) * TILE };
+  }
+  return { x: 0, y: 0, w: worldW(), h: worldH() };
+}
 function fitZoom() {
   const p = framePad();
-  return Math.max(0.05, Math.min((viewW - p.l - p.r) / worldW(), (viewH - p.t - p.b) / worldH()));
+  const b = fitBounds();
+  return Math.max(0.05, Math.min((viewW - p.l - p.r) / b.w, (viewH - p.t - p.b) / b.h));
 }
 function maxZoom() {
   // About four tiles across the shorter side: one bot fills the view.
@@ -97,14 +106,15 @@ function clampCam() {
   const cover = panelCover();
   p.r += cover.r;
   p.b += cover.b;
-  const fitAxis = (cam, view, size, lo, hi) => {
-    const min = -lo / zoom;
-    const max = size - (view - hi) / zoom;
-    if (max <= min) return -(lo + (view - lo - hi - size * zoom) / 2) / zoom;
+  const b = fitBounds();
+  const fitAxis = (cam, view, size, origin, lo, hi) => {
+    const min = origin - lo / zoom;
+    const max = origin + size - (view - hi) / zoom;
+    if (max <= min) return origin - (lo + (view - lo - hi - size * zoom) / 2) / zoom;
     return Math.min(max, Math.max(min, cam));
   };
-  camX = fitAxis(camX, viewW, worldW(), p.l, p.r);
-  camY = fitAxis(camY, viewH, worldH(), p.t, p.b);
+  camX = fitAxis(camX, viewW, b.w, b.x, p.l, p.r);
+  camY = fitAxis(camY, viewH, b.h, b.y, p.t, p.b);
 }
 function pixelRatio() {
   dpr = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
@@ -893,7 +903,8 @@ function drawScreenLabels(c) {
       let box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       keepInFrame(box);
-      if (!l.avoid && overlapArea(box, placed) > 0) {
+      // Vault cabinet titles stay under their own cabinet (no collision nudge).
+      if (!l.avoid && !(scene === "vault" && l.kind === "cabinet") && overlapArea(box, placed) > 0) {
         // nudge down, then up, until it is clear of room names and other part labels
         for (const dy of [box.h + 1, -(box.h + 1), 2 * (box.h + 1)]) {
           const alt = { left: box.left, top: box.top + dy, w: box.w, h: box.h };
