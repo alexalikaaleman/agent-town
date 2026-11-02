@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T07:22:54.032Z",
+  "updatedAt": "2026-11-02T07:49:50.907Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -9,8 +9,8 @@
       "text": "Mark two old cores replaced?",
       "project": null,
       "ts": "2026-11-02T07:15:11.852Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-02T07:49:50.907Z"
     },
     {
       "id": "n202611020722-2d1a",
