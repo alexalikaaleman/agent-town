@@ -178,7 +178,7 @@ function ensureMap() {
   const want = Math.max(1, Math.ceil(zoom * dpr));
   const cap = Math.max(1, Math.floor(4096 / Math.max(worldW(), worldH())));
   const s = Math.min(want, cap);
-  const key = s + ":" + world.w + "x" + world.h + ":" + world.beds.length;
+  const key = s + ":" + world.w + "x" + world.h + ":" + world.buildings.length;
   if (mapCanvas && mapKey === key) return;
   const off = document.createElement("canvas");
   off.width = worldW() * s;
@@ -612,12 +612,16 @@ function endPointer(ev) {
     openPanel(hit);
     return;
   }
+  for (const p of world.parts) {
+    if (p.hit && p.hit(town, pt.x, pt.y, { zoom, showTip, now: performance.now(), radius: Math.max(10, 18 / zoom) })) return;
+  }
   const chest = town.hitChest(pt.x, pt.y);
   if (chest) {
     town.pokeChest(chest.id, performance.now());
     if (chest.url) window.open(chest.url, "_blank", "noopener");
     return;
   }
+  hideTip();
   closePanel();
   stopFollow();
 }
@@ -635,6 +639,27 @@ panel.addEventListener("pointerup", (ev) => {
   startFollow(lastTap.id);
   lastTap = null;
 });
+
+/** Small popup with the full text of a table task, monster name or question. */
+function showTip(title, text) {
+  let tip = document.getElementById("tip");
+  if (!tip) {
+    tip = document.createElement("div");
+    tip.id = "tip";
+    tip.setAttribute("role", "dialog");
+    tip.innerHTML = '<button type="button" class="tip-close" aria-label="Close">×</button><b class="tip-title"></b><p class="tip-text"></p>';
+    document.body.appendChild(tip);
+    tip.querySelector(".tip-close").addEventListener("click", hideTip);
+  }
+  tip.querySelector(".tip-title").textContent = title || "";
+  tip.querySelector(".tip-text").textContent = text || "";
+  tip.hidden = false;
+  return true;
+}
+function hideTip() {
+  const tip = document.getElementById("tip");
+  if (tip) tip.hidden = true;
+}
 
 // ---------- screen-space labels (room names and bot names) ----------
 const debugInfo = { labelOverlaps: 0, labels: 0 };
@@ -690,6 +715,22 @@ function drawScreenLabels(c) {
     placed.push(box);
   }
   if (!town) return;
+  // Part labels (table tasks, monster nameplates, cabinet titles): placed before bot names.
+  const partPx = Math.round(Math.min(12, Math.max(8, 5.5 * zoom)) * labelSize);
+  const partLabels = [];
+  for (const p of world.parts) {
+    if (!p.labels) continue;
+    for (const l of p.labels(town, world) || []) {
+      if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
+      const box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
+      if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
+      keepInFrame(box);
+      paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
+      placed.push(box);
+      partLabels.push({ kind: l.kind || p.id, text: l.text, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+    }
+  }
+  debugInfo.partLabels = partLabels;
   // Bot names: always on. Each name tries above the head, then higher, below the feet,
   // and to the sides; it takes the free spot, or the one with the least overlap.
   const namePx = Math.round(Math.min(14, Math.max(9, 6.5 * zoom)) * labelSize);
@@ -782,6 +823,14 @@ window.AgentTown.debug = {
   },
   get labels() {
     return Object.assign({}, debugInfo);
+  },
+  get world() {
+    return world;
+  },
+  /** Stage-relative screen point of a world tile point. */
+  screenOfWorld(wx, wy) {
+    const r = stage.getBoundingClientRect();
+    return { x: r.left + (wx - camX) * zoom, y: r.top + (wy - camY) * zoom };
   },
   screenOf(id) {
     const a = town && town.agents.get(id);

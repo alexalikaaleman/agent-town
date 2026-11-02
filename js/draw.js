@@ -84,192 +84,6 @@ function fill(ctx, x, y, w, h, color) {
   ctx.fillRect(x, y, w, h);
 }
 
-function drawMap(ctx, world) {
-  for (let y = 0; y < world.h; y++) {
-    for (let x = 0; x < world.w; x++) {
-      drawTile(ctx, world, x, y);
-    }
-  }
-  for (const d of world.decor) drawDecor(ctx, world, d);
-  for (const b of world.buildings) {
-    ctx.fillStyle = "rgba(0,0,0,0.18)";
-    const by = b.y + b.h;
-    if (by < world.h) ctx.fillRect(b.x * TILE, by * TILE, b.w * TILE, 3);
-  }
-}
-
-function drawTile(ctx, world, x, y) {
-  const g = world.ground[y][x];
-  const px = x * TILE;
-  const py = y * TILE;
-  const n = (x * 13 + y * 7) % 5;
-  if (g === "grass" || g === "flower" || g === "tree") {
-    fill(ctx, px, py, TILE, TILE, n % 2 === 0 ? "#4ea23a" : "#459434");
-    fill(ctx, px + 3, py + 10, 2, 2, "#67bf45");
-    fill(ctx, px + 11, py + 4, 2, 2, "#3d8c30");
-    if (g === "flower") {
-      const colors = ["#f2d24b", "#e25c8a", "#f7f3ea", "#7eb6ff"];
-      fill(ctx, px + 7, py + 8, 2, 2, colors[(x + y) % colors.length]);
-      fill(ctx, px + 8, py + 11, 1, 2, "#2f6b28");
-    }
-    if (g === "tree") {
-      fill(ctx, px + 7, py + 8, 3, 6, "#6b4226");
-      fill(ctx, px + 3, py + 2, 10, 8, n % 2 ? "#1f7a32" : "#18662a");
-      fill(ctx, px + 5, py + 1, 6, 3, "#2e9444");
-      fill(ctx, px + 5, py + 4, 2, 2, "#8fd48a");
-    }
-    return;
-  }
-  if (g === "path") {
-    fill(ctx, px, py, TILE, TILE, "#c9ae84");
-    fill(ctx, px + 2, py + 3, 4, 3, "#b69668");
-    fill(ctx, px + 9, py + 9, 5, 3, "#d8c29a");
-    fill(ctx, px, py, TILE, 1, "#b08958");
-    return;
-  }
-  if (g === "plaza") {
-    fill(ctx, px, py, TILE, TILE, (x + y) % 2 === 0 ? "#d9d0bf" : "#cec4b0");
-    fill(ctx, px, py, TILE, 1, "#b7ad98");
-    return;
-  }
-  if (g === "water") {
-    fill(ctx, px, py, TILE, TILE, "#d5cbb8");
-    fill(ctx, px + 1, py + 1, TILE - 2, TILE - 2, "#b7ad98");
-    fill(ctx, px + 3, py + 3, TILE - 6, TILE - 6, "#3a78c2");
-    fill(ctx, px + 4, py + 5, TILE - 8, 2, "#68a4e4");
-    return;
-  }
-  const id = world.bid[y][x];
-  const b = id ? world.byId.get(id) : null;
-  if (g === "floor" && b) {
-    const alt = (x + y) % 2 === 0;
-    fill(ctx, px, py, TILE, TILE, alt ? b.floor : b.floor2);
-    if (id === "townhall") {
-      const lx = x - b.x;
-      const ly = y - b.y;
-      if (lx >= 4 && lx <= b.w - 5 && ly >= 3 && ly <= 7) {
-        fill(ctx, px, py, TILE, TILE, "#8e2f2f");
-        if (lx === 4 || ly === 3) fill(ctx, px, py, TILE, 1, "#e2b15a");
-        if (lx === b.w - 5 || ly === 7) fill(ctx, px, py + TILE - 1, TILE, 1, "#6d2424");
-      }
-    }
-    return;
-  }
-  if ((g === "wall" || g === "door") && b) {
-    fill(ctx, px, py, TILE, TILE, b.wall);
-    fill(ctx, px, py, TILE, 2, b.wallDk);
-    if (y === b.y && g === "wall") {
-      fill(ctx, px, py, TILE, 6, b.roof);
-      fill(ctx, px, py + 6, TILE, 2, b.trim);
-    }
-    if (g === "door") {
-      fill(ctx, px + 3, py + 3, 10, 13, "#6b4226");
-      fill(ctx, px + 4, py + 4, 8, 10, "#8d5a34");
-      fill(ctx, px + 10, py + 9, 2, 2, "#e2b15a");
-      if (b.door === "n") fill(ctx, px, py, TILE, 4, b.roof);
-    }
-  }
-}
-
-function drawDecor(ctx, world, d) {
-  const px = d.x * TILE;
-  const py = d.y * TILE;
-  const b = world.byId.get(d.bid);
-  if (d.kind === "window") {
-    fill(ctx, px + 4, py + 5, 8, 7, "#8ec7ea");
-    fill(ctx, px + 7, py + 5, 1, 7, b ? b.wallDk : "#333");
-    fill(ctx, px + 4, py + 8, 8, 1, b ? b.wallDk : "#333");
-    return;
-  }
-  if (d.kind === "sign" && b) {
-    fill(ctx, px + 1, py + 8, 14, 7, "#2b2118");
-    fill(ctx, px + 2, py + 9, 12, 5, b.trim);
-    ctx.font = "5px ui-monospace, monospace";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "#fff8e6";
-    ctx.fillText(d.text, px + 8, py + 12);
-    return;
-  }
-  if (d.kind === "desk" || d.kind === "bench" || d.kind === "table") {
-    fill(ctx, px + 2, py + 4, 12, 8, "#6b4226");
-    fill(ctx, px + 3, py + 5, 10, 3, "#a87848");
-    fill(ctx, px + 3, py + 12, 2, 3, "#4a2e18");
-    fill(ctx, px + 11, py + 12, 2, 3, "#4a2e18");
-    return;
-  }
-  if (d.kind === "counter" || d.kind === "bar") {
-    fill(ctx, px + 1, py + 3, 14, 10, "#5c3a24");
-    fill(ctx, px + 2, py + 4, 12, 4, "#8d5a34");
-    if (d.kind === "bar") fill(ctx, px + 4, py + 9, 3, 3, "#e8e8e8");
-    return;
-  }
-  if (d.kind === "shelf") {
-    fill(ctx, px + 2, py + 2, 12, 12, "#4a3424");
-    const books = ["#c44949", "#3d6fd8", "#2f9e44", "#e2b15a", "#7a3e9d"];
-    for (let i = 0; i < 5; i++) fill(ctx, px + 3 + i * 2, py + 4, 2, 8, books[i]);
-    return;
-  }
-  if (d.kind === "easel") {
-    fill(ctx, px + 7, py + 11, 2, 4, "#6b4226");
-    fill(ctx, px + 4, py + 3, 8, 8, "#f7f3ea");
-    fill(ctx, px + 5, py + 4, 6, 5, "#e25c8a");
-    fill(ctx, px + 3, py + 2, 1, 10, "#6b4226");
-    fill(ctx, px + 12, py + 2, 1, 10, "#6b4226");
-    return;
-  }
-  if (d.kind === "bed") {
-    fill(ctx, px + 2, py + 3, 12, 11, "#f4f1ea");
-    fill(ctx, px + 3, py + 7, 10, 6, d.color || "#b6403a");
-    fill(ctx, px + 3, py + 4, 6, 3, "#d9d3c5");
-    if (d.owner) {
-      // Name plate under the bed, so each bot's bed is labeled.
-      const label = (SHORT[d.owner] || d.name || d.owner).slice(0, 8);
-      ctx.font = "4px ui-monospace, monospace";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      fill(ctx, px - 1, py + 13, 18, 4, "rgba(20,18,15,0.75)");
-      ctx.fillStyle = "#fff8e6";
-      ctx.fillText(label, px + 8, py + 15);
-    }
-    return;
-  }
-  if (d.kind === "anvil") {
-    fill(ctx, px + 6, py + 12, 4, 3, "#3a2a1c");
-    fill(ctx, px + 4, py + 10, 8, 3, "#5c4632");
-    fill(ctx, px + 2, py + 7, 12, 4, "#6e7782");
-    fill(ctx, px + 1, py + 8, 3, 2, "#9aa3ad");
-    fill(ctx, px + 5, py + 4, 6, 4, "#b7c0c8");
-    fill(ctx, px + 6, py + 5, 2, 1, "#eef2f4");
-    return;
-  }
-  if (d.kind === "workbench") {
-    fill(ctx, px + 1, py + 6, 14, 6, "#6b4226");
-    fill(ctx, px + 2, py + 5, 12, 3, "#c49a62");
-    fill(ctx, px + 2, py + 12, 2, 3, "#3a2a1c");
-    fill(ctx, px + 12, py + 12, 2, 3, "#3a2a1c");
-    fill(ctx, px + 4, py + 7, 3, 2, "#8d8d8d");
-    fill(ctx, px + 9, py + 6, 4, 1, "#d8d2c4");
-    return;
-  }
-  if (d.kind === "tools") {
-    fill(ctx, px + 3, py + 2, 10, 12, "#4a3424");
-    fill(ctx, px + 4, py + 3, 8, 1, "#2b2118");
-    fill(ctx, px + 5, py + 4, 1, 8, "#c0c6cc");
-    fill(ctx, px + 7, py + 5, 1, 7, "#8d5a34");
-    fill(ctx, px + 9, py + 4, 1, 8, "#d9dde2");
-    fill(ctx, px + 6, py + 3, 3, 2, "#e2b15a");
-    return;
-  }
-  if (d.kind === "forge") {
-    fill(ctx, px + 1, py + 6, 14, 8, "#3a3a40");
-    fill(ctx, px + 2, py + 5, 12, 3, "#5a5a62");
-    fill(ctx, px + 3, py + 8, 10, 4, "#2a2a30");
-    fill(ctx, px + 4, py + 9, 8, 2, "#1a1a1e");
-    fill(ctx, px, py + 13, 16, 2, "#2c2420");
-    return;
-  }
-}
 
 function blob(ctx, x, y, w, h, color) {
   fill(ctx, x - 1, y, w + 2, h, "#1a1a1a");
@@ -451,19 +265,6 @@ function drawBubble(ctx, x, y, kind, time, text) {
   glyph(ctx, ch, box.left + 3, box.top + 2, ink, 2);
 }
 
-function drawForgeGlow(ctx, d, now) {
-  const px = d.x * TILE;
-  const py = d.y * TILE;
-  const flick = Math.floor(now / 90);
-  const hot = flick % 2 === 0 ? "#ffb03a" : "#ff7a22";
-  const core = flick % 3 === 0 ? "#ffe9a0" : "#ffd36a";
-  fill(ctx, px + 5, py + 9, 6, 2, hot);
-  fill(ctx, px + 6, py + 8, 4, 2, core);
-  const h = 2 + (flick % 3);
-  fill(ctx, px + 6, py + 8 - h, 2, h, flick % 2 ? "#ff5a2a" : "#ffd36a");
-  fill(ctx, px + 8, py + 7 - (flick % 2), 2, 2, "#ffb03a");
-  if (flick % 4 === 0) fill(ctx, px + 7, py + 4, 1, 1, "#fff4c2");
-}
 
 function drawChest(ctx, chest) {
   const px = chest.x * TILE + 1;
@@ -493,21 +294,6 @@ function drawChest(ctx, chest) {
   }
 }
 
-function drawItem(ctx, x, y, item) {
-  const scroll = hashId(item || "x") % 2 === 0;
-  const px = Math.round(x);
-  const py = Math.round(y);
-  if (scroll) {
-    fill(ctx, px - 5, py - 6, 10, 8, "#f3e2b0");
-    fill(ctx, px - 6, py - 5, 1, 6, "#c44949");
-    fill(ctx, px + 5, py - 5, 1, 6, "#c44949");
-    fill(ctx, px - 3, py - 3, 6, 1, "#c9b48a");
-  } else {
-    fill(ctx, px - 5, py - 6, 10, 8, "#8d5a34");
-    fill(ctx, px - 4, py - 7, 8, 3, "#c44949");
-    fill(ctx, px - 1, py - 4, 2, 3, "#e2b15a");
-  }
-}
 
 const placedLabels = [];
 let sceneW = 0;
@@ -525,226 +311,198 @@ function clampRect(left, top, w, h) {
   return { left: Math.round(x), top: Math.round(y) };
 }
 
-function drawLabel(ctx, text, x, y, accent) {
-  ctx.font = "8px ui-monospace, monospace";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "top";
-  const w = Math.ceil(ctx.measureText(text).width);
-  const boxW = w + 4;
-  const boxH = 10;
-  let left = Math.round(x - w / 2) - 2;
-  let top = Math.round(y);
-  for (let tries = 0; tries < 4; tries++) {
-    const box = { left, top, right: left + boxW, bottom: top + boxH };
-    const hit = placedLabels.some((p) => box.left < p.right && box.right > p.left && box.top < p.bottom && box.bottom > p.top);
-    if (!hit) break;
-    if (top - 11 < 0) break;
-    top -= 11;
+
+// ---------- castle tiles (original pixel art, FF6-like palette) ----------
+const PAL = {
+  grass: ["#4f8a3c", "#5d9a45", "#3f7431"],
+  dirt: ["#9c7a4a", "#8a6a3e", "#b08a56"],
+  stone: ["#8d8a9c", "#9a97aa", "#7a7789"],
+  castlewall: ["#5b5770", "#46425a", "#77738c"],
+  water: ["#2b4f9e", "#3561b5", "#1f3c7c"],
+  bridge: ["#8a5a2e", "#6e4422", "#a8723e"],
+};
+
+function drawTile(ctx, world, x, y) {
+  const g = world.ground[y][x];
+  const px = x * TILE;
+  const py = y * TILE;
+  const hv = world.hash(x, y);
+  const b = world.bid[y][x] ? world.byId.get(world.bid[y][x]) : null;
+  if (g === "floor" || g === "door") {
+    const c = b ? ((x + y) % 2 ? b.floor : b.floor2 || b.floor) : PAL.stone[0];
+    fill(ctx, px, py, TILE, TILE, c);
+    fill(ctx, px, py + 15, TILE, 1, shade(c, 0.85));
+    fill(ctx, px + 15, py, 1, TILE, shade(c, 0.9));
+    if (g === "door") {
+      fill(ctx, px, py, TILE, 3, "rgba(0,0,0,0.25)");
+    }
+    return;
   }
-  const placed = clampRect(left, top, boxW, boxH);
-  left = placed.left;
-  top = placed.top;
-  placedLabels.push({ left, top, right: left + boxW, bottom: top + boxH });
-  fill(ctx, left, top, boxW, boxH, "#14120f");
-  fill(ctx, left, top, 2, boxH, accent || "#ffe14a");
-  ctx.fillStyle = "#fff8e6";
-  ctx.fillText(text, Math.round(left + boxW / 2), top + 1);
+  if (g === "wall") {
+    const wall = b ? b.wall : PAL.castlewall[0];
+    const dk = b ? b.wallDk : PAL.castlewall[1];
+    fill(ctx, px, py, TILE, TILE, wall);
+    for (let r = 0; r < 4; r++) {
+      fill(ctx, px, py + r * 4 + 3, TILE, 1, dk);
+      const off = r % 2 ? 4 : 0;
+      fill(ctx, px + off + 3, py + r * 4, 1, 3, dk);
+      fill(ctx, px + off + 11, py + r * 4, 1, 3, dk);
+    }
+    fill(ctx, px, py, TILE, 1, shade(wall, 1.25));
+    return;
+  }
+  if (g === "battlement" || g === "castlewall") {
+    const [c0, c1, c2] = PAL.castlewall;
+    fill(ctx, px, py, TILE, TILE, c0);
+    for (let r = 0; r < 4; r++) {
+      fill(ctx, px, py + r * 4 + 3, TILE, 1, c1);
+      const off = r % 2 ? 4 : 0;
+      fill(ctx, px + off + 3, py + r * 4, 1, 3, c1);
+      fill(ctx, px + off + 11, py + r * 4, 1, 3, c1);
+    }
+    if (g === "battlement") {
+      fill(ctx, px, py, TILE, 5, "#2a2838");
+      fill(ctx, px + 1, py, 6, 4, c2);
+      fill(ctx, px + 9, py, 6, 4, c2);
+      fill(ctx, px + 1, py, 6, 1, "#a6a2bb");
+      fill(ctx, px + 9, py, 6, 1, "#a6a2bb");
+    } else fill(ctx, px, py, TILE, 1, c2);
+    return;
+  }
+  if (g === "gate") {
+    fill(ctx, px, py, TILE, TILE, "#3b2a1c");
+    fill(ctx, px, py, TILE, 2, "#241810");
+    for (let i = 0; i < 4; i++) fill(ctx, px + i * 4 + 1, py, 1, TILE, "#2a1d12");
+    return;
+  }
+  if (g === "water") {
+    const [c0, c1, c2] = PAL.water;
+    fill(ctx, px, py, TILE, TILE, c0);
+    fill(ctx, px + ((x * 5) % 9), py + 4 + ((x + y) % 3) * 3, 5, 1, c1);
+    fill(ctx, px + ((x * 3 + 6) % 10), py + 11, 4, 1, c2);
+    return;
+  }
+  if (g === "bridge") {
+    const [c0, c1, c2] = PAL.bridge;
+    fill(ctx, px, py, TILE, TILE, c0);
+    for (let r = 0; r < 4; r++) fill(ctx, px, py + r * 4 + 3, TILE, 1, c1);
+    fill(ctx, px, py, TILE, 1, c2);
+    const bx = world.castle.bridgeX;
+    if (x === bx[0]) fill(ctx, px, py, 2, TILE, "#3a2412");
+    if (x === bx[1]) fill(ctx, px + 14, py, 2, TILE, "#3a2412");
+    return;
+  }
+  const pal = PAL[g] || PAL.grass;
+  fill(ctx, px, py, TILE, TILE, pal[0]);
+  if (g === "stone") {
+    fill(ctx, px, py + 7, TILE, 1, pal[2]);
+    fill(ctx, px, py + 15, TILE, 1, pal[2]);
+    fill(ctx, px + (y % 2 ? 4 : 11), py, 1, 7, pal[2]);
+    fill(ctx, px + (y % 2 ? 11 : 4), py + 8, 1, 7, pal[2]);
+    fill(ctx, px + 1, py + 1, 2, 1, pal[1]);
+    return;
+  }
+  if (hv < 0.5) fill(ctx, px + Math.floor(hv * 24), py + 4 + Math.floor(hv * 13) % 8, 1, 2, pal[2]);
+  if (hv > 0.3) fill(ctx, px + 3 + Math.floor(hv * 9), py + 9, 2, 1, pal[1]);
+  if (g === "grass" && hv > 0.93) {
+    fill(ctx, px + 6, py + 6, 3, 3, "#f2d25a");
+    fill(ctx, px + 7, py + 7, 1, 1, "#c4452f");
+  }
 }
 
-/** Project rooms on the plaza: a rope outline and an FF-style billboard with the project name. */
-function drawRooms(ctx, town, world) {
-  const rooms = town.activeRooms ? town.activeRooms() : [];
-  for (const { room, name, count } of rooms) {
-    const x = room.x * TILE;
-    const y = room.y * TILE;
-    const w = room.w * TILE;
-    const h = room.h * TILE;
-    ctx.globalAlpha = 0.18;
-    fill(ctx, x, y, w, h, "#f2d58a");
-    ctx.globalAlpha = 1;
-    for (let i = 0; i < w; i += 4) {
-      fill(ctx, x + i, y, 2, 1, "#8a5a2b");
-      fill(ctx, x + i, y + h - 1, 2, 1, "#8a5a2b");
-    }
-    for (let i = 0; i < h; i += 4) {
-      fill(ctx, x, y + i, 1, 2, "#8a5a2b");
-      fill(ctx, x + w - 1, y + i, 1, 2, "#8a5a2b");
-    }
-    for (const px of [x + 2, x + w - 4]) {
-      fill(ctx, px, y, 2, 4, "#6b4226");
-      fill(ctx, px, y + h - 4, 2, 4, "#6b4226");
-    }
+function drawMap(ctx, world) {
+  for (let y = 0; y < world.h; y++) for (let x = 0; x < world.w; x++) drawTile(ctx, world, x, y);
+  for (const p of world.parts) if (p.drawStatic) p.drawStatic(ctx, world, PIX);
+  for (const b of world.buildings) {
+    const by = b.y + b.h;
+    if (by < world.h) fill(ctx, b.x * TILE, by * TILE, b.w * TILE, 3, "rgba(0,0,0,0.2)");
   }
 }
 
-/** Billboard on the bottom edge of each room, drawn above bots; labels steer around it. */
-function drawBillboards(ctx, town) {
-  const rooms = town.activeRooms ? town.activeRooms() : [];
-  for (const { room, name, count } of rooms) {
-    const x = room.x * TILE;
-    const y = room.y * TILE;
-    const w = room.w * TILE;
-    const h = room.h * TILE;
-    // Two posts, dark frame, blue FF-style panel, cream text.
-    ctx.font = "7px ui-monospace, monospace";
-    const label = String(name).slice(0, 18) + (count > 1 ? " ·" + count : "");
-    const tw = Math.ceil(ctx.measureText(label).width);
-    const bw = Math.min(w - 4, Math.max(28, tw + 8));
-    const bx = Math.round(x + (w - bw) / 2);
-    const by = y + h - 16;
-    fill(ctx, bx + 3, by + 10, 2, 7, "#4a2e18");
-    fill(ctx, bx + bw - 5, by + 10, 2, 7, "#4a2e18");
-    placedLabels.push({ left: bx, top: by, right: bx + bw, bottom: by + 17 });
-    fill(ctx, bx, by, bw, 12, "#14120f");
-    fill(ctx, bx + 1, by + 1, bw - 2, 10, "#e8e2d0");
-    fill(ctx, bx + 2, by + 2, bw - 4, 8, "#24418f");
-    fill(ctx, bx + 2, by + 2, bw - 4, 1, "#3f63c4");
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(bx + 2, by + 2, bw - 4, 8);
-    ctx.clip();
-    ctx.fillStyle = "#fff8e6";
+/** Lying in a bunk: head on the pillow, blanket in the bot's color. */
+function drawLying(ctx, ox, oy, style, color) {
+  blob(ctx, ox + 3, oy + 6, 6, 5, style.robo ? "#d5dde3" : style.hair);
+  if (!style.robo) fill(ctx, ox + 4, oy + 8, 4, 3, style.skin);
+  fill(ctx, ox + 4, oy + 9, 1, 1, "#1b1b1b");
+  fill(ctx, ox + 7, oy + 9, 1, 1, "#1b1b1b");
+  fill(ctx, ox, oy + 11, 12, 9, shade(color || "#b6403a", 0.85));
+  fill(ctx, ox, oy + 11, 12, 2, "#f4f1ea");
+}
+
+function drawAgent(ctx, town, agent, now) {
+  const pose = poseFor(agent, now);
+  const ox = Math.round(agent.x * TILE) + 2 + (pose.shake || 0);
+  const oy = Math.round(agent.y * TILE) - 6 + (pose.bob || 0);
+  const dim = town.isDimmed ? town.isDimmed(agent) : false;
+  if (dim) ctx.globalAlpha = 0.28;
+  const style = styleFor(agent);
+  if (pose.pose === "lie") drawLying(ctx, ox, oy, style, agent.color);
+  else {
+    fill(ctx, ox + 2, oy + 18, 8, 3, "rgba(0,0,0,0.28)");
+    drawPerson(ctx, ox, oy, style, pose, pose.frame, agent.facing);
+    if (pose.attack) {
+      // A small sword in the raised hand.
+      const up = pose.pose === "up";
+      fill(ctx, ox + 10, oy + (up ? -2 : 8), 2, up ? 7 : 2, "#dfe6ee");
+      fill(ctx, ox + (up ? 9 : 10), oy + (up ? 4 : 10), up ? 4 : 2, 1, "#c9a23a");
+      if (!up) fill(ctx, ox + 12, oy + 9, 5, 2, "#dfe6ee");
+    }
+  }
+  ctx.globalAlpha = 1;
+  if (town.selected === agent.id) {
+    const sx = Math.round(agent.x * TILE);
+    const sy = Math.round(agent.y * TILE);
+    fill(ctx, sx + 1, sy + 1, 4, 1, "#ffe14a");
+    fill(ctx, sx + 1, sy + 1, 1, 4, "#ffe14a");
+    fill(ctx, sx + TILE - 5, sy + 1, 4, 1, "#ffe14a");
+    fill(ctx, sx + TILE - 2, sy + 1, 1, 4, "#ffe14a");
+  }
+  const s = agent.spot || {};
+  if (s.tag && !agent.moving) {
+    // Small text tag (e.g. "sleepy" for overflow sleepers). Never "zzz" outside the bedrooms.
+    ctx.font = "5px ui-monospace, monospace";
+    const tw = Math.ceil(ctx.measureText(s.tag).width) + 4;
+    const tx = Math.round(agent.x * TILE + TILE / 2 - tw / 2);
+    const ty = oy - 6;
+    fill(ctx, tx, ty, tw, 7, "#2c2b4d");
+    ctx.fillStyle = "#cfc8ff";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(label, bx + bw / 2, by + 6.5);
-    ctx.restore();
+    ctx.fillText(s.tag, tx + tw / 2, ty + 3.5);
   }
+  const bubble = bubbleFor(agent, now);
+  if (bubble) drawBubble(ctx, agent.x * TILE + TILE / 2, oy - 14, bubble.kind, now, bubble.text);
 }
 
-/** Red "stalled" tag under a bot that has been working 30+ min with no new line. */
-function drawStalled(ctx, x, y) {
-  ctx.font = "7px ui-monospace, monospace";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "top";
-  const w = Math.ceil(ctx.measureText("stalled").width) + 4;
-  const box = clampRect(Math.round(x - w / 2), Math.round(y), w, 9);
-  fill(ctx, box.left - 1, box.top - 1, w + 2, 11, "#14120f");
-  fill(ctx, box.left, box.top, w, 9, "#d42a2a");
-  ctx.fillStyle = "#fff8e6";
-  ctx.fillText("stalled", box.left + w / 2, box.top + 1);
-}
+const PIX = { fill, blob, shade, glyph, drawPerson, styleFor, drawBubble, bubbleBack, TILE };
 
 function drawScene(ctx, town, world, now, phase) {
-  placedLabels.length = 0;
   sceneW = world.w * TILE;
   sceneH = world.h * TILE;
+  for (let x = 0; x < world.w; x++) {
+    for (const my of world.castle.moatY) {
+      if (world.ground[my][x] !== "water") continue;
+      const gx = x * TILE + 2 + ((Math.floor(now / 200) + x * 3) % 11);
+      fill(ctx, gx, my * TILE + 6 + ((x + my) % 2) * 5, 3, 1, "rgba(255,255,255,0.7)");
+    }
+  }
+  for (const p of world.parts) if (p.drawUnder) p.drawUnder(ctx, town, world, now, PIX);
+  for (const chest of world.chests) drawChest(ctx, chest);
+  const list = Array.from(town.agents.values()).sort((a, b) => a.y - b.y || a.x - b.x);
+  for (const agent of list) drawAgent(ctx, town, agent, now);
+  for (const p of world.parts) if (p.drawOver) p.drawOver(ctx, town, world, now, PIX);
   const tint = tintFor(phase);
   if (tint) {
     ctx.fillStyle = tint;
     ctx.fillRect(0, 0, world.w * TILE, world.h * TILE);
   }
-  if (phase === "night" || phase === "dusk" || phase === "dawn") {
-    ctx.fillStyle = phase === "night" ? "#ffcc66" : "#ffe0a8";
-    for (const w of world.windows) ctx.fillRect(w.x * TILE + 5, w.y * TILE + 6, 6, 5);
-  }
-  for (const w of world.water) {
-    const gx = w.x * TILE + 3 + (Math.floor(now / 180) + w.x * 3) % 9;
-    const gy = w.y * TILE + 4 + (Math.floor(now / 260) + w.y) % 6;
-    fill(ctx, gx, gy, 3, 1, "rgba(255,255,255,0.85)");
-  }
-  if (phase === "night") {
-    for (let i = 0; i < 10; i++) {
-      const fx = (hashId("f" + i) % (world.w * TILE) + Math.floor(now / 30) * ((i % 3) + 1)) % (world.w * TILE);
-      const fy = hashId("g" + i) % (world.h * TILE);
-      if ((Math.floor(now / 200) + i) % 4 === 0) fill(ctx, fx, fy, 1, 1, "#fff4c2");
-    }
-  }
-
-  for (const d of world.decor) {
-    if (d.kind === "forge") drawForgeGlow(ctx, d, now);
-  }
-  drawRooms(ctx, town, world);
-  if (town.chests) {
-    for (const chest of town.chests) drawChest(ctx, chest);
-  }
-
-  const jobs = town.handoffs();
-  const quiet = new Set();
-  for (const job of jobs) {
-    if ((job.phase === "pass" || job.phase === "show") && job.from && job.to) {
-      quiet.add(job.from.id);
-      quiet.add(job.to.id);
-    }
-  }
-
-  const list = Array.from(town.agents.values()).sort((a, b) => a.y - b.y || a.x - b.x);
-  for (const agent of list) {
-    const pose = poseFor(agent, now);
-    if (pose.look) {
-      const dirs = ["s", "e", "n", "w"];
-      agent.facing = dirs[pose.frame % 4];
-    }
-    const ox = Math.round(agent.x * TILE) + 2 + (pose.shake || 0);
-    const oy = Math.round(agent.y * TILE) - 6 + (pose.bob || 0);
-    const dim = town.isDimmed ? town.isDimmed(agent) : false;
-    if (dim) ctx.globalAlpha = 0.28;
-    fill(ctx, ox + 2, oy + 18, 8, 3, "rgba(0,0,0,0.28)");
-    drawPerson(ctx, ox, oy, styleFor(agent), pose, pose.frame, agent.facing);
-    if (pose.sleep) {
-      // Tucked in: a blanket in the bot's color over the body.
-      fill(ctx, ox - 1, oy + 10, 14, 9, shade(agent.color || "#b6403a", 0.8));
-      fill(ctx, ox - 1, oy + 10, 14, 2, "#f4f1ea");
-    }
-    if (agent.state === "blocked") {
-      ctx.globalAlpha = dim ? 0.12 : 0.33;
-      fill(ctx, ox, oy + 2, 12, 16, "#e02020");
-    }
-    ctx.globalAlpha = 1;
-    if (town.selected === agent.id) {
-      const sx = Math.round(agent.x * TILE);
-      const sy = Math.round(agent.y * TILE);
-      ctx.fillStyle = "#ffe14a";
-      fill(ctx, sx + 1, sy + 1, 4, 1, "#ffe14a");
-      fill(ctx, sx + 1, sy + 1, 1, 4, "#ffe14a");
-      fill(ctx, sx + TILE - 5, sy + 1, 4, 1, "#ffe14a");
-      fill(ctx, sx + TILE - 2, sy + 1, 1, 4, "#ffe14a");
-      fill(ctx, sx + 1, sy + TILE - 3, 4, 1, "#ffe14a");
-      fill(ctx, sx + 1, sy + TILE - 6, 1, 4, "#ffe14a");
-      fill(ctx, sx + TILE - 5, sy + TILE - 3, 4, 1, "#ffe14a");
-      fill(ctx, sx + TILE - 2, sy + TILE - 6, 1, 4, "#ffe14a");
-    }
-  }
-
-  for (const job of jobs) {
-    if (!job.from || !job.to) continue;
-    const x = (job.from.x + (job.to.x - job.from.x) * job.t) * TILE + 8;
-    const y = (job.from.y + (job.to.y - job.from.y) * job.t) * TILE - 2;
-    drawItem(ctx, x, y, job.item);
-    if (job.phase === "pass" || job.phase === "show") {
-      const label = String(job.item || "item").slice(0, 16);
-      drawLabel(ctx, label, x, y - 18, "#e2b15a");
-    }
-  }
-
-  drawBillboards(ctx, town);
-  for (const agent of list) {
-    const ox = Math.round(agent.x * TILE + TILE / 2);
-    const oy = Math.round(agent.y * TILE) - 8;
-    const short = SHORT[agent.id] || agent.name.slice(0, 12);
-    if (town.isDimmed && town.isDimmed(agent)) continue;
-    if (!town.screenNames) drawLabel(ctx, short, ox, oy - 12, agent.color);
-    if (agent.stalled) drawStalled(ctx, ox, Math.round(agent.y * TILE) + 15);
-    if (!quiet.has(agent.id)) {
-      const bubble = bubbleFor(agent, now);
-      if (bubble) drawBubble(ctx, ox, oy - 30, bubble.kind, now, bubble.text);
-    }
-  }
-
-  if (town.chests) {
-    for (const chest of town.chests) {
-      const showTip = !chest.url && (town.hoverChest === chest.id || town.tipChest === chest.id);
-      if (!showTip) continue;
-      const cx = chest.x * TILE + TILE / 2;
-      const cy = chest.y * TILE - 12;
-      drawLabel(ctx, "no Drive folder yet", cx, cy, "#8a8680");
-    }
-  }
 }
 
 window.AgentTown = window.AgentTown || {};
 Object.assign(window.AgentTown, {
-  drawMap: drawMap,
-  drawScene: drawScene,
+  drawMap,
+  drawScene,
+  PIX,
   shortName: (agent) => SHORT[agent.id] || String(agent.name || agent.id).slice(0, 12),
 });
 })();
