@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T22:04:27.651Z",
+  "updatedAt": "2026-11-02T23:33:53.009Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -106,13 +106,13 @@
       "since": "2026-11-02T16:14:11.398Z"
     },
     "chief-of-staff": {
-      "state": "done",
-      "text": "Rundown done; next: urgent check 10:23",
+      "state": "working",
+      "text": "Status check: RoboTemplate, GitWriter",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T19:23:43.721Z",
-      "since": "2026-11-02T19:23:43.721Z"
+      "ts": "2026-11-02T23:33:53.009Z",
+      "since": "2026-11-02T23:33:53.009Z"
     }
   }
 }
