@@ -5,6 +5,7 @@
 const ROOM = {
   id: "throne",
   name: "Throne Room",
+  labelX: 19, // left of centre, so the vault door and its label stay clear
   x: 14,
   y: 3,
   w: 28,
@@ -116,18 +117,23 @@ function drawNinja(ctx, P, nin, now) {
 function drawVaultDoor(ctx, P) {
   const T = P.TILE;
   const d = VAULT_DOOR;
-  const x = d.x * T - 6;
-  const w = d.w * T + 12;
-  const y = d.y * T - 10;
-  const h = T + 10;
-  P.fill(ctx, x - 2, y - 2, w + 4, h + 4, "#3f3416");
-  P.fill(ctx, x, y, w, h, "#6b4614");
-  P.fill(ctx, x + w / 2 - 1, y, 2, h, "#2a1a08");
-  for (const by of [4, 12, 20]) P.fill(ctx, x, y + by, w, 2, "#ffd34d");
-  P.fill(ctx, x + w / 2 - 5, y + 9, 3, 3, "#ffe98a");
-  P.fill(ctx, x + w / 2 + 2, y + 9, 3, 3, "#ffe98a");
-  P.fill(ctx, x + 4, y - 6, w - 8, 5, "#ffd34d");
-  P.fill(ctx, x + 6, y - 5, w - 12, 3, "#c9a23a");
+  // 4 tiles wide, set into the back wall and rising above it, so it reads at the framed zoom
+  const x = (d.x - 1) * T;
+  const w = (d.w + 2) * T;
+  const y = (d.y - 1) * T - 4;
+  const h = 2 * T + 4;
+  P.fill(ctx, x - 3, y - 6, w + 6, h + 6, "#2a2008");
+  P.fill(ctx, x - 1, y - 4, w + 2, 6, "#ffd34d");
+  P.fill(ctx, x, y + 2, w, h - 2, "#6b4614");
+  P.fill(ctx, x + 2, y + 4, w - 4, h - 6, "#7f5719");
+  P.fill(ctx, x + w / 2 - 1, y + 2, 2, h - 2, "#2a1a08");
+  for (const by of [8, 18, 28]) P.fill(ctx, x, y + by, w, 3, "#ffd34d");
+  for (const rx of [6, w - 10]) for (const ry of [12, 22]) P.fill(ctx, x + rx, y + ry, 3, 3, "#c9a23a");
+  // big round lock wheel in the middle
+  P.fill(ctx, x + w / 2 - 7, y + 10, 14, 14, "#c9a23a");
+  P.fill(ctx, x + w / 2 - 5, y + 12, 10, 10, "#ffe98a");
+  P.fill(ctx, x + w / 2 - 1, y + 13, 2, 8, "#6b4614");
+  P.fill(ctx, x + w / 2 - 4, y + 16, 8, 2, "#6b4614");
 }
 
 const part = {
@@ -152,6 +158,10 @@ const part = {
       }
     }
     world.patrolSpots = spots;
+  },
+  labels() {
+    // The vault door is a labelled tap target at every zoom (no minZoom).
+    return [{ kind: "vaultdoor", x: (VAULT_DOOR.x + VAULT_DOOR.w / 2) * 16, y: (VAULT_DOOR.y + 1) * 16 + 8, text: "Vault door", accent: "#ffd34d", bg: "rgba(42,32,8,0.94)" }];
   },
   place(ctx) {
     const town = ctx.town;

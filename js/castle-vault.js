@@ -218,7 +218,8 @@ const part = {
   hit(town, wx, wy, ui) {
     const d = town.world.vaultDoor;
     if (!d) return false;
-    if (wx < d.x * 16 - 6 || wx > (d.x + d.w) * 16 + 6 || wy < d.y * 16 - 14 || wy > (d.y + 2) * 16) return false;
+    // the door art (4 tiles wide) plus its label just below it
+    if (wx < (d.x - 1) * 16 - 4 || wx > (d.x + d.w + 1) * 16 + 4 || wy < (d.y - 1) * 16 - 10 || wy > (d.y + 2.6) * 16) return false;
     enter(town, ui);
     return true;
   },

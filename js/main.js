@@ -715,7 +715,7 @@ function drawScreenLabels(c) {
   // Room names: bigger, on each building's top wall.
   const roomPx = Math.round(Math.min(22, Math.max(11, 9 * zoom)) * labelSize);
   for (const b of cur().buildings) {
-    const box = labelBox(c, b.name, roomPx, sx((b.x + b.w / 2) * TILE), sy(b.y * TILE) + roomPx + 6);
+    const box = labelBox(c, b.name, roomPx, sx((b.labelX != null ? b.labelX : b.x + b.w / 2) * TILE), sy(b.y * TILE) + roomPx + 6);
     if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
     keepInFrame(box);
     paintLabel(c, box, b.name, roomPx, b.trim, "rgba(20,18,15,0.82)");
