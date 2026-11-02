@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T10:56:45.475Z",
+  "updatedAt": "2026-11-02T10:59:07.686Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -39,8 +39,8 @@
       "text": "Castle build: OK past 58% usage?",
       "project": "Agent Town",
       "ts": "2026-11-02T10:56:45.475Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-02T10:59:07.686Z"
     }
   ]
 }
