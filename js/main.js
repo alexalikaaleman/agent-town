@@ -55,7 +55,8 @@ function framePad() {
   const ctl = document.getElementById("zoom-controls");
   // The buttons overlay the map unless they sit in the bar below it (phones).
   const overlay = !!ctl && ctl.getBoundingClientRect().top < stage.getBoundingClientRect().bottom - 1;
-  const side = Math.round(30 * labelSize);
+  // Phones (buttons in the bar below): the castle fills the screen width; labels are kept in frame anyway.
+  const side = overlay ? Math.round(30 * labelSize) : 2;
   return {
     l: overlay ? Math.max(side, 64) : side,
     r: overlay ? Math.max(side, ctl.offsetWidth + 24) : side,
