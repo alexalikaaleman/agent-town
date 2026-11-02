@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T13:42:48.502Z",
+  "updatedAt": "2026-11-02T14:18:39.227Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Gap review done; next: recheck fixes",
+      "state": "working",
+      "text": "Castle re-review",
       "project": "Agent Town castle",
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T13:42:48.502Z",
-      "since": "2026-11-02T13:42:48.502Z"
+      "ts": "2026-11-02T14:18:39.227Z",
+      "since": "2026-11-02T14:18:39.227Z"
     },
     "game-design-document-bot": {
       "state": "done",
