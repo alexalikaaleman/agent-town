@@ -187,7 +187,14 @@ function createTown(roster, world) {
     agent.pause -= dt;
     if (agent.pause > 0) return;
     agent.pause = 2 + Math.random() * 4;
-    const next = s.patrol[Math.floor(Math.random() * s.patrol.length)];
+    // pick a spot no other bot is heading to or standing on
+    const busy = (p) => {
+      for (const o of agents.values()) if (o !== agent && o.spot && Math.hypot(o.spot.x - p.x, o.spot.y - p.y) < 1) return true;
+      return false;
+    };
+    const open = s.patrol.filter((p) => !busy(p));
+    if (!open.length) return;
+    const next = open[Math.floor(Math.random() * open.length)];
     agent.spot = Object.assign({}, s, { x: next.x, y: next.y });
     agent.path = null;
   }

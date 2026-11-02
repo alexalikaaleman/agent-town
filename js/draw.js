@@ -517,7 +517,7 @@ function drawAgent(ctx, town, agent, now) {
   }
   const s = agent.spot || {};
   // A working bot quiet 2h+ keeps working but gets a "stalled?" tag.
-  const tag = s.tag && !agent.moving ? s.tag : agent.state === "working" && agent.stalled ? "stalled?" : "";
+  const tag = s.tag ? s.tag : agent.state === "working" && agent.stalled ? "stalled?" : "";
   if (tag) {
     // Small text tag (e.g. "sleepy" for overflow sleepers). Never "zzz" outside the bedrooms.
     // Drawn under the feet so the name label above the head never hides it.
