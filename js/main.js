@@ -463,6 +463,15 @@ function findBot(query) {
 function runSearch(ev) {
   if (ev) ev.preventDefault();
   const input = document.getElementById("search");
+  const q = input.value.trim().toLowerCase();
+  // Treasure Vault: same entry as the vault-door tap (not a bot).
+  if (/^(vault|treasure( vault)?)$/.test(q)) {
+    input.classList.remove("miss");
+    input.blur();
+    if (sceneUi && sceneUi.enterVault) sceneUi.enterVault();
+    else if (window.AgentTown && window.AgentTown.debug && window.AgentTown.debug.enterVault) window.AgentTown.debug.enterVault();
+    return;
+  }
   const agent = findBot(input.value);
   input.classList.toggle("miss", !agent && !!input.value.trim());
   if (!agent) return;
