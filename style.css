@@ -462,7 +462,7 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 #needs-btn b { display: inline-block; min-width: 1.6em; margin-left: 4px; padding: 0 4px; background: #0e131c; text-align: center; }
 #needs-btn.has { background: #24527a; }
 #needs-btn.urgent { background: #8f2d2d; }
-#search-form { flex: 1; min-width: 0; max-width: 360px; margin-left: auto; }
+#search-form { flex: none; width: 210px; min-width: 0; }
 #search {
   width: 100%;
   min-height: 36px;
@@ -547,3 +547,14 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 /* Needs Alex is an in-page strip under the top bar again (old behaviour), not a dropdown over the map. */
 #needs { position: static; max-width: none; max-height: 34vh; flex: none; border-width: 0 0 3px; box-shadow: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
 #needs .need, #needs .needs-label, #needs .needs-none { flex: none; width: 100%; box-sizing: border-box; }
+/* Chip row (scrolls sideways) with a plain search box beside it. */
+#chiprow { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #0e131c; border-bottom: 3px solid var(--line); }
+#filters { flex: 1; min-width: 0; display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; touch-action: pan-x; padding-bottom: 2px; }
+#filters .chip { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 2px 10px; border: 2px solid var(--line); background: var(--chip); color: var(--ink); font: inherit; font-size: 13px; white-space: nowrap; cursor: pointer; }
+#filters .chip:not(.all)::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, #888); flex: none; }
+#filters .chip.on { background: #24527a; border-color: #8fc0ff; }
+#filters .chip.all.on { background: #f0c14a; color: #1a1408; border-color: #f0c14a; font-weight: 700; }
+#search { padding-left: 30px !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='6.5' cy='6.5' r='4.5' fill='none' stroke='%239aa7b8' stroke-width='2'/%3E%3Cpath d='M10 10l4 4' stroke='%239aa7b8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 9px 50%; }
+#search::placeholder { color: #8a93a3; opacity: 1; }
+body.list-view #chiprow { display: none !important; }
+@media (max-width: 640px) { #search-form { width: 150px; } #search { padding-right: 6px !important; } #filters .chip { font-size: 12px; min-height: 30px; padding: 2px 8px; } }

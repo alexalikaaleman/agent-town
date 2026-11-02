@@ -375,16 +375,60 @@ async function openHistory() {
   }
 }
 
-/** Top-bar search: type a bot name (or id), pick it, and the map pans to it and opens its panel. */
-function buildSearch(list) {
-  const dl = document.getElementById("bot-names");
-  dl.replaceChildren();
+/** Chip row: "All" first (highlighted when no filter), then one chip per bot with its coloured dot.
+ *  Tap chips to show only those bots; "All" clears. Scrolls sideways. */
+function buildFilters(list) {
+  const bar = document.getElementById("filters");
+  bar.replaceChildren();
+  const all = document.createElement("button");
+  all.type = "button";
+  all.className = "chip all on";
+  all.dataset.id = "";
+  all.textContent = "All";
+  bar.appendChild(all);
   for (const bot of list) {
-    const opt = document.createElement("option");
-    opt.value = bot.name;
-    dl.appendChild(opt);
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip";
+    chip.dataset.id = bot.id;
+    chip.style.setProperty("--dot", bot.color || "#888");
+    chip.textContent = bot.name;
+    bar.appendChild(chip);
+  }
+  if (!bar.dataset.wired) {
+    bar.dataset.wired = "1";
+    bar.addEventListener("click", (ev) => {
+      const chip = ev.target.closest(".chip");
+      if (!chip || !town) return;
+      const id = chip.dataset.id;
+      if (!id) town.filter.clear();
+      else if (town.filter.has(id)) town.filter.delete(id);
+      else town.filter.add(id);
+      syncFilters();
+    });
+  }
+  syncFilters();
+}
+
+function syncFilters() {
+  if (!town) return;
+  for (const chip of document.querySelectorAll("#filters .chip")) {
+    const id = chip.dataset.id;
+    const on = id ? town.filter.has(id) : town.filter.size === 0;
+    chip.classList.toggle("on", on);
+    chip.setAttribute("aria-pressed", on ? "true" : "false");
   }
 }
+
+/** Plain search box (no dropdown): Enter or change pans to the bot and opens its panel. It starts
+ *  empty on every load (also when the browser restores the page from its back/forward cache). */
+function resetSearch() {
+  const input = document.getElementById("search");
+  input.value = "";
+  input.classList.remove("miss");
+}
+resetSearch();
+window.addEventListener("pageshow", resetSearch);
 
 function findBot(query) {
   const q = String(query || "").trim().toLowerCase();
@@ -924,7 +968,7 @@ async function boot() {
       },
       onRoster(list) {
         roster = list;
-        buildSearch(list);
+        buildFilters(list);
       },
     });
   } catch (err) {

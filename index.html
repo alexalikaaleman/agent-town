@@ -11,12 +11,14 @@
   <header id="topbar">
     <button type="button" id="history-btn">History</button>
     <button type="button" id="needs-btn" aria-expanded="false" aria-controls="needs">Needs Alex <b id="needs-count">0</b></button>
-    <form id="search-form" role="search" autocomplete="off">
-      <input id="search" type="search" list="bot-names" placeholder="Find a bot" aria-label="Find a bot" enterkeyhint="search">
-      <datalist id="bot-names"></datalist>
-    </form>
     <p id="summary" class="sr">Loading the castle.</p>
   </header>
+  <div id="chiprow">
+    <div id="filters" role="toolbar" aria-label="Show only these bots"></div>
+    <form id="search-form" role="search" autocomplete="off">
+      <input id="search" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Find a bot" aria-label="Find a bot" enterkeyhint="search">
+    </form>
+  </div>
   <p id="mode-note"></p>
   <div id="needs" hidden></div>
   <div id="scene-bar" hidden><button id="vault-back" type="button">&#8592; Back to castle</button><span>Treasure Vault</span></div>
