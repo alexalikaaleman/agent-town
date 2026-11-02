@@ -541,6 +541,19 @@ function drawLabel(ctx, text, x, y, accent) {
   ctx.fillText(text, Math.round(left + boxW / 2), top + 1);
 }
 
+/** Red "stalled" tag under a bot that has been working 30+ min with no new line. */
+function drawStalled(ctx, x, y) {
+  ctx.font = "7px ui-monospace, monospace";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  const w = Math.ceil(ctx.measureText("stalled").width) + 4;
+  const box = clampRect(Math.round(x - w / 2), Math.round(y), w, 9);
+  fill(ctx, box.left - 1, box.top - 1, w + 2, 11, "#14120f");
+  fill(ctx, box.left, box.top, w, 9, "#d42a2a");
+  ctx.fillStyle = "#fff8e6";
+  ctx.fillText("stalled", box.left + w / 2, box.top + 1);
+}
+
 function drawScene(ctx, town, world, now, phase) {
   placedLabels.length = 0;
   sceneW = world.w * TILE;
@@ -630,6 +643,7 @@ function drawScene(ctx, town, world, now, phase) {
     const oy = Math.round(agent.y * TILE) - 8;
     const short = SHORT[agent.id] || agent.name.slice(0, 12);
     drawLabel(ctx, short, ox, oy - 12, agent.color);
+    if (agent.stalled) drawStalled(ctx, ox, Math.round(agent.y * TILE) + 15);
     if (!quiet.has(agent.id)) {
       const bubble = bubbleFor(agent, now);
       if (bubble) drawBubble(ctx, ox, oy - 30, bubble.kind, now, bubble.text);

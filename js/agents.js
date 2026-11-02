@@ -605,6 +605,10 @@ function createTown(roster, world) {
         agent.item = data.item || null;
         agent.with = Array.isArray(data.with) ? data.with.slice() : [];
         agent.collabId = data.collabId || null;
+        agent.stalled = Boolean(data.stalled);
+        agent.project = data.project || null;
+        agent.since = data.since || null;
+        agent.reported = Boolean(data.reported);
         if (data.driveFolderUrl != null) {
           agent.driveFolderUrl = driveFolderUrl(data.driveFolderUrl);
           const chest = chestById.get(agent.id);

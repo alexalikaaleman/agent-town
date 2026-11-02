@@ -102,20 +102,40 @@ new ResizeObserver(resizeAndDraw).observe(stage);
 window.addEventListener("resize", resizeAndDraw);
 resize();
 
-function setMode(next) {
-  mode = next;
+let feedOk = null;
+let feedUpdatedAt = null;
+let lastModeText = "";
+
+function ago(iso) {
+  const t = Date.parse(iso || "");
+  if (!Number.isFinite(t)) return "never";
+  const min = Math.max(0, Math.floor((Date.now() - t) / 60000));
+  if (min < 1) return "just now";
+  if (min < 60) return min + " min ago";
+  const h = Math.floor(min / 60);
+  if (h < 48) return h + " h ago";
+  return Math.floor(h / 24) + " days ago";
+}
+
+/** "Updated N min ago" badge. Grey while loading, amber when the last read failed. */
+function renderMode() {
   const el = document.getElementById("mode");
-  el.className = "mode " + (next === "loading" ? "loading" : next);
-  if (next === "live") el.textContent = "LIVE";
-  else if (next === "poll") el.textContent = "POLLING";
-  else if (next === "demo") el.textContent = "DEMO MODE";
-  else el.textContent = "LOADING";
-  const note = document.getElementById("mode-note");
-  note.textContent = next === "demo" ? "Sample activity. Not a live feed." : "";
+  let text = "Loading…";
+  let cls = "mode loading";
+  if (feedOk !== null) {
+    text = feedUpdatedAt ? "Updated " + ago(feedUpdatedAt) : "No updates yet";
+    if (!feedOk) text = "Offline · " + text;
+    cls = "mode " + (feedOk ? "live" : "stale");
+  }
+  if (text === lastModeText && el.className === cls) return;
+  lastModeText = text;
+  el.className = cls;
+  el.textContent = text;
 }
 
 function renderHud() {
   if (!town) return;
+  renderMode();
   const counts = town.counts();
   const parts = [
     ["c-work", "Working " + counts.working],
@@ -196,7 +216,9 @@ function openPanel(agent) {
       driveEl.appendChild(link);
     }
   }
-  document.getElementById("p-time").textContent = "Updated " + formatStamp(agent.ts);
+  let timeText = agent.ts ? "Updated " + formatStamp(agent.ts) : "No status line yet";
+  if (agent.stalled) timeText += " · stalled (no new line for " + ago(agent.ts).replace(" ago", "") + ")";
+  document.getElementById("p-time").textContent = timeText;
   document.getElementById("p-home").textContent = "Home: " + homeName(agent.home);
 }
 
@@ -344,22 +366,25 @@ function bootTown(list) {
 async function boot() {
   try {
     await connectFeed({
-      onSnapshot(data) {
-        if (!town) bootTown(data.bots || roster);
-        if (data && Array.isArray(data.bots)) town.applySnapshot(data.bots);
+      onSnapshot(bots) {
+        if (!town) bootTown(roster);
+        town.applySnapshot(bots);
       },
-      onMode: setMode,
-      onDemo(reduced) {
-        if (!town) bootTown(reduced.bots);
-        town.applySnapshot(reduced.bots);
-        town.enableDemo();
+      onStatus(info) {
+        feedOk = info.ok;
+        feedUpdatedAt = info.updatedAt;
+        renderMode();
+      },
+      onRoster(list) {
+        roster = list;
       },
     });
   } catch (err) {
     const fatal = document.getElementById("fatal");
     fatal.hidden = false;
-    fatal.textContent = "Could not load data/bots.json. From this folder run: node server.js";
-    setMode("demo");
+    fatal.textContent = "Could not load the town. Check the connection and reload.";
+    feedOk = false;
+    renderMode();
   }
 }
 

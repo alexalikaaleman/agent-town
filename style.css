@@ -91,6 +91,7 @@ h1 {
 .mode.live { background: #1f8a4c; color: #fff; }
 .mode.poll { background: #2a6fdb; color: #fff; }
 .mode.demo { background: #f0c14a; color: #1b1408; }
+.mode.stale { background: #b5651d; color: #fff; }
 .mode.loading { background: #4a5160; color: #fff; }
 
 .clock {
