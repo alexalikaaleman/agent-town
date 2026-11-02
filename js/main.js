@@ -826,6 +826,16 @@ function hideTip() {
 // ---------- screen-space labels (room names and bot names) ----------
 const debugInfo = { labelOverlaps: 0, labels: 0 };
 
+/** Truncate each line of text so the painted box stays ≤ maxW (canvas px). */
+function fitLinesToWidth(c, text, px, maxW) {
+  c.font = px + "px ui-monospace, monospace";
+  return String(text || "").split("\n").map((ln) => {
+    if (c.measureText(ln).width + 6 <= maxW) return ln;
+    let out = ln;
+    while (out.length > 1 && c.measureText(out + "…").width + 6 > maxW) out = out.slice(0, -1);
+    return (out.length ? out : "") + "…";
+  }).join("\n");
+}
 function labelBox(c, text, px, x, y) {
   c.font = px + "px ui-monospace, monospace";
   const lines = String(text || "").split("\n");
@@ -900,7 +910,25 @@ function drawScreenLabels(c) {
       if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
       // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
       if (l.minAbs && zoom < l.minAbs) continue;
-      let box = labelBox(c, l.text, partPx, sx(l.x), sy(l.y) + partPx + 4);
+      // Vault cabinet titles: keep width under the 5-tile cabinet pitch so neighbours never overlap.
+      let drawText = l.text;
+      let drawPx = partPx;
+      if (scene === "vault" && l.kind === "cabinet") {
+        // Keep titles inside the 5-tile column pitch and 4-tile row pitch: shrink font first.
+        // Ellipsis only when zoom is low and the font floor still overflows (TITLE_MAX 3-line
+        // wrap stays intact at normal zoom).
+        const maxW = 5 * TILE * zoom - 6;
+        const maxH = 4 * TILE * zoom - 4;
+        for (;;) {
+          drawText = l.text;
+          const trial = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
+          if (trial.w <= maxW && trial.h <= maxH) break;
+          if (drawPx > 6) { drawPx--; continue; }
+          if (zoom < 0.6) drawText = fitLinesToWidth(c, l.text, drawPx, maxW);
+          break;
+        }
+      }
+      let box = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       keepInFrame(box);
       // Vault cabinet titles stay under their own cabinet (no collision nudge).
@@ -917,9 +945,9 @@ function drawScreenLabels(c) {
       }
       // "avoid" labels (dense rows such as cabinet titles) are skipped when they would overlap.
       if (l.avoid && overlapArea(box, placed) > 0) continue;
-      paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
+      paintLabel(c, box, drawText, drawPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
       placed.push(box);
-      partLabels.push({ kind: l.kind || p.id, text: l.text, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      partLabels.push({ kind: l.kind || p.id, text: drawText, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;
