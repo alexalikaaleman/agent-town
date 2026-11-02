@@ -114,6 +114,8 @@ h2, p { margin: 0; }
 
 #usage.soft #usage-fill { background: #b8862b; }
 #usage.hard #usage-fill { background: #b03a3a; }
+#usage.stale #usage-fill { background: #6a6a72; }
+#usage.stale #usage-text, #usage.stale { color: #9aa7b8; font-style: italic; }
 
 .usage-slice { height: 100%; border-right: 1px solid #0e131c; }
 

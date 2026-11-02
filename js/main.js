@@ -260,6 +260,7 @@ function renderHud() {
   const summaryEl = document.getElementById("summary");
   if (summaryEl.textContent !== summary) summaryEl.textContent = summary;
 
+  if (lastUsage !== undefined) renderUsage(lastUsage);
   const clock = honoluluParts();
   const clockText = clock.label + " · " + phaseLabel(clock.phase);
   const clockEl = document.getElementById("clock");
@@ -320,23 +321,29 @@ function renderHud() {
 const USAGE_SOFT = 58;
 const USAGE_HARD = 65;
 let usageKey = "";
+let lastUsage = null;
 function renderUsage(usage) {
+  lastUsage = usage || null;
   const el = document.getElementById("usage");
   const pct = usage && Number.isFinite(usage.weeklyPct) ? Math.max(0, Math.min(100, usage.weeklyPct)) : null;
-  const key = JSON.stringify(usage || null);
+  const age = usage && usage.ts ? ago(usage.ts) : null;
+  const key = JSON.stringify(usage || null) + "|" + (usage && usage.ts ? ago(usage.ts) : "");
   if (key === usageKey) return;
   usageKey = key;
   const fill = document.getElementById("usage-fill");
   const text = document.getElementById("usage-text");
   fill.replaceChildren();
   if (pct == null) {
-    text.textContent = "Usage —";
+    text.textContent = "Usage: not posted yet";
     fill.style.width = "0";
     el.className = "";
     return;
   }
-  el.className = pct >= USAGE_HARD ? "hard" : pct >= USAGE_SOFT ? "soft" : "";
-  text.textContent = "Usage " + Math.round(pct) + "%" + (pct >= USAGE_HARD ? " · stop" : pct >= USAGE_SOFT ? " · no new steps" : "");
+  // Stale when usage.ts is more than 60 min old (feed "Updated" badge must not stand in).
+  const ageMs = usage && usage.ts ? Date.now() - Date.parse(usage.ts) : NaN;
+  const stale = Number.isFinite(ageMs) && ageMs > 60 * 60 * 1000;
+  el.className = (pct >= USAGE_HARD ? "hard" : pct >= USAGE_SOFT ? "soft" : "") + (stale ? " stale" : "");
+  text.textContent = "Usage " + Math.round(pct) + "%" + (age ? " · as of " + age : " · time unknown") + (pct >= USAGE_HARD ? " · stop" : pct >= USAGE_SOFT ? " · no new steps" : "");
   fill.style.width = pct + "%";
   const slices = usage.bots && typeof usage.bots === "object" ? Object.entries(usage.bots) : [];
   let used = 0;
