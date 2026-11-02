@@ -14,3 +14,4 @@
 {"ts":"2026-11-02T07:22:17.466Z","bot":"game-design-document-bot","state":"working","text":"Dragon Android fixes (15 min)","project":"Dragon rebuild"}
 {"ts":"2026-11-02T07:22:54.032Z","bot":"game-design-document-bot","needId":"n202611020722-2d1a","state":"needs-alex","text":"Dragon fixes: 2 changes need OK","project":"Dragon rebuild","needs":"question"}
 {"ts":"2026-11-02T07:23:29.897Z","bot":"robotemplate","state":"working","text":"Map generator seed fix","project":"Dragon revamp"}
+{"ts":"2026-11-02T07:23:41.290Z","bot":"concept-art-bot","state":"blocked","text":"Usage past 60% stop","project":"Dragon revamp"}
