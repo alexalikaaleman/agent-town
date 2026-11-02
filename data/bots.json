@@ -24,8 +24,11 @@
     "driveFolderUrl": ""
   },
   {
-    "id": "grok-build-worker",
-    "name": "Grok Build Worker",
+    "id": "gitwriter-3d-bot",
+    "name": "GitWriter 3D Bot",
+    "aliases": [
+      "grok-build-worker"
+    ],
     "role": "Builds and deploys live apps to Alex's GitHub",
     "home": "workshop",
     "color": "#7d5cff",
