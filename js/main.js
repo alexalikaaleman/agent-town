@@ -468,11 +468,6 @@ function runSearch(ev) {
   input.blur();
 }
 
-function homeName(id) {
-  const b = world.byId.get(id);
-  return b ? b.name : id;
-}
-
 function openPanel(agent) {
   town.selected = agent.id;
   panel.hidden = false;
@@ -492,24 +487,45 @@ function openPanel(agent) {
   document.getElementById("p-task").textContent = agent.task || agent.text || "No current task.";
   const driveEl = document.getElementById("p-drive");
   const driveUrl = agent.driveFolderUrl || "";
-  if (driveEl.dataset.url !== driveUrl) {
-    driveEl.dataset.url = driveUrl;
-    driveEl.replaceChildren();
-    if (driveUrl) {
-      const link = document.createElement("a");
-      link.href = driveUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.className = "drive-btn";
-      link.textContent = "Drive folder";
-      driveEl.appendChild(link);
-    }
+  const folders = agent.folders || [];
+  const main = folders.find((f) => f.link) || null;
+  // Fix 25: a Drive folder button at the bottom of every panel. Fix 20: it shows the folder by name.
+  // Only the approved chest link is clickable; other folders are names only.
+  driveEl.replaceChildren();
+  if (driveUrl) {
+    const link = document.createElement("a");
+    link.href = driveUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.className = "drive-btn";
+    link.textContent = "Drive folder: " + (main ? main.name : agent.name);
+    driveEl.appendChild(link);
+  } else {
+    const off = document.createElement("span");
+    off.className = "drive-btn off";
+    off.textContent = "Drive folder: no approved link";
+    driveEl.appendChild(off);
+  }
+  // Fix 21: every folder and file location we know for this bot (names only).
+  const list = document.getElementById("p-folder-list");
+  list.replaceChildren();
+  for (const f of folders) {
+    const li = document.createElement("li");
+    const nm = document.createElement("b");
+    nm.textContent = f.name;
+    li.append(nm, document.createTextNode(" · " + f.where + (f.link ? " (link below)" : "")));
+    list.appendChild(li);
+  }
+  if (!folders.length) {
+    const li = document.createElement("li");
+    li.textContent = "No folder data yet.";
+    list.appendChild(li);
   }
   let timeText = agent.ts ? "Updated " + formatStamp(agent.ts) : "No status line yet";
   if (agent.ping) timeText += " · last ping " + ago(agent.ping);
   if (agent.stalled) timeText += " · stalled (no new line for " + ago(agent.ts).replace(" ago", "") + ")";
   document.getElementById("p-time").textContent = timeText;
-  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home) + (agent.project ? " · Project: " + agent.project : "");
+  document.getElementById("p-project").textContent = agent.project ? "Project: " + agent.project : "";
 }
 
 function closePanel() {

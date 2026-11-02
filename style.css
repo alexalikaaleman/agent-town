@@ -305,7 +305,7 @@ h2, p { margin: 0; }
 }
 
 #p-name { font-size: 20px; padding-right: 72px; }
-#p-role, #p-task, #p-time, #p-home, #p-drive { color: var(--muted); margin-top: 6px; }
+#p-role, #p-task, #p-time, #p-project, #p-drive { color: var(--muted); margin-top: 6px; }
 #p-task { color: var(--ink); }
 #p-drive a {
   color: #9fd0ff;
@@ -513,7 +513,13 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 /* Panel: scrolls when long, Back button, Drive folder button. */
 .panel-card { max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain; }
 #panel-close { position: sticky; float: right; top: 0; min-width: 72px; }
-#p-drive a.drive-btn {
+#p-folders { margin-top: 10px; border-top: 2px solid var(--line); padding-top: 6px; }
+#p-folders h3 { font-size: 13px; color: var(--ink); }
+#p-folder-list { list-style: none; margin: 4px 0 0; padding: 0; max-height: 180px; overflow-y: auto; overscroll-behavior: contain; }
+#p-folder-list li { padding: 3px 0; color: var(--muted); font-size: 13px; }
+#p-folder-list li b { color: var(--ink); font-weight: 700; }
+#p-drive .drive-btn.off { background: #3a3f4a; color: #b9bfcc; cursor: default; }
+#p-drive a.drive-btn, #p-drive span.drive-btn {
   display: inline-block;
   margin-top: 4px;
   padding: 6px 12px;
