@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T10:48:46.896Z",
+  "updatedAt": "2026-11-02T10:52:17.647Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -77,6 +77,15 @@
       "needs": null,
       "ts": "2026-11-02T07:35:54.533Z",
       "since": "2026-11-02T07:35:54.533Z"
+    },
+    "garage-sale-bot": {
+      "state": "done",
+      "text": "List reset done; next: Sat sale search",
+      "project": null,
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-02T10:52:17.647Z",
+      "since": "2026-11-02T10:52:17.647Z"
     }
   }
 }
