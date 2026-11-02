@@ -80,7 +80,11 @@ const part = {
       const loop = [{ x: t.x + 0.5, y: t.y - 1, facing: "s" }];
       const chest = world.chests.find((c) => c.id === a.id);
       if (chest) loop.push({ x: chest.x + (r.outer === "left" ? 1 : -1), y: chest.y, facing: r.outer === "left" ? "w" : "e" });
-      loop.push({ x: r.x + 5.5 + (tablesUsed.length % 2 ? 1 : -1), y: r.y + 9, facing: "n" });
+      // each of the 4 seats has its own spot at the station, so two bots never stand on one tile
+      const seat = room.tables.indexOf(t);
+      const STATION_STOPS = [[4, 9, "n"], [6, 9, "n"], [4, 8, "e"], [6, 8, "w"]];
+      const st = STATION_STOPS[seat % STATION_STOPS.length];
+      loop.push({ x: r.x + st[0], y: r.y + st[1], facing: st[2] });
       ctx.assign(a, { zone: "table", x: t.x + 0.5, y: t.y - 1, facing: "s", table: t.room + ":" + t.x + "," + t.y, room: t.room, loop });
       tablesUsed.push({ x: t.x, y: t.y, room: t.room, agent: a.id, name: a.name, full: a.task || a.text || "", label: trunc(a.text || a.task, LABEL_MAX) });
     }
