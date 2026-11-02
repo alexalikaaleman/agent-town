@@ -240,10 +240,14 @@ function drawBubble(ctx, x, y, kind, time, text) {
     return;
   }
   if (kind === "zzz") {
-    const box = bubbleBack(ctx, x, y, 18, 12, "#e7e9ff");
+    // big "z z Z" beside the bunk (to the right), so the name label above the head never hides it
+    const bx = x + 9;
+    const by = y + 12;
+    fill(ctx, bx - 1, by - 1, 22, 14, "#243e73");
+    fill(ctx, bx, by, 20, 12, "#e7e9ff");
     for (let i = 0; i < 3; i++) {
       const dy = (Math.floor(time / 280) + i) % 3;
-      glyph(ctx, "z", box.left + 2 + i * 5, box.top + 3 - (dy === 0 ? 1 : 0), "#243e73", 1);
+      glyph(ctx, "z", bx + 2 + i * 6, by + 2 - (dy === 0 ? 1 : 0), "#243e73", i === 2 ? 2 : 1);
     }
     return;
   }
@@ -419,14 +423,18 @@ function drawMap(ctx, world) {
   }
 }
 
-/** Lying in a bunk: head on the pillow, blanket in the bot's color. */
+/** Lying in a bunk: head on the pillow, a full-width blanket in the bot's color with a dark
+ *  outline, so a sleeper reads clearly against the white mattress at the framed zoom. */
 function drawLying(ctx, ox, oy, style, color) {
-  blob(ctx, ox + 3, oy + 6, 6, 5, style.robo ? "#d5dde3" : style.hair);
-  if (!style.robo) fill(ctx, ox + 4, oy + 8, 4, 3, style.skin);
+  const c = color || "#b6403a";
+  fill(ctx, ox - 2, oy + 4, 16, 18, "#1b1b2a");
+  blob(ctx, ox + 2, oy + 5, 8, 7, style.robo ? "#d5dde3" : style.hair);
+  if (!style.robo) fill(ctx, ox + 3, oy + 8, 6, 4, style.skin);
   fill(ctx, ox + 4, oy + 9, 1, 1, "#1b1b1b");
   fill(ctx, ox + 7, oy + 9, 1, 1, "#1b1b1b");
-  fill(ctx, ox, oy + 11, 12, 9, shade(color || "#b6403a", 0.85));
-  fill(ctx, ox, oy + 11, 12, 2, "#f4f1ea");
+  fill(ctx, ox - 1, oy + 12, 14, 9, shade(c, 0.9));
+  fill(ctx, ox - 1, oy + 12, 14, 2, "#f4f1ea");
+  fill(ctx, ox + 1, oy + 16, 10, 1, shade(c, 0.65));
 }
 
 function drawAgent(ctx, town, agent, now) {
