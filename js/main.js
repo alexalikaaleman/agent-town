@@ -511,8 +511,15 @@ function openPanel(agent) {
   const main = folders.find((f) => f.link) || null;
   // Fix 25: a Drive folder button at the bottom of every panel. Fix 20: it shows the folder by name.
   // Only the approved chest link is clickable; other folders are names only.
-  driveEl.replaceChildren();
-  if (driveUrl) {
+  // Rebuild only when the bot changes: openPanel runs every frame, and a button that is
+  // replaced between press and release never gets its click.
+  const key = agent.id + "|" + driveUrl + "|" + folders.map((f) => f.name).join("/");
+  const fresh = driveEl.dataset.key !== key;
+  if (fresh) driveEl.dataset.key = key;
+  if (fresh) driveEl.replaceChildren();
+  if (!fresh) {
+    // nothing to rebuild
+  } else if (driveUrl) {
     const link = document.createElement("a");
     link.href = driveUrl;
     link.target = "_blank";
@@ -528,15 +535,15 @@ function openPanel(agent) {
   }
   // Fix 21: every folder and file location we know for this bot (names only).
   const list = document.getElementById("p-folder-list");
-  list.replaceChildren();
-  for (const f of folders) {
+  if (fresh) list.replaceChildren();
+  for (const f of fresh ? folders : []) {
     const li = document.createElement("li");
     const nm = document.createElement("b");
     nm.textContent = f.name;
     li.append(nm, document.createTextNode(" · " + f.where + (f.link ? " (link below)" : "")));
     list.appendChild(li);
   }
-  if (!folders.length) {
+  if (fresh && !folders.length) {
     const li = document.createElement("li");
     li.textContent = "No folder data yet.";
     list.appendChild(li);
