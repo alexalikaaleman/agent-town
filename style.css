@@ -544,3 +544,6 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 #vault-back { background: #ffd34d; color: #2a2210; border: 0; border-radius: 6px; padding: 8px 14px; font: inherit; font-weight: 700; min-height: 40px; cursor: pointer; }
 #fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 5; }
 #fade.on { opacity: 1; }
+/* Needs Alex is an in-page strip under the top bar again (old behaviour), not a dropdown over the map. */
+#needs { position: static; max-width: none; max-height: 34vh; flex: none; border-width: 0 0 3px; box-shadow: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+#needs .need, #needs .needs-label, #needs .needs-none { flex: none; width: 100%; box-sizing: border-box; }

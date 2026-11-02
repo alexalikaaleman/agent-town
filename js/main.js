@@ -191,7 +191,10 @@ window.addEventListener("resize", resize);
 resize();
 
 
-let needsOpen = false; // the Needs Alex list drops down from the top bar
+// Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
+// with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
+let needsOpen = true;
+let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
 let feedUpdatedAt = null;
@@ -272,15 +275,20 @@ function renderHud() {
   needsBtn.classList.toggle("urgent", items.some((i) => i.kind === "urgent"));
   needsBtn.setAttribute("aria-expanded", needsOpen ? "true" : "false");
   needsEl.replaceChildren();
-  needsEl.hidden = !needsOpen;
-  if (!needsOpen) return;
+  needsEl.hidden = !needsOpen || (!items.length && !needsAsked);
+  if (needsEl.hidden) return;
   if (!items.length) {
     const none = document.createElement("p");
     none.className = "needs-none";
+    needsAsked = false;
     none.textContent = "Nothing needs Alex right now.";
     needsEl.appendChild(none);
     return;
   }
+  const label = document.createElement("span");
+  label.className = "needs-label";
+  label.textContent = "Needs Alex (urgent first, then oldest)";
+  needsEl.appendChild(label);
   for (const it of items) {
     const agent = town.agents.get(it.bot);
     const btn = document.createElement("button");
@@ -288,11 +296,7 @@ function renderHud() {
     btn.className = "need " + it.kind;
     btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
     btn.title = ago(it.ts);
-    btn.addEventListener("click", () => {
-      needsOpen = false;
-      lastHud = "";
-      focusBot(it.bot, true);
-    });
+    btn.addEventListener("click", () => focusBot(it.bot, true));
     needsEl.appendChild(btn);
   }
 }
@@ -341,7 +345,6 @@ async function openHistory() {
   const box = document.getElementById("history");
   const list = document.getElementById("history-list");
   const run = ++historyRun;
-  needsOpen = false;
   lastHud = "";
   box.hidden = false;
   list.replaceChildren();
@@ -475,6 +478,7 @@ document.getElementById("search-form").addEventListener("submit", runSearch);
 document.getElementById("search").addEventListener("change", runSearch);
 document.getElementById("needs-btn").addEventListener("click", () => {
   needsOpen = !needsOpen;
+  needsAsked = needsOpen;
   lastHud = "";
   if (needsOpen) document.getElementById("history").hidden = true;
 });
