@@ -1,6 +1,6 @@
 # Agent Town
 
-A top-down pixel town where each bot is a character. Open the page on a computer, phone, iPad or car browser and everyone sees the same town.
+A top-down pixel castle where each bot is a character. Open the page on a computer, phone, iPad or car browser and everyone sees the same town.
 
 ## How live status works
 
@@ -25,8 +25,8 @@ node report.js --list
 | `--bot` | `id` (or an alias) from `data/bots.json`. |
 | `--state` | `working`, `done`, `blocked`, `needs-alex`, `idle` or `sleeping`. |
 | `--text` | Bubble text, 40 characters max after the privacy filter. Emails, links, Drive links, paths, money and long ids are removed. Plain file names like `report.js` stay. |
-| `--project` | Optional. Bots on the same project gather in a project room with a billboard. |
-| `--with` | Optional comma list of bot ids working together (they meet at the Workshop). |
+| `--project` | Optional. Bots on the same project fight one monster together on the battlefield. |
+| `--with` | Optional comma list of bot ids working together (they also fight one monster together). |
 | `--needs` | `urgent` or `question`, with `--state needs-alex`. Adds an item to `needs.json`. |
 | `--handled` | Marks a need handled (see below). |
 | `--usage` | Sets the overall weekly usage % shown in the usage bar. |
@@ -45,15 +45,22 @@ Mid-task lines (`working` after `working`, or `blocked` after `working`) must be
 - `done`, `idle` and `sleeping` lines (finishing),
 - `needs-alex` lines.
 
-### Sleeping, Bedroom and Done Room
+### The castle
 
-A bot is shown as sleeping when its last line is `--state sleeping`, or when it is `idle` or `working` and its last line is more than 2 hours old. A bot that has never sent a line stays idle in its home room. Sleeping bots walk to their own labeled bed in the Bedroom and show a small zzz. `done`, `blocked` and `needs-alex` bots never show as sleeping. `done` bots walk to the Done Room and dance. Everyone else goes where they did before.
+The map is a castle (original pixel art, FF6-like style). Where a bot stands depends on its state:
 
-The Bedroom has one bed per bot in `data/bots.json`. The beds are made from the roster when the page loads, so adding a bot adds a bed.
+- **Bedrooms** (top left and top right): 2 bedrooms with 12 bunks each. A bot sleeps when its last line is `sleeping`, or when it is `idle` or `working` and its last line is more than 10 minutes old. Sleepers lie in a bunk and show a small zzz. If more than 24 bots sleep, the rest patrol the throne room with a "sleepy" tag (no zzz outside the bedrooms). A bot that has never sent a line stays idle in its home room.
+- **Throne room** (centre): Bus Ninja sits on the throne and punches a rock. Bots with an open Needs Alex item line up on the red carpet facing the throne, urgent first, then oldest. Tap one to read the full question.
+- **Workshop** (left) and **Wizard Lab** (right): working bots sit at a table with a short task label; idle bots stand at a station. Which room is set by `HOME_ROOMS` in `js/world.js` (the bot's `home`), with per-bot overrides in `BOT_ROOMS`.
+- **Battlefield** (below the moat): bots on the same `--project` or `--with` group surround one monster (2 = a pair, 3 to 8 = a ring, 9 or more = an octagon with inner rings). Solo workers that do not fit at a table each fight their own monster. Every monster has a nameplate; tap it for the full name. `blocked` bots rest in the medic tent.
+- **Done wall**: `done` bots stand at attention along the top wall, newest first. Tap one to see its done line.
+- **Treasure vault** (top centre): 25 arcade cabinets from `data/cabinets.json`. The 12 published games link to `https://<name>.grok.me`: tap one and Bus Ninja walks to it, a smoke puff plays, and the game opens in a new tab. The 13 "coming soon" cabinets do nothing. To publish one, give it a `name` and `"status": "published"` in `data/cabinets.json`.
+
+`done`, `blocked` and `needs-alex` bots never sleep. Each part of the castle is its own file (`js/castle-*.js`) and can be removed on its own by deleting its script tag in `index.html`.
 
 ### Needs Alex
 
-A `needs-alex` line adds an item to `needs.json` with an id such as `n202611011930-ab12`. `report.js` prints the id. The item shows in the Needs Alex strip on the page until it is handled. When Alex has answered, the same bot marks it handled:
+A `needs-alex` line adds an item to `needs.json` with an id such as `n202611011930-ab12`. `report.js` prints the id. The item shows under the Needs Alex button on the page until it is handled. When Alex has answered, the same bot marks it handled:
 
 ```bash
 node report.js --bot help-bot --handled n202611011930-ab12
@@ -63,24 +70,22 @@ Only the bot that raised a need can mark it handled. Handled items drop off the 
 
 ## The roster
 
-`data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, `driveFolderUrl`, and optional `aliases` (old ids that still map to this bot). Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post` (the Post Office), and `house`. The Bedroom and Done Room are not homes; bots go there by state. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot has a treasure chest beside its home spot. An unlocked chest opens that folder in a new tab. A locked chest stays grey, shows a padlock, and the label "no Drive folder yet". Locked chests are listed in `CHESTS_TO_DISCUSS.md`.
+`data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, `driveFolderUrl`, and optional `aliases` (old ids that still map to this bot). Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post`, and `house`; `HOME_ROOMS` in `js/world.js` maps each to the Workshop or the Wizard Lab. The other rooms are not homes; bots go there by state. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot that has a folder gets a treasure chest in its home room; tapping it opens that folder in a new tab. Bots without a folder get no chest (they are listed in `CHESTS_TO_DISCUSS.md`).
 
 ## What you can do on the page
 
-- The page frames the whole town on load at any screen size (desktop, phone, car browser).
-- Pinch, the mouse wheel, or + and − zoom smoothly. Zoom stops at the framed view (all of the town) and at a close-up of one bot. ⌂ at the top left goes back to the framed view.
-- Bot names are always shown. Names that would overlap are moved aside. **Aa** cycles the size of room and bot names (small, medium, large); the choice is remembered.
+- The page frames the whole castle on load at any screen size (desktop, phone, car browser).
+- Top bar: **History** (this month's lines, newest first), **Needs Alex** (a drop-down of open items; tap one to jump to that bot) and **Find a bot** (type a name and press Enter to pan to it).
+- Bottom strip: Working, Waiting, Blocked and Needs Alex counts, the Hawaii time, the "Updated" badge and the usage bar. It sits under the map and never covers it. The yellow line at 58% means no new steps; the red line at 65% means hard stop. Per-bot slices show only when `status.json` has `usage.bots`.
+- Pinch, the mouse wheel, or + and − zoom smoothly. Zoom stops at the framed view (the whole castle) and at a close-up of one bot.
+- Bot names are always shown. Names that would overlap are moved aside. Table labels and monster nameplates appear once you zoom in on a phone. **Aa** cycles the size of names (small, medium, large); the choice is remembered.
 - Open `index.html?view=list` for a plain list of bots (state, task, project), with no map. Good on a phone.
 - Drag or use the arrow keys to pan.
-- Tap a character for name, role, state, task, project, last update (Hawaii time), and an Open Drive folder link when that bot has one.
-- Double-click or double-tap a character to follow it. The other bots fade. Tap empty space or ⌂ to stop following.
-- Use the filter buttons under the header to show only some bots. "All" clears the filter. On a phone, tap "Bots ▾" to show the bot buttons.
-- Tap a treasure chest to open that bot's Drive folder. A locked chest only shows "no Drive folder yet".
-- Tap an item in the Needs Alex strip to jump to that character.
-- The usage bar shows the weekly %. The yellow line at 58% means no new steps; the red line at 65% means hard stop. Per-bot slices show only when `status.json` has `usage.bots`.
-- History lists this month's lines, newest first.
+- Tap a character for name, role, state, task, project, last update (Hawaii time) and, when it has one, a **Drive folder** button. The panel scrolls; **← Back** closes it.
+- Double-click or double-tap a character to follow it. The other bots fade. Tap empty space to stop following.
+- Tap a treasure chest to open that bot's Drive folder, or a published arcade cabinet to play that game.
 
-The HUD clock and the day, dawn, dusk and night tint use `Pacific/Honolulu`.
+The clock and the day, dawn, dusk and night tint use `Pacific/Honolulu`.
 
 ## Build the public site
 
@@ -88,7 +93,7 @@ The HUD clock and the day, dawn, dusk and night tint use `Pacific/Honolulu`.
 node export-static.js
 ```
 
-This copies `index.html`, `style.css`, `js/` and `data/bots.json` into `dist/` and `docs/` (plus `docs/.nojekyll`). No status data is baked in. It then runs a leak check: the build may contain no Drive links or ids except the chest links in `data/bots.json`, and no emails or tokens. If the check fails, `docs/` is not written.
+This copies `index.html`, `style.css`, `js/`, `data/bots.json` and `data/cabinets.json` into `dist/` and `docs/` (plus `docs/.nojekyll`). No status data is baked in. It then runs a leak check: the build may contain no Drive links or ids except the chest links in `data/bots.json`, and no emails or tokens. If the check fails, `docs/` is not written.
 
 The page is plain HTML, CSS and classic JavaScript with no install step. Scripts share one `window.AgentTown` namespace and load from `index.html` in order. To try it locally, serve the folder (for example `python3 -m http.server`) and open `index.html`. It still reads the live `status` branch.
 

@@ -1,3 +1,4 @@
 2026-11-01 Agent Town live status rebuild (status branch, rooms, zoom, follow, usage bar). Why: real live updates without Pages rebuilds.
 2026-11-01 Bedroom, Done room, list view and 10 map fixes. Why: Alex wants sleeping and finished bots shown and an easier-to-read town.
 2026-11-01 Known issues: the list view (?view=list) hides History and the usage bar; on desktop the full filter chips take about 4 rows. Never-reported bots stay in their home rooms; phone buttons moved to a bar under the map.
+2026-11-02 Castle redesign: bedrooms (2x12 bunks, 10-minute sleep), throne room with Bus Ninja and the Needs Alex carpet line, Workshop and Wizard Lab tables, battlefield monsters and medic tent, done wall, 25-cabinet arcade vault, new top bar and bottom strip. Why: Alex wants one castle that shows at a glance who is asleep, working, stuck or waiting on him, plus a home for his published games.
