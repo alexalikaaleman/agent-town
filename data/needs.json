@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T07:49:50.907Z",
+  "updatedAt": "2026-11-02T07:51:09.091Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -19,8 +19,8 @@
       "text": "Dragon fixes: 2 changes need OK",
       "project": "Dragon rebuild",
       "ts": "2026-11-02T07:22:54.032Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-02T07:51:09.091Z"
     }
   ]
 }
