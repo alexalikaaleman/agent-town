@@ -9,8 +9,8 @@ const ROOM = {
   y: 16,
   w: 28,
   h: 18,
-  // bottom door, top openings (patrol + vault door), side doors to Workshop and Wizard Lab
-  doors: [[27, 33], [28, 33], [17, 16], [38, 16], [26, 16], [27, 16], [28, 16], [29, 16], [14, 24], [14, 25], [41, 24], [41, 25]],
+  // bottom door, top openings (patrol), side doors to Workshop and Wizard Lab
+  doors: [[27, 33], [28, 33], [17, 16], [38, 16], [14, 24], [14, 25], [41, 24], [41, 25]],
   wall: "#6b5a7e",
   wallDk: "#45385a",
   floor: "#a99f8a",
@@ -20,6 +20,7 @@ const ROOM = {
 const THRONE = { x: 27.5, y: 18 };
 const CARPET = { x0: 27, x1: 28, y0: 19, y1: 32 };
 const LINE_STEP = 1.5;
+const VAULT_DOOR = { x: 27, y: 16, w: 2 }; // the big vault door in the back wall (tiles x..x+w-1)
 const PILLARS = [[17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]];
 
 function lineSpots() {
@@ -111,6 +112,24 @@ function drawNinja(ctx, P, nin, now) {
   return false;
 }
 
+/** The big vault door: an arched gold-banded double door set into the back wall. */
+function drawVaultDoor(ctx, P) {
+  const T = P.TILE;
+  const d = VAULT_DOOR;
+  const x = d.x * T - 6;
+  const w = d.w * T + 12;
+  const y = d.y * T - 10;
+  const h = T + 10;
+  P.fill(ctx, x - 2, y - 2, w + 4, h + 4, "#3f3416");
+  P.fill(ctx, x, y, w, h, "#6b4614");
+  P.fill(ctx, x + w / 2 - 1, y, 2, h, "#2a1a08");
+  for (const by of [4, 12, 20]) P.fill(ctx, x, y + by, w, 2, "#ffd34d");
+  P.fill(ctx, x + w / 2 - 5, y + 9, 3, 3, "#ffe98a");
+  P.fill(ctx, x + w / 2 + 2, y + 9, 3, 3, "#ffe98a");
+  P.fill(ctx, x + 4, y - 6, w - 8, 5, "#ffd34d");
+  P.fill(ctx, x + 6, y - 5, w - 12, 3, "#c9a23a");
+}
+
 const part = {
   id: "throne",
   order: 20,
@@ -123,6 +142,7 @@ const part = {
     world.block(30, 18);
     world.throne = { x: THRONE.x, y: THRONE.y, carpet: CARPET };
     world.busNinja = makeNinja(world);
+    world.vaultDoor = VAULT_DOOR;
     const spots = [];
     for (let y = 22; y <= 31; y += 2) {
       for (let x = 16; x <= 39; x += 3) {
@@ -195,6 +215,7 @@ const part = {
     P.fill(ctx, rx + 3, ry + 2, 10, 3, "#6b6873");
     P.fill(ctx, rx + 3, ry + 5, 4, 2, "#8a8791");
     P.fill(ctx, rx + 9, ry + 9, 3, 1, "#2f2d35");
+    drawVaultDoor(ctx, P);
     // pillars, banners, torches
     for (const [x, y] of [[17, 20], [38, 20], [17, 25], [38, 25], [17, 30], [38, 30]]) {
       P.fill(ctx, x * T + 2, y * T - 8, 12, 24, "#d8d2c2");

@@ -533,3 +533,10 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
   #tip { bottom: 120px; }
   .panel-card { max-height: 55vh; }
 }
+
+/* Vault map: its own scene with a full-width bar holding the way back. */
+#scene-bar { display: flex; align-items: center; gap: 10px; padding: 6px 10px; background: #2a2210; color: #ffd34d; font-weight: 700; }
+#scene-bar[hidden] { display: none; }
+#vault-back { background: #ffd34d; color: #2a2210; border: 0; border-radius: 6px; padding: 8px 14px; font: inherit; font-weight: 700; min-height: 40px; cursor: pointer; }
+#fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 5; }
+#fade.on { opacity: 1; }

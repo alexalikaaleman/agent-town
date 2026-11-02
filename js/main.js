@@ -21,6 +21,12 @@ const panel = document.getElementById("panel");
 const ctx = canvas.getContext("2d");
 
 let world = createWorld([]);
+// Which map is shown: "castle" or "vault" (the vault is its own map, see js/castle-vault.js).
+let scene = "castle";
+let vworld = null;
+function cur() {
+  return scene === "vault" && vworld ? vworld : world;
+}
 let roster = [];
 let town = null;
 let mode = "loading";
@@ -44,10 +50,10 @@ let labelSize = Number(localStorage.getItem("agentTownLabelSize") || 1) || 1;
 if (!LABEL_SIZES.includes(labelSize)) labelSize = 1;
 
 function worldW() {
-  return world.w * TILE;
+  return cur().w * TILE;
 }
 function worldH() {
-  return world.h * TILE;
+  return cur().h * TILE;
 }
 // Frame padding (screen px) so labels at the map edge and the overlaid buttons never
 // cover the town. On phones the buttons sit in a bar under the map (style.css).
@@ -167,7 +173,7 @@ function ensureMap() {
   const want = Math.max(1, Math.ceil(zoom * dpr));
   const cap = Math.max(1, Math.floor(4096 / Math.max(worldW(), worldH())));
   const s = Math.min(want, cap);
-  const key = s + ":" + world.w + "x" + world.h + ":" + world.buildings.length;
+  const key = scene + ":" + s + ":" + cur().w + "x" + cur().h + ":" + cur().buildings.length;
   if (mapCanvas && mapKey === key) return;
   const off = document.createElement("canvas");
   off.width = worldW() * s;
@@ -175,7 +181,7 @@ function ensureMap() {
   const octx = off.getContext("2d");
   octx.imageSmoothingEnabled = false;
   octx.setTransform(s, 0, 0, s, 0, 0);
-  drawMap(octx, world);
+  drawMap(octx, cur());
   mapCanvas = off;
   mapKey = key;
 }
@@ -592,6 +598,11 @@ function endPointer(ev) {
   const dragged = pointer.drag;
   pointer = null;
   if (ev.type === "pointercancel" || dragged || !town) return;
+  if (scene === "vault") {
+    const vp = toWorld(ev.clientX, ev.clientY);
+    for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
+    return;
+  }
   if (isDouble(ev)) {
     const id = lastTap.id || (botAt(ev.clientX, ev.clientY) || {}).id;
     lastTap = null;
@@ -609,7 +620,7 @@ function endPointer(ev) {
     return;
   }
   for (const p of world.parts) {
-    if (p.hit && p.hit(town, pt.x, pt.y, { zoom, showTip, now: performance.now(), radius: Math.max(10, 18 / zoom) })) return;
+    if (p.hit && p.hit(town, pt.x, pt.y, Object.assign({ zoom, showTip, now: performance.now(), radius: Math.max(10, 18 / zoom) }, sceneUi))) return;
   }
   const chest = town.hitChest(pt.x, pt.y);
   if (chest) {
@@ -703,7 +714,7 @@ function drawScreenLabels(c) {
   debugInfo.frame = [fx0, fy0, fx1, fy1];
   // Room names: bigger, on each building's top wall.
   const roomPx = Math.round(Math.min(22, Math.max(11, 9 * zoom)) * labelSize);
-  for (const b of world.buildings) {
+  for (const b of cur().buildings) {
     const box = labelBox(c, b.name, roomPx, sx((b.x + b.w / 2) * TILE), sy(b.y * TILE) + roomPx + 6);
     if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
     keepInFrame(box);
@@ -714,9 +725,9 @@ function drawScreenLabels(c) {
   // Part labels (table tasks, monster nameplates, cabinet titles): placed before bot names.
   const partPx = Math.round(Math.min(12, Math.max(8, 5.5 * zoom)) * labelSize);
   const partLabels = [];
-  for (const p of world.parts) {
+  for (const p of cur().parts) {
     if (!p.labels) continue;
-    for (const l of p.labels(town, world) || []) {
+    for (const l of p.labels(town, cur()) || []) {
       if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
       // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
       if (l.minAbs && zoom < l.minAbs) continue;
@@ -731,6 +742,12 @@ function drawScreenLabels(c) {
     }
   }
   debugInfo.partLabels = partLabels;
+  if (scene === "vault") {
+    debugInfo.labels = 0;
+    debugInfo.labelOverlaps = 0;
+    debugInfo.boxes = placed.map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
+    return;
+  }
   // Bot names: always on. Each name tries above the head, then higher, below the feet,
   // and to the sides; it takes the free spot, or the one with the least overlap.
   const namePx = Math.round(Math.min(14, Math.max(9, 6.5 * zoom)) * labelSize);
@@ -796,13 +813,44 @@ function frame(now) {
   if (mapCanvas) ctx.drawImage(mapCanvas, 0, 0, worldW(), worldH());
   if (town) {
     town.screenNames = true;
-    drawScene(ctx, town, world, now, honoluluParts().phase);
+    if (scene === "vault") for (const p of vworld.parts) p.drawUnder(ctx, town, vworld, now, window.AgentTown.PIX);
+    else drawScene(ctx, town, world, now, honoluluParts().phase);
   }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   drawScreenLabels(ctx);
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
+
+/** Switch maps with a short fade. */
+const fade = document.getElementById("fade");
+const sceneBar = document.getElementById("scene-bar");
+function setScene(name, after) {
+  if (fade) fade.classList.add("on");
+  setTimeout(() => {
+    scene = name;
+    if (name === "vault" && !vworld) vworld = window.AgentTown.vault.createWorld();
+    document.body.classList.toggle("in-vault", name === "vault");
+    if (sceneBar) sceneBar.hidden = name !== "vault";
+    hideTip();
+    closePanel();
+    stopFollow();
+    mapCanvas = null;
+    framed = true;
+    resize();
+    if (fade) fade.classList.remove("on");
+    if (after) after();
+  }, fade ? 320 : 0);
+}
+const sceneUi = {
+  enterVault: (after) => setScene("vault", after),
+  leaveVault: (after) => setScene("castle", after),
+};
+const backBtn = document.getElementById("vault-back");
+if (backBtn) backBtn.addEventListener("click", () => sceneUi.leaveVault());
+window.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape" && scene === "vault") sceneUi.leaveVault();
+});
 
 function bootTown(list) {
   roster = list;
@@ -827,6 +875,14 @@ window.AgentTown.debug = {
   get world() {
     return world;
   },
+  get scene() {
+    return scene;
+  },
+  get vaultWorld() {
+    return vworld;
+  },
+  enterVault: () => sceneUi.enterVault(),
+  leaveVault: () => sceneUi.leaveVault(),
   /** Stage-relative screen point of a world tile point. */
   screenOfWorld(wx, wy) {
     const r = stage.getBoundingClientRect();

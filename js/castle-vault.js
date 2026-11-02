@@ -1,16 +1,21 @@
-/** Castle part: TREASURE VAULT behind the throne, through a big door.
- *  Left half: 25 arcade cabinets (5 x 5) from data/cabinets.json. The right half is empty and
- *  reserved. Published cabinets link to https://<name>.grok.me: a tap sends Bus Ninja walking to
- *  the cabinet, a smoke-bomb puff plays, then the game opens in a new tab. Coming-soon cabinets have
- *  a blank screen, a "SOON" marquee and do nothing on tap. All art is drawn here (no screenshots). */
+/** TREASURE VAULT: its own map (not an overlay), reached through the big door behind the throne.
+ *  Tapping the door sends Bus Ninja walking to it, a smoke-bomb puff plays, then the screen fades
+ *  into the vault map. The vault map shows only the vault: 25 arcade cabinets (5 x 5) from
+ *  data/cabinets.json, an empty roped-off reserved area below them, an exit door and a
+ *  "Back to castle" button. Published cabinets open https://<name>.grok.me in a new tab; coming-soon
+ *  cabinets show "SOON" and do nothing. All art is drawn here (no screenshots). */
 (function () {
+const VW = 27;
+const VH = 32;
 const ROOM = {
-  id: "vault", name: "Treasure Vault", x: 16, y: 3, w: 24, h: 12,
-  doors: [[27, 14], [28, 14]],
+  id: "vaultmap", name: "Treasure Vault", x: 0, y: 0, w: VW, h: VH,
+  doors: [[13, VH - 1]],
   wall: "#6b5a2a", wallDk: "#3f3416", floor: "#3b3324", floor2: "#352d20", trim: "#ffd34d",
 };
-const COLS = [18, 20, 22, 24, 26];
-const ROWS = [4, 6, 8, 10, 12];
+const EXIT = { x: 12, y: VH - 2, w: 3, h: 2 };
+const RESERVED = { x: 3, y: 22, w: 21, h: 6 };
+const COLS = [3, 8, 13, 18, 23];
+const ROWS = [3, 7, 11, 15, 19];
 const TITLE_MAX = 12;
 const PUFF_MS = 700;
 
@@ -108,121 +113,154 @@ function drawCabinet(ctx, P, c, s, now, lit) {
   P.fill(ctx, x + 12, top + 20, 2, 2, pub ? "#4dd0ff" : "#666");
 }
 
-const part = {
-  id: "vault",
-  order: 5,
-  cabinets: () => CABS.map((c, i) => Object.assign({ slot: slots()[i], url: urlFor(c) }, c)),
-  rooms(world) {
-    world.addRoom(ROOM);
-    for (const s of slots()) world.block(s.x, s.y);
-    load();
-  },
+function createVaultWorld() {
+  const ground = [];
+  const solid = [];
+  const bid = [];
+  for (let y = 0; y < VH; y++) {
+    ground.push(new Array(VW).fill("floor"));
+    solid.push(new Array(VW).fill(false));
+    bid.push(new Array(VW).fill(null));
+  }
+  const world = { w: VW, h: VH, ground, solid, bid, buildings: [], byId: new Map(), decor: [], beds: [], chests: [], hash: window.AgentTown.worldHash, isVault: true };
+  for (let y = 0; y < VH; y++) {
+    for (let x = 0; x < VW; x++) {
+      const edge = x === 0 || y === 0 || x === VW - 1 || y === VH - 1;
+      bid[y][x] = ROOM.id;
+      ground[y][x] = edge ? "wall" : "floor";
+      solid[y][x] = edge;
+    }
+  }
+  for (const [dx, dy] of ROOM.doors) ground[dy][dx] = "door";
+  world.buildings.push(ROOM);
+  world.byId.set(ROOM.id, ROOM);
+  for (const s of slots()) solid[s.y][s.x] = true;
+  world.parts = [scene];
+  return world;
+}
+
+/** Parts of the vault map itself. */
+const scene = {
+  id: "vaultmap",
   labels(town) {
     const ss = slots();
-    return CABS.map((c, i) => ({
+    const out = CABS.map((c, i) => ({
       kind: "cabinet",
       x: ss[i].x * 16 + 8,
-      y: ss[i].y * 16 + 14,
+      y: ss[i].y * 16 + 18,
       text: trunc(c.title || "", TITLE_MAX),
       accent: c.status === "published" ? (c.colors || [])[1] || "#ffd34d" : "#8a8a96",
       bg: "rgba(20,16,6,0.9)",
-      minZoom: 2.2,
-      avoid: true,
     }));
+    out.push({ kind: "sign", x: (EXIT.x + 1.5) * 16, y: (EXIT.y - 0.6) * 16, text: "Exit to castle", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
+    return out;
   },
   hit(town, wx, wy, ui) {
+    if (wx >= EXIT.x * 16 && wx <= (EXIT.x + EXIT.w) * 16 && wy >= (EXIT.y - 1.2) * 16 && wy <= VH * 16) {
+      ui.leaveVault();
+      return true;
+    }
     const ss = slots();
     for (let i = 0; i < CABS.length; i++) {
       const s = ss[i];
-      if (wx < s.x * 16 || wx > s.x * 16 + 16 || wy < s.y * 16 - 12 || wy > s.y * 16 + 16) continue;
-      const c = CABS[i];
-      const url = urlFor(c);
-      if (!url) return true; // coming soon: no click, but the tap is consumed so nothing else opens
-      launch(town, s, url);
+      if (wx < s.x * 16 - 4 || wx > s.x * 16 + 20 || wy < s.y * 16 - 14 || wy > s.y * 16 + 26) continue;
+      const url = urlFor(CABS[i]);
+      if (!url) return true; // coming soon: no click, but the tap is consumed
+      town.extras.vaultLit = i;
+      town.extras.vaultLitUntil = performance.now() + 500;
+      const dbg = (window.AgentTown.debug = window.AgentTown.debug || {});
+      (dbg.vaultOpens = dbg.vaultOpens || []).push(url);
+      window.open(url, "_blank", "noopener");
       return true;
     }
     return false;
   },
   drawStatic(ctx, world, P) {
     const T = P.TILE;
-    // reserved right half: an empty roped-off floor
-    const rx = 29 * T;
-    const ry = 4 * T;
-    const rw = 9 * T;
-    const rh = 9 * T;
-    for (let x = rx; x < rx + rw; x += 4) {
-      P.fill(ctx, x, ry, 2, 1, "#c9a23a");
-      P.fill(ctx, x, ry + rh - 1, 2, 1, "#c9a23a");
+    const r = RESERVED;
+    for (let x = r.x * T; x < (r.x + r.w) * T; x += 4) {
+      P.fill(ctx, x, r.y * T, 2, 1, "#c9a23a");
+      P.fill(ctx, x, (r.y + r.h) * T - 1, 2, 1, "#c9a23a");
     }
-    for (let y = ry; y < ry + rh; y += 4) {
-      P.fill(ctx, rx, y, 1, 2, "#c9a23a");
-      P.fill(ctx, rx + rw - 1, y, 1, 2, "#c9a23a");
+    for (let y = r.y * T; y < (r.y + r.h) * T; y += 4) {
+      P.fill(ctx, r.x * T, y, 1, 2, "#c9a23a");
+      P.fill(ctx, (r.x + r.w) * T - 1, y, 1, 2, "#c9a23a");
     }
-    // the big door: heavy gold-banded doors drawn open on the vault's bottom wall
-    for (const dx of [26, 29]) {
-      P.fill(ctx, dx * T + 2, 14 * T - 6, 12, 22, "#5a3a14");
-      P.fill(ctx, dx * T + 2, 14 * T - 2, 12, 2, "#ffd34d");
-      P.fill(ctx, dx * T + 2, 14 * T + 8, 12, 2, "#ffd34d");
+    // exit door on the bottom wall: two open gold-banded leaves
+    const ex = EXIT.x * T;
+    const ey = (VH - 1) * T;
+    P.fill(ctx, ex + 4, ey - 10, 3 * T - 8, T + 10, "#1c140a");
+    for (const dx of [0, 2 * T + 4]) {
+      P.fill(ctx, ex + dx, ey - 12, 12, T + 12, "#5a3a14");
+      P.fill(ctx, ex + dx, ey - 8, 12, 2, "#ffd34d");
+      P.fill(ctx, ex + dx, ey + 4, 12, 2, "#ffd34d");
     }
-    // coin piles in the corners
-    for (const [x, y] of [[17, 13], [38, 4]]) {
+    for (const [x, y] of [[1, 1], [VW - 2, 1], [1, 20], [VW - 2, 20]]) {
       P.fill(ctx, x * T + 2, y * T + 8, 12, 6, "#c9a23a");
       P.fill(ctx, x * T + 4, y * T + 5, 8, 4, "#ffd34d");
     }
   },
   drawUnder(ctx, town, world, now, P) {
     const ss = slots();
-    const lit = town.extras.vaultLit;
+    const lit = town.extras && town.extras.vaultLit;
     for (let i = 0; i < ss.length; i++) drawCabinet(ctx, P, CABS[i], ss[i], now, lit === i && now < (town.extras.vaultLitUntil || 0));
   },
 };
 
-function launch(town, slot, url) {
-  const dbg = (window.AgentTown.debug = window.AgentTown.debug || {});
-  // Open a blank tab inside the tap itself so the popup blocker allows it, then send it to the game.
-  let win = null;
-  try {
-    win = window.open("about:blank", "_blank");
-    if (win) win.opener = null;
-  } catch (e) {
-    win = null;
-  }
-  const ss = slots();
-  town.extras.vaultLit = ss.findIndex((s) => s.x === slot.x && s.y === slot.y);
+/** Castle side: the big door in the throne room's back wall (position set by the throne part). */
+const part = {
+  id: "vault",
+  order: 25,
+  cabinets: () => CABS.map((c, i) => Object.assign({ slot: slots()[i], url: urlFor(c) }, c)),
+  rooms() {
+    load();
+  },
+  hit(town, wx, wy, ui) {
+    const d = town.world.vaultDoor;
+    if (!d) return false;
+    if (wx < d.x * 16 - 6 || wx > (d.x + d.w) * 16 + 6 || wy < d.y * 16 - 14 || wy > (d.y + 2) * 16) return false;
+    enter(town, ui);
+    return true;
+  },
+};
+
+let entering = false;
+function enter(town, ui) {
+  if (entering) return;
+  entering = true;
   const nin = town.world.busNinja;
+  const d = town.world.vaultDoor;
   let went = false;
   const go = () => {
     if (went) return;
     went = true;
-    const now = performance.now();
-    if (nin) nin.puff = now + PUFF_MS;
-    town.extras.vaultLitUntil = now + PUFF_MS + 400;
+    if (nin) nin.puff = performance.now() + PUFF_MS;
     setTimeout(() => {
-      (dbg.vaultOpens = dbg.vaultOpens || []).push(url);
-      if (win && !win.closed) win.location.href = url;
-      else window.open(url, "_blank", "noopener");
-      if (nin) setTimeout(() => nin.goHome(), 900);
-    }, PUFF_MS - 100);
+      ui.enterVault(() => {
+        entering = false;
+        if (nin && nin.goHome) nin.goHome();
+      });
+    }, PUFF_MS - 150);
   };
-  if (nin && nin.goTo) {
-    nin.goTo(slot.x + 0.5, slot.y + 1, () => {
+  if (nin && nin.goTo && d) {
+    nin.goTo(d.x + d.w / 2, d.y + 1, () => {
       nin.facing = "n";
       go();
     });
-    // The new tab usually comes to the front, which pauses this tab's animation frames.
-    // A timer (estimated walk time) makes sure the game still loads.
     let len = 0;
     let px = nin.x;
     let py = nin.y;
-    for (const q of nin.path) {
+    for (const q of nin.path || []) {
       len += Math.hypot(q.x - px, q.y - py);
       px = q.x;
       py = q.y;
     }
-    setTimeout(go, (len / 7) * 1000 + 300);
+    setTimeout(go, (len / 7) * 1000 + 1500);
   } else go();
 }
 
 window.AgentTown.castleParts.push(part);
+part.createWorld = createVaultWorld;
+part.enter = enter;
 window.AgentTown.vault = part;
 })();
