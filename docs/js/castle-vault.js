@@ -19,7 +19,7 @@ const RESERVED = { x: 28, y: 2, w: 22, h: 20 };
 const NINJA_HOME = { x: 25, y: 22 };
 const COLS = [3, 8, 13, 18, 23];
 const ROWS = [3, 7, 11, 15, 19];
-const TITLE_MAX = 26;
+const TITLE_MAX = 40;
 const PUFF_MS = 700;
 let vaultWorldRef = null;
 
@@ -53,17 +53,25 @@ function trunc(t, n) {
   return t.length > n ? t.slice(0, n - 1) + "…" : t;
 }
 
-/** Split a long title near the middle on a space so labels wrap to 2 lines. */
+/** Split a long title on spaces: 2 lines normally, up to 3 when longer than 26. */
 function wrapTitle(t, n) {
   const s = trunc(String(t || ""), n);
   if (s.length <= 14) return s;
-  const mid = Math.ceil(s.length / 2);
-  let best = -1;
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === " " && Math.abs(i - mid) <= Math.abs(best - mid)) best = i;
+  const lines = s.length > 26 ? 3 : 2;
+  const parts = [];
+  let rest = s;
+  for (let left = lines; left > 1; left--) {
+    const mid = Math.ceil(rest.length / left);
+    let best = -1;
+    for (let i = 0; i < rest.length; i++) {
+      if (rest[i] === " " && Math.abs(i - mid) <= Math.abs(best - mid)) best = i;
+    }
+    if (best < 1) break;
+    parts.push(rest.slice(0, best));
+    rest = rest.slice(best + 1);
   }
-  if (best < 1) return s;
-  return s.slice(0, best) + "\n" + s.slice(best + 1);
+  parts.push(rest);
+  return parts.join("\n");
 }
 
 // 7x5 original icons, "1" = icon colour, "2" = accent.

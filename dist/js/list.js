@@ -11,8 +11,8 @@ function render(roster, bots) {
     return na - nb || (ORDER[a.state] ?? 9) - (ORDER[b.state] ?? 9) || String(byId.get(a.id).name).localeCompare(byId.get(b.id).name);
   });
   const n = (f) => bots.filter(f).length;
-  document.getElementById("c-work").textContent = "Working " + n((b) => b.state === "working");
-  document.getElementById("c-wait").textContent = "Waiting " + n((b) => b.state === "waiting");
+  document.getElementById("c-work").textContent = "Working " + n((b) => b.state === "working" || b.state === "talking");
+  document.getElementById("c-wait").textContent = "Waiting " + n((b) => b.state === "idle" || b.state === "done");
   document.getElementById("c-block").textContent = "Blocked " + n((b) => b.state === "blocked");
   document.getElementById("c-alex").textContent = "Needs Alex " + n((b) => b.needsAlex);
   list.replaceChildren();

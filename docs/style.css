@@ -494,7 +494,7 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 #needs .need { flex: none; }
 @media (max-width: 640px) {
   #needs { top: 46px; padding: 6px; gap: 4px; }
-  #needs .need { font-size: 13px; padding: 4px 6px; min-height: 36px; }
+  #needs .need { font-size: 13px; padding: 4px 6px 0; border-bottom: 4px solid transparent; min-height: 36px; }
 }
 .needs-none { color: var(--muted); }
 #strip {
@@ -566,6 +566,9 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  /* padding moved to transparent border so a peeking 3rd line is clipped */
+  padding-bottom: 0;
+  border-bottom: 8px solid transparent;
 }
 /* Chip row (scrolls sideways) with a plain search box beside it. */
 #chiprow { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #0e131c; border-bottom: 3px solid var(--line); }
