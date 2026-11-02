@@ -709,7 +709,13 @@ function endPointer(ev) {
   pointer = null;
   if (ev.type === "pointercancel" || dragged || !town) return;
   if (scene === "vault") {
-    const vp = toWorld(ev.clientX, ev.clientY);
+    let vp = toWorld(ev.clientX, ev.clientY);
+    // a tap on a cabinet's title counts as a tap on that cabinet
+    const r = stage.getBoundingClientRect();
+    const lx = ev.clientX - r.left;
+    const ly = ev.clientY - r.top;
+    const tl = (debugInfo.partLabels || []).find((l) => l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]);
+    if (tl) vp = { x: tl.at[0], y: tl.at[1] };
     for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) return;
     return;
   }
@@ -868,7 +874,7 @@ function drawScreenLabels(c) {
       if (l.avoid && overlapArea(box, placed) > 0) continue;
       paintLabel(c, box, l.text, partPx, l.accent || "#c9a23a", l.bg || "rgba(38,24,12,0.88)");
       placed.push(box);
-      partLabels.push({ kind: l.kind || p.id, text: l.text, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      partLabels.push({ kind: l.kind || p.id, text: l.text, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;

@@ -49,6 +49,45 @@ function makeNinja(world) {
   return nin;
 }
 
+/** Moves Bus Ninja along his path (shared with the vault map). */
+function stepNinja(nin, dt) {
+  if (!nin || nin.mode !== "walk") return;
+  const target = nin.path[0];
+  if (!target) {
+    nin.mode = "stand";
+    const done = nin.done;
+    nin.done = null;
+    if (done) done();
+    return;
+  }
+  const dx = target.x - nin.x;
+  const dy = target.y - nin.y;
+  const dist = Math.hypot(dx, dy);
+  const step = Math.min(dist, 7 * dt);
+  if (dist > 0.0001) {
+    nin.x += (dx / dist) * step;
+    nin.y += (dy / dist) * step;
+    nin.walk += step;
+    nin.facing = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "e" : "w") : dy > 0 ? "s" : "n";
+  }
+  if (step >= dist - 0.0001) nin.path.shift();
+}
+
+/** Smoke-bomb puff around Bus Ninja (a ninja smoke bomb; he never smokes). */
+function drawPuff(ctx, P, nin, now) {
+  if (!(nin.puff > now)) return;
+  const T = P.TILE;
+  const k = 1 - (nin.puff - now) / 700;
+  const r = 4 + k * 14;
+  ctx.globalAlpha = Math.max(0, 1 - k);
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    P.fill(ctx, nin.x * T + 8 + Math.cos(a) * r - 4, nin.y * T + 2 + Math.sin(a) * r * 0.7 - 4, 8, 8, i % 2 ? "#d8d8e0" : "#a9a9b8");
+  }
+  P.fill(ctx, nin.x * T + 2, nin.y * T - 4, 12, 12, "#eeeef4");
+  ctx.globalAlpha = 1;
+}
+
 /** Bus Ninja drawn 1.5x with a bright outline so he stands out at every zoom (and on phone). */
 const NINJA_SCALE = 1.5;
 let ninOff = null;
@@ -224,27 +263,7 @@ const part = {
     town.extras.carpetLine = line.map((a) => a.id);
   },
   update(town, dt) {
-    const nin = town.world.busNinja;
-    if (!nin || nin.mode !== "walk") return;
-    const target = nin.path[0];
-    if (!target) {
-      nin.mode = "stand";
-      const done = nin.done;
-      nin.done = null;
-      if (done) done();
-      return;
-    }
-    const dx = target.x - nin.x;
-    const dy = target.y - nin.y;
-    const dist = Math.hypot(dx, dy);
-    const step = Math.min(dist, 7 * dt);
-    if (dist > 0.0001) {
-      nin.x += (dx / dist) * step;
-      nin.y += (dy / dist) * step;
-      nin.walk += step;
-      nin.facing = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "e" : "w") : dy > 0 ? "s" : "n";
-    }
-    if (step >= dist - 0.0001) nin.path.shift();
+    stepNinja(town.world.busNinja, dt);
   },
   drawStatic(ctx, world, P) {
     const T = P.TILE;
@@ -309,19 +328,29 @@ const part = {
       P.fill(ctx, 30 * T + 15 + ((t / 40) % 4), 18 * T + 3 - ((t / 60) % 5), 2, 2, "#8a8791");
       P.fill(ctx, 30 * T + 14 + ((t / 30) % 5), 18 * T + 8 - ((t / 50) % 4), 1, 1, "#8a8791");
     }
-    if (nin.puff > now) {
-      // smoke-bomb puff
-      const k = 1 - (nin.puff - now) / 700;
-      const r = 4 + k * 14;
-      ctx.globalAlpha = Math.max(0, 1 - k);
-      for (let i = 0; i < 8; i++) {
-        const a = (i / 8) * Math.PI * 2;
-        P.fill(ctx, nin.x * T + 8 + Math.cos(a) * r - 4, nin.y * T + 2 + Math.sin(a) * r * 0.7 - 4, 8, 8, i % 2 ? "#d8d8e0" : "#a9a9b8");
-      }
-      P.fill(ctx, nin.x * T + 2, nin.y * T - 4, 12, 12, "#eeeef4");
-      ctx.globalAlpha = 1;
-    }
+    drawPuff(ctx, P, nin, now);
   },
 };
 window.AgentTown.castleParts.push(part);
+// Shared with the vault map (fix 28): same Bus Ninja, same walk and puff.
+window.AgentTown.ninjaKit = {
+  make(world, x, y) {
+    const nin = makeNinja(world);
+    nin.x = x;
+    nin.y = y;
+    nin.mode = "stand";
+    nin.goHome = function () {
+      nin.goTo(x, y, () => {
+        nin.mode = "stand";
+        nin.facing = "s";
+      });
+    };
+    return nin;
+  },
+  step: stepNinja,
+  draw(ctx, P, nin, now) {
+    drawNinjaBig(ctx, P, nin, now);
+    drawPuff(ctx, P, nin, now);
+  },
+};
 })();
