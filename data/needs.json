@@ -1,5 +1,16 @@
 {
   "version": 1,
-  "updatedAt": null,
-  "items": []
+  "updatedAt": "2026-11-02T07:15:11.852Z",
+  "items": [
+    {
+      "id": "n202611020715-e42e",
+      "bot": "game-revision-logger",
+      "kind": "question",
+      "text": "Mark two old cores replaced?",
+      "project": null,
+      "ts": "2026-11-02T07:15:11.852Z",
+      "handled": false,
+      "handledAt": null
+    }
+  ]
 }
