@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T11:06:01.766Z",
+  "updatedAt": "2026-11-02T11:39:43.443Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Agent Town castle redesign",
+      "state": "done",
+      "text": "Castle live; next: PROJECTS.md update",
       "project": "Agent Town",
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T10:59:15.118Z",
-      "since": "2026-11-02T10:59:15.118Z"
+      "ts": "2026-11-02T11:39:43.443Z",
+      "since": "2026-11-02T11:39:43.443Z"
     },
     "masterbot": {
       "state": "done",
