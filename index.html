@@ -24,6 +24,15 @@
     </div>
   </header>
   <p id="mode-note"></p>
+  <div id="usage-row">
+    <div id="usage" title="Weekly usage. Line at 58%: no new steps. Line at 65%: hard stop.">
+      <div id="usage-fill"></div>
+      <span class="cap soft" style="left:58%"></span>
+      <span class="cap hard" style="left:65%"></span>
+    </div>
+    <span id="usage-text">Usage —</span>
+    <button type="button" id="history-btn">History</button>
+  </div>
   <div id="needs" hidden></div>
   <div id="filters" role="toolbar" aria-label="Show only these bots"></div>
   <div id="viewport">
@@ -38,6 +47,10 @@
       <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
     </div>
   </div>
+  <aside id="history" hidden>
+    <div class="history-head"><strong>This month</strong><button type="button" id="history-close">Close</button></div>
+    <ul id="history-list"></ul>
+  </aside>
   <aside id="panel" hidden>
     <div class="panel-card">
       <button type="button" id="panel-close" aria-label="Close">Close</button>

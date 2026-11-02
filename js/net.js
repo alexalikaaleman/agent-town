@@ -79,7 +79,7 @@ function toSnapshot(roster, status, now) {
  * onSnapshot(bots, status) on every read; onStatus({ ok, updatedAt }) for the HUD.
  * Returns { roster, refresh(), stop() }.
  */
-async function connectFeed({ onSnapshot, onStatus, onRoster }) {
+async function connectFeed({ onSnapshot, onStatus, onRoster, onNeeds }) {
   const roster = await loadRoster();
   if (onRoster) onRoster(roster);
   let last = null;
@@ -94,6 +94,14 @@ async function connectFeed({ onSnapshot, onStatus, onRoster }) {
       last = status;
       onSnapshot(toSnapshot(roster, status, Date.now()), status);
       onStatus({ ok: true, updatedAt: status.updatedAt || null });
+      if (onNeeds) {
+        try {
+          const needs = await fetchJson(statusUrl("needs.json"));
+          onNeeds(Array.isArray(needs.items) ? needs.items : []);
+        } catch (_) {
+          onNeeds(null);
+        }
+      }
     } catch (err) {
       if (last) onSnapshot(toSnapshot(roster, last, Date.now()), last);
       onStatus({ ok: false, updatedAt: last ? last.updatedAt : null });
@@ -110,6 +118,26 @@ async function connectFeed({ onSnapshot, onStatus, onRoster }) {
   return { roster, refresh: read, stop() { clearInterval(timer); } };
 }
 
+/** Month key (YYYY-MM) in Alex's time zone, matching report.js history files. */
+function monthKey(date) {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Pacific/Honolulu", year: "numeric", month: "2-digit" }).formatToParts(date);
+  const get = (t) => (parts.find((p) => p.type === t) || {}).value;
+  return get("year") + "-" + get("month");
+}
+
+/** This month's history lines, newest first. Bad lines are skipped. */
+async function loadHistory(date) {
+  const text = await fetchText(statusUrl("history-" + monthKey(date || new Date()) + ".jsonl"));
+  const out = [];
+  for (const line of text.split("\n")) {
+    if (!line.trim()) continue;
+    try {
+      out.push(JSON.parse(line));
+    } catch (_) {}
+  }
+  return out.reverse();
+}
+
 window.AgentTown = window.AgentTown || {};
-Object.assign(window.AgentTown, { connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS });
+Object.assign(window.AgentTown, { loadHistory, monthKey, connectFeed, statusUrl, fetchJson, fetchText, toSnapshot, STALL_MS });
 })();

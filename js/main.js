@@ -8,6 +8,7 @@ const createTown = window.AgentTown.createTown;
 const drawMap = window.AgentTown.drawMap;
 const drawScene = window.AgentTown.drawScene;
 const connectFeed = window.AgentTown.connectFeed;
+const loadHistory = window.AgentTown.loadHistory;
 const formatStamp = window.AgentTown.formatStamp;
 const honoluluParts = window.AgentTown.honoluluParts;
 const phaseLabel = window.AgentTown.phaseLabel;
@@ -159,6 +160,7 @@ new ResizeObserver(resizeAndDraw).observe(stage);
 window.addEventListener("resize", resizeAndDraw);
 resize();
 
+let needItems = null; // unhandled items from needs.json, null when unreadable
 let feedOk = null;
 let feedUpdatedAt = null;
 let lastModeText = "";
@@ -216,12 +218,23 @@ function renderHud() {
     lastClock = clockText;
   }
 
-  const needs = town.needsList();
-  const key = needs.map((a) => a.id + ":" + a.needsAlex).join("|");
+  // Needs-Alex strip: unhandled items from needs.json, plus any bot asking without an item.
+  const items = [];
+  const seen = new Set();
+  for (const it of needItems || []) {
+    if (it.handled || !town.agents.get(it.bot)) continue;
+    items.push({ bot: it.bot, kind: it.kind === "urgent" ? "urgent" : "question", text: it.text || "", ts: it.ts });
+    seen.add(it.bot);
+  }
+  for (const agent of town.needsList()) {
+    if (!seen.has(agent.id)) items.push({ bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
+  }
+  items.sort((a, b) => (a.kind === b.kind ? String(a.ts).localeCompare(String(b.ts)) : a.kind === "urgent" ? -1 : 1));
+  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|");
   if (key === lastHud) return;
   lastHud = key;
   needsEl.replaceChildren();
-  if (!needs.length) {
+  if (!items.length) {
     needsEl.hidden = true;
     return;
   }
@@ -230,13 +243,84 @@ function renderHud() {
   label.className = "needs-label";
   label.textContent = "Needs Alex";
   needsEl.appendChild(label);
-  for (const agent of needs) {
+  for (const it of items) {
+    const agent = town.agents.get(it.bot);
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "need " + agent.needsAlex;
-    btn.textContent = (agent.needsAlex === "urgent" ? "! " : "? ") + agent.name;
-    btn.addEventListener("click", () => focusBot(agent.id, true));
+    btn.className = "need " + it.kind;
+    btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
+    btn.title = ago(it.ts);
+    btn.addEventListener("click", () => focusBot(it.bot, true));
     needsEl.appendChild(btn);
+  }
+}
+
+/** Usage bar: overall weekly %, cap lines at 58 and 65, per-bot slices when present. */
+const USAGE_SOFT = 58;
+const USAGE_HARD = 65;
+let usageKey = "";
+function renderUsage(usage) {
+  const el = document.getElementById("usage");
+  const pct = usage && Number.isFinite(usage.weeklyPct) ? Math.max(0, Math.min(100, usage.weeklyPct)) : null;
+  const key = JSON.stringify(usage || null);
+  if (key === usageKey) return;
+  usageKey = key;
+  const fill = document.getElementById("usage-fill");
+  const text = document.getElementById("usage-text");
+  fill.replaceChildren();
+  if (pct == null) {
+    text.textContent = "Usage —";
+    fill.style.width = "0";
+    el.className = "";
+    return;
+  }
+  el.className = pct >= USAGE_HARD ? "hard" : pct >= USAGE_SOFT ? "soft" : "";
+  text.textContent = "Usage " + Math.round(pct) + "%" + (pct >= USAGE_HARD ? " · stop" : pct >= USAGE_SOFT ? " · no new steps" : "");
+  fill.style.width = pct + "%";
+  const slices = usage.bots && typeof usage.bots === "object" ? Object.entries(usage.bots) : [];
+  let used = 0;
+  for (const [id, v] of slices) {
+    const n = Number(v);
+    if (!Number.isFinite(n) || n <= 0 || used + n > pct + 0.01) continue;
+    const bot = roster.find((b) => b.id === id || (b.aliases || []).includes(id));
+    const seg = document.createElement("span");
+    seg.className = "usage-slice";
+    seg.style.width = (n / pct) * 100 + "%";
+    seg.style.background = (bot && bot.color) || "#9aa7b8";
+    seg.title = (bot ? bot.name : id) + " " + n + "%";
+    fill.appendChild(seg);
+    used += n;
+  }
+}
+
+/** Small history list from this month's file, newest first. */
+async function openHistory() {
+  const box = document.getElementById("history");
+  const list = document.getElementById("history-list");
+  box.hidden = false;
+  list.replaceChildren();
+  const add = (txt, cls) => {
+    const li = document.createElement("li");
+    li.textContent = txt;
+    if (cls) li.className = cls;
+    list.appendChild(li);
+  };
+  add("Loading…", "muted");
+  try {
+    const lines = (await loadHistory(new Date())).slice(0, 40);
+    list.replaceChildren();
+    if (!lines.length) add("Nothing yet this month.", "muted");
+    for (const h of lines) {
+      const bot = roster.find((b) => b.id === h.bot || (b.aliases || []).includes(h.bot));
+      const name = bot ? bot.name : h.bot;
+      let what = h.state ? h.state + (h.text ? ": " + h.text : "") : "";
+      if (h.handled) what = "need handled";
+      if (h.usage != null && !h.state) what = "usage " + h.usage + "%";
+      add(formatStamp(h.ts) + " · " + name + " · " + what);
+    }
+  } catch (_) {
+    list.replaceChildren();
+    add("Could not load history.", "muted");
   }
 }
 
@@ -345,6 +429,10 @@ document.getElementById("panel-close").addEventListener("click", closePanel);
 document.getElementById("zoom-in").addEventListener("click", () => stepZoom(1));
 document.getElementById("zoom-out").addEventListener("click", () => stepZoom(-1));
 document.getElementById("home-btn").addEventListener("click", goHome);
+document.getElementById("history-btn").addEventListener("click", openHistory);
+document.getElementById("history-close").addEventListener("click", () => {
+  document.getElementById("history").hidden = true;
+});
 stage.addEventListener(
   "wheel",
   (ev) => {
@@ -514,9 +602,14 @@ function bootTown(list) {
 async function boot() {
   try {
     await connectFeed({
-      onSnapshot(bots) {
+      onSnapshot(bots, status) {
         if (!town) bootTown(roster);
         town.applySnapshot(bots);
+        renderUsage(status && status.usage);
+      },
+      onNeeds(items) {
+        needItems = items;
+        lastHud = null;
       },
       onStatus(info) {
         feedOk = info.ok;

@@ -112,6 +112,97 @@ h1 {
 
 #mode-note:empty { display: none; }
 
+#usage-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+  background: #0e131c;
+}
+
+#usage {
+  position: relative;
+  flex: 1;
+  max-width: 420px;
+  height: 12px;
+  border: 2px solid var(--line);
+  background: #1b2333;
+}
+
+#usage-fill {
+  display: flex;
+  height: 100%;
+  width: 0;
+  background: #3f8f5a;
+  overflow: hidden;
+}
+
+#usage.soft #usage-fill { background: #b8862b; }
+#usage.hard #usage-fill { background: #b03a3a; }
+
+.usage-slice { height: 100%; border-right: 1px solid #0e131c; }
+
+#usage .cap {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+}
+
+#usage .cap.soft { background: #f0c14a; }
+#usage .cap.hard { background: #ff5a5a; }
+
+#usage-text {
+  flex: none;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+#history-btn,
+#history-close {
+  flex: none;
+  padding: 4px 10px;
+  border: 2px solid var(--line);
+  background: var(--chip);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#history {
+  position: fixed;
+  z-index: 6;
+  left: 12px;
+  top: 120px;
+  width: min(460px, calc(100vw - 24px));
+  max-height: 60vh;
+  overflow: auto;
+  padding: 10px 12px;
+  border: 3px solid #d8dde8;
+  background: #1c2a4a;
+  color: var(--ink);
+}
+
+#history[hidden] { display: none; }
+
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+#history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+#history-list li { padding: 3px 0; border-bottom: 1px solid #2c3d63; }
+#history-list li.muted { color: #9aa7b8; }
+
 #needs {
   display: flex;
   gap: 8px;
@@ -133,6 +224,10 @@ h1 {
 
 .need {
   flex: none;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   min-height: 44px;
   padding: 8px 12px;
   background: #3d4d66;
