@@ -6,7 +6,7 @@ A top-down pixel town where each bot is a character. Open the page on a computer
 
 - The site is GitHub Pages from `main` `/docs`. It never needs a rebuild to show new status.
 - Bots write their status to a separate branch called `status` with `report.js`. That branch holds only `data/status.json`, `data/needs.json` and `data/history-YYYY-MM.jsonl` (one file per month, Hawaii time).
-- The page reads `https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/status.json` (with a `?t=` cache-buster) every 2 minutes and when the tab comes back into view. The badge shows "Updated N min ago", or "Offline" in amber when a read fails.
+- The page reads `https://raw.githubusercontent.com/alexalikaaleman/agent-town/status/data/status.json` every 2 minutes and when the tab comes back into view. The raw server caches branch files for up to 5 minutes and ignores `?t=` cache-busters, so each read first asks the GitHub API for the latest `status` commit (one small call, revalidated with its ETag) and reads the files at that commit. If the API is rate limited or down, it falls back to the branch URL with a `?t=` query, which can be up to 5 minutes old. The badge shows "Updated N min ago", or "Offline" in amber when a read fails.
 - A bot that has been `working` for 30 minutes or more with no new line gets a red "stalled" tag.
 
 ## report.js

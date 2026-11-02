@@ -17,8 +17,31 @@ async function fetchText(url) {
   return res.text();
 }
 
-/** URL of a file on the status branch, with a cache-busting query. */
+// raw.githubusercontent.com caches a branch file for up to 5 minutes and ignores
+// query strings, so each read first asks the GitHub API for the branch's latest
+// commit (one small call, revalidated with its ETag) and then reads files at that
+// exact commit, which is never stale. If the API is unavailable or rate limited,
+// it falls back to the branch URL with a cache-busting query.
+const RAW_ROOT = "https://raw.githubusercontent.com/alexalikaaleman/agent-town/";
+const REF_API = "https://api.github.com/repos/alexalikaaleman/agent-town/git/ref/heads/status";
+let headSha = null;
+
+async function refreshHead() {
+  try {
+    const res = await fetch(REF_API, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
+    if (!res.ok) throw new Error(String(res.status));
+    const data = await res.json();
+    const sha = data && data.object && data.object.sha;
+    headSha = /^[0-9a-f]{40}$/.test(sha || "") ? sha : null;
+  } catch (_) {
+    headSha = null;
+  }
+  return headSha;
+}
+
+/** URL of a file on the status branch: pinned to the latest commit when known. */
 function statusUrl(name) {
+  if (headSha) return RAW_ROOT + headSha + "/data/" + name;
   return STATUS_BASE + name + "?t=" + Date.now();
 }
 
@@ -90,6 +113,7 @@ async function connectFeed({ onSnapshot, onStatus, onRoster, onNeeds }) {
     if (busy) return;
     busy = true;
     try {
+      await refreshHead();
       const status = await fetchJson(statusUrl("status.json"));
       last = status;
       onSnapshot(toSnapshot(roster, status, Date.now()), status);
