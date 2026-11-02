@@ -1,0 +1,335 @@
+[
+  {
+    "ts": "2026-11-01T18:00:00.000Z",
+    "botId": "masterbot",
+    "state": "working",
+    "task": "Assigning the morning routes",
+    "needsAlex": null,
+    "text": "Assigning the morning routes"
+  },
+  {
+    "ts": "2026-11-01T18:01:00.000Z",
+    "botId": "chief-of-staff",
+    "state": "waiting",
+    "task": "Which task is first?",
+    "needsAlex": "question",
+    "text": "Which task is first?"
+  },
+  {
+    "ts": "2026-11-01T18:02:00.000Z",
+    "botId": "help-bot",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:03:00.000Z",
+    "botId": "grok-build-worker",
+    "state": "working",
+    "task": "Building the town view",
+    "needsAlex": null,
+    "text": "Building the town view"
+  },
+  {
+    "ts": "2026-11-01T18:04:00.000Z",
+    "botId": "website-builder-bot",
+    "state": "done",
+    "task": "Passed the preview link",
+    "needsAlex": null,
+    "handoffTo": "playtest-qa-bot",
+    "item": "preview link",
+    "text": "Passed the preview link"
+  },
+  {
+    "ts": "2026-11-01T18:05:00.000Z",
+    "botId": "playtest-qa-bot",
+    "state": "working",
+    "task": "Filing test notes",
+    "needsAlex": null,
+    "text": "Filing test notes"
+  },
+  {
+    "ts": "2026-11-01T18:06:00.000Z",
+    "botId": "larry-h-robot",
+    "state": "walking",
+    "task": "Crossing the square",
+    "needsAlex": null,
+    "text": "Crossing the square"
+  },
+  {
+    "ts": "2026-11-01T18:07:00.000Z",
+    "botId": "robotemplate",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:08:00.000Z",
+    "botId": "robo-maintenance-bot",
+    "state": "blocked",
+    "task": "Missing a part list",
+    "needsAlex": "urgent",
+    "text": "Missing a part list"
+  },
+  {
+    "ts": "2026-11-01T18:09:00.000Z",
+    "botId": "game-additions-bot",
+    "state": "working",
+    "task": "Noting a feature idea",
+    "needsAlex": null,
+    "text": "Noting a feature idea"
+  },
+  {
+    "ts": "2026-11-01T18:10:00.000Z",
+    "botId": "cutscene-bot",
+    "state": "working",
+    "task": "Timing a scene",
+    "needsAlex": null,
+    "text": "Timing a scene"
+  },
+  {
+    "ts": "2026-11-01T18:11:00.000Z",
+    "botId": "concept-art-bot",
+    "state": "done",
+    "task": "Passed the color script",
+    "needsAlex": null,
+    "handoffTo": "cutscene-bot",
+    "item": "color script",
+    "text": "Passed the color script"
+  },
+  {
+    "ts": "2026-11-01T18:12:00.000Z",
+    "botId": "ai-prompt-bot",
+    "state": "working",
+    "task": "Writing a prompt",
+    "needsAlex": null,
+    "text": "Writing a prompt"
+  },
+  {
+    "ts": "2026-11-01T18:13:00.000Z",
+    "botId": "mochizuki-bot",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:14:00.000Z",
+    "botId": "proportion-bot",
+    "state": "waiting",
+    "task": "Is this scale right?",
+    "needsAlex": "question",
+    "text": "Is this scale right?"
+  },
+  {
+    "ts": "2026-11-01T18:15:00.000Z",
+    "botId": "hustle-bot",
+    "state": "working",
+    "task": "Offer needs a yes",
+    "needsAlex": "urgent",
+    "text": "Offer needs a yes"
+  },
+  {
+    "ts": "2026-11-01T18:16:00.000Z",
+    "botId": "budget-bot",
+    "state": "done",
+    "task": "Passed the budget note",
+    "needsAlex": null,
+    "handoffTo": "accounting-bot",
+    "item": "budget note",
+    "text": "Passed the budget note"
+  },
+  {
+    "ts": "2026-11-01T18:17:00.000Z",
+    "botId": "accounting-bot",
+    "state": "working",
+    "task": "Reconciling the books",
+    "needsAlex": null,
+    "text": "Reconciling the books"
+  },
+  {
+    "ts": "2026-11-01T18:18:00.000Z",
+    "botId": "alika-treed-business-bot",
+    "state": "blocked",
+    "task": "Waiting on a price",
+    "needsAlex": null,
+    "text": "Waiting on a price"
+  },
+  {
+    "ts": "2026-11-01T18:19:00.000Z",
+    "botId": "garage-sale-bot",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:20:00.000Z",
+    "botId": "game-design-document-bot",
+    "state": "working",
+    "task": "Updating the design doc",
+    "needsAlex": null,
+    "text": "Updating the design doc"
+  },
+  {
+    "ts": "2026-11-01T18:21:00.000Z",
+    "botId": "google-drive-manager",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:22:00.000Z",
+    "botId": "robo-library",
+    "state": "working",
+    "task": "Indexing notes",
+    "needsAlex": null,
+    "text": "Indexing notes"
+  },
+  {
+    "ts": "2026-11-01T18:23:00.000Z",
+    "botId": "context-bot",
+    "state": "waiting",
+    "task": "Holding context for review",
+    "needsAlex": null,
+    "text": "Holding context for review"
+  },
+  {
+    "ts": "2026-11-01T18:24:00.000Z",
+    "botId": "language-bot",
+    "state": "working",
+    "task": "Checking wording",
+    "needsAlex": null,
+    "text": "Checking wording"
+  },
+  {
+    "ts": "2026-11-01T18:25:00.000Z",
+    "botId": "game-build-bible",
+    "state": "blocked",
+    "task": "Page is locked",
+    "needsAlex": null,
+    "text": "Page is locked"
+  },
+  {
+    "ts": "2026-11-01T18:26:00.000Z",
+    "botId": "game-revision-logger",
+    "state": "done",
+    "task": "Logged the latest revision",
+    "needsAlex": null,
+    "text": "Logged the latest revision"
+  },
+  {
+    "ts": "2026-11-01T18:27:00.000Z",
+    "botId": "video-backup-helper-v2",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:28:00.000Z",
+    "botId": "brainstorm-bot",
+    "state": "walking",
+    "task": "Walking to the square",
+    "needsAlex": null,
+    "text": "Walking to the square"
+  },
+  {
+    "ts": "2026-11-01T18:29:00.000Z",
+    "botId": "feedback-bot",
+    "state": "waiting",
+    "task": "How should we reply?",
+    "needsAlex": "question",
+    "text": "How should we reply?"
+  },
+  {
+    "ts": "2026-11-01T18:30:00.000Z",
+    "botId": "trivia-bot",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:31:00.000Z",
+    "botId": "release-marketing-bot",
+    "state": "walking",
+    "task": "Carrying the announcement",
+    "needsAlex": null,
+    "text": "Carrying the announcement"
+  },
+  {
+    "ts": "2026-11-01T18:32:00.000Z",
+    "botId": "bot-scout",
+    "state": "walking",
+    "task": "Scouting the square",
+    "needsAlex": null,
+    "text": "Scouting the square"
+  },
+  {
+    "ts": "2026-11-01T18:33:00.000Z",
+    "botId": "job-lander-resume-bot",
+    "state": "waiting",
+    "task": "Resume needs a look",
+    "needsAlex": "urgent",
+    "text": "Resume needs a look"
+  },
+  {
+    "ts": "2026-11-01T18:34:00.000Z",
+    "botId": "robo-helper-bot",
+    "state": "working",
+    "task": "Sorting the shelf",
+    "needsAlex": null,
+    "text": "Sorting the shelf"
+  },
+  {
+    "ts": "2026-11-01T18:35:00.000Z",
+    "botId": "malu-bot",
+    "state": "idle",
+    "task": "",
+    "needsAlex": null,
+    "text": ""
+  },
+  {
+    "ts": "2026-11-01T18:36:00.000Z",
+    "botId": "game-design-document-bot",
+    "state": "working",
+    "task": "Drafting the level 3 cutscene with the crew",
+    "text": "Drafting level 3 cutscene",
+    "needsAlex": null,
+    "with": [
+      "cutscene-bot",
+      "concept-art-bot"
+    ],
+    "collabId": "level-3-cutscene"
+  },
+  {
+    "ts": "2026-11-01T18:36:01.000Z",
+    "botId": "cutscene-bot",
+    "state": "working",
+    "task": "Writing the scene beats for the README",
+    "text": "Writing README",
+    "needsAlex": null,
+    "with": [
+      "game-design-document-bot",
+      "concept-art-bot"
+    ],
+    "collabId": "level-3-cutscene"
+  },
+  {
+    "ts": "2026-11-01T18:36:02.000Z",
+    "botId": "concept-art-bot",
+    "state": "working",
+    "task": "Sketching the workshop forge",
+    "text": "Sketching the forge",
+    "needsAlex": null,
+    "with": [
+      "game-design-document-bot",
+      "cutscene-bot"
+    ],
+    "collabId": "level-3-cutscene"
+  }
+]

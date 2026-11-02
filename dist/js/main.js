@@ -1,0 +1,367 @@
+/** Agent Town entry. Canvas loop, HUD, and tap panel. */
+(function () {
+const MAP_H = window.AgentTown.MAP_H;
+const MAP_W = window.AgentTown.MAP_W;
+const TILE = window.AgentTown.TILE;
+const createWorld = window.AgentTown.createWorld;
+const createTown = window.AgentTown.createTown;
+const drawMap = window.AgentTown.drawMap;
+const drawScene = window.AgentTown.drawScene;
+const connectFeed = window.AgentTown.connectFeed;
+const formatStamp = window.AgentTown.formatStamp;
+const honoluluParts = window.AgentTown.honoluluParts;
+const phaseLabel = window.AgentTown.phaseLabel;
+
+const canvas = document.getElementById("town");
+const stage = document.getElementById("stage");
+const needsEl = document.getElementById("needs");
+const panel = document.getElementById("panel");
+const ctx = canvas.getContext("2d");
+
+const world = createWorld();
+const mapWrap = document.getElementById("map-wrap");
+let roster = [];
+let town = null;
+let mode = "loading";
+let zoom = 2;
+let userZoom = null;
+let dpr = 1;
+let mapCanvas = null;
+let mapKey = "";
+let lastHud = "";
+let lastClock = "";
+
+function pixelRatio() {
+  dpr = Math.max(1, Math.round(window.devicePixelRatio || 1));
+  if (dpr > 2) dpr = 2;
+  return dpr;
+}
+
+function capZoom(z) {
+  const worldW = MAP_W * TILE;
+  const worldH = MAP_H * TILE;
+  const ratio = pixelRatio();
+  let next = Math.round(z);
+  if (!Number.isFinite(next) || next < 1) next = 1;
+  if (next > 8) next = 8;
+  while (next > 1 && (worldW * next * ratio > 4096 || worldH * next * ratio > 4096)) next -= 1;
+  return next;
+}
+
+function autoZoom() {
+  const availW = Math.max(1, stage.clientWidth);
+  const worldW = MAP_W * TILE;
+  let z = Math.floor(availW / worldW);
+  if (!Number.isFinite(z) || z < 1) z = 1;
+  if (window.innerWidth > 900) z = Math.max(2, z);
+  return capZoom(z);
+}
+
+function resize() {
+  const availW = Math.max(1, stage.clientWidth);
+  const availH = Math.max(1, stage.clientHeight);
+  const worldW = MAP_W * TILE;
+  const worldH = MAP_H * TILE;
+  zoom = capZoom(userZoom == null ? autoZoom() : userZoom);
+  const ratio = pixelRatio();
+  canvas.width = worldW * zoom * ratio;
+  canvas.height = worldH * zoom * ratio;
+  canvas.style.width = worldW * zoom + "px";
+  canvas.style.height = worldH * zoom + "px";
+  const fits = worldW * zoom <= availW + 1 && worldH * zoom <= availH + 1;
+  if (mapWrap) mapWrap.classList.toggle("centered", fits);
+  mapCanvas = null;
+  mapKey = "";
+}
+
+function stepZoom(delta) {
+  userZoom = capZoom((userZoom == null ? zoom : userZoom) + delta);
+  resize();
+}
+
+function ensureMap() {
+  const key = zoom + ":" + dpr;
+  if (mapCanvas && mapKey === key) return;
+  const s = zoom * dpr;
+  const off = document.createElement("canvas");
+  off.width = MAP_W * TILE * s;
+  off.height = MAP_H * TILE * s;
+  const octx = off.getContext("2d");
+  octx.imageSmoothingEnabled = false;
+  octx.setTransform(s, 0, 0, s, 0, 0);
+  drawMap(octx, world);
+  mapCanvas = off;
+  mapKey = key;
+}
+
+function resizeAndDraw() {
+  resize();
+}
+
+new ResizeObserver(resizeAndDraw).observe(stage);
+window.addEventListener("resize", resizeAndDraw);
+resize();
+
+function setMode(next) {
+  mode = next;
+  const el = document.getElementById("mode");
+  el.className = "mode " + (next === "loading" ? "loading" : next);
+  if (next === "live") el.textContent = "LIVE";
+  else if (next === "poll") el.textContent = "POLLING";
+  else if (next === "demo") el.textContent = "DEMO MODE";
+  else el.textContent = "LOADING";
+  const note = document.getElementById("mode-note");
+  note.textContent = next === "demo" ? "Sample activity. Not a live feed." : "";
+}
+
+function renderHud() {
+  if (!town) return;
+  const counts = town.counts();
+  const parts = [
+    ["c-work", "Working " + counts.working],
+    ["c-wait", "Waiting " + counts.waiting],
+    ["c-block", "Blocked " + counts.blocked],
+    ["c-alex", "Needs Alex " + counts.needs],
+  ];
+  for (const [id, text] of parts) {
+    const el = document.getElementById(id);
+    if (el.textContent !== text) el.textContent = text;
+  }
+  const summary = counts.working + " working, " + counts.waiting + " waiting, " + counts.blocked + " blocked, " + counts.needs + " need Alex.";
+  const summaryEl = document.getElementById("summary");
+  if (summaryEl.textContent !== summary) summaryEl.textContent = summary;
+
+  const clock = honoluluParts();
+  const clockText = clock.label + " · " + phaseLabel(clock.phase);
+  const clockEl = document.getElementById("clock");
+  if (clockText !== lastClock) {
+    clockEl.textContent = clockText;
+    lastClock = clockText;
+  }
+
+  const needs = town.needsList();
+  const key = needs.map((a) => a.id + ":" + a.needsAlex).join("|");
+  if (key === lastHud) return;
+  lastHud = key;
+  needsEl.replaceChildren();
+  if (!needs.length) {
+    needsEl.hidden = true;
+    return;
+  }
+  needsEl.hidden = false;
+  const label = document.createElement("span");
+  label.className = "needs-label";
+  label.textContent = "Needs Alex";
+  needsEl.appendChild(label);
+  for (const agent of needs) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "need " + agent.needsAlex;
+    btn.textContent = (agent.needsAlex === "urgent" ? "! " : "? ") + agent.name;
+    btn.addEventListener("click", () => focusBot(agent.id, true));
+    needsEl.appendChild(btn);
+  }
+}
+
+function homeName(id) {
+  const b = world.byId.get(id);
+  return b ? b.name : id;
+}
+
+function openPanel(agent) {
+  town.selected = agent.id;
+  panel.hidden = false;
+  document.getElementById("p-name").textContent = agent.name;
+  document.getElementById("p-role").textContent = agent.role;
+  const state = agent.busy ? agent.state + " · handoff" : agent.state;
+  const stateEl = document.getElementById("p-state");
+  stateEl.textContent = state;
+  stateEl.className = "tag s-" + agent.state;
+  const needEl = document.getElementById("p-need");
+  if (agent.needsAlex === "urgent") needEl.textContent = "Needs Alex: urgent";
+  else if (agent.needsAlex === "question") needEl.textContent = "Needs Alex: question";
+  else needEl.textContent = "";
+  document.getElementById("p-task").textContent = agent.task || agent.text || "No current task.";
+  const driveEl = document.getElementById("p-drive");
+  const driveUrl = agent.driveFolderUrl || "";
+  if (driveEl.dataset.url !== driveUrl) {
+    driveEl.dataset.url = driveUrl;
+    driveEl.replaceChildren();
+    if (driveUrl) {
+      const link = document.createElement("a");
+      link.href = driveUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Open Drive folder";
+      driveEl.appendChild(link);
+    }
+  }
+  document.getElementById("p-time").textContent = "Updated " + formatStamp(agent.ts);
+  document.getElementById("p-home").textContent = "Home: " + homeName(agent.home);
+}
+
+function closePanel() {
+  panel.hidden = true;
+  if (town) town.selected = null;
+}
+
+function focusBot(id, open) {
+  const agent = town.agents.get(id);
+  if (!agent) return;
+  if (open) openPanel(agent);
+  else town.selected = id;
+  const rect = canvas.getBoundingClientRect();
+  const srect = stage.getBoundingClientRect();
+  if (!rect.width || !rect.height) return;
+  const px = rect.left + ((agent.x * TILE + TILE / 2) / (MAP_W * TILE)) * rect.width;
+  const py = rect.top + ((agent.y * TILE + 4) / (MAP_H * TILE)) * rect.height;
+  stage.scrollTo({
+    left: stage.scrollLeft + (px - srect.left) - srect.width / 2,
+    top: stage.scrollTop + (py - srect.top) - srect.height / 2,
+    behavior: "smooth",
+  });
+}
+
+document.getElementById("panel-close").addEventListener("click", closePanel);
+document.getElementById("zoom-in").addEventListener("click", () => stepZoom(1));
+document.getElementById("zoom-out").addEventListener("click", () => stepZoom(-1));
+window.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape") closePanel();
+  const step = 64;
+  if (ev.key === "ArrowLeft") stage.scrollLeft -= step;
+  if (ev.key === "ArrowRight") stage.scrollLeft += step;
+  if (ev.key === "ArrowUp") stage.scrollTop -= step;
+  if (ev.key === "ArrowDown") stage.scrollTop += step;
+});
+
+let pointer = null;
+stage.addEventListener("pointerdown", (ev) => {
+  if (ev.target.closest && ev.target.closest("button, a, input, textarea")) return;
+  pointer = {
+    id: ev.pointerId,
+    x: ev.clientX,
+    y: ev.clientY,
+    sx: stage.scrollLeft,
+    sy: stage.scrollTop,
+    drag: false,
+  };
+});
+stage.addEventListener("pointermove", (ev) => {
+  if (!pointer || ev.pointerId !== pointer.id) return;
+  const dx = ev.clientX - pointer.x;
+  const dy = ev.clientY - pointer.y;
+  if (Math.hypot(dx, dy) > 8) pointer.drag = true;
+  if (pointer.drag) {
+    stage.scrollLeft = pointer.sx - dx;
+    stage.scrollTop = pointer.sy - dy;
+    if (town) town.hoverChest = null;
+    return;
+  }
+  trackChestHover(ev);
+});
+stage.addEventListener("pointerleave", () => {
+  if (town) town.hoverChest = null;
+});
+function canvasPoint(ev) {
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) return null;
+  if (ev.clientX < rect.left || ev.clientX > rect.right || ev.clientY < rect.top || ev.clientY > rect.bottom) return null;
+  return {
+    x: ((ev.clientX - rect.left) / rect.width) * MAP_W * TILE,
+    y: ((ev.clientY - rect.top) / rect.height) * MAP_H * TILE,
+  };
+}
+
+function trackChestHover(ev) {
+  if (!town) return;
+  const pt = canvasPoint(ev);
+  if (!pt) {
+    town.hoverChest = null;
+    return;
+  }
+  const chest = town.hitChest(pt.x, pt.y);
+  town.hoverChest = chest ? chest.id : null;
+}
+
+function endPointer(ev) {
+  if (!pointer || ev.pointerId !== pointer.id) return;
+  const dragged = pointer.drag;
+  pointer = null;
+  if (dragged || !town) return;
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || ev.clientX < rect.left || ev.clientX > rect.right || ev.clientY < rect.top || ev.clientY > rect.bottom) {
+    return;
+  }
+  const wx = ((ev.clientX - rect.left) / rect.width) * MAP_W * TILE;
+  const wy = ((ev.clientY - rect.top) / rect.height) * MAP_H * TILE;
+  const chest = town.hitChest(wx, wy);
+  if (chest) {
+    town.pokeChest(chest.id, performance.now());
+    if (chest.url) window.open(chest.url, "_blank", "noopener");
+    return;
+  }
+  const hit = town.hitTest(wx, wy);
+  if (hit) openPanel(hit);
+  else closePanel();
+}
+stage.addEventListener("pointerup", endPointer);
+stage.addEventListener("pointercancel", endPointer);
+
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000);
+  last = now;
+  if (town) {
+    town.update(dt, now);
+    renderHud();
+    if (town.selected && !panel.hidden) {
+      const agent = town.agents.get(town.selected);
+      if (agent) openPanel(agent);
+    }
+  }
+  ensureMap();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.imageSmoothingEnabled = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (mapCanvas) ctx.drawImage(mapCanvas, 0, 0);
+  const scale = zoom * dpr;
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  ctx.imageSmoothingEnabled = false;
+  if (town) {
+    const phase = honoluluParts().phase;
+    drawScene(ctx, town, world, now, phase);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+function bootTown(list) {
+  roster = list;
+  town = createTown(roster, world);
+  lastHud = "";
+}
+
+async function boot() {
+  try {
+    await connectFeed({
+      onSnapshot(data) {
+        if (!town) bootTown(data.bots || roster);
+        if (data && Array.isArray(data.bots)) town.applySnapshot(data.bots);
+      },
+      onMode: setMode,
+      onDemo(reduced) {
+        if (!town) bootTown(reduced.bots);
+        town.applySnapshot(reduced.bots);
+        town.enableDemo();
+      },
+    });
+  } catch (err) {
+    const fatal = document.getElementById("fatal");
+    fatal.hidden = false;
+    fatal.textContent = "Could not load data/bots.json. From this folder run: node server.js";
+    setMode("demo");
+  }
+}
+
+boot();
+})();

@@ -1,0 +1,290 @@
+[
+  {
+    "id": "masterbot",
+    "name": "MasterBot",
+    "role": "Orchestrates the other bots",
+    "home": "townhall",
+    "color": "#d64545",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1KmrSW7E97ZodshPFjAu8Bt47pYY6uxkx"
+  },
+  {
+    "id": "brainstorm-bot",
+    "name": "Brainstorm Bot",
+    "role": "Ideas and prompts for Alex",
+    "home": "tavern",
+    "color": "#f2a03d",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1Fu5gQsFwn0aWA8gMCKkf3rQEPU2Amr6f"
+  },
+  {
+    "id": "game-design-document-bot",
+    "name": "Game Design Document Bot",
+    "role": "Writes and keeps the game design doc",
+    "home": "library",
+    "color": "#3d6fd8",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "grok-build-worker",
+    "name": "Grok Build Worker",
+    "role": "Builds features in the repo",
+    "home": "workshop",
+    "color": "#7d5cff",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "website-builder-bot",
+    "name": "Website Builder Bot",
+    "role": "Builds and updates websites",
+    "home": "workshop",
+    "color": "#1f9d8a",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/15RvhVNdEcKpQkG3kldgjYd9Ov5-8v2BN"
+  },
+  {
+    "id": "cutscene-bot",
+    "name": "Cutscene Bot",
+    "role": "Plans and writes cutscenes",
+    "home": "studio",
+    "color": "#e25ca8",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "concept-art-bot",
+    "name": "Concept Art Bot",
+    "role": "Concept art direction",
+    "home": "studio",
+    "color": "#ff7a59",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "ai-prompt-bot",
+    "name": "AI Prompt Bot",
+    "role": "Writes image and video prompts",
+    "home": "studio",
+    "color": "#c06bff",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1PbJO8d9lBs95V-ZweQB5pdf0D9YBQdus"
+  },
+  {
+    "id": "google-drive-manager",
+    "name": "Google Drive Manager",
+    "role": "Organizes notes and drive files",
+    "home": "library",
+    "color": "#4aa3df",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1hHJ6FLOzCfWhvwei4Bh2AKCNCF4M37D6"
+  },
+  {
+    "id": "hustle-bot",
+    "name": "Hustle Bot",
+    "role": "Finds offers and opportunities",
+    "home": "bank",
+    "color": "#e0a82a",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1bdUpGZhy24wLUOh1ulUCVGZx9uUJJgPB"
+  },
+  {
+    "id": "budget-bot",
+    "name": "Budget Bot",
+    "role": "Tracks budgets",
+    "home": "bank",
+    "color": "#2f9e44",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1JK150XidL-adUZckO-ewCSLjJ07J0HrL"
+  },
+  {
+    "id": "accounting-bot",
+    "name": "Accounting Bot",
+    "role": "Books and balances",
+    "home": "bank",
+    "color": "#1f7a4d",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "playtest-qa-bot",
+    "name": "Playtest and QA Bot",
+    "role": "Playtests and files bugs",
+    "home": "workshop",
+    "color": "#e05252",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1XrJKTAuzHZDIrQoMB5A1XgpO8FOLEshH"
+  },
+  {
+    "id": "release-marketing-bot",
+    "name": "Release and Marketing Bot",
+    "role": "Release notes and announcements",
+    "home": "post",
+    "color": "#ff5d8f",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1YmFi_8Mjq1URiZEzxPmVoA45RAIbiP4O"
+  },
+  {
+    "id": "alika-treed-business-bot",
+    "name": "Alika TreeD Business Bot",
+    "role": "TreeD business tasks",
+    "home": "bank",
+    "color": "#c9842a",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "larry-h-robot",
+    "name": "Larry H Robot",
+    "role": "Robot builds and chores",
+    "home": "workshop",
+    "color": "#8d99ae",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1sxihmlZOZkvNDzSZ4qoPtm-U_I5S-_fw"
+  },
+  {
+    "id": "robotemplate",
+    "name": "RoboTemplate",
+    "role": "Starter templates for robots",
+    "home": "workshop",
+    "color": "#5c6b73",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "robo-maintenance-bot",
+    "name": "Robo Maintenance Bot",
+    "role": "Keeps robots running",
+    "home": "workshop",
+    "color": "#3d5a80",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "robo-library",
+    "name": "Robo Library",
+    "role": "Indexes robot notes",
+    "home": "library",
+    "color": "#6a4c93",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "robo-helper-bot",
+    "name": "Robo Helper Bot",
+    "role": "Helps around Alex's house",
+    "home": "house",
+    "color": "#d97642",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "context-bot",
+    "name": "Context Bot",
+    "role": "Keeps working context",
+    "home": "library",
+    "color": "#3a86ff",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "bot-scout",
+    "name": "Bot Scout",
+    "role": "Scouts new bots and tools",
+    "home": "post",
+    "color": "#2ec4b6",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1KpXzgopIV0L-DJqTv7YJfuxRKZYofHyw"
+  },
+  {
+    "id": "chief-of-staff",
+    "name": "Chief of Staff",
+    "role": "Priorities and the daily brief",
+    "home": "townhall",
+    "color": "#b08968",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1mleuGK1Z0sDQhaD2LwizeeQmrtvgfgnM"
+  },
+  {
+    "id": "help-bot",
+    "name": "Help Bot",
+    "role": "Answers how-to questions",
+    "home": "townhall",
+    "color": "#52b788",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/11z3JdkpKrne3ys4k3bLrcAQiujs5Dcf6"
+  },
+  {
+    "id": "feedback-bot",
+    "name": "Feedback Bot",
+    "role": "Collects feedback",
+    "home": "tavern",
+    "color": "#e9c46a",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "language-bot",
+    "name": "Language Bot",
+    "role": "Language and wording",
+    "home": "library",
+    "color": "#4cc9f0",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "mochizuki-bot",
+    "name": "Mochizuki Bot",
+    "role": "Style and scene notes",
+    "home": "studio",
+    "color": "#9b5de5",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "job-lander-resume-bot",
+    "name": "Job Lander Resume Bot",
+    "role": "Resume and job-search drafts",
+    "home": "post",
+    "color": "#f4a261",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "garage-sale-bot",
+    "name": "Garage Sale Bot",
+    "role": "Lists and prices items",
+    "home": "bank",
+    "color": "#bc6c25",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1urm6KWMrHwpPhWXecbyod2t45dXgZtEN"
+  },
+  {
+    "id": "malu-bot",
+    "name": "Malu bot",
+    "role": "Personal assistant at home",
+    "home": "house",
+    "color": "#ff8fab",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "game-build-bible",
+    "name": "Game Build Bible",
+    "role": "Canonical build notes",
+    "home": "library",
+    "color": "#8a9a4a",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "game-revision-logger",
+    "name": "Game Revision Logger",
+    "role": "Logs game revisions",
+    "home": "library",
+    "color": "#c47b4a",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "game-additions-bot",
+    "name": "Game Additions Bot",
+    "role": "Proposes and adds game features",
+    "home": "workshop",
+    "color": "#e76f51",
+    "driveFolderUrl": ""
+  },
+  {
+    "id": "trivia-bot",
+    "name": "Trivia Bot",
+    "role": "Trivia and break-time facts",
+    "home": "tavern",
+    "color": "#f72585",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1xMfiE0U-nvah-6tXf4nOPCNH_iGRvMfa"
+  },
+  {
+    "id": "proportion-bot",
+    "name": "Proportion Bot",
+    "role": "Checks art proportions",
+    "home": "studio",
+    "color": "#48bfe3",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/1LSk7uqXrxmaaMch4GHgb14OukVaUrxFS"
+  },
+  {
+    "id": "video-backup-helper-v2",
+    "name": "Video Backup Helper v2",
+    "role": "Tracks video backups",
+    "home": "library",
+    "color": "#577590",
+    "driveFolderUrl": ""
+  }
+]

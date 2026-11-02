@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Agent Town</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="hud">
+    <div class="brand">
+      <h1>Agent Town</h1>
+      <p id="summary" class="sr">Loading the town.</p>
+    </div>
+    <div class="counts" role="status">
+      <span id="c-work" class="count">Working 0</span>
+      <span id="c-wait" class="count">Waiting 0</span>
+      <span id="c-block" class="count">Blocked 0</span>
+      <span id="c-alex" class="count alex">Needs Alex 0</span>
+    </div>
+    <div class="status-side">
+      <p id="mode" class="mode loading" aria-live="polite">LOADING</p>
+      <p id="clock" class="clock">—</p>
+    </div>
+  </header>
+  <p id="mode-note"></p>
+  <div id="needs" hidden></div>
+  <div id="stage">
+    <div id="map-wrap">
+      <canvas id="town" width="800" height="576" aria-label="Agent Town map"></canvas>
+    </div>
+    <div id="zoom-controls">
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+    </div>
+  </div>
+  <aside id="panel" hidden>
+    <div class="panel-card">
+      <button type="button" id="panel-close" aria-label="Close">Close</button>
+      <h2 id="p-name"></h2>
+      <p id="p-role"></p>
+      <p class="panel-row"><span id="p-state" class="tag"></span> <span id="p-need"></span></p>
+      <p id="p-task"></p>
+      <p id="p-drive"></p>
+      <p id="p-time"></p>
+      <p id="p-home"></p>
+    </div>
+  </aside>
+  <p id="fatal" class="fatal" hidden></p>
+  <script src="data/fallback-data.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/path.js"></script>
+  <script src="js/agents.js"></script>
+  <script src="js/draw.js"></script>
+  <script src="js/net.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
