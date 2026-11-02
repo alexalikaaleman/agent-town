@@ -5,7 +5,7 @@
  *  nameplate, full name on tap). The MEDIC TENT at the bottom holds blocked bots with the red X. */
 (function () {
 const NAME_MAX = 18;
-const FIELD = { x0: 1, x1: 55, y0: 40, cols: 7, rows: [46.2, 50.4] };
+const FIELD = { x0: 1, x1: 55, y0: 40, cols: 7, rows: [44.6, 50.2] }; // rows 5.6 tiles apart so formations stay spaced apart
 const TENT = {
   id: "medic", name: "Medic Tent", x: 22, y: 53, w: 12, h: 6, doors: [[27, 53], [28, 53]],
   wall: "#d8cfb4", wallDk: "#b0a684", floor: "#e9e2cc", floor2: "#e1d9c0", trim: "#5fbf7a",
@@ -111,7 +111,8 @@ const late = {
       const cell = cellList.shift();
       if (!cell) break;
       const pts = formation(g.length);
-      const name = g[0].project || g[0].task || g[0].text || "Unnamed task";
+      // the monster is named after the task (the project name only if no task text was posted)
+      const name = g[0].task || g[0].text || g[0].project || "Unnamed task";
       const mon = { x: cell.x, y: cell.y, name, label: trunc(name, NAME_MAX), size: g.length >= 9 ? 1 : Math.min(2, 1 + Math.floor(g.length / 4)), kind: KINDS[hashStr(name) % KINDS.length], group: g.map((a) => a.id) };
       monsters.push(mon);
       formations.push({ n: g.length, ids: mon.group, cx: cell.x, cy: cell.y });
