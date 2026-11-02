@@ -728,6 +728,12 @@ function drawScreenLabels(c) {
   for (const p of cur().parts) {
     if (!p.labels) continue;
     for (const l of p.labels(town, cur()) || []) {
+      if (l.reserve) {
+        // a keep-out area (e.g. Bus Ninja's sprite): names are not placed over it
+        const [x0, y0, x1, y1] = l.reserve;
+        placed.push({ left: sx(x0), top: sy(y0), w: (x1 - x0) * zoom, h: (y1 - y0) * zoom, reserve: true });
+        continue;
+      }
       if (l.minZoom && zoom < fitZoom() * l.minZoom) continue;
       // minAbs: hide on small screens (phones) until zoomed in, so the framed view is not a wall of labels.
       if (l.minAbs && zoom < l.minAbs) continue;
@@ -745,7 +751,7 @@ function drawScreenLabels(c) {
   if (scene === "vault") {
     debugInfo.labels = 0;
     debugInfo.labelOverlaps = 0;
-    debugInfo.boxes = placed.map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
+    debugInfo.boxes = placed.filter((b) => !b.reserve).map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
     return;
   }
   // Bot names: always on. Each name tries above the head, then higher, below the feet,
@@ -785,7 +791,7 @@ function drawScreenLabels(c) {
     paintLabel(c, best, text, namePx, agent.color);
   }
   debugInfo.labelOverlaps = overlaps;
-  debugInfo.boxes = placed.map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
+  debugInfo.boxes = placed.filter((b) => !b.reserve).map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
   debugInfo.labels = list.length;
 }
 

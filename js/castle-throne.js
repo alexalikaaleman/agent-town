@@ -49,6 +49,51 @@ function makeNinja(world) {
   return nin;
 }
 
+/** Bus Ninja drawn 1.5x with a bright outline so he stands out at every zoom (and on phone). */
+const NINJA_SCALE = 1.5;
+let ninOff = null;
+let ninSil = null;
+function drawNinjaBig(ctx, P, nin, now) {
+  const T = P.TILE;
+  const W = 64;
+  const H = 48;
+  if (!ninOff) {
+    ninOff = document.createElement("canvas");
+    ninOff.width = W;
+    ninOff.height = H;
+    ninSil = document.createElement("canvas");
+    ninSil.width = W;
+    ninSil.height = H;
+  }
+  const o = ninOff.getContext("2d");
+  o.setTransform(1, 0, 0, 1, 0, 0);
+  o.clearRect(0, 0, W, H);
+  // local frame: the ninja's tile origin sits at (16, 16)
+  o.translate(16 - Math.round(nin.x * T), 16 - Math.round(nin.y * T));
+  const hit = drawNinja(o, P, nin, now);
+  const s = ninSil.getContext("2d");
+  s.globalCompositeOperation = "source-over";
+  s.clearRect(0, 0, W, H);
+  s.drawImage(ninOff, 0, 0);
+  s.globalCompositeOperation = "source-in";
+  s.fillStyle = "#ffe680";
+  s.fillRect(0, 0, W, H);
+  // anchor: the feet (local 24, 30) stay on the ninja's tile, the sprite grows up and out
+  const ax = nin.x * T + 8;
+  const ay = nin.y * T + 14;
+  const dx = ax - 24 * NINJA_SCALE;
+  const dy = ay - 30 * NINJA_SCALE;
+  const k = NINJA_SCALE;
+  const smooth = ctx.imageSmoothingEnabled;
+  ctx.imageSmoothingEnabled = false;
+  for (const [ex, ey] of [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, 1], [-1, 1], [1, -1]]) {
+    ctx.drawImage(ninSil, dx + ex * 1.2, dy + ey * 1.2, W * k, H * k);
+  }
+  ctx.drawImage(ninOff, dx, dy, W * k, H * k);
+  ctx.imageSmoothingEnabled = smooth;
+  return hit;
+}
+
 function drawNinja(ctx, P, nin, now) {
   const T = P.TILE;
   const ox = Math.round(nin.x * T) + 2;
@@ -159,9 +204,13 @@ const part = {
     }
     world.patrolSpots = spots;
   },
-  labels() {
-    // The vault door is a labelled tap target at every zoom (no minZoom).
-    return [{ kind: "vaultdoor", x: (VAULT_DOOR.x + VAULT_DOOR.w / 2) * 16, y: (VAULT_DOOR.y + 1) * 16 + 8, text: "Vault door", accent: "#ffd34d", bg: "rgba(42,32,8,0.94)" }];
+  labels(town) {
+    // The vault door is a labelled tap target at every zoom (no minZoom); Bus Ninja always has his name.
+    const nin = town && town.world && town.world.busNinja;
+    const out = [];
+    if (nin) out.push({ reserve: [nin.x * 16 - 6, nin.y * 16 - 24, nin.x * 16 + 22, nin.y * 16 + 16] });
+    if (nin) out.push({ kind: "busninja", x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
+    return out.concat([{ kind: "vaultdoor", x: (VAULT_DOOR.x + VAULT_DOOR.w / 2) * 16, y: (VAULT_DOOR.y + 1) * 16 + 8, text: "Vault door", accent: "#ffd34d", bg: "rgba(42,32,8,0.94)" }]);
   },
   place(ctx) {
     const town = ctx.town;
@@ -253,7 +302,7 @@ const part = {
     }
     const nin = world.busNinja;
     if (!nin) return;
-    const hitRock = drawNinja(ctx, P, nin, now);
+    const hitRock = drawNinjaBig(ctx, P, nin, now);
     if (hitRock) {
       // rock shakes and chips fly
       const t = now % 1800;
