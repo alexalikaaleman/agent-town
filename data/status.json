@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T11:59:28.041Z",
+  "updatedAt": "2026-11-02T12:08:11.929Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -53,11 +53,11 @@
     },
     "robotemplate": {
       "state": "working",
-      "text": "Castle build review",
-      "project": "Agent Town",
+      "text": "Updating design rules",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T11:01:39.426Z",
+      "ts": "2026-11-02T12:08:11.929Z",
       "since": "2026-11-02T11:01:39.426Z"
     },
     "game-design-document-bot": {
