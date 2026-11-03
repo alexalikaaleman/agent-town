@@ -107,7 +107,7 @@
       if (b.inert) btn.setAttribute("aria-disabled", "true");
       btn.addEventListener("click", (ev) => {
         ev.stopPropagation();
-        if (staleClick(ev)) return;
+        if (!btn.isConnected || staleClick(ev)) return; // a button from an earlier box (double tap on Yes)
         if (b.inert) {
           if (opts && typeof opts.onInert === "function") opts.onInert(b.id);
           return;

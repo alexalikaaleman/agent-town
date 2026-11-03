@@ -79,6 +79,14 @@ function approvedLinks() {
   return new Set(list.map((b) => b && b.driveFolderUrl).filter(Boolean));
 }
 
+/** Other approved outside links (data/approved-links.json, e.g. {"etsy": [...]}). */
+function approvedOther() {
+  const f = path.join(ROOT, "data", "approved-links.json");
+  if (!fs.existsSync(f)) return new Set();
+  const j = JSON.parse(fs.readFileSync(f, "utf8"));
+  return new Set([].concat(...Object.values(j).map((v) => (Array.isArray(v) ? v : [v]))).filter(Boolean));
+}
+
 /** PNG chunk types tEXt/iTXt/zTXt found in a PNG buffer (a non-PNG counts as one problem). */
 function pngTextChunks(buf) {
   const sig = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
@@ -95,6 +103,7 @@ function pngTextChunks(buf) {
 
 function leakCheck(dir) {
   const approved = approvedLinks();
+  const other = approvedOther();
   const problems = [];
   for (const file of walk(dir)) {
     const rel = path.relative(ROOT, file);
@@ -114,6 +123,7 @@ function leakCheck(dir) {
     }
     if (/(drive|docs)\.google\.com\/[^\s"'`]*[-\w]{20,}/i.test(text)) problems.push(rel + ": Drive link outside the chest links");
     if (/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(text)) problems.push(rel + ": email address");
+    for (const u of text.match(/https?:\/\/[\w.-]*etsy\.com[^\s"'`)]*/gi) || []) if (!other.has(u.replace(/\/$/, ""))) problems.push(rel + ": unapproved Etsy link " + u);
     if (/gh[pousr]_[A-Za-z0-9]{20,}|github_pat_|sk-[A-Za-z0-9]{20,}|xox[abprs]-|AIza[0-9A-Za-z_-]{30,}|BEGIN [A-Z ]*PRIVATE KEY/.test(text)) problems.push(rel + ": token-like string");
   }
   return problems;
@@ -139,4 +149,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { leakCheck, approvedLinks, buildHash, pngTextChunks };
+module.exports = { leakCheck, approvedLinks, approvedOther, buildHash, pngTextChunks };

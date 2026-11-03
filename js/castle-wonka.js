@@ -10,7 +10,7 @@ const STEP_MS = Math.round(1000 / 7); // one tile at Bus Ninja's 7 tiles/s
 // W3: the destination menu (design §4). Data, so the no-dead-end test can walk it. The current room is absent.
 const MENU = { vault: ["gallery", "music", "etsy", "back"], gallery: ["music", "etsy", "vault", "back"], music: ["gallery", "etsy", "vault", "back"] };
 const LABELS = { gallery: "Art Gallery", music: "Music Gallery", etsy: "Etsy Shop", vault: "Treasure Vault", back: "Back" };
-const ETSY_URL = ""; // filled only from Alex later; while empty the Etsy item is gray, "coming soon" and inert (fix 39 rule)
+const ETSY_URL = "https://alikatreed.etsy.com"; // Alex's shop (approved in data/approved-links.json)
 const W = { room: "vault", state: "S0", t0: 0, token: 0, cancelPending: false, from: null, legs: null, closeCol: 5, glintAt: 0, ui: null };
 const LOAD_MS = 700; // how long the black "Loading..." cover shows before the room switch
 const dbg = () => {
@@ -118,7 +118,7 @@ function openMenu() {
   box.open({
     title: "Where do you wanna go?",
     menu: true,
-    buttons: items.map((id) => (id === "etsy" && !ETSY_URL ? { id, text: LABELS[id], sub: "coming soon", inert: true } : { id, text: LABELS[id] })),
+    buttons: items.map((id) => ({ id, text: LABELS[id] })),
     cancelId: "back",
     onInert() {
       d.inertTaps++;
@@ -127,9 +127,31 @@ function openMenu() {
       if (me !== W.token || W.state !== "S5") return;
       (d.choices = d.choices || []).push(id == null ? "back" : id);
       // Back (or Esc / a tap outside) = Cancel: the door opens and he steps out (S9).
-      if (MENU[W.room].includes(id) && id !== "back" && id !== "etsy" && id !== W.room) return startTrip(id);
+      if (id === "etsy") return askEtsy(me);
+      if (MENU[W.room].includes(id) && id !== "back" && id !== W.room) return startTrip(id);
       W.closeCol = 5;
       go("S9");
+    },
+  });
+}
+
+/** Etsy: "Open Alex's Etsy shop?" Yes opens the shop in a new tab, once, right inside the click
+ *  (so pop-up blockers allow it); either way he is still in the car and the menu comes back. */
+function askEtsy(me) {
+  const box = AT.confirmBox;
+  const d = dbg();
+  let opened = false;
+  box.open({
+    title: "Open Alex's Etsy shop?",
+    buttons: [{ id: "yes", text: "Yes" }, { id: "no", text: "No" }],
+    cancelId: "no",
+    onChoose(id) {
+      if (id === "yes" && !opened && ETSY_URL) {
+        opened = true;
+        window.open(ETSY_URL, "_blank", "noopener");
+        d.etsyOpens = (d.etsyOpens || 0) + 1;
+      }
+      if (me === W.token && W.state === "S5") openMenu();
     },
   });
 }
