@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T03:08:17.074Z",
+  "updatedAt": "2026-11-03T03:16:53.804Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Confirm castle package for GitWriter",
       "project": "Agent Town castle",
       "with": [],
-      "needs": {
-        "id": "n202611030308-99ee",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-03T03:08:17.074Z",
       "since": "2026-11-03T03:08:17.074Z"
     },
