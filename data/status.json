@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T06:30:39.654Z",
+  "updatedAt": "2026-11-03T07:21:21.534Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Moat review done; next: autotour",
+      "state": "working",
+      "text": "Review castle autotour",
       "project": "Agent Town castle",
       "with": [],
       "needs": null,
-      "ts": "2026-11-03T06:30:39.654Z",
-      "since": "2026-11-03T06:30:39.654Z"
+      "ts": "2026-11-03T07:21:21.534Z",
+      "since": "2026-11-03T07:21:21.534Z"
     },
     "game-design-document-bot": {
       "state": "done",
