@@ -319,6 +319,8 @@ function clampRect(left, top, w, h) {
 // ---------- castle tiles (original pixel art, FF6-like palette) ----------
 // fix moat: Concept Art Bot's moat-ripple v1 (4 frames of 64x128 = 1x2 tiles), drawn per frame over the cached map
 const RIPPLE = { img: null, ok: false, FRAME_MS: 150, W: 64, H: 128, N: 4 };
+// moat review: the reduced-motion query is made once at load, read per frame
+const RM_MQ = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)");
 const dbgRipple = { draws: 0, frame: 0, lastFrameDraws: 0, get ok() { return RIPPLE.ok; } };
 (function loadRipple() {
   if (typeof Image === "undefined") return;
@@ -554,7 +556,7 @@ const PIX = { fill, blob, shade, glyph, drawPerson, styleFor, drawBubble, bubble
 function drawScene(ctx, town, world, now, phase) {
   sceneW = world.w * TILE;
   sceneH = world.h * TILE;
-  const rm = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const rm = !!(RM_MQ && RM_MQ.matches);
   if (RIPPLE.ok) {
     const f = rm ? 0 : Math.floor(now / RIPPLE.FRAME_MS) % RIPPLE.N;
     const y0 = world.castle.moatY[0];

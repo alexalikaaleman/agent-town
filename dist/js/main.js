@@ -194,6 +194,147 @@ function trackFollow() {
   centerOn(agent, 0.15);
 }
 
+// ---------- idle auto-tour (fix autotour) ----------
+// After 30 s with no player input in the castle (and no status view open) the camera follows a random
+// working bot with the fix-17 follow state (zoomed in, others see-through, no panel) for 5 s each.
+const TOUR = { IDLE_MS: 30000, STEP_MS: 5000, ZOOM_EASE: 0.12, ZOOM_K: 3.5 };
+const tour = { active: false, id: null, idleMs: 0, stepMs: 0, lastId: null, saved: null, starts: 0, switches: 0, stops: {}, lastT: 0, back: null };
+const tourRM = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+const tourZoom = () => Math.min(maxZoom(), fitZoom() * TOUR.ZOOM_K);
+function tourBlocked() {
+  if (!town || scene !== "castle" || document.body.classList.contains("list-view") || document.hidden) return true;
+  if (!panel.hidden || town.selected) return true;
+  if (following && !tour.active) return true;
+  const hist = document.getElementById("history");
+  if (hist && !hist.hidden) return true;
+  const tip = document.getElementById("tip");
+  if (tip && !tip.hidden) return true;
+  const AT = window.AgentTown || {};
+  if (AT.confirmBox && AT.confirmBox.isOpen()) return true;
+  if (AT.wonka && AT.wonka.busy && AT.wonka.busy()) return true;
+  const fd = document.getElementById("fade");
+  if (fd && fd.classList.contains("on")) return true;
+  return false;
+}
+function tourWorking() {
+  return Array.from(town.agents.values()).filter((a) => a.state === "working" && !(town.filter.size && !town.filter.has(a.id)));
+}
+function tourPick() {
+  let list = tourWorking();
+  if (list.length >= 2) list = list.filter((a) => a.id !== tour.id);
+  if (!list.length) return null;
+  return list[Math.floor(Math.random() * list.length)].id;
+}
+function tourFollow(id) {
+  following = id;
+  town.follow = id;
+  tour.lastId = tour.id;
+  tour.id = id;
+  tour.stepMs = 0;
+  if (tourRM()) {
+    zoomAt(tourZoom());
+    framed = false;
+    const a = town.agents.get(id);
+    if (a) centerOn(a, 1);
+  }
+}
+function tourStart() {
+  tour.back = null;
+  tour.saved = { zoom, camX, camY, framed };
+  tour.active = true;
+  tour.starts++;
+  tourFollow(tourPick());
+}
+tour.stop = function (reason) {
+  if (tour.active) {
+    following = null;
+    if (town) town.follow = null;
+    tour.active = false;
+    tour.id = null;
+  }
+  tour.back = null;
+  tour.idleMs = 0;
+  tour.stops[reason] = (tour.stops[reason] || 0) + 1;
+};
+function tourEnd() {
+  // D3: no working bots left -> ease back to the view saved at tour start (a cut under reduced motion)
+  const saved = tour.saved;
+  tour.stop("none-working");
+  if (!saved) return;
+  if (tourRM()) tourBackDone(saved);
+  else tour.back = { from: { zoom, camX, camY }, to: saved, t0: performance.now(), ms: 400 };
+}
+function tourBackDone(saved) {
+  zoom = clampZoom(saved.zoom);
+  camX = saved.camX;
+  camY = saved.camY;
+  framed = !!saved.framed;
+  tour.back = null;
+  if (framed) resize();
+  else clampCam();
+}
+function tourTick(now) {
+  const dt = Math.min(100, now - (tour.lastT || now));
+  tour.lastT = now;
+  if (tour.back) {
+    const k = Math.min(1, (now - tour.back.t0) / tour.back.ms);
+    const f = tour.back.from, t = tour.back.to;
+    if (k >= 1) tourBackDone(t);
+    else {
+      zoom = clampZoom(f.zoom + (t.zoom - f.zoom) * k);
+      camX = f.camX + (t.camX - f.camX) * k;
+      camY = f.camY + (t.camY - f.camY) * k;
+      framed = false;
+      clampCam();
+    }
+  }
+  if (tourBlocked()) {
+    if (tour.active) tour.stop("blocked");
+    tour.idleMs = 0;
+    return;
+  }
+  if (!tour.active) {
+    tour.idleMs += dt;
+    if (tour.idleMs >= TOUR.IDLE_MS && tourPick()) tourStart();
+    return;
+  }
+  const a = town.agents.get(tour.id);
+  if (!a || a.state !== "working") {
+    const n = tourPick();
+    if (n) {
+      tour.switches++;
+      tourFollow(n);
+    } else tourEnd();
+    return;
+  }
+  if (!tourRM() && zoom < tourZoom() - 1e-3) {
+    zoom = clampZoom(zoom + (tourZoom() - zoom) * TOUR.ZOOM_EASE);
+    framed = false;
+    clampCam();
+  }
+  tour.stepMs += dt;
+  if (tour.stepMs >= TOUR.STEP_MS) {
+    const n = tourPick();
+    if (n && n !== tour.id) {
+      tour.switches++;
+      tourFollow(n);
+    } else tour.stepMs = 0;
+  }
+}
+function tourInput(type) {
+  if (tour.active) tour.stop(type);
+  tour.back = null;
+  tour.idleMs = 0;
+}
+// capture phase on window, passive: the tour stops before the normal handlers run, and they still run (D4)
+for (const type of ["wheel", "pointerdown", "pointerup", "click", "touchstart", "touchmove", "keydown", "gesturestart"]) {
+  window.addEventListener(type, () => tourInput(type), { capture: true, passive: true });
+}
+window.addEventListener("pointermove", (ev) => {
+  if (ev.buttons !== 0 || ev.pointerType === "touch") tourInput("pointermove"); // D5: plain hover is not activity
+}, { capture: true, passive: true });
+document.addEventListener("visibilitychange", () => tourInput("visibility"));
+
 function ensureMap() {
   // Cache the static map at a whole-number scale near the current zoom (max 4096 px).
   const want = Math.max(1, Math.ceil(zoom * dpr));
@@ -1080,6 +1221,7 @@ function drawScreenLabels(c) {
   // Chip filter: names of filtered-out bots are hidden. Focus: names of the other bots are drawn
   // see-through (like their sprites), and the focused bot's name is placed first.
   const focusId = town.follow;
+  debugInfo.focus = focusId; // fix autotour: tests read labels.focus
   const list = Array.from(town.agents.values()).filter((a) => a.id === focusId || !(town.filter.size && !town.filter.has(a.id)));
   const rank = (a) => (a.id === following || a.id === town.selected ? 0 : 1);
   list.sort((a, b) => rank(a) - rank(b) || a.y - b.y || a.x - b.x);
@@ -1136,6 +1278,7 @@ function frame(now) {
   if (town) {
     town.update(dt, now);
     trackFollow();
+    tourTick(now);
     renderHud();
     if (town.selected && !panel.hidden) {
       const agent = town.agents.get(town.selected);
@@ -1194,6 +1337,7 @@ function setScene(name, after) {
     clearVaultHoverTip();
     closePanel();
     stopFollow();
+    tour.stop("scene");
     mapCanvas = null;
     framed = true;
     resize();
@@ -1221,6 +1365,7 @@ function bootTown(list) {
 }
 
 // Test hook (read-only view state, no data).
+window.AgentTown.tour = { stop: (reason) => tour.stop(reason || "api") };
 window.AgentTown.debug = {
   get town() {
     return town;
@@ -1239,6 +1384,15 @@ window.AgentTown.debug = {
   },
   get vaultWorld() {
     return vworld;
+  },
+  get tour() {
+    return { active: tour.active, id: tour.id, idleMs: tour.idleMs, stepMs: tour.stepMs, starts: tour.starts, switches: tour.switches, stops: Object.assign({}, tour.stops), blocked: tourBlocked(), following };
+  },
+  /** Tests only: shorten the tour clocks; no arguments resets them to 30000/5000. */
+  tourTimes(idle, step) {
+    TOUR.IDLE_MS = idle == null ? 30000 : idle;
+    TOUR.STEP_MS = step == null ? 5000 : step;
+    tour.idleMs = 0;
   },
   get ripple() {
     const r = window.AgentTown.rippleDebug || {};

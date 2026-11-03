@@ -37,7 +37,11 @@ function layoutRoom(r) {
 function chestStop(world, r, chest) {
   const sx = chest.x + (r.outer === "left" ? 1 : -1);
   let sy = chest.y;
-  if (world.solid[sy][sx]) sy = !world.solid[sy - 1][sx] ? sy - 1 : sy + 1;
+  if (world.solid[sy][sx]) {
+    // fix 36b dedupe: y-1 may already be the stop of the chest just above; then use y+1
+    const taken = (world.chests || []).some((c) => c !== chest && c.x === chest.x && c.y === sy - 1);
+    sy = !world.solid[sy - 1][sx] && !taken ? sy - 1 : sy + 1;
+  }
   return { x: sx, y: sy, facing: r.outer === "left" ? "w" : "e" };
 }
 

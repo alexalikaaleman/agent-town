@@ -633,7 +633,7 @@ body.list-view #chiprow { display: none !important; }
 }
 @media (max-height: 499px) {
   #confirm-box { padding: 10px 14px 12px; }
-  #confirm-box h2 { margin-bottom: 8px; font-size: clamp(20px, 6vh, 28px); }
+  #confirm-box h2 { margin-bottom: 8px; font-size: clamp(22px, 6vh, 28px); }
   #confirm-box .confirm-buttons { gap: 8px; }
 }
 
@@ -657,5 +657,9 @@ body.list-view #chiprow { display: none !important; }
 }
 @media (max-width: 640px) {
   #play-hint { left: 8px; right: 148px; bottom: 4px; height: 40px; max-width: none; display: flex; align-items: center; justify-content: flex-end; font-size: clamp(11px, 3.3vw, 14px); line-height: 1.15; }
+}
+/* fix 41b: phones sideways: the hint sits in the empty stage margin left of the framed map, clear of names */
+@media (max-height: 499px) and (min-width: 641px) {
+  #play-hint { left: 8px; right: auto; bottom: 8px; max-width: calc(50vw - 47vh + 70px); text-align: left; }
 }
 body.in-vault #play-hint, body.list-view #play-hint { display: none; }
