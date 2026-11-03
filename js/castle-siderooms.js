@@ -33,15 +33,37 @@ function layoutRoom(r) {
 }
 
 /** A working bot's stop beside its Drive chest. Fix 36b: lab tables sit on rows 20 and 27 right next to the
- *  chest column, so a solid stop tile moves to the nearest floor tile in the same column (y-1 first, then y+1). */
-function chestStop(world, r, chest) {
-  const sx = chest.x + (r.outer === "left" ? 1 : -1);
-  let sy = chest.y;
-  if (world.solid[sy][sx]) {
-    // fix 36b dedupe: y-1 may already be the stop of the chest just above; then use y+1
-    const taken = (world.chests || []).some((c) => c !== chest && c.x === chest.x && c.y === sy - 1);
-    sy = !world.solid[sy - 1][sx] && !taken ? sy - 1 : sy + 1;
+ *  chest column, so a solid stop tile moves to a floor tile in the same column. W1 review: no two chests in a
+ *  column share a stop. Chests whose own row is floor keep it; the others search y-1, y+1, y-2, y+2, ... and
+ *  take the first floor tile that is not another same-x chest's stop. `chests` defaults to world.chests. */
+function chestStops(world, r, chests) {
+  const sx = (c) => c.x + (r.outer === "left" ? 1 : -1);
+  const out = new Map();
+  const taken = new Set();
+  const floor = (x, y) => world.solid[y] && world.solid[y][x] === false;
+  const list = chests.slice().sort((a, b) => a.x - b.x || a.y - b.y);
+  for (const c of list) {
+    const x = sx(c);
+    if (floor(x, c.y) && !taken.has(x + "," + c.y)) { out.set(c, c.y); taken.add(x + "," + c.y); }
   }
+  for (const c of list) {
+    if (out.has(c)) continue;
+    const x = sx(c);
+    let y = null;
+    for (let d = 1; d < world.solid.length && y == null; d++) {
+      for (const yy of [c.y - d, c.y + d]) if (y == null && floor(x, yy) && !taken.has(x + "," + yy)) y = yy;
+    }
+    if (y == null) y = c.y;
+    out.set(c, y);
+    taken.add(x + "," + y);
+  }
+  return out;
+}
+function chestStop(world, r, chest, chests) {
+  const sx = chest.x + (r.outer === "left" ? 1 : -1);
+  const pool = (chests || world.chests || []).filter((c) => c.x === chest.x);
+  if (!pool.includes(chest)) pool.push(chest);
+  const sy = chestStops(world, r, pool).get(chest);
   return { x: sx, y: sy, facing: r.outer === "left" ? "w" : "e" };
 }
 
@@ -226,4 +248,5 @@ const part = {
 };
 window.AgentTown.castleParts.push(part);
 window.AgentTown.chestStop = chestStop;
+window.AgentTown.chestStops = chestStops;
 })();

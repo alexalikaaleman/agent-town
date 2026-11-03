@@ -322,16 +322,14 @@ const RIPPLE = { img: null, ok: false, FRAME_MS: 150, W: 64, H: 128, N: 4 };
 // moat review: the reduced-motion query is made once at load, read per frame
 const RM_MQ = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)");
 const dbgRipple = { draws: 0, frame: 0, lastFrameDraws: 0, get ok() { return RIPPLE.ok; } };
-(function loadRipple() {
-  if (typeof Image === "undefined") return;
-  const img = new Image();
-  img.src = "art/moat-ripple.png";
-  if (!img.decode) return;
-  img.decode().then(() => {
-    RIPPLE.ok = img.naturalWidth === 256 && img.naturalHeight === 128;
-    RIPPLE.img = img;
-  }).catch(() => {});
-})();
+// W1: loaded through AgentTown.art (castle-art.js, data/art.json checks 256x128); same behaviour as before
+function rippleArt() {
+  const a = window.AgentTown.art ? window.AgentTown.art.get("moat-ripple") : null;
+  RIPPLE.ok = !!(a && a.ok);
+  RIPPLE.img = RIPPLE.ok ? a.bitmap : null;
+  RIPPLE.scale = RIPPLE.ok ? a.scale : 1;
+  return RIPPLE.ok;
+}
 
 const PAL = {
   grass: ["#4f8a3c", "#5d9a45", "#3f7431"],
@@ -557,7 +555,7 @@ function drawScene(ctx, town, world, now, phase) {
   sceneW = world.w * TILE;
   sceneH = world.h * TILE;
   const rm = !!(RM_MQ && RM_MQ.matches);
-  if (RIPPLE.ok) {
+  if (rippleArt()) {
     const f = rm ? 0 : Math.floor(now / RIPPLE.FRAME_MS) % RIPPLE.N;
     const y0 = world.castle.moatY[0];
     const smooth = ctx.imageSmoothingEnabled;
@@ -565,7 +563,7 @@ function drawScene(ctx, town, world, now, phase) {
     let draws = 0;
     for (let x = 0; x < world.w; x++) {
       if (world.ground[y0][x] !== "water" || world.ground[y0 + 1][x] !== "water") continue;
-      ctx.drawImage(RIPPLE.img, f * RIPPLE.W, 0, RIPPLE.W, RIPPLE.H, x * TILE, y0 * TILE, TILE, TILE * 2);
+      ctx.drawImage(RIPPLE.img, f * RIPPLE.W * RIPPLE.scale, 0, RIPPLE.W * RIPPLE.scale, RIPPLE.H * RIPPLE.scale, x * TILE, y0 * TILE, TILE, TILE * 2);
       draws++;
     }
     ctx.imageSmoothingEnabled = smooth;

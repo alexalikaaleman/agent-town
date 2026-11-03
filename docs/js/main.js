@@ -1092,6 +1092,7 @@ function paintLabel(c, box, text, px, accent, bg, textColor) {
 }
 
 function drawScreenLabels(c) {
+  if (debugInfo.hideLabels) return; // tests only (moat review shot): screen labels off
   const placed = [];
   const sx = (wx) => (wx - camX) * zoom;
   const sy = (wy) => (wy - camY) * zoom;
@@ -1376,6 +1377,10 @@ window.AgentTown.debug = {
   get labels() {
     return Object.assign({}, debugInfo);
   },
+  /** Tests only: hide the screen labels (room and bot names) for a clean art shot. */
+  set hideLabels(v) {
+    debugInfo.hideLabels = !!v;
+  },
   get world() {
     return world;
   },
@@ -1400,6 +1405,11 @@ window.AgentTown.debug = {
   },
   get mapBuilds() {
     return mapBuilds;
+  },
+  /** W1: names the art loader treats as failed (tests); code safety-net draws so far. */
+  artBlock: [],
+  get artFallbackDraws() {
+    return window.AgentTown.art ? window.AgentTown.art.fallbackDraws : 0;
   },
   enterVault: () => sceneUi.enterVault(),
   leaveVault: () => sceneUi.leaveVault(),

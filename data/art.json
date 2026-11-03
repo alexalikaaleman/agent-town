@@ -1,0 +1,9 @@
+{
+  "art": [
+    { "name": "moat-ripple", "file": "moat-ripple.png", "w": 256, "h": 128 },
+    { "name": "wonkavator", "file": "wonkavator.png", "w": 1152, "h": 1536 },
+    { "name": "wonkavator-interior", "file": "wonkavator-interior.png", "w": 192, "h": 256 },
+    { "name": "gallery-plate", "file": "gallery-plate.png", "w": 3328, "h": 1664 },
+    { "name": "music-plate", "file": "music-plate.png", "w": 3328, "h": 1664 }
+  ]
+}

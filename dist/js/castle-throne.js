@@ -239,6 +239,7 @@ function reducedMotion() {
     return false;
   }
 }
+window.AgentTown.reducedMotion = reducedMotion; // W1: shared with the Wonkavator
 
 /** Slow, smooth rainbow for the "Vault door" text (one full cycle every 12 s). Static gold when motion is reduced. */
 function vaultDoorTextColor(now) {

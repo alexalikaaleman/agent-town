@@ -14,6 +14,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { walk } = require("./lib/public");
+const { stripFile } = require("./lib/png-strip");
 
 const ROOT = __dirname;
 const FILES = ["index.html", "style.css"];
@@ -35,8 +36,8 @@ function buildHash() {
   for (const name of fs.readdirSync(path.join(ROOT, "js")).sort()) if (name.endsWith(".js")) add(path.join(ROOT, "js", name));
   add(path.join(ROOT, "data", "bots.json"));
   add(path.join(ROOT, "data", "cabinets.json"));
-  const art = path.join(ROOT, "art");
-  if (fs.existsSync(art)) for (const name of fs.readdirSync(art).sort()) add(path.join(art, name));
+  add(path.join(ROOT, "data", "art.json"));
+  for (const a of artList()) add(path.join(ROOT, "art", a.file));
   return h.digest("hex").slice(0, 10);
 }
 
@@ -60,8 +61,15 @@ function build(out) {
   // Arcade cabinet list for the treasure vault (titles and grok.me game names only).
   const cabinets = path.join(ROOT, "data", "cabinets.json");
   if (fs.existsSync(cabinets)) copyFile(cabinets, path.join(out, "data", "cabinets.json"));
-  // fix moat: the moat ripple art
-  copyFile(path.join(ROOT, "art", "moat-ripple.png"), path.join(out, "art", "moat-ripple.png"));
+  // W1: only the art named in data/art.json ships, through the PNG privacy pass (no text/time/EXIF chunks)
+  copyFile(path.join(ROOT, "data", "art.json"), path.join(out, "data", "art.json"));
+  for (const a of artList()) stripFile(path.join(ROOT, "art", a.file), path.join(out, "art", a.file));
+}
+
+/** W1: the shipping art list (data/art.json). */
+function artList() {
+  const f = path.join(ROOT, "data", "art.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")).art || [] : [];
 }
 
 /** Approved chest links: the driveFolderUrl values in data/bots.json. */
