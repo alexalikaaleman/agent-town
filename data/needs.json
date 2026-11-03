@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:40:01.186Z",
+  "updatedAt": "2026-11-03T12:44:33.962Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -319,8 +319,8 @@
       "text": "Cap raise for chip follow?",
       "project": "Agent Town",
       "ts": "2026-11-03T12:40:01.186Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T12:44:33.962Z"
     }
   ]
 }
