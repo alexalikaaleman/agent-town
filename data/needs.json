@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T10:31:24.321Z",
+  "updatedAt": "2026-11-03T10:37:19.202Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -119,6 +119,16 @@
       "text": "Etsy: what's needed now?",
       "project": null,
       "ts": "2026-11-03T10:31:24.321Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611031037-c024",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Etsy link for Wonkavator",
+      "project": "Agent Town castle",
+      "ts": "2026-11-03T10:37:19.202Z",
       "handled": false,
       "handledAt": null
     }
