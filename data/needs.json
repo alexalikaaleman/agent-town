@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:45:55.102Z",
+  "updatedAt": "2026-11-03T11:46:27.265Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -209,8 +209,8 @@
       "text": "HUD live; OK to push Bus Ninja art?",
       "project": "Agent Town",
       "ts": "2026-11-03T11:45:55.102Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T11:46:27.265Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:45:55.102Z",
+  "updatedAt": "2026-11-03T11:46:27.265Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -11,10 +11,7 @@
       "text": "HUD live; OK to push Bus Ninja art?",
       "project": "Agent Town",
       "with": [],
-      "needs": {
-        "id": "n202611031145-7c5c",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-03T11:45:55.102Z",
       "since": "2026-11-03T11:45:55.102Z"
     },
