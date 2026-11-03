@@ -36,3 +36,4 @@
 2026-11-03, Bus Ninja always drawn from his sprite sheet in every room (castle, vault, Art and Music Galleries, inside the Wonkavator, take-off, landing, stepping out); while the sheet loads he is not drawn, and the old code-drawn ninja shows only if the sheet fails to load. Why: Alex saw the old code ninja after going into the vault.
 2026-11-03, play hint now points to the vault door. Why: Alex wants visitors pointed to the vault door.
 2026-11-03, welcome overlay on page load (rainbow title and intro, 35 s, tap to close). Why: Alex wants every visitor greeted and pointed to the vault, Wonkavator and Etsy shop.
+2026-11-03, Wonkavator label moved above the car. Why: it covered Bus Ninja's legs when he stepped out.

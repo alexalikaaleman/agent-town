@@ -208,7 +208,7 @@ function roomPart(id) {
       const out = [];
       if (nin && !nin.hidden) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
       const wk = window.AgentTown.wonka;
-      if (!(wk && wk.hideLabel())) out.push({ kind: "wonka", at: [632, 176], x: 632, y: 220, text: "Wonkavator", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
+      if (!(wk && wk.hideLabel())) out.push({ kind: "wonka", at: [632, 176], x: 632, y: 144, above: true, text: "Wonkavator", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
       return out;
     },
     hit(town, wx, wy, ui) {
@@ -272,7 +272,7 @@ const scene = {
     if (nin && !nin.hidden) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
     // W2: the Wonkavator's label; a tap on it acts as a tap on the car (hidden during the trip, W4)
     const wk = window.AgentTown.wonka;
-    if (!(wk && wk.hideLabel())) out.push({ kind: "wonka", at: [632, 176], x: 632, y: 220, text: "Wonkavator", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
+    if (!(wk && wk.hideLabel())) out.push({ kind: "wonka", at: [632, 176], x: 632, y: 144, above: true, text: "Wonkavator", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
     out.push({ kind: "sign", x: (EXIT.x + 1.5) * 16, y: (EXIT.y - 0.6) * 16, text: "Exit to castle", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
     return out;
   },

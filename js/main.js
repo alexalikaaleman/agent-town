@@ -1194,7 +1194,8 @@ function drawScreenLabels(c) {
           drawText = fitLinesToWidth(c, keep.join("\n"), drawPx, vaultMaxW);
         }
       }
-      let box = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
+      let box = labelBox(c, drawText, drawPx, sx(l.x), l.above ? sy(l.y) - 3 : sy(l.y) + drawPx + 4);
+      if (l.above && box.top < 0) box.top = 0; // "above" labels sit on the sprite top edge, kept on screen
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
       const natTop = box.top;
       keepInFrame(box);
