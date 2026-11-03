@@ -34,3 +34,4 @@
 2026-11-03, Bus Ninja drawn from his sprite sheet (art/bus-ninja.png v4: throne punch loop, seat, walk s/n/e/w, stand), with the code-drawn ninja kept as the fallback. Why: he matches the painted castle art.
 2026-11-03, chests, throne room torches and the battlefield flags drawn from their sprites (art/chest.png, torch.png, flag-red.png, flag-blue.png), code-drawn versions kept as the fallback; the flags show on the castle map again (the picture doesn't paint them). Why: they match the painted castle art.
 2026-11-03, Bus Ninja always drawn from his sprite sheet in every room (castle, vault, Art and Music Galleries, inside the Wonkavator, take-off, landing, stepping out); while the sheet loads he is not drawn, and the old code-drawn ninja shows only if the sheet fails to load. Why: Alex saw the old code ninja after going into the vault.
+2026-11-03, play hint now points to the vault door. Why: Alex wants visitors pointed to the vault door.
