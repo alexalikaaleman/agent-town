@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:29:09.758Z",
+  "updatedAt": "2026-11-03T11:31:11.070Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -159,8 +159,8 @@
       "text": "Vault fit: yes in GitWriter chat",
       "project": "Agent Town castle",
       "ts": "2026-11-03T11:29:09.758Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T11:31:11.070Z"
     }
   ]
 }
