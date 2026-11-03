@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T01:13:27.064Z",
+  "updatedAt": "2026-11-03T01:24:34.746Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -59,8 +59,8 @@
       "text": "Castle art: OK past usage cap?",
       "project": "Agent Town",
       "ts": "2026-11-03T01:13:27.064Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T01:24:34.746Z"
     }
   ]
 }
