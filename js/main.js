@@ -636,6 +636,7 @@ stage.addEventListener(
 );
 window.addEventListener("keydown", (ev) => {
   if (ev.target && ev.target.closest && ev.target.closest("input, textarea")) return;
+  if (confirmOpen()) return; // fix 40: the Play box owns the keyboard while open
   if (ev.key === "Escape") {
     closePanel();
     stopFollow();
@@ -772,6 +773,7 @@ function endPointer(ev) {
   pointer = null;
   if (ev.type === "pointercancel" || dragged || !town) return;
   if (scene === "vault") {
+    if (confirmOpen()) return; // fix 40: nothing behind the open Play box reacts
     let vp = toWorld(ev.clientX, ev.clientY);
     // Titles draw on top: the title the viewer taps is the game they mean.
     // Coming-soon cabinets (fix 39) show a gray title + 'coming soon' and stay inert via hit().
@@ -1161,7 +1163,12 @@ requestAnimationFrame(frame);
 /** Switch maps with a short fade. */
 const fade = document.getElementById("fade");
 const sceneBar = document.getElementById("scene-bar");
+function confirmOpen() {
+  const box = window.AgentTown.confirmBox;
+  return !!(box && box.isOpen());
+}
 function setScene(name, after) {
+  if (confirmOpen()) window.AgentTown.confirmBox.close("no");
   if (fade) fade.classList.add("on");
   setTimeout(() => {
     scene = name;
@@ -1199,7 +1206,7 @@ const sceneUi = {
 const backBtn = document.getElementById("vault-back");
 if (backBtn) backBtn.addEventListener("click", () => sceneUi.leaveVault());
 window.addEventListener("keydown", (ev) => {
-  if (ev.key === "Escape" && scene === "vault") sceneUi.leaveVault();
+  if (ev.key === "Escape" && scene === "vault" && !confirmOpen()) sceneUi.leaveVault();
 });
 
 function bootTown(list) {

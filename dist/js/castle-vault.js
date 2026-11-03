@@ -233,7 +233,26 @@ const scene = {
         dbg.vaultInertTaps = (dbg.vaultInertTaps || 0) + 1;
         return false;
       }
-      launch(town, s, i, url);
+      // fix 38 walk already running: repeat taps are ignored (counted), no box
+      if (launching) {
+        launch(town, s, i, url);
+        return true;
+      }
+      // fix 40: ask "Play <game>?" first; only Yes starts the fix 38 walk
+      const box = window.AgentTown.confirmBox;
+      if (!box) {
+        launch(town, s, i, url);
+        return true;
+      }
+      if (box.isOpen()) return true;
+      box.open({
+        title: "Play " + (CABS[i].title || "this game") + "?",
+        buttons: [{ id: "yes", text: "Yes" }, { id: "no", text: "No" }],
+        cancelId: "no",
+        onChoose: (id) => {
+          if (id === "yes") launch(town, s, i, url);
+        },
+      });
       return true;
     }
     return false;

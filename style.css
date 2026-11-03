@@ -584,3 +584,55 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
 #search::placeholder { color: #8a93a3; opacity: 1; }
 body.list-view #chiprow { display: none !important; }
 @media (max-width: 640px) { #search-form { width: 150px; } #search { padding-right: 6px !important; } #filters .chip { font-size: 12px; min-height: 30px; padding: 2px 8px; } }
+
+/* fix 40: "Play <game>?" confirm box (AgentTown.confirmBox), big enough for a phone or a Tesla screen */
+#confirm-box {
+  max-width: min(92vw, 420px);
+  width: min(92vw, 420px);
+  max-height: 92vh;
+  overflow: auto;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 16px 18px 18px;
+  background: #2a2210;
+  border: 3px solid #ffd34d;
+  border-radius: 12px;
+  color: #ffd34d;
+  text-align: center;
+}
+#confirm-box::backdrop { background: rgba(0, 0, 0, 0.55); }
+#confirm-box h2 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 6vw, 32px);
+  line-height: 1.2;
+  color: #ffd34d;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+#confirm-box .confirm-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+#confirm-box .confirm-buttons button {
+  min-height: 56px;
+  min-width: 120px;
+  padding: 8px 18px;
+  font: inherit;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd34d;
+  background: #3b3324;
+  border: 2px solid #ffd34d;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#confirm-box .confirm-buttons button small { display: block; font-size: 14px; font-weight: normal; }
+#confirm-box .confirm-buttons button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+#confirm-box .confirm-buttons button:disabled,
+#confirm-box .confirm-buttons button[aria-disabled="true"] { color: #8a8a96; border-color: #8a8a96; cursor: default; }
+@media (max-width: 640px), (max-height: 499px) {
+  #confirm-box .confirm-buttons { flex-direction: column; }
+  #confirm-box .confirm-buttons button { width: 100%; }
+}
+@media (max-height: 499px) {
+  #confirm-box { padding: 10px 14px 12px; }
+  #confirm-box h2 { margin-bottom: 8px; font-size: clamp(20px, 6vh, 28px); }
+  #confirm-box .confirm-buttons { gap: 8px; }
+}
