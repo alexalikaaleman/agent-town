@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T10:37:19.202Z",
+  "updatedAt": "2026-11-03T10:37:38.463Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Etsy link for Wonkavator",
       "project": "Agent Town castle",
       "with": [],
-      "needs": {
-        "id": "n202611031037-c024",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-03T10:37:19.202Z",
       "since": "2026-11-03T10:37:19.202Z"
     },
