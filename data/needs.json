@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T01:24:34.746Z",
+  "updatedAt": "2026-11-03T03:08:17.074Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -61,6 +61,16 @@
       "ts": "2026-11-03T01:13:27.064Z",
       "handled": true,
       "handledAt": "2026-11-03T01:24:34.746Z"
+    },
+    {
+      "id": "n202611030308-99ee",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Confirm castle package for GitWriter",
+      "project": "Agent Town castle",
+      "ts": "2026-11-03T03:08:17.074Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
