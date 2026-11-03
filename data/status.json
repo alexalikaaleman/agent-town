@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T02:18:45.691Z",
+  "updatedAt": "2026-11-03T02:37:15.525Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -71,11 +71,11 @@
     },
     "concept-art-bot": {
       "state": "working",
-      "text": "Bus Ninja match for castle",
+      "text": "Agent Town props done; next: Wonkavator",
       "project": "Agent Town",
       "with": [],
       "needs": null,
-      "ts": "2026-11-03T01:59:10.166Z",
+      "ts": "2026-11-03T02:37:15.525Z",
       "since": "2026-11-03T01:59:10.166Z"
     },
     "garage-sale-bot": {
