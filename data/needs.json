@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:37:03.379Z",
+  "updatedAt": "2026-11-03T11:38:58.340Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -189,6 +189,16 @@
       "text": "OK to push HUD search removal?",
       "project": "Agent Town",
       "ts": "2026-11-03T11:37:03.379Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611031138-b94c",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "GitWriter cap above 92%?",
+      "project": "Agent Town castle",
+      "ts": "2026-11-03T11:38:58.340Z",
       "handled": false,
       "handledAt": null
     }
