@@ -117,3 +117,4 @@
 {"ts":"2026-11-03T10:31:24.321Z","bot":"alika-treed-business-bot","needId":"n202611031031-b755","state":"needs-alex","text":"Etsy: what's needed now?","needs":"question"}
 {"ts":"2026-11-03T10:37:19.202Z","bot":"robotemplate","needId":"n202611031037-c024","state":"needs-alex","text":"Etsy link for Wonkavator","project":"Agent Town castle","needs":"question"}
 {"ts":"2026-11-03T10:37:38.463Z","bot":"robotemplate","handled":"n202611031037-c024"}
+{"ts":"2026-11-03T11:02:49.957Z","bot":"robotemplate","state":"working","text":"Castle go-live; waiting on push","project":"Agent Town castle"}
