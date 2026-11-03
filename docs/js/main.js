@@ -82,10 +82,11 @@ function framePad() {
 /** World-px rect to fit when framed. On narrow screens the vault zooms to the
  *  cabinet block (tiles x 2-27, y 1-26) so each title sits under its cabinet and the Exit door shows. */
 function fitBounds() {
-  if (scene === "vault" && window.innerWidth < 900) {
-    return { x: 2 * TILE, y: 1 * TILE, w: (27 - 2) * TILE, h: (26 - 1) * TILE };
-  }
-  return { x: 0, y: 0, w: worldW(), h: worldH() };
+  // 2026-11-03: the vault fits the WHOLE room again on every screen (the Wonkavator at x37-41 must show);
+  // the phone cabinet-block crop (gap E2 / check3 3 / check4 1) is retired. Galleries unchanged (whole room).
+  const w = worldW(), h = worldH();
+  if (!(w > 0 && h > 0)) return { x: 0, y: 0, w: Math.max(1, w || 1), h: Math.max(1, h || 1) };
+  return { x: 0, y: 0, w, h };
 }
 function fitZoom() {
   const p = framePad();
