@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:16:55.404Z",
+  "updatedAt": "2026-11-03T11:19:11.026Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Castle map swap",
+      "state": "done",
+      "text": "Castle map live; next: RT live test",
       "project": "Agent Town",
       "with": [],
       "needs": null,
-      "ts": "2026-11-03T11:16:19.333Z",
-      "since": "2026-11-03T11:16:19.333Z"
+      "ts": "2026-11-03T11:19:11.026Z",
+      "since": "2026-11-03T11:19:11.026Z"
     },
     "masterbot": {
       "state": "done",
