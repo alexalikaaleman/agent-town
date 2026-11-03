@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T18:18:58.196Z",
+  "updatedAt": "2026-11-03T18:19:24.847Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -148,13 +148,16 @@
       "since": "2026-11-03T10:31:24.321Z"
     },
     "bot-scout": {
-      "state": "done",
-      "text": "Template scout done; idle, nothing queu…",
+      "state": "needs-alex",
+      "text": "Weekly picks: go one at a time?",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T18:18:58.196Z",
-      "since": "2026-11-03T18:18:58.196Z"
+      "needs": {
+        "id": "n202611031819-53b0",
+        "kind": "question"
+      },
+      "ts": "2026-11-03T18:19:24.847Z",
+      "since": "2026-11-03T18:19:24.847Z"
     }
   }
 }

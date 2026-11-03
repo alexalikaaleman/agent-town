@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:45:15.381Z",
+  "updatedAt": "2026-11-03T18:19:24.847Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -329,6 +329,16 @@
       "text": "OK to push chip camera follow?",
       "project": "Agent Town",
       "ts": "2026-11-03T12:45:15.381Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611031819-53b0",
+      "bot": "bot-scout",
+      "kind": "question",
+      "text": "Weekly picks: go one at a time?",
+      "project": null,
+      "ts": "2026-11-03T18:19:24.847Z",
       "handled": false,
       "handledAt": null
     }
