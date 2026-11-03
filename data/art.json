@@ -35,6 +35,12 @@
       "file": "castle-plate.png",
       "w": 3584,
       "h": 3840
+    },
+    {
+      "name": "bus-ninja",
+      "file": "bus-ninja.png",
+      "w": 768,
+      "h": 960
     }
   ]
 }

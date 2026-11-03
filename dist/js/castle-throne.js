@@ -103,6 +103,8 @@ function drawNinjaBig(ctx, P, nin, now) {
     return false;
   }
   nin.lastDrawn = now;
+  const spr = window.AgentTown.art ? window.AgentTown.art.get("bus-ninja") : null;
+  if (spr && spr.ok) return drawNinjaSprite(ctx, P, nin, now, spr.bitmap);
   const T = P.TILE;
   const W = 64;
   const H = 48;
@@ -141,6 +143,66 @@ function drawNinjaBig(ctx, P, nin, now) {
   ctx.drawImage(ninOff, dx, dy, W * k, H * k);
   ctx.imageSmoothingEnabled = smooth;
   return hit;
+}
+
+/** Bus Ninja sprite sheet (art/bus-ninja.png v4): 4x art, 192x160 frames, 4 cols x 6 rows, feet at (64,136).
+ *  Rows: 0 throne loop (rest, wind-up, punch-a, punch-b toward +x), 1 seat, 2 walk s, 3 walk n, 4 walk e
+ *  (mirrored for w), 5 stand s/n/e. Col 0 is the still frame. Drawn at 1x (48x40 world px) with the same
+ *  gold outline; the code-drawn ninja below stays as the fallback until the sheet decodes. */
+const BN = { FW: 192, FH: 160, FX: 64, FY: 136, K: 4 };
+let bnSil = null;
+let bnSilSrc = null;
+function ninjaFrame(nin, now) {
+  if (nin.mode === "throne") {
+    const t = now % 1800;
+    if (t >= 1000 && t < 1250) return { row: 0, col: t < 1125 ? 2 : 3, flip: false, punch: true };
+    return { row: 0, col: t > 800 && t < 1000 ? 1 : 0, flip: false, punch: false };
+  }
+  if (nin.mode === "seat") return { row: 1, col: 0, flip: false, punch: false };
+  const f = nin.facing || "s";
+  if (nin.mode === "walk") {
+    const col = Math.floor(nin.walk * 3) % 2;
+    return { row: f === "n" ? 3 : f === "s" ? 2 : 4, col, flip: f === "w", punch: false };
+  }
+  return { row: 5, col: f === "n" ? 1 : f === "s" ? 0 : 2, flip: f === "w", punch: false };
+}
+function drawNinjaSprite(ctx, P, nin, now, img) {
+  const T = P.TILE;
+  const fr = ninjaFrame(nin, now);
+  if (bnSilSrc !== img) {
+    bnSilSrc = img;
+    bnSil = document.createElement("canvas");
+    bnSil.width = img.width;
+    bnSil.height = img.height;
+    const s = bnSil.getContext("2d");
+    s.drawImage(img, 0, 0);
+    s.globalCompositeOperation = "source-in";
+    s.fillStyle = "#ffe680";
+    s.fillRect(0, 0, bnSil.width, bnSil.height);
+  }
+  // feet on the ninja's tile, same anchor as the code-drawn ninja
+  const ax = nin.x * T + 8;
+  const ay = nin.y * T + 14;
+  const w = BN.FW / BN.K;
+  const h = BN.FH / BN.K;
+  const sx = fr.col * BN.FW;
+  const sy = fr.row * BN.FH;
+  ctx.save();
+  ctx.translate(ax, ay);
+  if (fr.flip) ctx.scale(-1, 1);
+  const dx = -BN.FX / BN.K;
+  const dy = -BN.FY / BN.K;
+  const smooth = ctx.imageSmoothingEnabled;
+  ctx.imageSmoothingEnabled = true;
+  for (const [ex, ey] of [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, 1], [-1, 1], [1, -1]]) {
+    ctx.drawImage(bnSil, sx, sy, BN.FW, BN.FH, dx + ex * 0.8, dy + ey * 0.8, w, h);
+  }
+  ctx.drawImage(img, sx, sy, BN.FW, BN.FH, dx, dy, w, h);
+  ctx.imageSmoothingEnabled = smooth;
+  ctx.restore();
+  const d = (window.AgentTown.debug = window.AgentTown.debug || {});
+  d.ninjaFrame = fr;
+  return fr.punch;
 }
 
 function drawNinja(ctx, P, nin, now) {
