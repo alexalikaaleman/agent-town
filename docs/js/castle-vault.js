@@ -159,7 +159,9 @@ function drawCabinet(ctx, P, c, s, now, lit) {
   }
 }
 
-function createVaultWorld() {
+/** W2: one builder for every room map (vault now; gallery and music in W5). spec = {room, w, h, solids, ninjaAt, parts}. */
+function createRoomWorld(spec) {
+  const VW = spec.w, VH = spec.h, ROOM = spec.room;
   const ground = [];
   const solid = [];
   const bid = [];
@@ -180,11 +182,17 @@ function createVaultWorld() {
   for (const [dx, dy] of ROOM.doors) ground[dy][dx] = "door";
   world.buildings.push(ROOM);
   world.byId.set(ROOM.id, ROOM);
-  for (const s of slots()) solid[s.y][s.x] = true;
-  world.parts = [scene];
+  for (const [sx, sy] of spec.solids || []) solid[sy][sx] = true;
+  // W2: the Wonkavator stands on x38-40, y9-11 in every room; the cabin floor (39,12) and apron (39,13) stay floor
+  for (let y = 9; y <= 11; y++) for (let x = 38; x <= 40; x++) solid[y][x] = true;
+  world.parts = spec.parts;
   const kit = window.AgentTown.ninjaKit;
+  world.busNinja = kit ? kit.make(world, spec.ninjaAt[0], spec.ninjaAt[1]) : null;
+  return world;
+}
+function createVaultWorld() {
+  const world = createRoomWorld({ room: ROOM, w: VW, h: VH, solids: slots().map((s) => [s.x, s.y]), ninjaAt: [NINJA_HOME.x, NINJA_HOME.y], parts: [scene] });
   vaultWorldRef = world;
-  world.busNinja = kit ? kit.make(world, NINJA_HOME.x, NINJA_HOME.y) : null;
   return world;
 }
 
@@ -214,6 +222,9 @@ const scene = {
       });
     });
     if (nin && !nin.hidden) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
+    // W2: the Wonkavator's label; a tap on it acts as a tap on the car (hidden during the trip, W4)
+    const wk = window.AgentTown.wonka;
+    if (!(wk && wk.hideLabel())) out.push({ kind: "wonka", at: [632, 176], x: 632, y: 220, text: "Wonkavator", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
     out.push({ kind: "sign", x: (EXIT.x + 1.5) * 16, y: (EXIT.y - 0.6) * 16, text: "Exit to castle", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
     return out;
   },
@@ -222,11 +233,23 @@ const scene = {
       ui.leaveVault();
       return true;
     }
+    const wk = window.AgentTown.wonka;
+    // W2: the car (world x604-652, y136-216) before the cabinets
+    if (wk && wx >= 604 && wx <= 652 && wy >= 136 && wy <= 216) {
+      wk.tap(town, ui);
+      return true;
+    }
     const ss = slots();
     for (let i = 0; i < CABS.length; i++) {
       const s = ss[i];
       if (wx < s.x * 16 - 4 || wx > s.x * 16 + 20 || wy < s.y * 16 - 14 || wy > s.y * 16 + 26) continue;
       const url = urlFor(CABS[i]);
+      // W2: one job at a time. A cabinet tap cancels the boarding walk (S1); later in the boarding it is ignored.
+      if (wk && wk.busy() && url && !wk.cancelWalk()) {
+        const wd = (window.AgentTown.debug || {}).wonka;
+        if (wd) wd.ignoredTaps++;
+        return true;
+      }
       if (!url) {
         // coming soon (fix 39): inert, no walk, no smoke, no link
         const dbg = (window.AgentTown.debug = window.AgentTown.debug || {});
@@ -261,8 +284,9 @@ const scene = {
     const T = P.TILE;
     const r = RESERVED;
     for (let x = r.x * T; x < (r.x + r.w) * T; x += 4) {
-      P.fill(ctx, x, r.y * T, 2, 1, "#c9a23a");
-      P.fill(ctx, x, (r.y + r.h) * T - 1, 2, 1, "#c9a23a");
+      // W2: no top dashes in the overhead keep-clear column x37-41; a walk-in gap in the bottom row at x38-40
+      if (x < 37 * T || x >= 42 * T) P.fill(ctx, x, r.y * T, 2, 1, "#c9a23a");
+      if (x < 38 * T || x >= 41 * T) P.fill(ctx, x, (r.y + r.h) * T - 1, 2, 1, "#c9a23a");
     }
     for (let y = r.y * T; y < (r.y + r.h) * T; y += 4) {
       P.fill(ctx, r.x * T, y, 1, 2, "#c9a23a");
@@ -288,14 +312,52 @@ const scene = {
     for (let i = 0; i < ss.length; i++) drawCabinet(ctx, P, CABS[i], ss[i], now, lit === i && now < (town.extras.vaultLitUntil || 0));
     const nin = world.busNinja;
     const kit = window.AgentTown.ninjaKit;
+    const wk = window.AgentTown.wonka;
     if (nin && kit) {
       const dt = Math.min(0.05, Math.max(0, (now - (nin.lastStep || now)) / 1000));
       nin.lastStep = now;
       kit.step(nin, dt);
-      kit.draw(ctx, P, nin, now);
+    }
+    if (wk) wk.tick(now);
+    const f = wk ? wk.frame(now) : null;
+    // W2 draw order (sort-y of the car = 208, the bottom of row 12): north of the car he is behind it;
+    // inside the cabin (y9-12) the interior, then him, then the glass front; on the apron he is in front.
+    const me = () => nin && kit && kit.draw(ctx, P, nin, now);
+    if (!f) return me();
+    if (nin && nin.y < 9) {
+      me();
+      drawCar(ctx, P, f, true);
+    } else if (nin && nin.y <= 12.01) {
+      drawCar(ctx, P, f, false, true);
+      me();
+      drawCar(ctx, P, f, false, false);
+    } else {
+      drawCar(ctx, P, f, true);
+      me();
     }
   },
 };
+
+/** W2: the Wonkavator. Painted sheet frame (wonkavator.png, 192x256 frames drawn as 48x64 at world (608,144));
+ *  the interior back wall only while parked. Nothing while the art is still loading; code art if it failed. */
+function drawCar(ctx, P, f, both, interiorOnly) {
+  const A = window.AgentTown.art;
+  if (!A) return;
+  const draw = (name, sx, sy) => {
+    const a = A.get(name);
+    if (!a || !a.ok || !a.bitmap) return a && a.state === "loading" ? "wait" : "fail";
+    const s = a.scale || 1;
+    ctx.save();
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(a.bitmap, sx * s, sy * s, 192 * s, 256 * s, 608, 144, 48, 64);
+    ctx.restore();
+    return "ok";
+  };
+  if (both || interiorOnly) draw("wonkavator-interior", 0, 0);
+  if (interiorOnly) return;
+  if (draw("wonkavator", f.col * 192, f.row * 256) === "fail" && A.drawWonkaCode) A.drawWonkaCode(ctx, P, { anim: f.anim, t: f.t, x: 632, y: 208 }, 16);
+}
 
 /** Cabinet tap (fix 38): Bus Ninja walks to the cabinet on a floor-only path, sits on it, vanishes in a
  *  cloud of smoke, and only then the game opens, in this same tab (location.assign), so no popup blocker
@@ -416,6 +478,17 @@ function enter(town, ui) {
     setTimeout(() => {
       ui.enterVault(() => {
         entering = false;
+        // W2: on every entry from the castle he stands just inside the exit door, facing north
+        const vn = vaultWorldRef && vaultWorldRef.busNinja;
+        if (vn) {
+          vn.path = [];
+          vn.done = null;
+          vn.hidden = false;
+          vn.x = 25;
+          vn.y = 24;
+          vn.mode = "stand";
+          vn.facing = "n";
+        }
         if (nin && nin.goHome) nin.goHome();
       });
     }, PUFF_MS - 150);
@@ -439,6 +512,9 @@ function enter(town, ui) {
 
 window.AgentTown.castleParts.push(part);
 part.createWorld = createVaultWorld;
+part.createRoomWorld = createRoomWorld;
+part.world = () => vaultWorldRef;
+part.launching = () => !!launching;
 part.enter = enter;
 window.AgentTown.vault = part;
 })();

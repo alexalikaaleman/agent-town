@@ -220,7 +220,8 @@ function drawWonkaCode(ctx, P, st, k) {
     ctx.strokeStyle = "#9b7bff";
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.arc(ax, 16 + 40, Math.max(0.5, 22 * ring), 0, Math.PI * 2);
+    // the portal ring rides with the lift: 48 px above the car top (at full lift that is the old fixed y 56)
+    ctx.arc(ax, y0 - 48, Math.max(0.5, 22 * ring), 0, Math.PI * 2);
     ctx.stroke();
   }
   ctx.globalAlpha = alpha;

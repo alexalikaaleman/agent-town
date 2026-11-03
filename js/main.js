@@ -27,6 +27,11 @@ let vworld = null;
 function cur() {
   return scene === "vault" && vworld ? vworld : world;
 }
+/** W2: the Wonkavator holds the camera from the walk (S1) until it is parked again. */
+function camLocked() {
+  const w = window.AgentTown.wonka;
+  return scene === "vault" && !!(w && w.locked());
+}
 let roster = [];
 let town = null;
 let mode = "loading";
@@ -107,7 +112,9 @@ function clampCam() {
   const cover = panelCover();
   p.r += cover.r;
   p.b += cover.b;
-  const b = fitBounds();
+  // W2: the whole room while locked or zoomed in (the phone vault can then reach the car at x38+);
+  // the framed phone view keeps the cabinet block
+  const b = camLocked() || zoom > fitZoom() + 1e-6 ? { x: 0, y: 0, w: worldW(), h: worldH() } : fitBounds();
   const fitAxis = (cam, view, size, origin, lo, hi) => {
     const min = origin - lo / zoom;
     const max = origin + size - (view - hi) / zoom;
@@ -167,7 +174,7 @@ function startFollow(id) {
   following = id;
   town.follow = id;
   // Zoom straight in so the followed bot is easy to see.
-  if (zoom < fitZoom() * 3) zoomAt(Math.min(maxZoom(), fitZoom() * 3.5));
+  if (!camLocked() && zoom < fitZoom() * 3) zoomAt(Math.min(maxZoom(), fitZoom() * 3.5));
   const note = document.getElementById("mode-note");
   note.textContent = "Following " + town.agents.get(id).name + ". Tap empty space or press Escape to stop.";
 }
@@ -738,13 +745,14 @@ function focusBot(id, open) {
   if (!agent) return;
   if (open) openPanel(agent);
   else town.selected = id;
+  if (camLocked()) return; // W2: the panel still opens, the camera stays on the Wonkavator
   if (zoom < fitZoom() * 2) zoomAt(Math.min(maxZoom(), fitZoom() * 2.5));
   centerOn(agent, 1);
 }
 
 document.getElementById("panel-close").addEventListener("click", closePanel);
-document.getElementById("zoom-in").addEventListener("click", () => stepZoom(1.25));
-document.getElementById("zoom-out").addEventListener("click", () => stepZoom(0.8));
+document.getElementById("zoom-in").addEventListener("click", () => camLocked() || stepZoom(1.25));
+document.getElementById("zoom-out").addEventListener("click", () => camLocked() || stepZoom(0.8));
 document.getElementById("label-size").addEventListener("click", () => {
   labelSize = LABEL_SIZES[(LABEL_SIZES.indexOf(labelSize) + 1) % LABEL_SIZES.length];
   localStorage.setItem("agentTownLabelSize", String(labelSize));
@@ -772,6 +780,7 @@ stage.addEventListener(
   "wheel",
   (ev) => {
     ev.preventDefault();
+    if (camLocked()) return;
     const k = ev.ctrlKey ? 0.01 : 0.0015;
     stepZoom(Math.exp(-ev.deltaY * k), ev.clientX, ev.clientY);
   },
@@ -784,6 +793,7 @@ window.addEventListener("keydown", (ev) => {
     closePanel();
     stopFollow();
   }
+  if (camLocked()) return;
   const step = 64 / zoom;
   if (ev.key === "ArrowLeft") camX -= step;
   if (ev.key === "ArrowRight") camX += step;
@@ -835,6 +845,7 @@ stage.addEventListener("pointermove", (ev) => {
   if (touches.has(ev.pointerId)) touches.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
   if (pinch && touches.size >= 2) {
     // Continuous pinch: zoom with the finger spread, and pan with the midpoint.
+    if (camLocked()) return;
     const p = pinchState();
     zoom = clampZoom(pinch.zoom * (p.dist / pinch.dist));
     framed = Math.abs(zoom - fitZoom()) < 1e-6;
@@ -849,6 +860,7 @@ stage.addEventListener("pointermove", (ev) => {
   const dy = ev.clientY - pointer.y;
   if (Math.hypot(dx, dy) > 8) pointer.drag = true;
   if (pointer.drag) {
+    if (camLocked()) return;
     camX = pointer.cx - dx / zoom;
     camY = pointer.cy - dy / zoom;
     clampCam();
@@ -865,7 +877,7 @@ stage.addEventListener("pointerleave", () => {
 function vaultTitleAt(clientX, clientY) {
   const r = stage.getBoundingClientRect();
   const lx = clientX - r.left, ly = clientY - r.top;
-  return (debugInfo.partLabels || []).slice().reverse().find((l) => l.kind === "cabinet" && l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]) || null;
+  return (debugInfo.partLabels || []).slice().reverse().find((l) => (l.kind === "cabinet" || l.kind === "wonka") && l.at && lx >= l.box[0] && lx <= l.box[2] && ly >= l.box[1] && ly <= l.box[3]) || null;
 }
 function trackVaultTitleHover(ev) {
   // Desktop only: fine pointer. Touch devices get the full name on tap instead.
@@ -1273,12 +1285,77 @@ function drawScreenLabels(c) {
 }
 
 let last = performance.now();
+// ---------- W2: Wonkavator camera lock ----------
+// Locked from S1 until parked: target = the ninja in S1, then the cabin centre (632,176), zoom fit x 2.2,
+// ease 0.15 (instant under reduced motion). On release it eases back to the framed view in 400 ms.
+let camWasLocked = false;
+let camEase = null;
+const wonkaBtn = document.getElementById("wonka-go");
+function wonkaCam(now) {
+  const w = window.AgentTown.wonka;
+  if (!w || scene !== "vault") {
+    camWasLocked = false;
+    camEase = null;
+    if (wonkaBtn && !wonkaBtn.hidden) wonkaBtn.hidden = true;
+    return;
+  }
+  const t = w.camTarget();
+  const rmNow = tourRM();
+  if (t) {
+    camWasLocked = true;
+    camEase = null;
+    const k = rmNow ? 1 : 0.15;
+    zoom += (clampZoom(fitZoom() * 2.2) - zoom) * k;
+    framed = false;
+    camX += (t.x - viewW / 2 / zoom - camX) * k;
+    camY += (t.y - viewH / 2 / zoom - camY) * k;
+    clampCam();
+  } else if (camWasLocked) {
+    camWasLocked = false;
+    const from = { z: zoom, x: camX, y: camY };
+    framed = true;
+    resize();
+    if (!rmNow) {
+      camEase = { t0: now, from, to: { z: zoom, x: camX, y: camY } };
+      zoom = from.z;
+      camX = from.x;
+      camY = from.y;
+      framed = false;
+    }
+  }
+  if (camEase) {
+    const p = Math.min(1, (now - camEase.t0) / 400);
+    const e = p * p * (3 - 2 * p);
+    const a = camEase.from, b = camEase.to;
+    zoom = a.z + (b.z - a.z) * e;
+    camX = a.x + (b.x - a.x) * e;
+    camY = a.y + (b.y - a.y) * e;
+    if (p >= 1) {
+      camEase = null;
+      framed = true;
+      resize();
+    }
+  }
+  // phone: while the car is off-screen in the framed vault, the scene bar offers "Wonkavator ->"
+  if (wonkaBtn) {
+    const sx0 = (608 - camX) * zoom, sx1 = (656 - camX) * zoom, sy0 = (144 - camY) * zoom, sy1 = (208 - camY) * zoom;
+    const off = sx1 <= 0 || sx0 >= viewW || sy1 <= 0 || sy0 >= viewH;
+    const show = framed && !camEase && off && w.state() === "S0";
+    if (wonkaBtn.hidden === show) wonkaBtn.hidden = !show;
+  }
+}
+if (wonkaBtn) wonkaBtn.addEventListener("click", () => {
+  const w = window.AgentTown.wonka;
+  if (w && town && scene === "vault") w.tap(town, sceneUi);
+});
+
 function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000);
   last = now;
   if (town) {
     town.update(dt, now);
     trackFollow();
+    wonkaCam(now);
     tourTick(now);
     renderHud();
     if (town.selected && !panel.hidden) {
@@ -1297,7 +1374,10 @@ function frame(now) {
   if (mapCanvas) ctx.drawImage(mapCanvas, 0, 0, worldW(), worldH());
   if (town) {
     town.screenNames = true;
-    if (scene === "vault") for (const p of vworld.parts) p.drawUnder(ctx, town, vworld, now, window.AgentTown.PIX);
+    if (scene === "vault") for (const p of vworld.parts) {
+      p.drawUnder(ctx, town, vworld, now, window.AgentTown.PIX);
+      if (p.drawOver) p.drawOver(ctx, town, vworld, now, window.AgentTown.PIX); // W2 hook (car layer, W4)
+    }
     else drawScene(ctx, town, world, now, honoluluParts().phase);
   }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -1317,6 +1397,9 @@ function setScene(name, after) {
   if (confirmOpen()) window.AgentTown.confirmBox.close("no");
   if (fade) fade.classList.add("on");
   setTimeout(() => {
+    if (window.AgentTown.wonka) window.AgentTown.wonka.reset(); // W2: leaving mid-boarding drops it (S0)
+    camWasLocked = false;
+    camEase = null;
     scene = name;
     if (name === "vault" && !vworld) vworld = window.AgentTown.vault.createWorld();
     document.body.classList.toggle("in-vault", name === "vault");
@@ -1349,6 +1432,8 @@ function setScene(name, after) {
 const sceneUi = {
   enterVault: (after) => setScene("vault", after),
   leaveVault: (after) => setScene("castle", after),
+  stopFollow: () => stopFollow(),
+  tourStop: () => tour.stop("wonka"),
 };
 const backBtn = document.getElementById("vault-back");
 if (backBtn) backBtn.addEventListener("click", () => sceneUi.leaveVault());
@@ -1405,6 +1490,10 @@ window.AgentTown.debug = {
   },
   get mapBuilds() {
     return mapBuilds;
+  },
+  /** W2: the Wonkavator camera lock and release ease. */
+  get wonkaCam() {
+    return { locked: camLocked(), easing: !!camEase, zoom, fit: fitZoom(), camX, camY, viewW, viewH, framed };
   },
   /** W1: names the art loader treats as failed (tests); code safety-net draws so far. */
   artBlock: [],
