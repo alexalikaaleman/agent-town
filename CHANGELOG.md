@@ -43,3 +43,4 @@
 2026-11-03, welcome intro: "vault door" and "wonkavator" now gold (#ffd34d, same as the play hint); the rest stays white and the title stays rainbow. Why: Alex asked for those words in gold.
 2026-11-03, welcome intro: "art", "music" and "shop" now "ART", "MUSIC" and "SHOP" in blue (#4db8ff). Why: Alex asked for those words in blue capitals.
 2026-11-03, welcome intro: "vault door" and "wonkavator" now "VAULT DOOR" and "WONKAVATOR" (still gold). Why: Alex asked for those words in capitals.
+2026-11-03 Welcome intro: "games" now "GAMES" in blue (#4db8ff, same as ART, MUSIC and SHOP). Why: Alex asked for that word in blue capitals.
