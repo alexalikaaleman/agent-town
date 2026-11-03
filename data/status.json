@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:38:58.340Z",
+  "updatedAt": "2026-11-03T11:44:09.344Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -11,10 +11,7 @@
       "text": "OK to push HUD search removal?",
       "project": "Agent Town",
       "with": [],
-      "needs": {
-        "id": "n202611031137-7ff3",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-03T11:37:03.379Z",
       "since": "2026-11-03T11:37:03.379Z"
     },
