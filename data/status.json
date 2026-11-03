@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:11:48.768Z",
+  "updatedAt": "2026-11-03T12:12:04.941Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Yes for hint + welcome push",
       "project": "Agent Town castle",
       "with": [],
-      "needs": {
-        "id": "n202611031209-7858",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-03T12:09:00.648Z",
       "since": "2026-11-03T12:09:00.648Z"
     },
