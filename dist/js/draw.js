@@ -440,8 +440,10 @@ function drawMap(ctx, world) {
     const d = (AT.debug = AT.debug || {});
     (d.platesDrawn = d.platesDrawn || {})[world.plate] = true;
   } else for (let y = 0; y < world.h; y++) for (let x = 0; x < world.w; x++) drawTile(ctx, world, x, y);
-  for (const p of world.parts) if (p.drawStatic && !(plate && plate.ok && p.plateSkip)) p.drawStatic(ctx, world, PIX);
-  for (const b of world.buildings) {
+  // the castle plate paints the lab tables, workshop props, beds, carpet, rock, moat and medic tent itself
+  const castlePlate = !!(plate && plate.ok && world.castle);
+  for (const p of world.parts) if (p.drawStatic && !(plate && plate.ok && (p.plateSkip || castlePlate))) p.drawStatic(ctx, world, PIX);
+  if (!castlePlate) for (const b of world.buildings) {
     const by = b.y + b.h;
     if (by < world.h) fill(ctx, b.x * TILE, by * TILE, b.w * TILE, 3, "rgba(0,0,0,0.2)");
   }
@@ -565,7 +567,8 @@ function drawScene(ctx, town, world, now, phase) {
   sceneW = world.w * TILE;
   sceneH = world.h * TILE;
   const rm = !!(RM_MQ && RM_MQ.matches);
-  if (rippleArt()) {
+  const cp = world.plate && window.AgentTown.art ? window.AgentTown.art.get(world.plate) : null;
+  if (rippleArt() && !(cp && cp.ok && world.castle)) { // the ripple is off on the painted castle plate (not lined up)
     const f = rm ? 0 : Math.floor(now / RIPPLE.FRAME_MS) % RIPPLE.N;
     const y0 = world.castle.moatY[0];
     const smooth = ctx.imageSmoothingEnabled;

@@ -86,6 +86,7 @@ function createWorld(roster) {
     solid,
     bid,
     castle: CASTLE,
+    plate: "castle-plate", // 3584x3840 = 56x60 tiles at 4x; the tile loop is the fallback
     buildings: [],
     byId: new Map(),
     decor: [],
