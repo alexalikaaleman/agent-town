@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T03:17:26.660Z",
+  "updatedAt": "2026-11-03T03:22:21.182Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -79,8 +79,8 @@
       "text": "Usage cap hit; needs new cap from Alex",
       "project": "Agent Town",
       "ts": "2026-11-03T03:17:26.660Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T03:22:21.182Z"
     }
   ]
 }
