@@ -317,7 +317,8 @@ const part = {
     const talkers = ctx.free().filter((a) => a.state === "talking").sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
     const talkSpots = [
       { x: THRONE.x - 2, y: THRONE.y, facing: "e" },
-      { x: THRONE.x + 2, y: THRONE.y, facing: "w" },
+      // fix 36b: (29.5,9) rounded onto the rock (30,9); (29,9) is the nearest floor
+      { x: THRONE.x + 1.5, y: THRONE.y, facing: "w" },
     ];
     talkers.forEach((a, i) => {
       let s;

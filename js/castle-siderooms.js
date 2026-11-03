@@ -32,6 +32,15 @@ function layoutRoom(r) {
   return { tables, chestSlots };
 }
 
+/** A working bot's stop beside its Drive chest. Fix 36b: lab tables sit on rows 20 and 27 right next to the
+ *  chest column, so a solid stop tile moves to the nearest floor tile in the same column (y-1 first, then y+1). */
+function chestStop(world, r, chest) {
+  const sx = chest.x + (r.outer === "left" ? 1 : -1);
+  let sy = chest.y;
+  if (world.solid[sy][sx]) sy = !world.solid[sy - 1][sx] ? sy - 1 : sy + 1;
+  return { x: sx, y: sy, facing: r.outer === "left" ? "w" : "e" };
+}
+
 const part = {
   id: "siderooms",
   order: 50,
@@ -87,7 +96,7 @@ const part = {
       const r = room.def;
       const loop = [{ x: t.x + 0.5, y: t.y - 1, facing: "s" }];
       const chest = world.chests.find((c) => c.id === a.id);
-      if (chest) loop.push({ x: chest.x + (r.outer === "left" ? 1 : -1), y: chest.y, facing: r.outer === "left" ? "w" : "e" });
+      if (chest) loop.push(chestStop(world, r, chest));
       // each of the 4 seats has its own spot at the station, so two bots never stand on one tile
       const seat = room.tables.indexOf(t);
       const STATION_STOPS = [[4, 9, "n"], [6, 9, "n"], [4, 8, "e"], [6, 8, "w"]];
@@ -212,4 +221,5 @@ const part = {
   },
 };
 window.AgentTown.castleParts.push(part);
+window.AgentTown.chestStop = chestStop;
 })();
