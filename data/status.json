@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:12:24.378Z",
+  "updatedAt": "2026-11-03T11:13:47.056Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Castle room art, then map swap",
+      "state": "needs-alex",
+      "text": "OK to push room art live?",
       "project": "Agent Town",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T11:12:12.410Z",
-      "since": "2026-11-03T11:12:12.410Z"
+      "needs": {
+        "id": "n202611031113-9b36",
+        "kind": "question"
+      },
+      "ts": "2026-11-03T11:13:47.056Z",
+      "since": "2026-11-03T11:13:47.056Z"
     },
     "masterbot": {
       "state": "done",
