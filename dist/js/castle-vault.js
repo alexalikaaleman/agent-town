@@ -4,7 +4,7 @@
  *  (5 x 5) from data/cabinets.json, the RIGHT HALF is an empty roped-off reserved area, plus an exit
  *  door and a "Back to castle" button. Tapping a published cabinet (or its title below it) sends
  *  Bus Ninja walking to it; he sits, vanishes in a cloud of smoke, then https://<name>.grok.me opens in this same tab (fix 38).
- *  Coming-soon cabinets are blank and inert. All art is drawn here (no screenshots). */
+ *  Coming-soon cabinets show their name grayed out with "coming soon" under it, and are inert (fix 39). All art is drawn here (no screenshots). */
 (function () {
 const VW = 52;
 const VH = 26;
@@ -196,8 +196,12 @@ const scene = {
     const out = [];
     const nin = vaultWorldRef && vaultWorldRef.busNinja;
     CABS.forEach((c, i) => {
-      if (c.status !== "published") return; // coming soon: blank, no title
+      const soon = c.status !== "published";
+      // fix 39: coming soon shows its name grayed out with "coming soon" underneath
       out.push({
+      soon: soon,
+      sub: soon ? "coming soon" : undefined,
+      textColor: soon ? "#a4a4b0" : undefined,
       kind: "cabinet",
       // the title is a tap target too: a tap on it acts as a tap on its cabinet
       at: [ss[i].x * 16 + 8, ss[i].y * 16 + 4],
@@ -206,7 +210,7 @@ const scene = {
       text: wrapTitle(c.title || "", TITLE_MAX),
       full: c.title || "",
       accent: c.status === "published" ? (c.colors || [])[1] || "#ffd34d" : "#8a8a96",
-      bg: "rgba(20,16,6,0.9)",
+      bg: soon ? "rgba(26,26,32,0.9)" : "rgba(20,16,6,0.9)",
       });
     });
     if (nin && !nin.hidden) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
@@ -223,7 +227,12 @@ const scene = {
       const s = ss[i];
       if (wx < s.x * 16 - 4 || wx > s.x * 16 + 20 || wy < s.y * 16 - 14 || wy > s.y * 16 + 26) continue;
       const url = urlFor(CABS[i]);
-      if (!url) return false; // coming soon: inert
+      if (!url) {
+        // coming soon (fix 39): inert, no walk, no smoke, no link
+        const dbg = (window.AgentTown.debug = window.AgentTown.debug || {});
+        dbg.vaultInertTaps = (dbg.vaultInertTaps || 0) + 1;
+        return false;
+      }
       launch(town, s, i, url);
       return true;
     }

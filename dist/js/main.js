@@ -774,7 +774,7 @@ function endPointer(ev) {
   if (scene === "vault") {
     let vp = toWorld(ev.clientX, ev.clientY);
     // Titles draw on top: the title the viewer taps is the game they mean.
-    // Coming-soon cabinets have no title and stay inert via hit().
+    // Coming-soon cabinets (fix 39) show a gray title + 'coming soon' and stay inert via hit().
     const tl = vaultTitleAt(ev.clientX, ev.clientY);
     if (tl) vp = { x: tl.at[0], y: tl.at[1] };
     for (const p of vworld.parts) if (p.hit && p.hit(town, vp.x, vp.y, sceneUi)) {
@@ -889,9 +889,26 @@ function vaultFitText(c, text, px, maxW, maxH) {
   if (b.w <= maxW && b.h <= maxH) return re;
   return null;
 }
+/** Fix 39: a label with a sub line ("coming soon") keeps that line under the fitted title. */
+function vaultCompose(c, l, px, maxW, maxH, noWrap) {
+  if (!l.sub) return vaultFitText(c, l.text, px, maxW, maxH);
+  c.font = px + "px ui-monospace, monospace";
+  // the sub line stays whole; if it is too wide on one line it wraps by word ("coming" / "soon")
+  let sub = l.sub;
+  if (Math.ceil(c.measureText(sub).width) + 6 > maxW) {
+    const words = sub.split(" ");
+    if (noWrap || words.some((w) => Math.ceil(c.measureText(w).width) + 6 > maxW)) return null;
+    sub = words.join("\n");
+  }
+  const subLines = sub.split("\n").length;
+  const t = vaultFitText(c, l.text, px, maxW, maxH - subLines * (px + 2));
+  return t == null ? null : t + "\n" + sub;
+}
 /** Largest font (from startPx down to 6) at which the title fits its box, as written or re-wrapped. */
-function vaultTitlePx(c, text, startPx, maxW, maxH) {
-  for (let px = startPx; px > 6; px--) if (vaultFitText(c, text, px, maxW, maxH) != null) return px;
+function vaultTitlePx(c, l, startPx, maxW, maxH) {
+  // a one-line "coming soon" at a smaller size beats a wrapped one at a bigger size
+  if (l.sub) for (let px = startPx; px > 6; px--) if (vaultCompose(c, l, px, maxW, maxH, true) != null) return px;
+  for (let px = startPx; px > 6; px--) if (vaultCompose(c, l, px, maxW, maxH) != null) return px;
   return 6;
 }
 function labelBox(c, text, px, x, y) {
@@ -943,6 +960,7 @@ function drawScreenLabels(c) {
     box.top = Math.round(Math.max(fy0, Math.min(fy1 - box.h, box.top)));
   };
   debugInfo.frame = [fx0, fy0, fx1, fy1];
+  const cabPlaced = [];
   // Room names: bigger, on each building's top wall.
   const roomPx = Math.round(Math.min(22, Math.max(11, 9 * zoom)) * labelSize);
   for (const b of cur().buildings) {
@@ -969,7 +987,7 @@ function drawScreenLabels(c) {
       for (const l of p.labels(town, cur()) || []) {
         if (l.kind !== "cabinet" || !l.at) continue;
         const row = l.at[1];
-        const px = vaultTitlePx(c, l.text, cabPx, vaultMaxW, vaultMaxH);
+        const px = vaultTitlePx(c, l, cabPx, vaultMaxW, vaultMaxH);
         const prev = vaultRowPx.get(row);
         vaultRowPx.set(row, prev == null ? px : Math.min(prev, px));
       }
@@ -992,19 +1010,38 @@ function drawScreenLabels(c) {
       let drawPx = partPx;
       if (scene === "vault" && l.kind === "cabinet") {
         drawPx = (l.at && vaultRowPx.get(l.at[1])) || cabPx;
-        const fitT = vaultFitText(c, l.text, drawPx, vaultMaxW, vaultMaxH);
+        let fitT = vaultCompose(c, l, drawPx, vaultMaxW, vaultMaxH, true);
+        if (fitT == null) fitT = vaultCompose(c, l, drawPx, vaultMaxW, vaultMaxH);
         // never overflow: a title that still won't fit at the smallest size is re-wrapped, then cut with "…"
         if (fitT != null) drawText = fitT;
         else {
           const all = rewrapToWidth(c, l.text, drawPx, vaultMaxW).split("\n");
-          const keep = all.slice(0, Math.max(1, Math.floor((vaultMaxH - 2) / (drawPx + 2))));
-          if (keep.length < all.length) keep[keep.length - 1] += "…";
+          let subL = [];
+          if (l.sub) {
+            c.font = drawPx + "px ui-monospace, monospace";
+            const words = l.sub.split(" ");
+            const fitsWord = (w) => Math.ceil(c.measureText(w).width) + 6 <= vaultMaxW;
+            subL = fitsWord(l.sub) ? [l.sub] : words.every(fitsWord) ? words : [l.sub];
+          }
+          const lines = Math.floor((vaultMaxH - 2) / (drawPx + 2));
+          if (subL.length > 1 && lines - subL.length < 1) subL = [l.sub];
+          const room = Math.max(1, lines - subL.length);
+          const keep = all.slice(0, room);
+          if (keep.length < all.length) keep[keep.length - 1] = keep[keep.length - 1].replace(/…$/, "") + "…";
+          for (const sl of subL) keep.push(sl);
           drawText = fitLinesToWidth(c, keep.join("\n"), drawPx, vaultMaxW);
         }
       }
       let box = labelBox(c, drawText, drawPx, sx(l.x), sy(l.y) + drawPx + 4);
       if (box.left + box.w < 0 || box.left > viewW || box.top > viewH || box.top + box.h < 0) continue;
+      const natTop = box.top;
       keepInFrame(box);
+      // fix 39: a vault title pushed up by the frame edge must not land on the row above (zoomed views):
+      // then it stays under its own cabinet and the edge clips it, like the cabinet itself
+      if (scene === "vault" && l.kind === "cabinet") {
+        if (box.top !== natTop && overlapArea(box, cabPlaced) > 0) box.top = natTop;
+        cabPlaced.push(box);
+      }
       // Vault cabinet titles stay under their own cabinet (no collision nudge).
       if (!l.avoid && !(scene === "vault" && l.kind === "cabinet") && overlapArea(box, placed) > 0) {
         // nudge down, then up, until it is clear of room names and other part labels
@@ -1023,7 +1060,7 @@ function drawScreenLabels(c) {
       placed.push(box);
       const full = l.full || String(l.text || "").replace(/\n/g, " ");
       const truncated = drawText.indexOf("…") >= 0;
-      partLabels.push({ kind: l.kind || p.id, textColor: l.textColor || null, text: drawText, full: full, truncated: truncated, px: drawPx, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
+      partLabels.push({ kind: l.kind || p.id, soon: !!l.soon, textColor: l.textColor || null, text: drawText, full: full, truncated: truncated, px: drawPx, at: l.at, box: [box.left, box.top, box.left + box.w, box.top + box.h] });
     }
   }
   debugInfo.partLabels = partLabels;
