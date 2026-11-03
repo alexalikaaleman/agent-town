@@ -88,3 +88,4 @@
 {"ts":"2026-11-03T03:08:17.074Z","bot":"robotemplate","needId":"n202611030308-99ee","state":"needs-alex","text":"Confirm castle package for GitWriter","project":"Agent Town castle","needs":"question"}
 {"ts":"2026-11-03T03:16:53.804Z","bot":"robotemplate","handled":"n202611030308-99ee"}
 {"ts":"2026-11-03T03:16:56.585Z","bot":"robotemplate","state":"working","text":"Castle package handoff","project":"Agent Town castle"}
+{"ts":"2026-11-03T03:17:12.067Z","bot":"robotemplate","state":"done","text":"Package sent; next: review commits","project":"Agent Town castle"}
