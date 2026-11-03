@@ -144,3 +144,4 @@
 {"ts":"2026-11-03T11:33:28.096Z","bot":"gitwriter-3d-bot","state":"working","text":"Fix vault door + throne on map","project":"Agent Town"}
 {"ts":"2026-11-03T11:35:38.825Z","bot":"gitwriter-3d-bot","state":"done","text":"Door+throne live; next: RT live test","project":"Agent Town"}
 {"ts":"2026-11-03T11:36:45.181Z","bot":"gitwriter-3d-bot","state":"working","text":"Remove HUD bot search box","project":"Agent Town"}
+{"ts":"2026-11-03T11:37:03.379Z","bot":"gitwriter-3d-bot","needId":"n202611031137-7ff3","state":"needs-alex","text":"OK to push HUD search removal?","project":"Agent Town","needs":"question"}
