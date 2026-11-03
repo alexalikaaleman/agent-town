@@ -270,7 +270,23 @@ function drawBubble(ctx, x, y, kind, time, text) {
 }
 
 
+/** Chest sprite (art/chest.png: 4x art, 64x64 frames, 3 cols x 2 rows; row 0 wood/gold, row 1 locked grey;
+ *  columns closed, half, open). Falls back to the code-drawn chest until the sheet decodes. */
+function drawChestSprite(ctx, chest) {
+  const a = window.AgentTown.art ? window.AgentTown.art.get("chest") : null;
+  if (!a || !a.ok) return false;
+  const lid = Math.max(0, Math.min(1, chest.lid || 0));
+  const col = lid > 0.7 ? 2 : lid > 0.2 ? 1 : 0;
+  const row = chest.url ? 0 : 1;
+  const sm = ctx.imageSmoothingEnabled;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(a.bitmap, col * 64, row * 64, 64, 64, chest.x * TILE, chest.y * TILE, TILE, TILE);
+  ctx.imageSmoothingEnabled = sm;
+  return true;
+}
+
 function drawChest(ctx, chest) {
+  if (drawChestSprite(ctx, chest)) return;
   const px = chest.x * TILE + 1;
   const py = chest.y * TILE + 2;
   const locked = !chest.url;

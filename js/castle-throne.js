@@ -461,8 +461,17 @@ const part = {
   drawUnder(ctx, town, world, now, P) {
     const T = P.TILE;
     drawDoorShimmer(ctx, P, now);
+    const torch = window.AgentTown.art ? window.AgentTown.art.get("torch") : null;
     for (const tx of [15, 40]) {
       const flick = Math.floor(now / 120) % 3;
+      if (torch && torch.ok) {
+        // art/torch.png: 4x art, three 32x64 flame frames; 8x16 world px over the old stick and flame
+        const sm = ctx.imageSmoothingEnabled;
+        ctx.imageSmoothingEnabled = true;
+        ctx.drawImage(torch.bitmap, flick * 32, 0, 32, 64, tx * T + 4, 18 * T - 6, 8, 16);
+        ctx.imageSmoothingEnabled = sm;
+        continue;
+      }
       P.fill(ctx, tx * T + 6, 18 * T + 2, 4, 8, "#5a3f12");
       P.fill(ctx, tx * T + 5, 18 * T - 4 + flick, 6, 6, "#ff9a2e");
       P.fill(ctx, tx * T + 6, 18 * T - 2 + flick, 4, 3, "#ffe17a");

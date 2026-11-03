@@ -183,15 +183,36 @@ const late = {
       P.fill(ctx, x * T + 3, y * T + 8, 9, 6, "#6b6873");
       P.fill(ctx, x * T + 4, y * T + 7, 6, 2, "#8a8791");
     }
-    for (const [x, y, c] of [[12, 39, "#c0392b"], [43, 39, "#2e86de"]]) {
-      P.fill(ctx, x * T + 7, y * T - 6, 2, 22, "#5a3518");
-      P.fill(ctx, x * T + 9, y * T - 6, 10, 7, c);
-    }
+    drawFlags(ctx, P, false);
   },
   drawUnder(ctx, town, world, now, P) {
+    // the castle plate paints no flags: draw them each frame on top of it (sprite once art/flag-*.png decodes)
+    const AT = window.AgentTown;
+    const plate = world.plate && AT.art ? AT.art.get(world.plate) : null;
+    if (plate && plate.ok) drawFlags(ctx, P, true);
     for (const m of town.extras.monsters || []) drawMonster(ctx, P, m, now);
   },
 };
+
+const FLAGS = [[12, 39, "#c0392b", "flag-red"], [43, 39, "#2e86de", "flag-blue"]];
+/** Battlefield flags: art/flag-red.png and flag-blue.png (4x art, 48x88 = 12x22 world px) when asked and
+ *  decoded, else the code-drawn pole and cloth. */
+function drawFlags(ctx, P, useArt) {
+  const T = P.TILE;
+  const A = window.AgentTown.art;
+  for (const [x, y, c, name] of FLAGS) {
+    const a = useArt && A ? A.get(name) : null;
+    if (a && a.ok) {
+      const sm = ctx.imageSmoothingEnabled;
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(a.bitmap, 0, 0, 48, 88, x * T + 7, y * T - 6, 12, 22);
+      ctx.imageSmoothingEnabled = sm;
+      continue;
+    }
+    P.fill(ctx, x * T + 7, y * T - 6, 2, 22, "#5a3518");
+    P.fill(ctx, x * T + 9, y * T - 6, 10, 7, c);
+  }
+}
 
 function drawMonster(ctx, P, m, now) {
   const s = m.size;

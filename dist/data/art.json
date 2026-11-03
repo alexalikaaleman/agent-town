@@ -41,6 +41,30 @@
       "file": "bus-ninja.png",
       "w": 768,
       "h": 960
+    },
+    {
+      "name": "chest",
+      "file": "chest.png",
+      "w": 192,
+      "h": 128
+    },
+    {
+      "name": "torch",
+      "file": "torch.png",
+      "w": 96,
+      "h": 64
+    },
+    {
+      "name": "flag-red",
+      "file": "flag-red.png",
+      "w": 48,
+      "h": 88
+    },
+    {
+      "name": "flag-blue",
+      "file": "flag-blue.png",
+      "w": 48,
+      "h": 88
     }
   ]
 }
