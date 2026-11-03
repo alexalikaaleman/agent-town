@@ -3,7 +3,7 @@
  *  into the vault map. The vault map shows only the vault: the LEFT HALF holds 25 arcade cabinets
  *  (5 x 5) from data/cabinets.json, the RIGHT HALF is an empty roped-off reserved area, plus an exit
  *  door and a "Back to castle" button. Tapping a published cabinet (or its title below it) sends
- *  Bus Ninja walking to it, a smoke-bomb puff plays, then https://<name>.grok.me opens in a new tab.
+ *  Bus Ninja walking to it; he sits, vanishes in a cloud of smoke, then https://<name>.grok.me opens in this same tab (fix 38).
  *  Coming-soon cabinets are blank and inert. All art is drawn here (no screenshots). */
 (function () {
 const VW = 52;
@@ -209,7 +209,7 @@ const scene = {
       bg: "rgba(20,16,6,0.9)",
       });
     });
-    if (nin) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
+    if (nin && !nin.hidden) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
     out.push({ kind: "sign", x: (EXIT.x + 1.5) * 16, y: (EXIT.y - 0.6) * 16, text: "Exit to castle", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
     return out;
   },
@@ -269,42 +269,91 @@ const scene = {
   },
 };
 
-/** Cabinet tap: Bus Ninja walks to the cabinet, puffs, then the game opens in a new tab. */
+/** Cabinet tap (fix 38): Bus Ninja walks to the cabinet on a floor-only path, sits on it, vanishes in a
+ *  cloud of smoke, and only then the game opens, in this same tab (location.assign), so no popup blocker
+ *  can stop it. Repeat taps during the walk are ignored; if the walk cannot finish, nothing opens. */
+const WALK_GIVE_UP_MS = 15000;
+const SIT_MS = 350;
+let launching = null;
+/** He reappears normally (visible, walks home) when the game did not open, e.g. stubbed or Back. */
+function reappear(nin) {
+  if (!nin || !nin.hidden || launching) return;
+  nin.hidden = false;
+  nin.puff = 0;
+  if (nin.goHome) nin.goHome();
+}
+// Back from the game (page restored from the back/forward cache): show him again
+window.addEventListener("pageshow", (e) => {
+  if (!e.persisted) return;
+  launching = null;
+  const nin = vaultWorldRef && vaultWorldRef.busNinja;
+  if (nin && nin.hidden) {
+    nin.hidden = false;
+    nin.puff = 0;
+    nin.mode = "stand";
+    if (nin.goHome) nin.goHome();
+  }
+});
 function launch(town, slot, index, url) {
   const dbg = (window.AgentTown.debug = window.AgentTown.debug || {});
-  // Open a blank tab inside the tap itself so the popup blocker allows it, then send it to the game.
-  let win = null;
-  try {
-    win = window.open("about:blank", "_blank");
-    if (win) win.opener = null;
-  } catch (e) {
-    win = null;
+  if (launching) {
+    dbg.vaultIgnoredTaps = (dbg.vaultIgnoredTaps || 0) + 1;
+    return;
   }
-  town.extras.vaultLit = index;
   const vw = vaultWorldRef;
   const nin = vw && vw.busNinja;
-  let went = false;
-  const go = () => {
-    if (went) return;
-    went = true;
-    const now = performance.now();
-    if (nin) nin.puff = now + PUFF_MS;
-    town.extras.vaultLitUntil = now + PUFF_MS + 400;
-    setTimeout(() => {
-      (dbg.vaultOpens = dbg.vaultOpens || []).push(url);
-      if (win && !win.closed) win.location.href = url;
-      else window.open(url, "_blank", "noopener");
-      if (nin) setTimeout(() => nin.goHome(), 900);
-    }, PUFF_MS - 100);
+  if (!nin || !nin.goTo) return;
+  const me = { url, index, t0: performance.now() };
+  const giveUp = () => {
+    if (launching !== me) return;
+    launching = null;
+    (dbg.vaultFailed = dbg.vaultFailed || []).push(url);
+    if (nin.mode === "walk") nin.goHome();
   };
-  if (nin && nin.goTo) {
-    nin.goTo(slot.x + 0.5, slot.y + 1, () => {
-      nin.facing = "n";
-      go();
-    });
-    // never hang if the walk is interrupted (tab switch)
-    setTimeout(go, 4000);
-  } else go();
+  launching = me;
+  town.extras.vaultLit = index;
+  const ok = nin.goTo(slot.x + 0.5, slot.y + 1, () => {
+    if (launching !== me) return;
+    // arrived: sit on the cabinet's stool, then vanish in a cloud of smoke, then open the game
+    nin.mode = "seat";
+    nin.facing = "n";
+    nin.y = slot.y + 0.6;
+    town.extras.vaultLitUntil = performance.now() + SIT_MS + PUFF_MS + 400;
+    setTimeout(() => {
+      if (launching !== me) return;
+      const now = performance.now();
+      nin.hidden = true; // gone: only the cloud is drawn from here on
+      nin.puff = now + PUFF_MS;
+      dbg.vaultVanishAt = now;
+      setTimeout(() => {
+        if (launching !== me) return;
+        launching = null;
+        (dbg.vaultOpens = dbg.vaultOpens || []).push(url);
+        dbg.vaultOpenMethod = "same-tab location.assign after he vanishes in the smoke";
+        if (dbg.vaultNavigate === false || window.__agentTownNoNavigate) {
+          setTimeout(() => reappear(nin), 900); // opening stubbed: he comes back
+          return;
+        }
+        try {
+          window.location.assign(url);
+        } catch (e) {
+          reappear(nin);
+          return;
+        }
+        // if the page is still here a while later (navigation did not happen), bring him back
+        setTimeout(() => reappear(nin), 6000);
+      }, PUFF_MS - 100);
+    }, SIT_MS);
+  });
+  if (!ok) {
+    // no floor path: no walk and no link
+    nin.mode = "stand";
+    nin.done = null;
+    launching = null;
+    (dbg.vaultFailed = dbg.vaultFailed || []).push(url);
+    return;
+  }
+  setTimeout(giveUp, WALK_GIVE_UP_MS);
 }
 
 /** Castle side: the big door in the throne room's back wall (position set by the throne part). */

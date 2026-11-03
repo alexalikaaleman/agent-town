@@ -77,7 +77,7 @@ function stepNinja(nin, dt) {
   if (step >= dist - 0.0001) nin.path.shift();
 }
 
-/** Smoke-bomb puff around Bus Ninja (a ninja smoke bomb; he never smokes). */
+/** Smoke-bomb cloud Bus Ninja vanishes into (a ninja smoke bomb; he never smokes). */
 function drawPuff(ctx, P, nin, now) {
   if (!(nin.puff > now)) return;
   const T = P.TILE;
@@ -97,6 +97,12 @@ const NINJA_SCALE = 1.5;
 let ninOff = null;
 let ninSil = null;
 function drawNinjaBig(ctx, P, nin, now) {
+  // fix 38: he vanishes in the smoke cloud; not drawn while it plays or after it, until he reappears
+  if (nin.hidden) {
+    nin.lastHiddenFrame = now;
+    return false;
+  }
+  nin.lastDrawn = now;
   const T = P.TILE;
   const W = 64;
   const H = 48;
@@ -146,8 +152,9 @@ function drawNinja(ctx, P, nin, now) {
   const sash = "#f2c230"; // school-bus yellow sash
   const band = "#d0312d";
   const skin = "#e8b48a";
-  if (nin.mode === "throne") {
-    const t = now % 1800;
+  if (nin.mode === "throne" || nin.mode === "seat") {
+    // "seat": sitting on an arcade cabinet's stool before a game opens (fix 38); no rock punch there
+    const t = nin.mode === "throne" ? now % 1800 : 0;
     const wind = t > 800 && t < 1000;
     const punch = t >= 1000 && t < 1250;
     oy += 2;
@@ -301,7 +308,7 @@ const part = {
     const nin = town && town.world && town.world.busNinja;
     const out = [];
     if (nin) out.push({ reserve: [nin.x * 16 - 6, nin.y * 16 - 24, nin.x * 16 + 22, nin.y * 16 + 16] });
-    if (nin) out.push({ kind: "busninja", x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
+    if (nin && !nin.hidden) out.push({ kind: "busninja", x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
     return out.concat([{ kind: "vaultdoor", x: (VAULT_DOOR.x + VAULT_DOOR.w / 2) * 16, y: (VAULT_DOOR.y + 1) * 16 + 8, text: "Vault door", accent: "#ffd34d", textColor: vaultDoorTextColor(performance.now()), bg: "rgba(42,32,8,0.94)" }]);
   },
   place(ctx) {
