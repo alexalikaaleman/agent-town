@@ -99,12 +99,25 @@ let ninSil = null;
 function drawNinjaBig(ctx, P, nin, now) {
   // fix 38: he vanishes in the smoke cloud; not drawn while it plays or after it, until he reappears
   if (nin.hidden) {
+    const dh = (window.AgentTown.debug = window.AgentTown.debug || {});
+    if (dh.ninjaDraws) dh.ninjaDraws.hidden = (dh.ninjaDraws.hidden || 0) + 1;
     nin.lastHiddenFrame = now;
     return false;
   }
   nin.lastDrawn = now;
   const spr = window.AgentTown.art ? window.AgentTown.art.get("bus-ninja") : null;
-  if (spr && spr.ok) return drawNinjaSprite(ctx, P, nin, now, spr.bitmap);
+  const cnt = ((window.AgentTown.debug = window.AgentTown.debug || {}).ninjaDraws = window.AgentTown.debug.ninjaDraws || { sprite: 0, code: 0, lastCodeState: null });
+  if (spr && spr.ok) {
+    cnt.sprite++;
+    return drawNinjaSprite(ctx, P, nin, now, spr.bitmap);
+  }
+  // the code-drawn ninja is only the load-failure fallback: while the sheet is still loading he is not drawn
+  if (spr && spr.state === "loading") {
+    cnt.wait = (cnt.wait || 0) + 1;
+    return false;
+  }
+  cnt.code++;
+  cnt.lastCodeState = spr ? spr.state : "no-art";
   const T = P.TILE;
   const W = 64;
   const H = 48;
@@ -148,7 +161,8 @@ function drawNinjaBig(ctx, P, nin, now) {
 /** Bus Ninja sprite sheet (art/bus-ninja.png v4): 4x art, 192x160 frames, 4 cols x 6 rows, feet at (64,136).
  *  Rows: 0 throne loop (rest, wind-up, punch-a, punch-b toward +x), 1 seat, 2 walk s, 3 walk n, 4 walk e
  *  (mirrored for w), 5 stand s/n/e. Col 0 is the still frame. Drawn at 1x (48x40 world px) with the same
- *  gold outline; the code-drawn ninja below stays as the fallback until the sheet decodes. */
+ *  gold outline in every room (castle, vault, galleries, Wonkavator); nothing is drawn while the sheet loads and
+ *  the code-drawn ninja below is only the fallback when it fails (fail, wrong-size, missing, blocked). */
 const BN = { FW: 192, FH: 160, FX: 64, FY: 136, K: 4 };
 let bnSil = null;
 let bnSilSrc = null;
