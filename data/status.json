@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:28:43.024Z",
+  "updatedAt": "2026-11-03T11:29:09.758Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,16 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Testing live castle site",
+      "state": "needs-alex",
+      "text": "Vault fit: yes in GitWriter chat",
       "project": "Agent Town castle",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T11:25:30.731Z",
-      "since": "2026-11-03T11:25:30.731Z"
+      "needs": {
+        "id": "n202611031129-2fa2",
+        "kind": "urgent"
+      },
+      "ts": "2026-11-03T11:29:09.758Z",
+      "since": "2026-11-03T11:29:09.758Z"
     },
     "game-design-document-bot": {
       "state": "done",
