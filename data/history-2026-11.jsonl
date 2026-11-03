@@ -122,3 +122,4 @@
 {"ts":"2026-11-03T11:05:56.785Z","bot":"robotemplate","state":"done","text":"Castle live; next: Friday fix list","project":"Agent Town castle"}
 {"ts":"2026-11-03T11:07:53.836Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
 {"ts":"2026-11-03T11:10:14.862Z","bot":"robotemplate","needId":"n202611031110-7418","state":"needs-alex","text":"Castle art swap: tonight or Friday?","project":"Agent Town castle","needs":"question"}
+{"ts":"2026-11-03T11:11:06.367Z","bot":"playtest-qa-bot","state":"done","text":"Nightly check done; idle, nothing queued"}
