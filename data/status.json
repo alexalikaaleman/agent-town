@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:05:56.785Z",
+  "updatedAt": "2026-11-03T11:07:53.836Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -88,13 +88,13 @@
       "since": "2026-11-02T10:52:17.647Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "Changelog check done; idle, nothing que…",
+      "state": "working",
+      "text": "Nightly changelog check",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T11:06:01.766Z",
-      "since": "2026-11-02T11:06:01.766Z"
+      "ts": "2026-11-03T11:07:53.836Z",
+      "since": "2026-11-03T11:07:53.836Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
