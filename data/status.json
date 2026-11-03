@@ -1,22 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:07:31.808Z",
+  "updatedAt": "2026-11-03T12:07:43.779Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "needs-alex",
-      "text": "OK to push vault-door hint text?",
+      "state": "done",
+      "text": "Ninja fix live; next: hint push",
       "project": "Agent Town",
       "with": [],
       "needs": {
         "id": "n202611031157-c858",
         "kind": "question"
       },
-      "ts": "2026-11-03T11:57:22.724Z",
-      "since": "2026-11-03T11:57:22.724Z"
+      "ts": "2026-11-03T12:07:43.779Z",
+      "since": "2026-11-03T12:07:43.779Z"
     },
     "masterbot": {
       "state": "done",
