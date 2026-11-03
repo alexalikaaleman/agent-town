@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:26:26.840Z",
+  "updatedAt": "2026-11-03T12:40:01.186Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -311,6 +311,16 @@
       "ts": "2026-11-03T12:17:59.647Z",
       "handled": true,
       "handledAt": "2026-11-03T12:25:51.093Z"
+    },
+    {
+      "id": "n202611031240-c7f5",
+      "bot": "gitwriter-3d-bot",
+      "kind": "question",
+      "text": "Cap raise for chip follow?",
+      "project": "Agent Town",
+      "ts": "2026-11-03T12:40:01.186Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
