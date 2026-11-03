@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:10:14.862Z",
+  "updatedAt": "2026-11-03T11:12:24.378Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -139,8 +139,8 @@
       "text": "Castle art swap: tonight or Friday?",
       "project": "Agent Town castle",
       "ts": "2026-11-03T11:10:14.862Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T11:12:24.378Z"
     }
   ]
 }

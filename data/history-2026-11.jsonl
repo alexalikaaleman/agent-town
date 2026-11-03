@@ -124,3 +124,4 @@
 {"ts":"2026-11-03T11:10:14.862Z","bot":"robotemplate","needId":"n202611031110-7418","state":"needs-alex","text":"Castle art swap: tonight or Friday?","project":"Agent Town castle","needs":"question"}
 {"ts":"2026-11-03T11:11:06.367Z","bot":"playtest-qa-bot","state":"done","text":"Nightly check done; idle, nothing queued"}
 {"ts":"2026-11-03T11:12:12.410Z","bot":"gitwriter-3d-bot","state":"working","text":"Castle room art, then map swap","project":"Agent Town"}
+{"ts":"2026-11-03T11:12:24.378Z","bot":"robotemplate","handled":"n202611031110-7418"}
