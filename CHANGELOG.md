@@ -40,3 +40,4 @@
 2026-11-03, the tap that closes the welcome message no longer clicks the castle underneath. Why: a first tap shouldn't open a bot or the vault by accident.
 2026-11-03, welcome message moved up and intro text enlarged. Why: Alex wants the message higher and the intro easier to read.
 2026-11-03, welcome intro text now solid white with a dark shadow; the title keeps flashing rainbow. Why: Alex asked for white body text with the rainbow title.
+2026-11-03, welcome intro: "vault door" and "wonkavator" now gold (#ffd34d, same as the play hint); the rest stays white and the title stays rainbow. Why: Alex asked for those words in gold.
