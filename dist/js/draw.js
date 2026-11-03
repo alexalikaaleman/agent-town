@@ -442,7 +442,12 @@ function drawMap(ctx, world) {
   } else for (let y = 0; y < world.h; y++) for (let x = 0; x < world.w; x++) drawTile(ctx, world, x, y);
   // the castle plate paints the lab tables, workshop props, beds, carpet, rock, moat and medic tent itself
   const castlePlate = !!(plate && plate.ok && world.castle);
-  for (const p of world.parts) if (p.drawStatic && !(plate && plate.ok && (p.plateSkip || castlePlate))) p.drawStatic(ctx, world, PIX);
+  // on the castle plate only plate-aware parts draw, and only what the plate lacks (vault door, throne, dais, ...)
+  for (const p of world.parts) {
+    if (!p.drawStatic || (plate && plate.ok && p.plateSkip)) continue;
+    if (castlePlate && !p.plateAware) continue;
+    p.drawStatic(ctx, world, PIX, castlePlate);
+  }
   if (!castlePlate) for (const b of world.buildings) {
     const by = b.y + b.h;
     if (by < world.h) fill(ctx, b.x * TILE, by * TILE, b.w * TILE, 3, "rgba(0,0,0,0.2)");

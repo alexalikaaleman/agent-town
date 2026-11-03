@@ -343,15 +343,18 @@ const part = {
   update(town, dt) {
     stepNinja(town.world.busNinja, dt);
   },
-  drawStatic(ctx, world, P) {
+  plateAware: true,
+  drawStatic(ctx, world, P, onPlate) {
     const T = P.TILE;
-    // red carpet with gold edges
+    // red carpet with gold edges (painted on the castle plate)
     const cx = CARPET.x0 * T;
+    if (!onPlate) {
     for (let y = CARPET.y0 * T; y < (CARPET.y1 + 1) * T; y++) {
       P.fill(ctx, cx + 2, y, 2 * T - 4, 1, y % 8 < 1 ? "#9c1f26" : "#c22b33");
     }
     P.fill(ctx, cx + 2, CARPET.y0 * T, 2, (CARPET.y1 - CARPET.y0 + 1) * T, "#e0b84a");
     P.fill(ctx, cx + 2 * T - 4, CARPET.y0 * T, 2, (CARPET.y1 - CARPET.y0 + 1) * T, "#e0b84a");
+    }
     // dais
     P.fill(ctx, 25 * T, (17 + DY) * T, 6 * T, 2 * T + 6, "#7d6a4c");
     P.fill(ctx, 25 * T, (19 + DY) * T + 2, 6 * T, 4, "#5c4c34");
@@ -365,13 +368,15 @@ const part = {
     P.fill(ctx, tx + 2, ty + 20, 2 * T - 10, 6, "#a3202a");
     P.fill(ctx, tx + 9, ty - 4, 8, 4, "#d9a63a");
     P.fill(ctx, tx + 12, ty - 6, 2, 2, "#ff5a5a");
-    // the rock Bus Ninja punches
+    // the rock Bus Ninja punches (painted on the castle plate)
+    if (!onPlate) {
     const rx = 30 * T;
     const ry = (18 + DY) * T;
     P.fill(ctx, rx + 1, ry + 4, 14, 11, "#4e4b55");
     P.fill(ctx, rx + 3, ry + 2, 10, 3, "#6b6873");
     P.fill(ctx, rx + 3, ry + 5, 4, 2, "#8a8791");
     P.fill(ctx, rx + 9, ry + 9, 3, 1, "#2f2d35");
+    }
     drawVaultDoor(ctx, P);
     // pillars, banners, torches
     for (const [x, y] of PILLARS) {

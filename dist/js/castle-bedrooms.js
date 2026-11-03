@@ -48,12 +48,15 @@ const part = {
       }
     });
   },
-  drawStatic(ctx, world, P) {
+  plateAware: true,
+  drawStatic(ctx, world, P, onPlate) {
     const T = P.TILE;
     for (const r of ROOMS) {
-      // Rug, window with moon, nightstands.
+      // Rug, window with moon, nightstands (on the castle plate only the moon window draws).
+      if (!onPlate) {
       P.fill(ctx, (r.x + 4) * T + 4, (r.y + 4) * T + 4, 5 * T - 8, 1 * T, "#7b3b5e");
       P.fill(ctx, (r.x + 4) * T + 6, (r.y + 4) * T + 6, 5 * T - 12, T - 4, "#9c4d74");
+      }
       const wx = (r.x + r.w / 2 - 1) * T;
       P.fill(ctx, wx, r.y * T + 3, 2 * T, 10, "#1a1d3d");
       P.fill(ctx, wx + 1, r.y * T + 4, 2 * T - 2, 8, "#273066");
@@ -62,6 +65,7 @@ const part = {
       P.fill(ctx, wx + 13, r.y * T + 9, 1, 1, "#fff");
       P.fill(ctx, wx + 15, r.y * T + 3, 1, 10, "#2c2b4d");
     }
+    if (onPlate) return; // the plate paints the beds
     const frames = new Map();
     for (const b of world.beds) frames.set(b.frame.x + "," + b.frame.y, b.frame);
     for (const f of frames.values()) {

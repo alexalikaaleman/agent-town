@@ -144,7 +144,8 @@ const late = {
     }
     return false;
   },
-  drawStatic(ctx, world, P) {
+  plateAware: true,
+  drawStatic(ctx, world, P, onPlate) {
     const T = P.TILE;
     // drawbridge chains from the gate posts to the far end of the bridge
     const [bx0, bx1] = world.castle.bridgeX;
@@ -152,6 +153,7 @@ const late = {
     for (const [x0, x1] of [[bx0 * T + 2, bx0 * T + 1], [(bx1 + 1) * T - 3, (bx1 + 1) * T - 2]]) {
       for (let i = 0; i < 14; i++) P.fill(ctx, x0 + (x1 - x0) * (i / 14), gy + 6 + i * 4.4, 2, 2, i % 2 ? "#9aa3ad" : "#c5ccd4");
     }
+    if (onPlate) return; // the plate paints the bridge, the medic tent and the cots
     P.fill(ctx, bx0 * T, 38 * T + 12, (bx1 - bx0 + 1) * T, 4, "#5a3518");
     // tent canvas stripes and a green leaf sign (not a red cross emblem)
     const tx = TENT.x * T;
