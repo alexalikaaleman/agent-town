@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:44:40.912Z",
+  "updatedAt": "2026-11-03T12:45:15.381Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "Chip follow live; next: Friday fixes",
+      "state": "needs-alex",
+      "text": "OK to push chip camera follow?",
       "project": "Agent Town",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T12:44:40.912Z",
-      "since": "2026-11-03T12:44:40.912Z"
+      "needs": {
+        "id": "n202611031245-23f1",
+        "kind": "question"
+      },
+      "ts": "2026-11-03T12:45:15.381Z",
+      "since": "2026-11-03T12:45:15.381Z"
     },
     "masterbot": {
       "state": "done",
