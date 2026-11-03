@@ -104,3 +104,4 @@
 {"ts":"2026-11-03T07:30:26.967Z","bot":"robotemplate","state":"done","text":"Autotour review done; next: W1","project":"Agent Town castle"}
 {"ts":"2026-11-03T08:21:13.607Z","bot":"robotemplate","state":"working","text":"Review Wonkavator W1","project":"Agent Town castle"}
 {"ts":"2026-11-03T08:26:41.571Z","bot":"robotemplate","state":"done","text":"W1 review done; next: review W2","project":"Agent Town castle"}
+{"ts":"2026-11-03T09:50:37.345Z","bot":"robotemplate","needId":"n202611030950-f6be","state":"needs-alex","text":"Speed-up choice for castle batch","project":"Agent Town castle","needs":"question"}

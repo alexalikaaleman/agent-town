@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T03:22:21.182Z",
+  "updatedAt": "2026-11-03T09:50:37.345Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -81,6 +81,16 @@
       "ts": "2026-11-03T03:17:26.660Z",
       "handled": true,
       "handledAt": "2026-11-03T03:22:21.182Z"
+    },
+    {
+      "id": "n202611030950-f6be",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Speed-up choice for castle batch",
+      "project": "Agent Town castle",
+      "ts": "2026-11-03T09:50:37.345Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
