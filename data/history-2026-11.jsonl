@@ -95,3 +95,4 @@
 {"ts":"2026-11-03T03:33:10.318Z","bot":"masterbot","state":"working","text":"Needs-Alex rule for all bots"}
 {"ts":"2026-11-03T03:45:55.512Z","bot":"masterbot","state":"done","text":"Needs-Alex rule done; idle, nothing que…"}
 {"ts":"2026-11-03T05:04:11.070Z","bot":"robotemplate","state":"working","text":"Review castle fixes 39-41","project":"Agent Town castle"}
+{"ts":"2026-11-03T05:32:34.035Z","bot":"robotemplate","state":"done","text":"39-41 review done; next: review 36b","project":"Agent Town castle"}
