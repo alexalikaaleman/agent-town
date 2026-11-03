@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T12:15:29.047Z",
+  "updatedAt": "2026-11-03T12:15:52.590Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,12 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "Yes for Wonkavator label push",
+      "text": "Yes for welcome fix push",
       "project": "Agent Town castle",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T12:12:44.592Z",
-      "since": "2026-11-03T12:12:44.592Z"
+      "needs": {
+        "id": "n202611031215-f6fc",
+        "kind": "question"
+      },
+      "ts": "2026-11-03T12:15:52.590Z",
+      "since": "2026-11-03T12:15:52.590Z"
     },
     "game-design-document-bot": {
       "state": "done",
