@@ -32,6 +32,7 @@ let town = null;
 let mode = "loading";
 let dpr = 1;
 let mapCanvas = null;
+let mapBuilds = 0;
 let mapKey = "";
 let lastHud = "";
 let lastClock = "";
@@ -209,6 +210,7 @@ function ensureMap() {
   drawMap(octx, cur());
   mapCanvas = off;
   mapKey = key;
+  mapBuilds++; // fix moat: the ripple never rebuilds the map
 }
 
 new ResizeObserver(resize).observe(stage);
@@ -1237,6 +1239,13 @@ window.AgentTown.debug = {
   },
   get vaultWorld() {
     return vworld;
+  },
+  get ripple() {
+    const r = window.AgentTown.rippleDebug || {};
+    return { draws: r.draws || 0, frame: r.frame || 0, lastFrameDraws: r.lastFrameDraws || 0, ok: !!r.ok };
+  },
+  get mapBuilds() {
+    return mapBuilds;
   },
   enterVault: () => sceneUi.enterVault(),
   leaveVault: () => sceneUi.leaveVault(),

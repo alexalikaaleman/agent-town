@@ -35,6 +35,8 @@ function buildHash() {
   for (const name of fs.readdirSync(path.join(ROOT, "js")).sort()) if (name.endsWith(".js")) add(path.join(ROOT, "js", name));
   add(path.join(ROOT, "data", "bots.json"));
   add(path.join(ROOT, "data", "cabinets.json"));
+  const art = path.join(ROOT, "art");
+  if (fs.existsSync(art)) for (const name of fs.readdirSync(art).sort()) add(path.join(art, name));
   return h.digest("hex").slice(0, 10);
 }
 
@@ -58,6 +60,8 @@ function build(out) {
   // Arcade cabinet list for the treasure vault (titles and grok.me game names only).
   const cabinets = path.join(ROOT, "data", "cabinets.json");
   if (fs.existsSync(cabinets)) copyFile(cabinets, path.join(out, "data", "cabinets.json"));
+  // fix moat: the moat ripple art
+  copyFile(path.join(ROOT, "art", "moat-ripple.png"), path.join(out, "art", "moat-ripple.png"));
 }
 
 /** Approved chest links: the driveFolderUrl values in data/bots.json. */
@@ -67,12 +71,31 @@ function approvedLinks() {
   return new Set(list.map((b) => b && b.driveFolderUrl).filter(Boolean));
 }
 
+/** PNG chunk types tEXt/iTXt/zTXt found in a PNG buffer (a non-PNG counts as one problem). */
+function pngTextChunks(buf) {
+  const sig = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+  if (buf.length < 8 || !buf.subarray(0, 8).equals(sig)) return ["not-a-png"];
+  const out = [];
+  for (let i = 8; i + 8 <= buf.length; ) {
+    const n = buf.readUInt32BE(i);
+    const t = buf.toString("latin1", i + 4, i + 8);
+    if (t === "tEXt" || t === "iTXt" || t === "zTXt") out.push(t);
+    i += 12 + n;
+  }
+  return out;
+}
+
 function leakCheck(dir) {
   const approved = approvedLinks();
   const problems = [];
   for (const file of walk(dir)) {
-    let text = fs.readFileSync(file, "utf8");
     const rel = path.relative(ROOT, file);
+    if (file.endsWith(".png")) {
+      // fix moat: images skip the text regexes, but may carry no text chunks at all
+      if (pngTextChunks(fs.readFileSync(file)).length) problems.push(rel + ": PNG text chunk");
+      continue;
+    }
+    let text = fs.readFileSync(file, "utf8");
     if (rel.endsWith(path.join("data", "bots.json"))) {
       const data = JSON.parse(text);
       for (const b of Array.isArray(data) ? data : data.bots || []) {
@@ -108,4 +131,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { leakCheck, approvedLinks, buildHash };
+module.exports = { leakCheck, approvedLinks, buildHash, pngTextChunks };

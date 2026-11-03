@@ -13,3 +13,4 @@
 2026-11-02 Castle fix 40: active arcade games ask "Play <name>?" (Yes/No) before Bus Ninja walks; coming-soon games stay inert. Why: Alex wants a clear confirm before the page leaves for the game, readable on phone and in Tesla.
 2026-11-02 Castle fix 41: gold "Click the throne room to play Alex's games!" hint left of the zoom buttons, castle view only. Why: Alex wants visitors to know the games live behind the throne room.
 2026-11-02 Castle fix 36b: 2nd call spot moved off the rock (30,9) to floor (29,9); lab chest stops no longer land on tables; test that every placement spot is floor and reachable. Why: RoboTemplate's review found a caller popping in half on the rock; the new test stops any spot from landing on a solid tile again.
+2026-11-02 Castle fix moat: moat water ripples (moat-ripple v1 overlay, 150 ms, calm under reduced motion). Why: Alex wanted the moat water animated (approved 4:39 PM HST).

@@ -317,6 +317,20 @@ function clampRect(left, top, w, h) {
 
 
 // ---------- castle tiles (original pixel art, FF6-like palette) ----------
+// fix moat: Concept Art Bot's moat-ripple v1 (4 frames of 64x128 = 1x2 tiles), drawn per frame over the cached map
+const RIPPLE = { img: null, ok: false, FRAME_MS: 150, W: 64, H: 128, N: 4 };
+const dbgRipple = { draws: 0, frame: 0, lastFrameDraws: 0, get ok() { return RIPPLE.ok; } };
+(function loadRipple() {
+  if (typeof Image === "undefined") return;
+  const img = new Image();
+  img.src = "art/moat-ripple.png";
+  if (!img.decode) return;
+  img.decode().then(() => {
+    RIPPLE.ok = img.naturalWidth === 256 && img.naturalHeight === 128;
+    RIPPLE.img = img;
+  }).catch(() => {});
+})();
+
 const PAL = {
   grass: ["#4f8a3c", "#5d9a45", "#3f7431"],
   dirt: ["#9c7a4a", "#8a6a3e", "#b08a56"],
@@ -540,11 +554,31 @@ const PIX = { fill, blob, shade, glyph, drawPerson, styleFor, drawBubble, bubble
 function drawScene(ctx, town, world, now, phase) {
   sceneW = world.w * TILE;
   sceneH = world.h * TILE;
-  for (let x = 0; x < world.w; x++) {
-    for (const my of world.castle.moatY) {
-      if (world.ground[my][x] !== "water") continue;
-      const gx = x * TILE + 2 + ((Math.floor(now / 200) + x * 3) % 11);
-      fill(ctx, gx, my * TILE + 6 + ((x + my) % 2) * 5, 3, 1, "rgba(255,255,255,0.7)");
+  const rm = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (RIPPLE.ok) {
+    const f = rm ? 0 : Math.floor(now / RIPPLE.FRAME_MS) % RIPPLE.N;
+    const y0 = world.castle.moatY[0];
+    const smooth = ctx.imageSmoothingEnabled;
+    ctx.imageSmoothingEnabled = false;
+    let draws = 0;
+    for (let x = 0; x < world.w; x++) {
+      if (world.ground[y0][x] !== "water" || world.ground[y0 + 1][x] !== "water") continue;
+      ctx.drawImage(RIPPLE.img, f * RIPPLE.W, 0, RIPPLE.W, RIPPLE.H, x * TILE, y0 * TILE, TILE, TILE * 2);
+      draws++;
+    }
+    ctx.imageSmoothingEnabled = smooth;
+    dbgRipple.draws += draws;
+    dbgRipple.lastFrameDraws = draws;
+    dbgRipple.frame = f;
+  } else {
+    // the old glint loop (load-failure safety net); under reduced motion the phase is fixed so nothing moves
+    const ph = rm ? 0 : Math.floor(now / 200);
+    for (let x = 0; x < world.w; x++) {
+      for (const my of world.castle.moatY) {
+        if (world.ground[my][x] !== "water") continue;
+        const gx = x * TILE + 2 + ((ph + x * 3) % 11);
+        fill(ctx, gx, my * TILE + 6 + ((x + my) % 2) * 5, 3, 1, "rgba(255,255,255,0.7)");
+      }
     }
   }
   for (const p of world.parts) if (p.drawUnder) p.drawUnder(ctx, town, world, now, PIX);
@@ -564,6 +598,7 @@ Object.assign(window.AgentTown, {
   drawMap,
   drawScene,
   PIX,
+  rippleDebug: dbgRipple,
   shortName: (agent) => SHORT[agent.id] || String(agent.name || agent.id).slice(0, 12),
 });
 })();
