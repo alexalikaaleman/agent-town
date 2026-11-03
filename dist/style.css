@@ -660,3 +660,10 @@ body.list-view #all-bots { display: none !important; }
   #play-hint { left: 8px; right: auto; bottom: 8px; max-width: calc(50vw - 47vh + 70px); text-align: left; }
 }
 body.in-vault #play-hint, body.not-castle #play-hint, body.list-view #play-hint { display: none; }
+
+/* Welcome overlay (pure DOM, never pauses the game loop) */
+#welcome-overlay { position: fixed; inset: 0; z-index: 2147483000; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.82); overflow: hidden; box-sizing: border-box; padding: 2vh 3vw; cursor: pointer; }
+#welcome-overlay .wo-inner { max-width: 94vw; max-height: 96vh; text-align: center; font-family: system-ui, sans-serif; font-weight: 900; animation: wo-rainbow 2s linear infinite; }
+#welcome-overlay .wo-title { margin: 0; font-size: clamp(18px, min(6vw, 10vh), 72px); line-height: 1.1; }
+#welcome-overlay .wo-text { margin: 1.1em 0 0; font-size: clamp(11px, min(2.6vw, 4.6vh), 34px); line-height: 1.25; }
+@keyframes wo-rainbow { 0% { color: #ff3b3b; } 17% { color: #ff9f1a; } 33% { color: #ffe81a; } 50% { color: #3bff5a; } 67% { color: #3bc8ff; } 83% { color: #b45bff; } 100% { color: #ff3b3b; } }
