@@ -12,7 +12,7 @@ const MENU = { vault: ["gallery", "music", "etsy", "back"], gallery: ["music", "
 const LABELS = { gallery: "Art Gallery", music: "Music Gallery", etsy: "Etsy Shop", vault: "Treasure Vault", back: "Back" };
 const ETSY_URL = ""; // filled only from Alex later; while empty the Etsy item is gray, "coming soon" and inert (fix 39 rule)
 const W = { room: "vault", state: "S0", t0: 0, token: 0, cancelPending: false, from: null, legs: null, closeCol: 5, glintAt: 0, ui: null };
-const LOAD_MS = 700; // the puff length (castle-vault PUFF_MS)
+const LOAD_MS = 700; // how long the black "Loading..." cover shows before the room switch
 const dbg = () => {
   const d = (AT.debug = AT.debug || {});
   if (!d.wonka) d.wonka = { log: [], ignoredTaps: 0, inertTaps: 0 };
@@ -141,6 +141,19 @@ function startTrip(target) {
   if (nin) nin.hidden = true;
   go("S6");
 }
+function loadScreen(on) {
+  let el = document.getElementById("wonka-load");
+  if (!el && on) {
+    el = document.createElement("div");
+    el.id = "wonka-load";
+    el.setAttribute("role", "status");
+    el.textContent = "Loading...";
+    el.style.cssText = "position:fixed;inset:0;z-index:9999;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font:600 22px system-ui,sans-serif;";
+    document.body.appendChild(el);
+  }
+  if (el) el.hidden = !on;
+  if (el) el.style.display = on ? "flex" : "none";
+}
 function switched() {
   W.room = W.target;
   W.switching = false;
@@ -155,6 +168,8 @@ function switched() {
     nin.hidden = true;
     nin.puff = 0;
   }
+  // the camera snaps while covered (camTarget is the car), then the cover hides and the landing plays
+  setTimeout(() => loadScreen(false), 60);
   go("S10"); // landing (row 4) in the new room; the camera is already still on the car
 }
 
@@ -176,6 +191,7 @@ function cancel() {
 /** Scene left (Exit / Back to castle) mid-job: drop it, no errors, S0. */
 function reset() {
   if (W.state === "S0" || W.state === "S8") return; // S8 is our own scene switch
+  loadScreen(false);
   W.token++;
   if (W.state === "S5" && AT.confirmBox && AT.confirmBox.isOpen()) AT.confirmBox.close(null);
   const nin = ninja();
@@ -230,14 +246,18 @@ function tick(now) {
       }
       break;
     case "S6":
-      if (el >= anim("takeoff").ms * 6) {
-        // tonight's trip: no portal/swallow rows; a short load screen = the smoke puff + the scene fade
+      if (el >= anim("takeoff").ms * 6) go("S7s", W.t0 + anim("takeoff").ms * 6);
+      break;
+    case "S7s":
+      // the portal opens, swallows the car and closes (row 5), in place with the camera still
+      if (el >= anim("swallow").ms * 6) {
+        // then the load screen: a plain black cover with "Loading..." while the room switches
         if (nin) {
           nin.x = CAR.cabin.x;
           nin.y = CAR.cabin.y;
-          nin.puff = now + LOAD_MS;
         }
-        go("S7", W.t0 + anim("takeoff").ms * 6);
+        loadScreen(true);
+        go("S7", W.t0 + anim("swallow").ms * 6);
       }
       break;
     case "S7":
@@ -321,9 +341,11 @@ function frame(now) {
       return pick("open", 5 - W.closeCol);
     case "S6":
       return Object.assign(pick("takeoff"), { trip: true });
+    case "S7s":
+      return Object.assign(pick("swallow"), { trip: true });
     case "S7":
     case "S8":
-      return { anim: "takeoff", row: anim("takeoff").row, col: 5, t: 1, trip: true };
+      return { anim: "swallow", row: anim("swallow").row, col: 5, t: 1, trip: true };
     case "S10":
       return Object.assign(pick("landing"), { trip: true });
     case "S11":
@@ -353,7 +375,7 @@ function frame(now) {
 /** Camera target while locked: the ninja in S1, the cabin centre afterwards. null when unlocked. */
 function camTarget() {
   if (W.state === "S0") return null;
-  if (["S6", "S7", "S8", "S10"].includes(W.state)) return { x: 632, y: 120 };
+  if (["S6", "S7s", "S7", "S8", "S10"].includes(W.state)) return { x: 632, y: 120 };
   if (W.state === "S1") {
     const nin = ninja();
     if (nin) return { x: nin.x * 16 + 8, y: nin.y * 16 + 8 };
@@ -377,7 +399,7 @@ AT.wonka = {
   state: () => W.state,
   /** Ninja is inside the car (S3 end through S9 start): drawn behind the glass. */
   inside: () => ["S4", "S5", "S9", "S11"].includes(W.state) || (W.state === "S12a" && performance.now() - W.t0 < STEP_MS / 2) || (W.state === "S3" && performance.now() - W.t0 >= STEP_MS / 2) || (W.state === "S9b" && performance.now() - W.t0 < STEP_MS / 2),
-  hideLabel: () => ["S6", "S7", "S8", "S10"].includes(W.state),
+  hideLabel: () => ["S6", "S7s", "S7", "S8", "S10"].includes(W.state),
   room: () => W.room,
 };
 dbg();
