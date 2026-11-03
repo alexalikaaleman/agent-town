@@ -667,4 +667,5 @@ body.in-vault #play-hint, body.not-castle #play-hint, body.list-view #play-hint 
 #welcome-overlay .wo-title { margin: 0; animation: wo-rainbow 2s linear infinite; font-size: clamp(18px, min(6vw, 10vh), 72px); line-height: 1.1; }
 #welcome-overlay .wo-text { margin: 1.1em 0 0; color: #fff; animation: none; text-shadow: 0 0 3px #000, 0 0 6px #000, 2px 2px 0 #000, -1px -1px 0 #000; font-size: clamp(15px, min(3.64vw, 6.44vh), 48px); line-height: 1.25; }
 #welcome-overlay .wo-gold { color: #ffd34d; }
+#welcome-overlay .wo-blue { color: #4db8ff; }
 @keyframes wo-rainbow { 0% { color: #ff3b3b; } 17% { color: #ff9f1a; } 33% { color: #ffe81a; } 50% { color: #3bff5a; } 67% { color: #3bc8ff; } 83% { color: #b45bff; } 100% { color: #ff3b3b; } }
