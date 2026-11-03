@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T01:24:40.744Z",
+  "updatedAt": "2026-11-03T01:24:53.740Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -122,6 +122,15 @@
       "needs": null,
       "ts": "2026-11-03T00:00:09.259Z",
       "since": "2026-11-03T00:00:09.259Z"
+    },
+    "google-drive-manager": {
+      "state": "working",
+      "text": "Agent Town art folder",
+      "project": null,
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-03T01:24:53.740Z",
+      "since": "2026-11-03T01:24:53.740Z"
     }
   }
 }
