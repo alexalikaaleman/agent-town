@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:32:32.720Z",
+  "updatedAt": "2026-11-03T11:32:39.405Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "Vault view live; next: RT live test",
+      "state": "needs-alex",
+      "text": "Cap hit: OK to fix door+throne?",
       "project": "Agent Town",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T11:30:58.906Z",
-      "since": "2026-11-03T11:30:58.906Z"
+      "needs": {
+        "id": "n202611031132-c6e8",
+        "kind": "urgent"
+      },
+      "ts": "2026-11-03T11:32:39.405Z",
+      "since": "2026-11-03T11:32:39.405Z"
     },
     "masterbot": {
       "state": "done",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:32:32.720Z",
+  "updatedAt": "2026-11-03T11:32:39.405Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -169,6 +169,16 @@
       "text": "Door+throne: yes and cap for GitWriter",
       "project": "Agent Town castle",
       "ts": "2026-11-03T11:32:32.720Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611031132-c6e8",
+      "bot": "gitwriter-3d-bot",
+      "kind": "urgent",
+      "text": "Cap hit: OK to fix door+throne?",
+      "project": "Agent Town",
+      "ts": "2026-11-03T11:32:39.405Z",
       "handled": false,
       "handledAt": null
     }
