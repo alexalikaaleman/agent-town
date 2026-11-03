@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T00:00:09.259Z",
+  "updatedAt": "2026-11-03T01:13:27.064Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,13 +70,16 @@
       "since": "2026-11-02T07:51:09.091Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Dragon art round, stopped",
-      "project": "Dragon revamp",
+      "state": "needs-alex",
+      "text": "Castle art: OK past usage cap?",
+      "project": "Agent Town",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-02T07:35:54.533Z",
-      "since": "2026-11-02T07:35:54.533Z"
+      "needs": {
+        "id": "n202611030113-ec16",
+        "kind": "question"
+      },
+      "ts": "2026-11-03T01:13:27.064Z",
+      "since": "2026-11-03T01:13:27.064Z"
     },
     "garage-sale-bot": {
       "state": "done",
