@@ -190,6 +190,49 @@ function createRoomWorld(spec) {
   world.busNinja = kit ? kit.make(world, spec.ninjaAt[0], spec.ninjaAt[1]) : null;
   return world;
 }
+// W4/W5 core travel: the Art Gallery and the Music Gallery (design §2). Empty for now; no exit door,
+// the Wonkavator is the way in and out. He arrives at the apron (39,13).
+const ROOMS = {
+  gallery: Object.assign({}, ROOM, { id: "gallerymap", name: "Art Gallery", doors: [], wall: "#4a3a5e", wallDk: "#2e2440", floor: "#2f2a3a", floor2: "#2a2534", trim: "#e6c46a" }),
+  music: Object.assign({}, ROOM, { id: "musicmap", name: "Music Gallery", doors: [], wall: "#2e4a5a", wallDk: "#1c303c", floor: "#24323a", floor2: "#202c34", trim: "#7fd3ff" }),
+};
+const roomWorlds = {};
+function roomPart(id) {
+  const R0 = ROOMS[id];
+  return {
+    id: id + "map",
+    labels() {
+      const w = roomWorlds[id];
+      const nin = w && w.busNinja;
+      const out = [];
+      if (nin && !nin.hidden) out.push({ kind: "busninja", avoid: true, x: nin.x * 16 + 8, y: nin.y * 16 + 18, text: "Bus Ninja", accent: "#f2c230", bg: "rgba(29,31,43,0.94)" });
+      const wk = window.AgentTown.wonka;
+      if (!(wk && wk.hideLabel())) out.push({ kind: "wonka", at: [632, 176], x: 632, y: 220, text: "Wonkavator", accent: "#ffd34d", bg: "rgba(40,30,8,0.92)" });
+      return out;
+    },
+    hit(town, wx, wy, ui) {
+      const wk = window.AgentTown.wonka;
+      if (wk && wx >= 604 && wx <= 652 && wy >= 136 && wy <= 216) {
+        wk.tap(town, ui);
+        return true;
+      }
+      return false;
+    },
+    drawStatic(ctx, world, P) {
+      const T = P.TILE;
+      for (const [x, y] of [[1, 1], [VW - 2, 1], [1, VH - 4], [VW - 2, VH - 4]]) P.fill(ctx, x * T + 4, y * T + 5, 8, 6, R0.trim);
+    },
+    drawUnder(ctx, town, world, now, P) {
+      carAndNinja(ctx, world, now, P);
+    },
+  };
+}
+function createRoom(id) {
+  if (id === "vault") return vaultWorldRef || createVaultWorld();
+  if (!ROOMS[id]) return null;
+  if (!roomWorlds[id]) roomWorlds[id] = createRoomWorld({ room: ROOMS[id], w: VW, h: VH, solids: [], ninjaAt: [39, 13], parts: [roomPart(id)] });
+  return roomWorlds[id];
+}
 function createVaultWorld() {
   const world = createRoomWorld({ room: ROOM, w: VW, h: VH, solids: slots().map((s) => [s.x, s.y]), ninjaAt: [NINJA_HOME.x, NINJA_HOME.y], parts: [scene] });
   vaultWorldRef = world;
@@ -310,9 +353,17 @@ const scene = {
     const ss = slots();
     const lit = town.extras && town.extras.vaultLit;
     for (let i = 0; i < ss.length; i++) drawCabinet(ctx, P, CABS[i], ss[i], now, lit === i && now < (town.extras.vaultLitUntil || 0));
+    carAndNinja(ctx, world, now, P);
+  },
+};
+
+/** Bus Ninja and the Wonkavator, y-sorted (shared by the vault and the rooms). */
+function carAndNinja(ctx, world, now, P) {
+  {
     const nin = world.busNinja;
     const kit = window.AgentTown.ninjaKit;
     const wk = window.AgentTown.wonka;
+    const me0 = () => nin && kit && kit.draw(ctx, P, nin, now);
     if (nin && kit) {
       const dt = Math.min(0.05, Math.max(0, (now - (nin.lastStep || now)) / 1000));
       nin.lastStep = now;
@@ -320,6 +371,12 @@ const scene = {
     }
     if (wk) wk.tick(now);
     const f = wk ? wk.frame(now) : null;
+    // the trip (S6-S10): the flying car is drawn last, the ninja is hidden inside
+    if (f && f.trip) {
+      drawCar(ctx, P, f, false, false);
+      me0(); // hidden inside: only the load-screen puff shows
+      return;
+    }
     // W2 draw order (sort-y of the car = 208, the bottom of row 12): north of the car he is behind it;
     // inside the cabin (y9-12) the interior, then him, then the glass front; on the apron he is in front.
     const me = () => nin && kit && kit.draw(ctx, P, nin, now);
@@ -335,8 +392,8 @@ const scene = {
       drawCar(ctx, P, f, true);
       me();
     }
-  },
-};
+  }
+}
 
 /** W2: the Wonkavator. Painted sheet frame (wonkavator.png, 192x256 frames drawn as 48x64 at world (608,144));
  *  the interior back wall only while parked. Nothing while the art is still loading; code art if it failed. */
@@ -513,6 +570,9 @@ function enter(town, ui) {
 window.AgentTown.castleParts.push(part);
 part.createWorld = createVaultWorld;
 part.createRoomWorld = createRoomWorld;
+part.createRoom = createRoom;
+part.roomWorld = (id) => (id === "vault" ? vaultWorldRef : roomWorlds[id] || null);
+part.ROOMS = ROOMS;
 part.world = () => vaultWorldRef;
 part.launching = () => !!launching;
 part.enter = enter;

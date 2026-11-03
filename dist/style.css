@@ -602,6 +602,7 @@ body.list-view #chiprow { display: none !important; }
   color: #ffd34d;
   text-align: center;
 }
+#vault-back[aria-disabled="true"] { opacity: 0.5; cursor: default; }
 #confirm-box::backdrop { background: rgba(0, 0, 0, 0.55); }
 #confirm-box h2 {
   margin: 0 0 14px;
@@ -629,6 +630,9 @@ body.list-view #chiprow { display: none !important; }
 #confirm-box .confirm-buttons button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 #confirm-box .confirm-buttons button:disabled,
 #confirm-box .confirm-buttons button[aria-disabled="true"] { color: #8a8a96; border-color: #8a8a96; cursor: default; }
+/* W3: the Wonkavator destination menu: big stacked full-width buttons (min 48 px) at every size */
+#confirm-box.confirm-menu .confirm-buttons { flex-direction: column; gap: 8px; }
+#confirm-box.confirm-menu .confirm-buttons button { width: 100%; min-height: 48px; padding: 6px 14px; }
 @media (max-width: 640px), (max-height: 499px) {
   #confirm-box .confirm-buttons { flex-direction: column; }
   #confirm-box .confirm-buttons button { width: 100%; }
@@ -664,4 +668,4 @@ body.list-view #chiprow { display: none !important; }
 @media (max-height: 499px) and (min-width: 641px) {
   #play-hint { left: 8px; right: auto; bottom: 8px; max-width: calc(50vw - 47vh + 70px); text-align: left; }
 }
-body.in-vault #play-hint, body.list-view #play-hint { display: none; }
+body.in-vault #play-hint, body.not-castle #play-hint, body.list-view #play-hint { display: none; }

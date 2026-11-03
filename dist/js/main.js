@@ -24,13 +24,16 @@ let world = createWorld([]);
 // Which map is shown: "castle" or "vault" (the vault is its own map, see js/castle-vault.js).
 let scene = "castle";
 let vworld = null;
+const rworlds = {}; // W4 core travel: the Art Gallery and the Music room, created on first visit
 function cur() {
-  return scene === "vault" && vworld ? vworld : world;
+  if (scene === "castle") return world;
+  if (scene === "vault") return vworld || world;
+  return rworlds[scene] || world;
 }
 /** W2: the Wonkavator holds the camera from the walk (S1) until it is parked again. */
 function camLocked() {
   const w = window.AgentTown.wonka;
-  return scene === "vault" && !!(w && w.locked());
+  return scene !== "castle" && !!(w && w.locked());
 }
 let roster = [];
 let town = null;
@@ -927,7 +930,7 @@ function endPointer(ev) {
   const dragged = pointer.drag;
   pointer = null;
   if (ev.type === "pointercancel" || dragged || !town) return;
-  if (scene === "vault") {
+  if (scene !== "castle") {
     if (confirmOpen()) return; // fix 40: nothing behind the open Play box reacts
     let vp = toWorld(ev.clientX, ev.clientY);
     // Titles draw on top: the title the viewer taps is the game they mean.
@@ -1222,7 +1225,7 @@ function drawScreenLabels(c) {
     }
   }
   debugInfo.partLabels = partLabels;
-  if (scene === "vault") {
+  if (scene !== "castle") {
     debugInfo.labels = 0;
     debugInfo.labelOverlaps = 0;
     debugInfo.boxes = placed.filter((b) => !b.reserve).map((b) => [b.left, b.top, b.left + b.w, b.top + b.h]);
@@ -1293,7 +1296,7 @@ let camEase = null;
 const wonkaBtn = document.getElementById("wonka-go");
 function wonkaCam(now) {
   const w = window.AgentTown.wonka;
-  if (!w || scene !== "vault") {
+  if (!w || scene === "castle") {
     camWasLocked = false;
     camEase = null;
     if (wonkaBtn && !wonkaBtn.hidden) wonkaBtn.hidden = true;
@@ -1336,17 +1339,22 @@ function wonkaCam(now) {
       resize();
     }
   }
+  const vb = document.getElementById("vault-back");
+  if (vb) {
+    const dis = !["S0", "S1"].includes(w.state());
+    if ((vb.getAttribute("aria-disabled") === "true") !== dis) vb.setAttribute("aria-disabled", dis ? "true" : "false");
+  }
   // phone: while the car is off-screen in the framed vault, the scene bar offers "Wonkavator ->"
   if (wonkaBtn) {
     const sx0 = (608 - camX) * zoom, sx1 = (656 - camX) * zoom, sy0 = (144 - camY) * zoom, sy1 = (208 - camY) * zoom;
     const off = sx1 <= 0 || sx0 >= viewW || sy1 <= 0 || sy0 >= viewH;
-    const show = framed && !camEase && off && w.state() === "S0";
+    const show = scene === "vault" && framed && !camEase && off && w.state() === "S0";
     if (wonkaBtn.hidden === show) wonkaBtn.hidden = !show;
   }
 }
 if (wonkaBtn) wonkaBtn.addEventListener("click", () => {
   const w = window.AgentTown.wonka;
-  if (w && town && scene === "vault") w.tap(town, sceneUi);
+  if (w && town && scene !== "castle") w.tap(town, sceneUi);
 });
 
 function frame(now) {
@@ -1374,9 +1382,9 @@ function frame(now) {
   if (mapCanvas) ctx.drawImage(mapCanvas, 0, 0, worldW(), worldH());
   if (town) {
     town.screenNames = true;
-    if (scene === "vault") for (const p of vworld.parts) {
-      p.drawUnder(ctx, town, vworld, now, window.AgentTown.PIX);
-      if (p.drawOver) p.drawOver(ctx, town, vworld, now, window.AgentTown.PIX); // W2 hook (car layer, W4)
+    if (scene !== "castle") for (const p of cur().parts) {
+      p.drawUnder(ctx, town, cur(), now, window.AgentTown.PIX);
+      if (p.drawOver) p.drawOver(ctx, town, cur(), now, window.AgentTown.PIX); // W2 hook (car layer, W4)
     }
     else drawScene(ctx, town, world, now, honoluluParts().phase);
   }
@@ -1402,11 +1410,20 @@ function setScene(name, after) {
     camEase = null;
     scene = name;
     if (name === "vault" && !vworld) vworld = window.AgentTown.vault.createWorld();
-    document.body.classList.toggle("in-vault", name === "vault");
-    if (sceneBar) sceneBar.hidden = name !== "vault";
+    if (name !== "castle" && name !== "vault" && !rworlds[name]) rworlds[name] = window.AgentTown.vault.createRoom(name);
+    document.body.classList.toggle("in-vault", name !== "castle");
+    document.body.classList.toggle("not-castle", name !== "castle"); // W4: hides #play-hint whenever scene !== 'castle'
+    if (sceneBar) {
+      sceneBar.hidden = name === "castle";
+      const rn = name === "vault" ? "Treasure Vault" : (window.AgentTown.vault.ROOMS[name] || {}).name;
+      const sp = sceneBar.querySelector("span");
+      if (sp && rn) sp.textContent = rn;
+      const bb = document.getElementById("vault-back");
+      if (bb) bb.textContent = name === "vault" ? "\u2190 Back to castle" : "\u2190 Back to vault";
+    }
     // Auto-collapse Needs in the vault so short laptop windows keep full cabinet titles;
     // restore the previous open/closed state when going Back to castle.
-    if (name === "vault") {
+    if (name !== "castle") {
       if (needsSavedForVault == null) needsSavedForVault = needsOpen;
       needsOpen = false;
       lastHud = "";
@@ -1434,11 +1451,27 @@ const sceneUi = {
   leaveVault: (after) => setScene("castle", after),
   stopFollow: () => stopFollow(),
   tourStop: () => tour.stop("wonka"),
+  switchTo: (name, after) => setScene(name, after),
 };
 const backBtn = document.getElementById("vault-back");
-if (backBtn) backBtn.addEventListener("click", () => sceneUi.leaveVault());
+// W3: Exit/Back and Esc leave the vault only while the Wonkavator is parked or walking (S0/S1).
+// In S2+ the button is aria-disabled; Esc during the doors cancels the boarding instead (cancelPending / reverse).
+const wonkaState = () => (window.AgentTown.wonka ? window.AgentTown.wonka.state() : "S0");
+// In the rooms the button reads "Back to vault" and boards the Wonkavator (S1), the only way out.
+if (backBtn) backBtn.addEventListener("click", () => {
+  const s = wonkaState();
+  if (scene !== "vault" && scene !== "castle") {
+    if (s === "S0" && window.AgentTown.wonka && town) window.AgentTown.wonka.tap(town, sceneUi);
+    return;
+  }
+  if (s === "S0" || s === "S1") sceneUi.leaveVault();
+});
 window.addEventListener("keydown", (ev) => {
-  if (ev.key === "Escape" && scene === "vault" && !confirmOpen()) sceneUi.leaveVault();
+  if (ev.key !== "Escape" || scene === "castle" || confirmOpen()) return;
+  const s = wonkaState();
+  if (s === "S0" || s === "S1") {
+    if (scene === "vault") sceneUi.leaveVault();
+  } else if (window.AgentTown.wonka) window.AgentTown.wonka.cancel();
 });
 
 function bootTown(list) {

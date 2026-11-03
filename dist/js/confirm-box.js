@@ -1,5 +1,6 @@
 /* Agent Town: reusable confirm box (fix 40).
- *  AgentTown.confirmBox.open({ title, buttons: [{ id, text, disabled?, sub? }], onChoose(id), cancelId })
+ *  AgentTown.confirmBox.open({ title, buttons: [{ id, text, disabled?, inert?, sub? }], onChoose(id), cancelId, menu?, onInert(id)? })
+ *  W3: inert = aria-disabled and gray; a tap only calls onInert (no choice, no close). menu = stacked full-width buttons.
  *  A native modal <dialog> (#confirm-box): one choice per open (double taps count once), Esc or a tap
  *  outside = cancelId, focus trapped inside, focus returned on close. Used by the vault arcade
  *  ("Play <game>?") and later by the Wonkavator menu and the Etsy confirm. */
@@ -86,6 +87,7 @@
     choosing = false;
     returnTo = document.activeElement;
     d.textContent = "";
+    d.classList.toggle("confirm-menu", !!opts.menu);
     const h = document.createElement("h2");
     h.id = "confirm-title";
     h.textContent = opts.title || "";
@@ -102,9 +104,14 @@
         btn.appendChild(s);
       }
       if (b.disabled) btn.disabled = true;
+      if (b.inert) btn.setAttribute("aria-disabled", "true");
       btn.addEventListener("click", (ev) => {
         ev.stopPropagation();
         if (staleClick(ev)) return;
+        if (b.inert) {
+          if (opts && typeof opts.onInert === "function") opts.onInert(b.id);
+          return;
+        }
         choose(b.id);
       });
       row.appendChild(btn);

@@ -7,7 +7,12 @@ const AT = (window.AgentTown = window.AgentTown || {});
 const CAR = { x: 38, y: 9, w: 3, h: 3, apron: { x: 39, y: 13 }, cabin: { x: 39, y: 12 }, anchor: [632, 208] };
 const WALK_GIVE_UP_MS = 15000; // same as the vault cabinet walk (castle-vault.js)
 const STEP_MS = Math.round(1000 / 7); // one tile at Bus Ninja's 7 tiles/s
+// W3: the destination menu (design §4). Data, so the no-dead-end test can walk it. The current room is absent.
+const MENU = { vault: ["gallery", "music", "etsy", "back"], gallery: ["music", "etsy", "vault", "back"], music: ["gallery", "etsy", "vault", "back"] };
+const LABELS = { gallery: "Art Gallery", music: "Music Gallery", etsy: "Etsy Shop", vault: "Treasure Vault", back: "Back" };
+const ETSY_URL = ""; // filled only from Alex later; while empty the Etsy item is gray, "coming soon" and inert (fix 39 rule)
 const W = { room: "vault", state: "S0", t0: 0, token: 0, cancelPending: false, from: null, legs: null, closeCol: 5, glintAt: 0, ui: null };
+const LOAD_MS = 700; // the puff length (castle-vault PUFF_MS)
 const dbg = () => {
   const d = (AT.debug = AT.debug || {});
   if (!d.wonka) d.wonka = { log: [], ignoredTaps: 0, inertTaps: 0 };
@@ -25,7 +30,7 @@ function go(state, now) {
   dbg().log.push({ s: state, t: Math.round(W.t0) });
 }
 function ninja() {
-  const vw = AT.vault && AT.vault.world && AT.vault.world();
+  const vw = AT.vault && (AT.vault.roomWorld ? AT.vault.roomWorld(W.room) : AT.vault.world());
   return vw ? vw.busNinja : null;
 }
 /** Release the camera and go back to S0 (same room). */
@@ -52,7 +57,7 @@ function tap(town, ui) {
   if (W.ui && W.ui.stopFollow) W.ui.stopFollow();
   if (W.ui && W.ui.tourStop) W.ui.tourStop();
   // the agreed L-path: (25,22), along y22 to (39,22), up x39 through the rope gap to the apron (39,13)
-  W.legs = [[25, 22], [39, 22], [CAR.apron.x, CAR.apron.y]];
+  W.legs = W.room === "vault" ? [[25, 22], [39, 22], [CAR.apron.x, CAR.apron.y]] : [[CAR.apron.x, CAR.apron.y]];
   const t0 = performance.now();
   const next = () => {
     if (me !== W.token || W.state !== "S1") return;
@@ -99,10 +104,80 @@ function cancelWalk() {
   return true;
 }
 
+/** S5: "Where do you wanna go?" in the fix-40 confirm box (stacked buttons, focus trap, Esc/outside = Back). */
+function openMenu() {
+  const d = dbg();
+  const box = AT.confirmBox;
+  const me = W.token;
+  const items = MENU[W.room] || MENU.vault;
+  d.menu = items.slice();
+  if (!box) {
+    go("S9");
+    return;
+  }
+  box.open({
+    title: "Where do you wanna go?",
+    menu: true,
+    buttons: items.map((id) => (id === "etsy" && !ETSY_URL ? { id, text: LABELS[id], sub: "coming soon", inert: true } : { id, text: LABELS[id] })),
+    cancelId: "back",
+    onInert() {
+      d.inertTaps++;
+    },
+    onChoose(id) {
+      if (me !== W.token || W.state !== "S5") return;
+      (d.choices = d.choices || []).push(id == null ? "back" : id);
+      // Back (or Esc / a tap outside) = Cancel: the door opens and he steps out (S9).
+      if (MENU[W.room].includes(id) && id !== "back" && id !== "etsy" && id !== W.room) return startTrip(id);
+      W.closeCol = 5;
+      go("S9");
+    },
+  });
+}
+
+/** S6: the trip to another room (core travel; the scene switch is the same setScene fade as the vault door). */
+function startTrip(target) {
+  W.target = target;
+  const nin = ninja();
+  if (nin) nin.hidden = true;
+  go("S6");
+}
+function switched() {
+  W.room = W.target;
+  W.switching = false;
+  const nin = ninja();
+  if (nin) {
+    nin.path = [];
+    nin.done = null;
+    nin.mode = "stand";
+    nin.facing = "s";
+    nin.x = CAR.cabin.x;
+    nin.y = CAR.cabin.y;
+    nin.hidden = true;
+    nin.puff = 0;
+  }
+  go("S10"); // landing (row 4) in the new room; the camera is already still on the car
+}
+
+/** Esc or Back while boarding: S1 cancels the walk; S2-S3 set cancelPending; S4 reverses the closing door now. */
+function cancel() {
+  if (W.state === "S1") return cancelWalk();
+  if (W.state === "S2" || W.state === "S3") {
+    W.cancelPending = true;
+    return true;
+  }
+  if (W.state === "S4") {
+    W.closeCol = Math.min(5, Math.floor((performance.now() - W.t0) / anim("close").ms));
+    go("S9");
+    return true;
+  }
+  return false;
+}
+
 /** Scene left (Exit / Back to castle) mid-job: drop it, no errors, S0. */
 function reset() {
-  if (W.state === "S0") return;
+  if (W.state === "S0" || W.state === "S8") return; // S8 is our own scene switch
   W.token++;
+  if (W.state === "S5" && AT.confirmBox && AT.confirmBox.isOpen()) AT.confirmBox.close(null);
   const nin = ninja();
   if (nin) {
     nin.done = null;
@@ -143,10 +218,63 @@ function tick(now) {
       break;
     case "S4":
       if (el >= close) {
-        // W2: the menu is not built yet (W3), so Cancel is the placeholder: straight to S9
         W.closeCol = 5;
-        go("S9", W.t0 + close);
+        if (W.cancelPending) {
+          // Esc/Back during S2-S3: the menu never shows; the door reopens and he steps out
+          W.cancelPending = false;
+          go("S9", W.t0 + close);
+        } else {
+          go("S5", W.t0 + close);
+          openMenu();
+        }
       }
+      break;
+    case "S6":
+      if (el >= anim("takeoff").ms * 6) {
+        // tonight's trip: no portal/swallow rows; a short load screen = the smoke puff + the scene fade
+        if (nin) {
+          nin.x = CAR.cabin.x;
+          nin.y = CAR.cabin.y;
+          nin.puff = now + LOAD_MS;
+        }
+        go("S7", W.t0 + anim("takeoff").ms * 6);
+      }
+      break;
+    case "S7":
+      if (el >= LOAD_MS - 150) {
+        go("S8", now);
+        W.switching = true;
+        if (W.ui && W.ui.switchTo) W.ui.switchTo(W.target, switched);
+        else switched();
+      }
+      break;
+    case "S8":
+      // safety: the switch never arrived (no UI); land anyway after 4 s
+      if (el >= 4000 && W.switching) switched();
+      break;
+    case "S10":
+      if (el >= anim("landing").ms * 6) {
+        if (nin) {
+          nin.hidden = false;
+          nin.x = CAR.cabin.x;
+          nin.y = CAR.cabin.y;
+          nin.facing = "s";
+        }
+        go("S11", W.t0 + anim("landing").ms * 6);
+      }
+      break;
+    case "S11":
+      if (el >= open) go("S12a", W.t0 + open);
+      break;
+    case "S12a":
+      if (nin) {
+        nin.facing = "s";
+        moveNinja(nin, CAR.cabin.y, CAR.apron.y, el / STEP_MS);
+      }
+      if (el >= STEP_MS) go("S12b", W.t0 + STEP_MS);
+      break;
+    case "S12b":
+      if (el >= close) park(W.t0 + close);
       break;
     case "S9": {
       // row 1 from col (5 - current close frame): a half-closed door reverses
@@ -191,6 +319,19 @@ function frame(now) {
       return pick("close");
     case "S9":
       return pick("open", 5 - W.closeCol);
+    case "S6":
+      return Object.assign(pick("takeoff"), { trip: true });
+    case "S7":
+    case "S8":
+      return { anim: "takeoff", row: anim("takeoff").row, col: 5, t: 1, trip: true };
+    case "S10":
+      return Object.assign(pick("landing"), { trip: true });
+    case "S11":
+      return pick("open");
+    case "S12a":
+      return { anim: "open", row: anim("open").row, col: 5, t: 1 };
+    case "S12b":
+      return pick("close");
     case "S9b":
       return { anim: "open", row: anim("open").row, col: 5, t: 1 };
     case "S9c":
@@ -212,6 +353,7 @@ function frame(now) {
 /** Camera target while locked: the ninja in S1, the cabin centre afterwards. null when unlocked. */
 function camTarget() {
   if (W.state === "S0") return null;
+  if (["S6", "S7", "S8", "S10"].includes(W.state)) return { x: 632, y: 120 };
   if (W.state === "S1") {
     const nin = ninja();
     if (nin) return { x: nin.x * 16 + 8, y: nin.y * 16 + 8 };
@@ -226,13 +368,17 @@ AT.wonka = {
   frame,
   reset,
   cancelWalk,
+  cancel,
+  MENU,
+  LABELS,
   camTarget,
   busy: () => W.state !== "S0",
   locked: () => W.state !== "S0",
   state: () => W.state,
   /** Ninja is inside the car (S3 end through S9 start): drawn behind the glass. */
-  inside: () => ["S4", "S9"].includes(W.state) || (W.state === "S3" && performance.now() - W.t0 >= STEP_MS / 2) || (W.state === "S9b" && performance.now() - W.t0 < STEP_MS / 2),
-  hideLabel: () => false, // S6-S10 arrive in W4
+  inside: () => ["S4", "S5", "S9", "S11"].includes(W.state) || (W.state === "S12a" && performance.now() - W.t0 < STEP_MS / 2) || (W.state === "S3" && performance.now() - W.t0 >= STEP_MS / 2) || (W.state === "S9b" && performance.now() - W.t0 < STEP_MS / 2),
+  hideLabel: () => ["S6", "S7", "S8", "S10"].includes(W.state),
+  room: () => W.room,
 };
 dbg();
 })();
