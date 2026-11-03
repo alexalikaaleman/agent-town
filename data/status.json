@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:31:11.070Z",
+  "updatedAt": "2026-11-03T11:32:32.720Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,16 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Testing live vault view",
+      "state": "needs-alex",
+      "text": "Door+throne: yes and cap for GitWriter",
       "project": "Agent Town castle",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T11:31:11.070Z",
-      "since": "2026-11-03T11:31:11.070Z"
+      "needs": {
+        "id": "n202611031132-6c92",
+        "kind": "urgent"
+      },
+      "ts": "2026-11-03T11:32:32.720Z",
+      "since": "2026-11-03T11:32:32.720Z"
     },
     "game-design-document-bot": {
       "state": "done",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:31:11.070Z",
+  "updatedAt": "2026-11-03T11:32:32.720Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -161,6 +161,16 @@
       "ts": "2026-11-03T11:29:09.758Z",
       "handled": true,
       "handledAt": "2026-11-03T11:31:11.070Z"
+    },
+    {
+      "id": "n202611031132-6c92",
+      "bot": "robotemplate",
+      "kind": "urgent",
+      "text": "Door+throne: yes and cap for GitWriter",
+      "project": "Agent Town castle",
+      "ts": "2026-11-03T11:32:32.720Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
