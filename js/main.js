@@ -599,9 +599,12 @@ function buildFilters(list) {
       if (!id) {
         town.filter.clear();
         toggleAllBots();
-      } else if (town.filter.has(id)) town.filter.delete(id);
-      else town.filter.add(id);
+      } else {
+        if (town.filter.has(id)) town.filter.delete(id);
+        else town.filter.add(id);
+      }
       syncFilters();
+      if (id) focusBot(id, true); // chip click = same zoom, follow and panel as tapping the bot
     });
   }
   syncFilters();
