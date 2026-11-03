@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:32:58.595Z",
+  "updatedAt": "2026-11-03T11:33:12.777Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -179,8 +179,8 @@
       "text": "Cap hit: OK to fix door+throne?",
       "project": "Agent Town",
       "ts": "2026-11-03T11:32:39.405Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-03T11:33:12.777Z"
     }
   ]
 }
