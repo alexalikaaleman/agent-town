@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T10:31:08.162Z",
+  "updatedAt": "2026-11-03T10:31:24.321Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -133,13 +133,16 @@
       "since": "2026-11-03T01:25:15.317Z"
     },
     "alika-treed-business-bot": {
-      "state": "working",
-      "text": "Etsy status check",
+      "state": "needs-alex",
+      "text": "Etsy: what's needed now?",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T10:31:08.162Z",
-      "since": "2026-11-03T10:31:08.162Z"
+      "needs": {
+        "id": "n202611031031-b755",
+        "kind": "question"
+      },
+      "ts": "2026-11-03T10:31:24.321Z",
+      "since": "2026-11-03T10:31:24.321Z"
     }
   }
 }
