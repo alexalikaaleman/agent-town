@@ -567,7 +567,8 @@ async function openHistory() {
 }
 
 /** Chip row: "All" first (highlighted when no filter), then one chip per bot with its coloured dot.
- *  Tap chips to show only those bots; "All" clears. Scrolls sideways. */
+ *  Tap chips to show only those bots. "All" clears the filter and opens the full bot list (one
+ *  button per bot); tapping "All" again hides it. Scrolls sideways. */
 function buildFilters(list) {
   const bar = document.getElementById("filters");
   bar.replaceChildren();
@@ -576,7 +577,10 @@ function buildFilters(list) {
   all.className = "chip all on";
   all.dataset.id = "";
   all.textContent = "All";
+  all.setAttribute("aria-controls", "all-bots");
+  all.setAttribute("aria-expanded", "false");
   bar.appendChild(all);
+  buildAllBots(list);
   for (const bot of list) {
     const chip = document.createElement("button");
     chip.type = "button";
@@ -592,13 +596,52 @@ function buildFilters(list) {
       const chip = ev.target.closest(".chip");
       if (!chip || !town) return;
       const id = chip.dataset.id;
-      if (!id) town.filter.clear();
-      else if (town.filter.has(id)) town.filter.delete(id);
+      if (!id) {
+        town.filter.clear();
+        toggleAllBots();
+      } else if (town.filter.has(id)) town.filter.delete(id);
       else town.filter.add(id);
       syncFilters();
     });
   }
   syncFilters();
+}
+
+/** The full bot list under the chip row (opened by the "All" chip): one button per bot. A tap zooms
+ *  in on that bot, opens its panel and follows it (same as tapping the bot on the map). */
+function buildAllBots(list) {
+  const box = document.getElementById("all-bots");
+  box.replaceChildren();
+  for (const bot of list) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "bot-btn";
+    btn.dataset.id = bot.id;
+    btn.style.setProperty("--dot", bot.color || "#888");
+    btn.textContent = bot.name;
+    box.appendChild(btn);
+  }
+  if (!box.dataset.wired) {
+    box.dataset.wired = "1";
+    box.addEventListener("click", (ev) => {
+      const btn = ev.target.closest(".bot-btn");
+      if (!btn || !town) return;
+      const agent = town.agents.get(btn.dataset.id);
+      if (!agent) return;
+      openPanel(agent);
+      startFollow(agent.id);
+      if (!camLocked()) centerOn(agent, 1);
+    });
+  }
+}
+
+function toggleAllBots(open) {
+  const box = document.getElementById("all-bots");
+  const show = open === undefined ? box.hidden : !!open;
+  if (show) box.style.top = Math.round(document.getElementById("chiprow").getBoundingClientRect().bottom + 4) + "px";
+  box.hidden = !show;
+  const all = document.querySelector("#filters .chip.all");
+  if (all) all.setAttribute("aria-expanded", show ? "true" : "false");
 }
 
 function syncFilters() {
@@ -609,48 +652,6 @@ function syncFilters() {
     chip.classList.toggle("on", on);
     chip.setAttribute("aria-pressed", on ? "true" : "false");
   }
-}
-
-/** Plain search box (no dropdown): Enter or change pans to the bot and opens its panel. It starts
- *  empty on every load (also when the browser restores the page from its back/forward cache). */
-function resetSearch() {
-  const input = document.getElementById("search");
-  input.value = "";
-  input.classList.remove("miss");
-}
-resetSearch();
-window.addEventListener("pageshow", resetSearch);
-
-function findBot(query) {
-  const q = String(query || "").trim().toLowerCase();
-  if (!q || !town) return null;
-  const all = Array.from(town.agents.values());
-  return (
-    all.find((a) => a.name.toLowerCase() === q || a.id.toLowerCase() === q) ||
-    all.find((a) => a.name.toLowerCase().startsWith(q)) ||
-    all.find((a) => a.name.toLowerCase().includes(q) || a.id.toLowerCase().includes(q)) ||
-    null
-  );
-}
-
-function runSearch(ev) {
-  if (ev) ev.preventDefault();
-  const input = document.getElementById("search");
-  const q = input.value.trim().toLowerCase();
-  // Treasure Vault: same entry as the vault-door tap (not a bot).
-  if (/^(vault|treasure( vault)?)$/.test(q)) {
-    input.classList.remove("miss");
-    input.blur();
-    if (sceneUi && sceneUi.enterVault) sceneUi.enterVault();
-    else if (window.AgentTown && window.AgentTown.debug && window.AgentTown.debug.enterVault) window.AgentTown.debug.enterVault();
-    return;
-  }
-  const agent = findBot(input.value);
-  input.classList.toggle("miss", !agent && !!input.value.trim());
-  if (!agent) return;
-  stopFollow();
-  focusBot(agent.id, true);
-  input.blur();
 }
 
 /** Fix 24: the panel never slides under the top bar / Needs strip, so Back stays reachable. */
@@ -763,8 +764,6 @@ document.getElementById("label-size").addEventListener("click", () => {
   localStorage.setItem("agentTownLabelSize", String(labelSize));
   resize();
 });
-document.getElementById("search-form").addEventListener("submit", runSearch);
-document.getElementById("search").addEventListener("change", runSearch);
 document.getElementById("needs-btn").addEventListener("click", () => {
   needsOpen = !needsOpen;
   needsAsked = needsOpen;
@@ -1496,6 +1495,10 @@ window.AgentTown.debug = {
   },
   get labels() {
     return Object.assign({}, debugInfo);
+  },
+  /** Tests only: pan to a bot and open its panel (what the removed search box did). */
+  focusBot(id) {
+    focusBot(id, true);
   },
   /** Tests only: hide the screen labels (room and bot names) for a clean art shot. */
   set hideLabels(v) {

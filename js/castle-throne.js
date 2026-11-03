@@ -385,13 +385,15 @@ const part = {
       P.fill(ctx, x * T, y * T - 10, 16, 3, "#b8b0a0");
       P.fill(ctx, x * T, y * T + 14, 16, 3, "#b8b0a0");
     }
+    // banners hang on the back wall (painted on the castle plate)
+    if (!onPlate) {
     for (const bx of [20, 23, 32, 35]) {
-      // banners hang on the back wall
       P.fill(ctx, bx * T + 3, 3 * T + 4, 10, 18, "#3b4fa8");
       P.fill(ctx, bx * T + 3, 3 * T + 4, 10, 2, "#e0b84a");
       P.fill(ctx, bx * T + 7, 3 * T + 9, 2, 6, "#e0b84a");
       P.fill(ctx, bx * T + 3, 3 * T + 22, 4, 3, "#3b4fa8");
       P.fill(ctx, bx * T + 9, 3 * T + 22, 4, 3, "#3b4fa8");
+    }
     }
   },
   drawUnder(ctx, town, world, now, P) {
