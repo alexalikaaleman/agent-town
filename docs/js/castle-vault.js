@@ -201,6 +201,7 @@ function roomPart(id) {
   const R0 = ROOMS[id];
   return {
     id: id + "map",
+    plateSkip: true, // the painted plate has its own trim
     labels() {
       const w = roomWorlds[id];
       const nin = w && w.busNinja;
@@ -230,7 +231,11 @@ function roomPart(id) {
 function createRoom(id) {
   if (id === "vault") return vaultWorldRef || createVaultWorld();
   if (!ROOMS[id]) return null;
-  if (!roomWorlds[id]) roomWorlds[id] = createRoomWorld({ room: ROOMS[id], w: VW, h: VH, solids: [], ninjaAt: [39, 13], parts: [roomPart(id)] });
+  if (!roomWorlds[id]) {
+    roomWorlds[id] = createRoomWorld({ room: ROOMS[id], w: VW, h: VH, solids: [], ninjaAt: [39, 13], parts: [roomPart(id)] });
+    roomWorlds[id].plate = id + "-plate"; // 3328x1664 = 52x26 tiles at 4x; the Wonkavator area x37-41, y1-12 stays clear
+    if (window.AgentTown.art) window.AgentTown.art.get(roomWorlds[id].plate);
+  }
   return roomWorlds[id];
 }
 function createVaultWorld() {

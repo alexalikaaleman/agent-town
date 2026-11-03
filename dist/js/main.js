@@ -350,7 +350,8 @@ function ensureMap() {
   const want = Math.max(1, Math.ceil(zoom * dpr));
   const cap = Math.max(1, Math.floor(4096 / Math.max(worldW(), worldH())));
   const s = Math.min(want, cap);
-  const key = scene + ":" + s + ":" + cur().w + "x" + cur().h + ":" + cur().buildings.length;
+  const pl = cur().plate && window.AgentTown.art ? window.AgentTown.art.get(cur().plate) : null;
+  const key = scene + ":" + s + ":" + cur().w + "x" + cur().h + ":" + cur().buildings.length + (pl && pl.ok ? ":plate" : "");
   if (mapCanvas && mapKey === key) return;
   const off = document.createElement("canvas");
   off.width = worldW() * s;

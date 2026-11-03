@@ -429,8 +429,18 @@ function drawTile(ctx, world, x, y) {
 }
 
 function drawMap(ctx, world) {
-  for (let y = 0; y < world.h; y++) for (let x = 0; x < world.w; x++) drawTile(ctx, world, x, y);
-  for (const p of world.parts) if (p.drawStatic) p.drawStatic(ctx, world, PIX);
+  // room art: a painted plate (art/<room>-plate.png) replaces the tile floor once it decodes; else the tiles
+  const AT = window.AgentTown;
+  const plate = world.plate && AT.art ? AT.art.get(world.plate) : null;
+  if (plate && plate.ok) {
+    const sm = ctx.imageSmoothingEnabled;
+    ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(plate.bitmap, 0, 0, world.w * TILE, world.h * TILE);
+    ctx.imageSmoothingEnabled = sm;
+    const d = (AT.debug = AT.debug || {});
+    (d.platesDrawn = d.platesDrawn || {})[world.plate] = true;
+  } else for (let y = 0; y < world.h; y++) for (let x = 0; x < world.w; x++) drawTile(ctx, world, x, y);
+  for (const p of world.parts) if (p.drawStatic && !(plate && plate.ok && p.plateSkip)) p.drawStatic(ctx, world, PIX);
   for (const b of world.buildings) {
     const by = b.y + b.h;
     if (by < world.h) fill(ctx, b.x * TILE, by * TILE, b.w * TILE, 3, "rgba(0,0,0,0.2)");
