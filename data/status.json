@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T11:46:27.265Z",
+  "updatedAt": "2026-11-03T11:53:27.631Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -8,12 +8,15 @@
   "bots": {
     "gitwriter-3d-bot": {
       "state": "needs-alex",
-      "text": "HUD live; OK to push Bus Ninja art?",
+      "text": "Ninja sprite fix: OK to push?",
       "project": "Agent Town",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T11:45:55.102Z",
-      "since": "2026-11-03T11:45:55.102Z"
+      "needs": {
+        "id": "n202611031153-1b7d",
+        "kind": "urgent"
+      },
+      "ts": "2026-11-03T11:53:27.631Z",
+      "since": "2026-11-03T11:53:27.631Z"
     },
     "masterbot": {
       "state": "done",
