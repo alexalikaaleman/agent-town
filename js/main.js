@@ -604,7 +604,11 @@ function buildFilters(list) {
         else town.filter.add(id);
       }
       syncFilters();
-      if (id) focusBot(id, true); // chip click = same zoom, follow and panel as tapping the bot
+      if (id) {
+        // Chip click = the same as a single tap on the bot: panel, camera follow, others fade.
+        const a = town.agents.get(id);
+        if (a) { openPanel(a); startFollow(id); centerOn(a, 1); }
+      }
     });
   }
   syncFilters();

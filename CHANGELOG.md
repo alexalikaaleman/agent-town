@@ -45,3 +45,4 @@
 2026-11-03, welcome intro: "vault door" and "wonkavator" now "VAULT DOOR" and "WONKAVATOR" (still gold). Why: Alex asked for those words in capitals.
 2026-11-03 Welcome intro: "games" now "GAMES" in blue (#4db8ff, same as ART, MUSIC and SHOP). Why: Alex asked for that word in blue capitals.
 2026-11-03 Bot chips next to All now zoom in on, follow and open the panel for that bot, the same as tapping it (filter toggle kept). Why: Alex asked for chip clicks to work like a tap.
+2026-11-03 Bot chip clicks now also start the camera follow and fade the other bots, using the same steps as a single tap. Why: the first version opened the panel and zoomed but did not follow.
