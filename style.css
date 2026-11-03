@@ -636,3 +636,26 @@ body.list-view #chiprow { display: none !important; }
   #confirm-box h2 { margin-bottom: 8px; font-size: clamp(20px, 6vh, 28px); }
   #confirm-box .confirm-buttons { gap: 8px; }
 }
+
+/* fix 41: gold play hint left of the zoom buttons (castle view only; static, no animation) */
+#play-hint {
+  position: absolute;
+  z-index: 3;
+  right: 72px;
+  bottom: 12px;
+  max-width: calc(100% - 84px);
+  margin: 0;
+  pointer-events: none;
+  text-align: right;
+  color: #ffd34d;
+  font: 700 clamp(14px, 2.2vw, 22px)/1.2 ui-monospace, monospace;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  -webkit-text-stroke: 1px #1a1206;
+  paint-order: stroke fill;
+  text-shadow: -1px -1px 0 #1a1206, 1px -1px 0 #1a1206, -1px 1px 0 #1a1206, 1px 1px 0 #1a1206, 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 640px) {
+  #play-hint { left: 8px; right: 148px; bottom: 4px; height: 40px; max-width: none; display: flex; align-items: center; justify-content: flex-end; font-size: clamp(11px, 3.3vw, 14px); line-height: 1.15; }
+}
+body.in-vault #play-hint, body.list-view #play-hint { display: none; }
