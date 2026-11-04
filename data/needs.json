@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T19:08:58.034Z",
+  "updatedAt": "2026-11-04T20:27:39.081Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -359,6 +359,16 @@
       "text": "talk: resume?",
       "project": null,
       "ts": "2026-11-04T19:08:58.034Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611042027-98d7",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Pick next income idea to start",
+      "project": null,
+      "ts": "2026-11-04T20:27:39.081Z",
       "handled": false,
       "handledAt": null
     }
