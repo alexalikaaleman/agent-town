@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T18:19:24.847Z",
+  "updatedAt": "2026-11-04T06:19:10.379Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -339,6 +339,16 @@
       "text": "Weekly picks: go one at a time?",
       "project": null,
       "ts": "2026-11-03T18:19:24.847Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611040619-0aa4",
+      "bot": "gitwriter-3d-bot",
+      "kind": "question",
+      "text": "Bowl ring v04: past usage cap, need go",
+      "project": "Alika TreeD",
+      "ts": "2026-11-04T06:19:10.379Z",
       "handled": false,
       "handledAt": null
     }
