@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T16:14:09.655Z",
+  "updatedAt": "2026-11-04T19:08:58.034Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,16 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Weekly sweep done; idle, nothing queued",
+      "state": "needs-alex",
+      "text": "talk: resume?",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-03T18:12:14.334Z",
-      "since": "2026-11-03T18:12:14.334Z"
+      "needs": {
+        "id": "n202611041908-10bf",
+        "kind": "question"
+      },
+      "ts": "2026-11-04T19:08:58.034Z",
+      "since": "2026-11-04T19:08:58.034Z"
     },
     "game-design-document-bot": {
       "state": "done",
