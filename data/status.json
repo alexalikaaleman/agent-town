@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T23:35:38.914Z",
+  "updatedAt": "2026-11-05T00:21:47.514Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -172,13 +172,13 @@
       "since": "2026-11-04T20:27:39.081Z"
     },
     "larry-h-robot": {
-      "state": "done",
-      "text": "Description PDF done; idle, none queued",
+      "state": "working",
+      "text": "Etsy Steam biz structure",
       "project": "Alika TreeD",
       "with": [],
       "needs": null,
-      "ts": "2026-11-04T23:35:38.914Z",
-      "since": "2026-11-04T23:35:38.914Z"
+      "ts": "2026-11-05T00:21:47.514Z",
+      "since": "2026-11-05T00:21:47.514Z"
     }
   }
 }
