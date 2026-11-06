@@ -71,6 +71,8 @@ node report.js --bot help-bot --handled n202611011930-ab12
 
 Only the bot that raised a need can mark it handled. Handled items drop off the page and are removed from `needs.json` after 30 days. `--list` shows the open ones.
 
+On a wide window each Needs Alex card has **Hide**. That only hides the card in this browser (remembered on this computer). It does not mark the need handled, does not delete it, and does not take the bot off the carpet. **Show hidden** puts the hidden cards back in the same order: urgent first, then oldest. A shown hidden card has **Unhide**. Narrow windows keep the plain list, with no Hide button.
+
 ## The roster
 
 `data/bots.json` is the roster Alex edits: `id`, `name`, `role`, `home`, `color`, `driveFolderUrl`, and optional `aliases` (old ids that still map to this bot). Homes are `townhall`, `workshop`, `studio`, `bank`, `library`, `tavern`, `post`, and `house`; `HOME_ROOMS` in `js/world.js` maps each to the Workshop or the Wizard Lab. The other rooms are not homes; bots go there by state. `driveFolderUrl` is a `https://drive.google.com/` folder link, or `""` when Alex has not set one yet. Each bot that has a folder gets a treasure chest in its home room; tapping it opens that folder in a new tab. Bots without a folder get no chest (they are listed in `CHESTS_TO_DISCUSS.md`). Optional `folders` lists folder and file location names only (no links); the panel shows them.
@@ -78,7 +80,7 @@ Only the bot that raised a need can mark it handled. Handled items drop off the 
 ## What you can do on the page
 
 - The page frames the whole castle on load at any screen size (desktop, phone, car browser).
-- Top bar: **History** (this month's lines, newest first; if it cannot load within 10 seconds it says so and you can tap History again), **Needs Alex** (shows or hides the Needs Alex strip: bot name and full line, urgent first, then oldest; tap one to jump to that bot), a scrolling row of bot chips (All first) and **Find a bot** (type a name and press Enter to pan to it).
+- Top bar: **History** (this month's lines, newest first; if it cannot load within 10 seconds it says so and you can tap History again), **Needs Alex** (shows or hides the Needs Alex strip: bot name and full line, urgent first, then oldest; tap one to jump to that bot; on a wide window each card has Hide, and Show hidden puts hidden cards back in that same order), a scrolling row of bot chips (All first) and **Find a bot** (type a name and press Enter to pan to it).
 - Bottom strip: Working, Waiting, Blocked and Needs Alex counts, the Hawaii time, the "Updated" badge and the usage bar. It sits under the map and never covers it. The yellow line at 58% means no new steps; the red line at 65% means hard stop. Per-bot slices show only when `status.json` has `usage.bots`.
 - Pinch, the mouse wheel, or + and − zoom smoothly. Zoom stops at the framed view (the whole castle) and at a close-up of one bot.
 - Bot names are always shown. Names that would overlap are moved aside. Table labels and monster nameplates appear once you zoom in on a phone. **Aa** cycles the size of names (small, medium, large); the choice is remembered.
