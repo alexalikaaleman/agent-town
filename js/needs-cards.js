@@ -1,5 +1,5 @@
-/** Desktop Needs Alex cards: urgent-first then oldest, plus local hide/show.
- *  Hide is viewer state only. It does not mark a need handled or remove it. */
+/** Needs Alex strip: urgent-first then oldest, plus Hide all / Show all.
+ *  Those buttons only hide cards in this browser. They do not change the request. */
 (function (factory) {
   var api = factory();
   if (typeof module === "object" && module.exports) module.exports = api;
@@ -10,7 +10,7 @@
 })(function () {
   "use strict";
 
-  var HIDDEN_STORE = "agentTownHiddenNeeds";
+  var HIDDEN_STORE = "agentTownNeedsHideAll";
 
   /** Same order the strip has always used: urgent first, then oldest timestamp. */
   function compareNeeds(a, b) {
@@ -26,25 +26,22 @@
     return "bot:" + (it && it.bot) + ":" + String(it && it.ts || "") + ":" + (it && it.kind || "");
   }
 
-  /** showHidden true: every card, in compareNeeds order (hidden cards stay in place). */
-  function visibleNeeds(items, hidden, showHidden) {
-    var set = hidden instanceof Set ? hidden : new Set(hidden || []);
+  /** hideAll hides every card. Show all returns the full list in compareNeeds order. */
+  function visibleNeeds(items, hideAll) {
     var sorted = sortNeeds(items || []);
-    if (showHidden) return sorted;
-    return sorted.filter(function (it) { return !set.has(needKey(it)); });
+    return hideAll ? [] : sorted;
   }
 
-  function loadHiddenNeeds(storage) {
+  function loadNeedsCardsHidden(storage) {
     try {
-      var raw = JSON.parse((storage || localStorage).getItem(HIDDEN_STORE) || "[]");
-      return new Set(Array.isArray(raw) ? raw.filter(function (x) { return typeof x === "string"; }) : []);
+      return (storage || localStorage).getItem(HIDDEN_STORE) === "1";
     } catch (e) {
-      return new Set();
+      return false;
     }
   }
 
-  function saveHiddenNeeds(set, storage) {
-    (storage || localStorage).setItem(HIDDEN_STORE, JSON.stringify(Array.from(set)));
+  function saveNeedsCardsHidden(hidden, storage) {
+    (storage || localStorage).setItem(HIDDEN_STORE, hidden ? "1" : "0");
   }
 
   function cardLabel(it, name) {
@@ -52,88 +49,58 @@
   }
 
   /**
-   * Fill a Needs Alex strip. desktop false keeps the plain buttons (no Hide).
-   * opts: { desktop, hidden, showHidden, nameOf, ago, onOpen, onHide, onToggleShow }
+   * Label, then Hide all, then Show all, then the cards (unless hideAll).
+   * opts: { hideAll, nameOf, ago, onOpen, onHideAll, onShowAll }
    */
   function renderNeedsStrip(el, items, opts) {
     opts = opts || {};
-    var hidden = opts.hidden instanceof Set ? opts.hidden : new Set(opts.hidden || []);
-    var desktop = !!opts.desktop;
-    var showHidden = !!opts.showHidden;
-    var sorted = sortNeeds(items || []);
-    var view = visibleNeeds(sorted, hidden, !desktop || showHidden);
-    var hiddenCount = 0;
-    for (var i = 0; i < sorted.length; i++) if (hidden.has(needKey(sorted[i]))) hiddenCount++;
+    var hideAll = !!opts.hideAll;
+    var view = visibleNeeds(items, hideAll);
 
-    var head = document.createElement(desktop ? "div" : "span");
-    head.className = desktop ? "needs-head" : "needs-label";
-    if (desktop) {
-      var label = document.createElement("span");
-      label.className = "needs-label";
-      label.textContent = "Needs Alex (urgent first, then oldest)";
-      head.appendChild(label);
-    } else {
-      head.textContent = "Needs Alex (urgent first, then oldest)";
-    }
-
-    if (desktop && (hiddenCount > 0 || showHidden)) {
-      var toggle = document.createElement("button");
-      toggle.type = "button";
-      toggle.className = "needs-show-hidden" + (showHidden ? " on" : "");
-      toggle.setAttribute("aria-pressed", showHidden ? "true" : "false");
-      toggle.textContent = "Show hidden" + (hiddenCount ? " (" + hiddenCount + ")" : "");
-      toggle.addEventListener("click", function () { if (opts.onToggleShow) opts.onToggleShow(); });
-      head.appendChild(toggle);
-    }
+    var head = document.createElement("div");
+    head.className = "needs-head";
+    var label = document.createElement("span");
+    label.className = "needs-label";
+    label.textContent = "Needs Alex (urgent first, then oldest)";
+    var hideBtn = document.createElement("button");
+    hideBtn.type = "button";
+    hideBtn.className = "needs-hide-all";
+    hideBtn.textContent = "Hide all";
+    hideBtn.setAttribute("aria-pressed", hideAll ? "true" : "false");
+    hideBtn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      if (opts.onHideAll) opts.onHideAll();
+    });
+    var showBtn = document.createElement("button");
+    showBtn.type = "button";
+    showBtn.className = "needs-show-all";
+    showBtn.textContent = "Show all";
+    showBtn.setAttribute("aria-pressed", hideAll ? "false" : "true");
+    showBtn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      if (opts.onShowAll) opts.onShowAll();
+    });
+    head.append(label, hideBtn, showBtn);
     el.appendChild(head);
 
     for (var n = 0; n < view.length; n++) {
       var it = view[n];
       var name = opts.nameOf ? opts.nameOf(it) : it.bot;
-      var text = cardLabel(it, name);
-      var title = opts.ago ? opts.ago(it.ts) : "";
-      var concealed = hidden.has(needKey(it));
-      if (!desktop) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "need " + it.kind;
-        btn.dataset.needKey = needKey(it);
-        btn.textContent = text;
-        btn.title = title;
-        btn.addEventListener("click", openOf(opts, it));
-        el.appendChild(btn);
-        continue;
-      }
-      var card = document.createElement("div");
-      card.className = "need " + it.kind + (concealed ? " is-hidden" : "");
-      card.dataset.needKey = needKey(it);
-      var open = document.createElement("button");
-      open.type = "button";
-      open.className = "need-open";
-      open.textContent = text;
-      open.title = title;
-      open.addEventListener("click", openOf(opts, it));
-      var hide = document.createElement("button");
-      hide.type = "button";
-      hide.className = "need-hide";
-      hide.textContent = concealed ? "Unhide" : "Hide";
-      hide.setAttribute("aria-label", (concealed ? "Unhide " : "Hide ") + name);
-      hide.addEventListener("click", hideOf(opts, it));
-      card.append(open, hide);
-      el.appendChild(card);
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "need " + it.kind;
+      btn.dataset.needKey = needKey(it);
+      btn.textContent = cardLabel(it, name);
+      btn.title = opts.ago ? opts.ago(it.ts) : "";
+      btn.addEventListener("click", openOf(opts, it));
+      el.appendChild(btn);
     }
   }
 
   function openOf(opts, it) {
     return function () { if (opts.onOpen) opts.onOpen(it); };
-  }
-
-  function hideOf(opts, it) {
-    return function (ev) {
-      ev.preventDefault();
-      ev.stopPropagation();
-      if (opts.onHide) opts.onHide(it);
-    };
   }
 
   return {
@@ -142,8 +109,8 @@
     sortNeeds: sortNeeds,
     needKey: needKey,
     visibleNeeds: visibleNeeds,
-    loadHiddenNeeds: loadHiddenNeeds,
-    saveHiddenNeeds: saveHiddenNeeds,
+    loadNeedsCardsHidden: loadNeedsCardsHidden,
+    saveNeedsCardsHidden: saveNeedsCardsHidden,
     renderNeedsStrip: renderNeedsStrip,
   };
 });

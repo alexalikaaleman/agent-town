@@ -373,13 +373,12 @@ resize();
 
 // Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
 // with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
-// Desktop cards can be Hidden on this browser only; that does not handle or delete the request.
+// Hide all / Show all only hide the cards on this browser. They do not handle or delete a request.
 let needsOpen = window.innerWidth > 640 && window.innerHeight >= 500;
 let needsSavedForVault = null; // Needs open-state restored when leaving the vault
 let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
-let hiddenNeeds = window.AgentTown.loadHiddenNeeds();
-let showHiddenNeeds = false;
+let needsCardsHidden = window.AgentTown.loadNeedsCardsHidden();
 let feedOk = null;
 let feedUpdatedAt = null;
 let lastModeText = "";
@@ -449,12 +448,10 @@ function renderHud() {
   for (const agent of town.needsList()) {
     if (!seen.has(agent.id)) items.push({ id: null, bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
   }
-  // Badge stays the full queue. Hide only changes which desktop cards are drawn.
+  // Badge stays the full queue. Hide all only changes whether the cards are drawn.
   const sorted = window.AgentTown.sortNeeds(items);
-  const desktopNeeds = window.innerWidth > 640;
   const key = sorted.map((i) => (i.id || "") + ":" + i.bot + ":" + i.kind + ":" + i.text).join("|")
-    + "#" + needsOpen + (desktopNeeds ? "#d" : "#m") + (showHiddenNeeds ? "#s" : "")
-    + "#" + Array.from(hiddenNeeds).sort().join(",");
+    + "#" + needsOpen + (needsCardsHidden ? "#h" : "");
   if (key === lastHud) return;
   lastHud = key;
   const countEl = document.getElementById("needs-count");
@@ -475,24 +472,21 @@ function renderHud() {
     return;
   }
   window.AgentTown.renderNeedsStrip(needsEl, sorted, {
-    desktop: desktopNeeds,
-    hidden: hiddenNeeds,
-    showHidden: showHiddenNeeds,
+    hideAll: needsCardsHidden,
     nameOf(it) {
       const agent = town.agents.get(it.bot);
       return agent ? agent.name : it.bot;
     },
     ago: ago,
     onOpen(it) { focusBot(it.bot, true); },
-    onHide(it) {
-      const k = window.AgentTown.needKey(it);
-      if (hiddenNeeds.has(k)) hiddenNeeds.delete(k);
-      else hiddenNeeds.add(k);
-      try { window.AgentTown.saveHiddenNeeds(hiddenNeeds); } catch (_) {}
+    onHideAll() {
+      needsCardsHidden = true;
+      try { window.AgentTown.saveNeedsCardsHidden(true); } catch (_) {}
       lastHud = "";
     },
-    onToggleShow() {
-      showHiddenNeeds = !showHiddenNeeds;
+    onShowAll() {
+      needsCardsHidden = false;
+      try { window.AgentTown.saveNeedsCardsHidden(false); } catch (_) {}
       lastHud = "";
     },
   });
@@ -1527,9 +1521,6 @@ window.AgentTown.debug = {
   setNeeds(items) {
     needItems = items;
     lastHud = "";
-  },
-  get hiddenNeedKeys() {
-    return Array.from(hiddenNeeds);
   },
   /** Tests only: hide the screen labels (room and bot names) for a clean art shot. */
   set hideLabels(v) {

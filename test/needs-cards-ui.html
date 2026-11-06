@@ -4,20 +4,9 @@
   <meta charset="utf-8">
   <title>Needs Alex hide/show</title>
   <link rel="stylesheet" href="../style.css">
-  <style>
-    body { overflow: auto; height: auto; min-height: 100vh; }
-    #result { margin: 12px; white-space: pre-wrap; }
-    #result.fail { color: #ffb4b4; }
-    #result.pass { color: #b6f5c4; }
-  </style>
 </head>
 <body>
-  <header id="topbar">
-    <button type="button">History</button>
-    <button type="button" id="needs-btn" class="has urgent" aria-expanded="true">Needs Alex <b id="needs-count">4</b></button>
-  </header>
   <div id="needs"></div>
-  <div id="needs-narrow"></div>
   <p id="result">running</p>
   <script src="../js/needs-cards.js"></script>
   <script>
@@ -28,84 +17,41 @@
       { id: "q-old", bot: "alpha", kind: "question", ts: "2026-11-01T10:00:00Z", text: "older question", handled: false },
       { id: "u-old", bot: "delta", kind: "urgent", ts: "2026-11-02T10:00:00Z", text: "older urgent", handled: false },
     ];
-    const names = { alpha: "Alpha Bot", beta: "Beta Bot", gamma: "Gamma Bot", delta: "Delta Bot" };
-    const hidden = new Set();
-    let showHidden = false;
+    let hideAll = false;
     let opens = 0;
-    const order = () => Array.from(document.querySelectorAll("#needs [data-need-key]")).map((el) => el.dataset.needKey);
     const fails = [];
-    function check(name, cond) { if (!cond) fails.push(name); }
-
+    const check = (name, cond) => { if (!cond) fails.push(name); };
+    const order = () => Array.from(document.querySelectorAll("#needs .need")).map((el) => el.dataset.needKey);
     function paint() {
       const el = document.getElementById("needs");
       el.replaceChildren();
       AT.renderNeedsStrip(el, items, {
-        desktop: true,
-        hidden: hidden,
-        showHidden: showHidden,
-        nameOf: (it) => names[it.bot],
-        ago: () => "1 h ago",
+        hideAll: hideAll,
+        nameOf: (it) => it.bot,
         onOpen: () => { opens += 1; },
-        onHide: (it) => {
-          const k = AT.needKey(it);
-          if (hidden.has(k)) hidden.delete(k);
-          else hidden.add(k);
-          paint();
-        },
-        onToggleShow: () => { showHidden = !showHidden; paint(); },
+        onHideAll: () => { hideAll = true; paint(); },
+        onShowAll: () => { hideAll = false; paint(); },
       });
     }
-
     paint();
-    const sortedKeys = AT.sortNeeds(items).map(AT.needKey);
-    check("initial order", order().join() === sortedKeys.join());
-    check("four hide buttons", document.querySelectorAll("#needs .need-hide").length === 4);
-    check("no show toggle yet", !document.querySelector("#needs .needs-show-hidden"));
-    check("badge text stays a full queue in the harness header", document.getElementById("needs-count").textContent === "4");
-
-    document.querySelector('#needs [data-need-key="' + AT.needKey(items.find((it) => it.id === "u-new")) + '"] .need-hide').click();
-    check("hide did not open the bot", opens === 0);
-    check("hidden card left the list", order().indexOf(AT.needKey(items.find((it) => it.id === "u-new"))) === -1);
-    check("remaining order", order().join() === ["id:u-old", "id:q-old", "id:q-new"].join());
-    check("request still not handled", items.every((it) => it.handled === false));
-    const toggle = document.querySelector("#needs .needs-show-hidden");
-    check("show hidden toggle", !!toggle && toggle.textContent === "Show hidden (1)" && toggle.getAttribute("aria-pressed") === "false");
-
-    toggle.click();
-    check("show hidden pressed", document.querySelector("#needs .needs-show-hidden").getAttribute("aria-pressed") === "true");
-    check("shown in normal sort order", order().join() === sortedKeys.join());
-    const shown = document.querySelector('#needs [data-need-key="id:u-new"]');
-    check("hidden card marked", shown.classList.contains("is-hidden"));
-    check("unhide label", shown.querySelector(".need-hide").textContent === "Unhide");
-
-    shown.querySelector(".need-hide").click();
-    check("unhide keeps it in the sorted list", order().join() === sortedKeys.join());
-    check("unhide cleared the flag", !document.querySelector('#needs [data-need-key="id:u-new"]').classList.contains("is-hidden"));
-
-    document.querySelector('#needs [data-need-key="id:q-old"] .need-hide').click();
-    document.querySelector("#needs .needs-show-hidden").click();
-    check("toggle off hides that card only", order().join() === ["id:u-old", "id:u-new", "id:q-new"].join());
-
-    const narrow = document.getElementById("needs-narrow");
-    AT.renderNeedsStrip(narrow, items, {
-      desktop: false,
-      hidden: hidden,
-      showHidden: false,
-      nameOf: (it) => names[it.bot],
-      onOpen: () => {},
-      onHide: () => {},
-    });
-    check("narrow has no hide buttons", narrow.querySelectorAll(".need-hide").length === 0);
-    check("narrow shows every card", narrow.querySelectorAll(".need").length === 4);
-
+    const head = document.querySelector("#needs .needs-head");
+    const kids = Array.from(head.children).map((el) => el.textContent);
+    check("buttons immediately after label", kids.join("|") === "Needs Alex (urgent first, then oldest)|Hide all|Show all");
+    check("no per-card hide", document.querySelectorAll(".need-hide, .needs-show-hidden").length === 0);
+    check("initial order", order().join() === ["id:u-old", "id:u-new", "id:q-old", "id:q-new"].join());
+    document.querySelector(".needs-hide-all").click();
+    check("hide all clears cards", order().length === 0);
+    check("hide all did not open a bot", opens === 0);
+    check("requests untouched", items.every((it) => it.handled === false));
+    check("both buttons remain", !!document.querySelector(".needs-hide-all") && !!document.querySelector(".needs-show-all"));
+    document.querySelector(".needs-show-all").click();
+    check("show all restores sort", order().join() === ["id:u-old", "id:u-new", "id:q-old", "id:q-new"].join());
     const result = document.getElementById("result");
     if (fails.length) {
-      result.className = "fail";
-      result.textContent = "FAIL\n" + fails.join("\n");
+      result.textContent = "FAIL " + fails.join(", ");
       document.title = "FAIL";
     } else {
-      result.className = "pass";
-      result.textContent = "PASS hide/show and sorting";
+      result.textContent = "PASS hide all / show all";
       document.title = "PASS";
     }
   </script>
