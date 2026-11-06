@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T03:12:06.177Z",
+  "updatedAt": "2026-11-06T03:15:16.137Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -172,13 +172,13 @@
       "since": "2026-11-04T20:27:39.081Z"
     },
     "larry-h-robot": {
-      "state": "done",
-      "text": "Biz structure Q done; idle, none queued",
-      "project": "Alika TreeD",
+      "state": "working",
+      "text": "Business plan legal review",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-05T00:21:57.329Z",
-      "since": "2026-11-05T00:21:57.329Z"
+      "ts": "2026-11-06T03:15:16.137Z",
+      "since": "2026-11-06T03:15:16.137Z"
     }
   }
 }
