@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T16:14:05.578Z",
+  "updatedAt": "2026-11-06T16:19:04.705Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -100,13 +100,13 @@
       "since": "2026-11-06T11:27:56.208Z"
     },
     "robo-maintenance-bot": {
-      "state": "working",
-      "text": "Daily sweep",
+      "state": "done",
+      "text": "Sweep done; idle, nothing queued",
       "project": "maintenance",
       "with": [],
       "needs": null,
-      "ts": "2026-11-06T16:14:05.578Z",
-      "since": "2026-11-06T16:14:05.578Z"
+      "ts": "2026-11-06T16:19:04.705Z",
+      "since": "2026-11-06T16:19:04.705Z"
     },
     "chief-of-staff": {
       "state": "done",
