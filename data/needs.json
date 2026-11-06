@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T03:23:57.587Z",
+  "updatedAt": "2026-11-06T03:27:08.602Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -379,6 +379,16 @@
       "text": "GitWriter capped; needs Alex approval",
       "project": "Agent Town hide feature",
       "ts": "2026-11-06T03:23:57.587Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611060327-1bb8",
+      "bot": "brainstorm-bot",
+      "kind": "question",
+      "text": "Confirm previous debate group",
+      "project": null,
+      "ts": "2026-11-06T03:27:08.602Z",
       "handled": false,
       "handledAt": null
     }
