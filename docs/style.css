@@ -562,6 +562,31 @@ body.list-view #usage-row, body.list-view #clock, body.list-view #needs, body.li
   padding-bottom: 0;
   border-bottom: 8px solid transparent;
 }
+/* Hide all and Show all sit immediately after the label. They do not sit inside a card. */
+#needs .needs-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  flex: none;
+}
+#needs .needs-head .needs-label { width: auto; flex: 0 1 auto; }
+#needs .needs-hide-all,
+#needs .needs-show-all {
+  flex: none;
+  min-height: 32px;
+  padding: 2px 10px;
+  border: 2px solid var(--line);
+  background: #0e131c;
+  color: #f0c14a;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+#needs .needs-hide-all[aria-pressed="true"],
+#needs .needs-show-all[aria-pressed="true"] { background: #24527a; color: #fff; }
 /* Chip row (scrolls sideways), full width (the search box was removed 2026-11-03). */
 #chiprow { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #0e131c; border-bottom: 3px solid var(--line); }
 #filters { flex: 1; min-width: 0; display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; touch-action: pan-x; padding-bottom: 2px; }

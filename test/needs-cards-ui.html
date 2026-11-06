@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Needs Alex hide/show</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div id="needs"></div>
+  <p id="result">running</p>
+  <script src="../js/needs-cards.js"></script>
+  <script>
+    const AT = window.AgentTown;
+    const items = [
+      { id: "q-new", bot: "beta", kind: "question", ts: "2026-11-05T10:00:00Z", text: "newer question", handled: false },
+      { id: "u-new", bot: "gamma", kind: "urgent", ts: "2026-11-04T10:00:00Z", text: "newer urgent", handled: false },
+      { id: "q-old", bot: "alpha", kind: "question", ts: "2026-11-01T10:00:00Z", text: "older question", handled: false },
+      { id: "u-old", bot: "delta", kind: "urgent", ts: "2026-11-02T10:00:00Z", text: "older urgent", handled: false },
+    ];
+    let hideAll = false;
+    let opens = 0;
+    const fails = [];
+    const check = (name, cond) => { if (!cond) fails.push(name); };
+    const order = () => Array.from(document.querySelectorAll("#needs .need")).map((el) => el.dataset.needKey);
+    function paint() {
+      const el = document.getElementById("needs");
+      el.replaceChildren();
+      AT.renderNeedsStrip(el, items, {
+        hideAll: hideAll,
+        nameOf: (it) => it.bot,
+        onOpen: () => { opens += 1; },
+        onHideAll: () => { hideAll = true; paint(); },
+        onShowAll: () => { hideAll = false; paint(); },
+      });
+    }
+    paint();
+    const head = document.querySelector("#needs .needs-head");
+    const kids = Array.from(head.children).map((el) => el.textContent);
+    check("buttons immediately after label", kids.join("|") === "Needs Alex (urgent first, then oldest)|Hide all|Show all");
+    check("no per-card hide", document.querySelectorAll(".need-hide, .needs-show-hidden").length === 0);
+    check("initial order", order().join() === ["id:u-old", "id:u-new", "id:q-old", "id:q-new"].join());
+    document.querySelector(".needs-hide-all").click();
+    check("hide all clears cards", order().length === 0);
+    check("hide all did not open a bot", opens === 0);
+    check("requests untouched", items.every((it) => it.handled === false));
+    check("both buttons remain", !!document.querySelector(".needs-hide-all") && !!document.querySelector(".needs-show-all"));
+    document.querySelector(".needs-show-all").click();
+    check("show all restores sort", order().join() === ["id:u-old", "id:u-new", "id:q-old", "id:q-new"].join());
+    const result = document.getElementById("result");
+    if (fails.length) {
+      result.textContent = "FAIL " + fails.join(", ");
+      document.title = "FAIL";
+    } else {
+      result.textContent = "PASS hide all / show all";
+      document.title = "PASS";
+    }
+  </script>
+</body>
+</html>

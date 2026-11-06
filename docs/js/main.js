@@ -373,10 +373,12 @@ resize();
 
 // Needs Alex strip (old behaviour): shown under the top bar whenever something needs Alex, each item
 // with the bot name and its full line, urgent first, then oldest. The Needs Alex button hides/shows it.
+// Hide all / Show all only hide the cards on this browser. They do not handle or delete a request.
 let needsOpen = window.innerWidth > 640 && window.innerHeight >= 500;
 let needsSavedForVault = null; // Needs open-state restored when leaving the vault
 let needsAsked = false; // the button was pressed: show "Nothing needs Alex" when the list is empty
 let needItems = null; // unhandled items from needs.json, null when unreadable
+let needsCardsHidden = window.AgentTown.loadNeedsCardsHidden();
 let feedOk = null;
 let feedUpdatedAt = null;
 let lastModeText = "";
@@ -440,18 +442,20 @@ function renderHud() {
   const seen = new Set();
   for (const it of needItems || []) {
     if (it.handled || !town.agents.get(it.bot)) continue;
-    items.push({ bot: it.bot, kind: it.kind === "urgent" ? "urgent" : "question", text: it.text || "", ts: it.ts });
+    items.push({ id: it.id || null, bot: it.bot, kind: it.kind === "urgent" ? "urgent" : "question", text: it.text || "", ts: it.ts });
     seen.add(it.bot);
   }
   for (const agent of town.needsList()) {
-    if (!seen.has(agent.id)) items.push({ bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
+    if (!seen.has(agent.id)) items.push({ id: null, bot: agent.id, kind: agent.needsAlex, text: agent.text || "", ts: agent.ts });
   }
-  items.sort((a, b) => (a.kind === b.kind ? String(a.ts).localeCompare(String(b.ts)) : a.kind === "urgent" ? -1 : 1));
-  const key = items.map((i) => i.bot + ":" + i.kind + ":" + i.text).join("|") + "#" + needsOpen;
+  // Badge stays the full queue. Hide all only changes whether the cards are drawn.
+  const sorted = window.AgentTown.sortNeeds(items);
+  const key = sorted.map((i) => (i.id || "") + ":" + i.bot + ":" + i.kind + ":" + i.text).join("|")
+    + "#" + needsOpen + (needsCardsHidden ? "#h" : "");
   if (key === lastHud) return;
   lastHud = key;
   const countEl = document.getElementById("needs-count");
-  countEl.textContent = String(items.length);
+  countEl.textContent = String(sorted.length);
   const needsBtn = document.getElementById("needs-btn");
   needsBtn.classList.toggle("has", items.length > 0);
   needsBtn.classList.toggle("urgent", items.some((i) => i.kind === "urgent"));
@@ -467,20 +471,25 @@ function renderHud() {
     needsEl.appendChild(none);
     return;
   }
-  const label = document.createElement("span");
-  label.className = "needs-label";
-  label.textContent = "Needs Alex (urgent first, then oldest)";
-  needsEl.appendChild(label);
-  for (const it of items) {
-    const agent = town.agents.get(it.bot);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "need " + it.kind;
-    btn.textContent = (it.kind === "urgent" ? "! " : "? ") + agent.name + (it.text ? ": " + it.text : "");
-    btn.title = ago(it.ts);
-    btn.addEventListener("click", () => focusBot(it.bot, true));
-    needsEl.appendChild(btn);
-  }
+  window.AgentTown.renderNeedsStrip(needsEl, sorted, {
+    hideAll: needsCardsHidden,
+    nameOf(it) {
+      const agent = town.agents.get(it.bot);
+      return agent ? agent.name : it.bot;
+    },
+    ago: ago,
+    onOpen(it) { focusBot(it.bot, true); },
+    onHideAll() {
+      needsCardsHidden = true;
+      try { window.AgentTown.saveNeedsCardsHidden(true); } catch (_) {}
+      lastHud = "";
+    },
+    onShowAll() {
+      needsCardsHidden = false;
+      try { window.AgentTown.saveNeedsCardsHidden(false); } catch (_) {}
+      lastHud = "";
+    },
+  });
 }
 
 /** Usage bar: overall weekly %, cap lines at 58 and 65, per-bot slices when present. */
@@ -1507,6 +1516,11 @@ window.AgentTown.debug = {
   /** Tests only: pan to a bot and open its panel (what the removed search box did). */
   focusBot(id) {
     focusBot(id, true);
+  },
+  /** Tests only: set the open needs queue. Does not write status or mark anything handled. */
+  setNeeds(items) {
+    needItems = items;
+    lastHud = "";
   },
   /** Tests only: hide the screen labels (room and bot names) for a clean art shot. */
   set hideLabels(v) {
