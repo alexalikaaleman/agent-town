@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T03:27:08.602Z",
+  "updatedAt": "2026-11-06T18:17:54.394Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -389,6 +389,16 @@
       "text": "Confirm previous debate group",
       "project": null,
       "ts": "2026-11-06T03:27:08.602Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611061817-01cc",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "OpenTrain resume contact fields",
+      "project": null,
+      "ts": "2026-11-06T18:17:54.394Z",
       "handled": false,
       "handledAt": null
     }

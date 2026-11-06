@@ -256,3 +256,4 @@
 {"ts":"2026-11-06T16:14:05.578Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep","project":"maintenance"}
 {"ts":"2026-11-06T16:19:04.705Z","bot":"robo-maintenance-bot","state":"done","text":"Sweep done; idle, nothing queued","project":"maintenance"}
 {"ts":"2026-11-06T18:16:23.757Z","bot":"masterbot","state":"working","text":"Periodic proactive check"}
+{"ts":"2026-11-06T18:17:54.394Z","bot":"masterbot","needId":"n202611061817-01cc","state":"needs-alex","text":"OpenTrain resume contact fields","needs":"question"}
