@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T03:11:12.428Z",
+  "updatedAt": "2026-11-06T03:11:26.844Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -118,13 +118,13 @@
       "since": "2026-11-05T20:29:10.447Z"
     },
     "brainstorm-bot": {
-      "state": "working",
-      "text": "Tag planning options",
+      "state": "done",
+      "text": "Tags done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-06T03:11:12.428Z",
-      "since": "2026-11-06T03:11:12.428Z"
+      "ts": "2026-11-06T03:11:26.844Z",
+      "since": "2026-11-06T03:11:26.844Z"
     },
     "google-drive-manager": {
       "state": "done",
