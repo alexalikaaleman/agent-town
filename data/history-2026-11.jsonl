@@ -258,3 +258,4 @@
 {"ts":"2026-11-06T18:16:23.757Z","bot":"masterbot","state":"working","text":"Periodic proactive check"}
 {"ts":"2026-11-06T18:17:54.394Z","bot":"masterbot","needId":"n202611061817-01cc","state":"needs-alex","text":"OpenTrain resume contact fields","needs":"question"}
 {"ts":"2026-11-06T19:15:42.924Z","bot":"game-additions-bot","state":"working","text":"Weekly pending additions check","project":"game-additions"}
+{"ts":"2026-11-06T19:16:02.319Z","bot":"game-additions-bot","state":"done","text":"Weekly check done; idle, nothing queued","project":"game-additions"}
