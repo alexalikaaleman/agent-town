@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T00:58:32.773Z",
+  "updatedAt": "2026-11-06T00:59:44.570Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,13 @@
       "since": "2026-11-04T07:12:46.131Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Proactive work scan",
+      "state": "done",
+      "text": "Proactive scan done; idle, nothing queu…",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-06T00:58:32.773Z",
-      "since": "2026-11-06T00:58:32.773Z"
+      "ts": "2026-11-06T00:59:44.570Z",
+      "since": "2026-11-06T00:59:44.570Z"
     },
     "game-revision-logger": {
       "state": "done",
