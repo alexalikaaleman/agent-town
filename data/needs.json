@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T19:11:59.412Z",
+  "updatedAt": "2026-11-07T20:22:41.327Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -479,6 +479,16 @@
       "text": "Game 3D bot: features + Drive OK?",
       "project": null,
       "ts": "2026-11-07T19:11:59.412Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611072022-5d16",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Pick: jam, MakerWorld, Etsy sale",
+      "project": "Income",
+      "ts": "2026-11-07T20:22:41.327Z",
       "handled": false,
       "handledAt": null
     }
