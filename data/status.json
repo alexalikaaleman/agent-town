@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T20:22:41.327Z",
+  "updatedAt": "2026-11-07T20:31:28.521Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -115,13 +115,13 @@
       "since": "2026-11-07T16:15:56.920Z"
     },
     "chief-of-staff": {
-      "state": "done",
-      "text": "Urgent check done; idle, nothing queued",
+      "state": "working",
+      "text": "Daily urgent check",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-06T20:31:56.389Z",
-      "since": "2026-11-06T20:31:56.389Z"
+      "ts": "2026-11-07T20:31:28.521Z",
+      "since": "2026-11-07T20:31:28.521Z"
     },
     "brainstorm-bot": {
       "state": "needs-alex",
