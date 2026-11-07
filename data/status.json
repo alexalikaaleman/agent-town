@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:28:19.413Z",
+  "updatedAt": "2026-11-07T10:36:20.239Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,16 +55,16 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Review GitWriter core and skill split",
+      "state": "needs-alex",
+      "text": "Approve short GitWriter core",
       "project": "M-022",
       "with": [],
       "needs": {
-        "id": "n202611070557-0d0c",
+        "id": "n202611071036-592a",
         "kind": "question"
       },
-      "ts": "2026-11-07T10:28:19.413Z",
-      "since": "2026-11-07T10:28:19.413Z"
+      "ts": "2026-11-07T10:36:20.239Z",
+      "since": "2026-11-07T10:36:20.239Z"
     },
     "game-design-document-bot": {
       "state": "done",

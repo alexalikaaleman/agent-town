@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T06:24:41.175Z",
+  "updatedAt": "2026-11-07T10:36:20.239Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -419,6 +419,16 @@
       "text": "Friday digest: M-022, M-023 yes/no",
       "project": null,
       "ts": "2026-11-07T06:24:41.175Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611071036-592a",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Approve short GitWriter core",
+      "project": "M-022",
+      "ts": "2026-11-07T10:36:20.239Z",
       "handled": false,
       "handledAt": null
     }

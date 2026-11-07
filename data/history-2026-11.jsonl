@@ -272,3 +272,4 @@
 {"ts":"2026-11-07T06:24:16.115Z","bot":"robo-maintenance-bot","state":"done","text":"M1 monthly done; idle, nothing queued","project":"maintenance"}
 {"ts":"2026-11-07T06:24:41.175Z","bot":"robo-maintenance-bot","needId":"n202611070624-3c1e","state":"needs-alex","text":"Friday digest: M-022, M-023 yes/no","needs":"question"}
 {"ts":"2026-11-07T10:28:19.413Z","bot":"robotemplate","state":"working","text":"Review GitWriter core and skill split","project":"M-022"}
+{"ts":"2026-11-07T10:36:20.239Z","bot":"robotemplate","needId":"n202611071036-592a","state":"needs-alex","text":"Approve short GitWriter core","project":"M-022","needs":"question"}
