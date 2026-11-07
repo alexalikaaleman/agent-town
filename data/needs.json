@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:36:20.239Z",
+  "updatedAt": "2026-11-07T10:37:48.866Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -429,6 +429,16 @@
       "text": "Approve short GitWriter core",
       "project": "M-022",
       "ts": "2026-11-07T10:36:20.239Z",
+      "handled": true,
+      "handledAt": "2026-11-07T10:37:48.866Z"
+    },
+    {
+      "id": "n202611071037-c82b",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Approve essential core safeguards",
+      "project": "M-022",
+      "ts": "2026-11-07T10:37:48.866Z",
       "handled": false,
       "handledAt": null
     }

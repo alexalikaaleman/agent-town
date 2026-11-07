@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:36:20.239Z",
+  "updatedAt": "2026-11-07T10:37:48.866Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,15 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "Approve short GitWriter core",
+      "text": "Approve essential core safeguards",
       "project": "M-022",
       "with": [],
       "needs": {
-        "id": "n202611071036-592a",
+        "id": "n202611071037-c82b",
         "kind": "question"
       },
-      "ts": "2026-11-07T10:36:20.239Z",
-      "since": "2026-11-07T10:36:20.239Z"
+      "ts": "2026-11-07T10:37:48.866Z",
+      "since": "2026-11-07T10:37:48.866Z"
     },
     "game-design-document-bot": {
       "state": "done",
