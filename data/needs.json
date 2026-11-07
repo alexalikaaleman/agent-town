@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:59:41.571Z",
+  "updatedAt": "2026-11-07T19:11:59.412Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -469,6 +469,16 @@
       "text": "Draft ready; old rule conflicts remain",
       "project": "M-022",
       "ts": "2026-11-07T10:59:41.571Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611071911-3847",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Game 3D bot: features + Drive OK?",
+      "project": null,
+      "ts": "2026-11-07T19:11:59.412Z",
       "handled": false,
       "handledAt": null
     }
