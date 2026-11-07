@@ -289,3 +289,4 @@
 {"ts":"2026-11-07T16:04:03.562Z","bot":"garage-sale-bot","state":"done","text":"Sat search done; next: 8am run"}
 {"ts":"2026-11-07T16:13:46.436Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep","project":"maintenance"}
 {"ts":"2026-11-07T16:15:56.920Z","bot":"robo-maintenance-bot","state":"done","text":"Daily sweep done; idle, nothing queued","project":"maintenance"}
+{"ts":"2026-11-07T18:01:25.479Z","bot":"garage-sale-bot","state":"working","text":"Sat 8am Maui sale search","project":"garage-sales"}
