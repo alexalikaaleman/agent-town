@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:38:19.622Z",
+  "updatedAt": "2026-11-07T10:40:37.522Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,15 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "Approve job-flow skill split",
+      "text": "Approve rule preservation check",
       "project": "M-022",
       "with": [],
       "needs": {
-        "id": "n202611071038-bdf1",
+        "id": "n202611071040-edc4",
         "kind": "question"
       },
-      "ts": "2026-11-07T10:38:19.622Z",
-      "since": "2026-11-07T10:38:19.622Z"
+      "ts": "2026-11-07T10:40:37.522Z",
+      "since": "2026-11-07T10:40:37.522Z"
     },
     "game-design-document-bot": {
       "state": "done",

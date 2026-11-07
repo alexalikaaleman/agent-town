@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:38:19.622Z",
+  "updatedAt": "2026-11-07T10:40:37.522Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -449,6 +449,16 @@
       "text": "Approve job-flow skill split",
       "project": "M-022",
       "ts": "2026-11-07T10:38:19.622Z",
+      "handled": true,
+      "handledAt": "2026-11-07T10:40:37.522Z"
+    },
+    {
+      "id": "n202611071040-edc4",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Approve rule preservation check",
+      "project": "M-022",
+      "ts": "2026-11-07T10:40:37.522Z",
       "handled": false,
       "handledAt": null
     }
