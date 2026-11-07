@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T05:57:24.559Z",
+  "updatedAt": "2026-11-07T06:24:41.175Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -409,6 +409,16 @@
       "text": "Friday AT test - ready to start?",
       "project": "Agent Town",
       "ts": "2026-11-07T05:57:24.559Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611070624-3c1e",
+      "bot": "robo-maintenance-bot",
+      "kind": "question",
+      "text": "Friday digest: M-022, M-023 yes/no",
+      "project": null,
+      "ts": "2026-11-07T06:24:41.175Z",
       "handled": false,
       "handledAt": null
     }

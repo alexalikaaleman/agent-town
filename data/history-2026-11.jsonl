@@ -270,3 +270,4 @@
 {"ts":"2026-11-07T05:57:24.559Z","bot":"robotemplate","needId":"n202611070557-0d0c","state":"needs-alex","text":"Friday AT test - ready to start?","project":"Agent Town","needs":"question"}
 {"ts":"2026-11-07T06:20:18.031Z","bot":"robo-maintenance-bot","state":"working","text":"M1 Friday maintenance run","project":"maintenance"}
 {"ts":"2026-11-07T06:24:16.115Z","bot":"robo-maintenance-bot","state":"done","text":"M1 monthly done; idle, nothing queued","project":"maintenance"}
+{"ts":"2026-11-07T06:24:41.175Z","bot":"robo-maintenance-bot","needId":"n202611070624-3c1e","state":"needs-alex","text":"Friday digest: M-022, M-023 yes/no","needs":"question"}
