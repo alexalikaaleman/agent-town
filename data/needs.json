@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T18:17:54.394Z",
+  "updatedAt": "2026-11-07T05:57:24.559Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -399,6 +399,16 @@
       "text": "OpenTrain resume contact fields",
       "project": null,
       "ts": "2026-11-06T18:17:54.394Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611070557-0d0c",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Friday AT test - ready to start?",
+      "project": "Agent Town",
+      "ts": "2026-11-07T05:57:24.559Z",
       "handled": false,
       "handledAt": null
     }

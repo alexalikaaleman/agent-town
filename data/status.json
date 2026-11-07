@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T04:31:29.822Z",
+  "updatedAt": "2026-11-07T05:57:24.559Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,15 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "GitWriter capped; needs Alex approval",
-      "project": "Agent Town hide feature",
+      "text": "Friday AT test - ready to start?",
+      "project": "Agent Town",
       "with": [],
       "needs": {
-        "id": "n202611060323-e3d3",
-        "kind": "urgent"
+        "id": "n202611070557-0d0c",
+        "kind": "question"
       },
-      "ts": "2026-11-06T03:23:57.587Z",
-      "since": "2026-11-06T03:23:57.587Z"
+      "ts": "2026-11-07T05:57:24.559Z",
+      "since": "2026-11-07T05:57:24.559Z"
     },
     "game-design-document-bot": {
       "state": "done",
