@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T11:44:05.806Z",
+  "updatedAt": "2026-11-07T13:58:28.132Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -85,13 +85,13 @@
       "since": "2026-11-03T02:38:02.712Z"
     },
     "garage-sale-bot": {
-      "state": "done",
-      "text": "List reset done; next: Sat sale search",
+      "state": "working",
+      "text": "Saturday garage sale search",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-02T10:52:17.647Z",
-      "since": "2026-11-02T10:52:17.647Z"
+      "ts": "2026-11-07T13:58:28.132Z",
+      "since": "2026-11-07T13:58:28.132Z"
     },
     "playtest-qa-bot": {
       "state": "done",
