@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T11:20:51.846Z",
+  "updatedAt": "2026-11-07T11:34:23.302Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,14 +56,14 @@
     },
     "robotemplate": {
       "state": "working",
-      "text": "Draft selective helper improvements",
-      "project": "Helper drafts",
+      "text": "Prepare morning pasteblock package",
+      "project": "Bot improvements",
       "with": [],
       "needs": {
         "id": "n202611071059-a3f7",
         "kind": "question"
       },
-      "ts": "2026-11-07T11:20:51.846Z",
+      "ts": "2026-11-07T11:34:23.302Z",
       "since": "2026-11-07T11:20:51.846Z"
     },
     "game-design-document-bot": {
