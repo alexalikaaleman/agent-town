@@ -277,3 +277,4 @@
 {"ts":"2026-11-07T10:38:19.622Z","bot":"robotemplate","needId":"n202611071038-bdf1","state":"needs-alex","text":"Approve job-flow skill split","project":"M-022","needs":"question","handled":"n202611071037-c82b"}
 {"ts":"2026-11-07T10:40:37.522Z","bot":"robotemplate","needId":"n202611071040-edc4","state":"needs-alex","text":"Approve rule preservation check","project":"M-022","needs":"question","handled":"n202611071038-bdf1"}
 {"ts":"2026-11-07T10:41:06.208Z","bot":"robotemplate","state":"working","text":"Draft approved GitWriter structure","project":"M-022"}
+{"ts":"2026-11-07T10:59:41.571Z","bot":"robotemplate","needId":"n202611071059-a3f7","state":"needs-alex","text":"Draft ready; old rule conflicts remain","project":"M-022","needs":"question"}
