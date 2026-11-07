@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:37:48.866Z",
+  "updatedAt": "2026-11-07T10:38:19.622Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,15 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "Approve essential core safeguards",
+      "text": "Approve job-flow skill split",
       "project": "M-022",
       "with": [],
       "needs": {
-        "id": "n202611071037-c82b",
+        "id": "n202611071038-bdf1",
         "kind": "question"
       },
-      "ts": "2026-11-07T10:37:48.866Z",
-      "since": "2026-11-07T10:37:48.866Z"
+      "ts": "2026-11-07T10:38:19.622Z",
+      "since": "2026-11-07T10:38:19.622Z"
     },
     "game-design-document-bot": {
       "state": "done",

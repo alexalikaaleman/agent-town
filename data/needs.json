@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T10:37:48.866Z",
+  "updatedAt": "2026-11-07T10:38:19.622Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -439,6 +439,16 @@
       "text": "Approve essential core safeguards",
       "project": "M-022",
       "ts": "2026-11-07T10:37:48.866Z",
+      "handled": true,
+      "handledAt": "2026-11-07T10:38:19.622Z"
+    },
+    {
+      "id": "n202611071038-bdf1",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Approve job-flow skill split",
+      "project": "M-022",
+      "ts": "2026-11-07T10:38:19.622Z",
       "handled": false,
       "handledAt": null
     }
