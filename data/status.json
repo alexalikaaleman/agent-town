@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T01:41:38.475Z",
+  "updatedAt": "2026-11-08T02:42:18.053Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,16 +55,16 @@
       "since": "2026-11-02T07:28:38.782Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Draft fixes done; next: Alex review",
+      "state": "working",
+      "text": "Finalize all draft fixes",
       "project": "Bot improvements",
       "with": [],
       "needs": {
         "id": "n202611071911-3847",
         "kind": "question"
       },
-      "ts": "2026-11-08T01:41:38.475Z",
-      "since": "2026-11-08T01:41:38.475Z"
+      "ts": "2026-11-08T02:42:18.053Z",
+      "since": "2026-11-08T02:42:18.053Z"
     },
     "game-design-document-bot": {
       "state": "done",
