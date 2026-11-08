@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T20:27:45.274Z",
+  "updatedAt": "2026-11-08T20:30:18.824Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -208,13 +208,13 @@
       "since": "2026-11-08T14:09:35.824Z"
     },
     "accounting-bot": {
-      "state": "working",
-      "text": "Setting up tax folders and sheets",
+      "state": "done",
+      "text": "Tax setup done; next: log receipts",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-08T20:27:45.274Z",
-      "since": "2026-11-08T20:27:45.274Z"
+      "ts": "2026-11-08T20:30:18.824Z",
+      "since": "2026-11-08T20:30:18.824Z"
     }
   }
 }
