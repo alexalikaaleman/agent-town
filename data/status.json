@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T23:37:38.468Z",
+  "updatedAt": "2026-11-08T23:41:02.285Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,13 @@
       "since": "2026-11-02T07:51:09.091Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Site art v01 done; idle, nothing queued",
+      "state": "working",
+      "text": "Site mashup banner",
       "project": "Alika TreeD site",
       "with": [],
       "needs": null,
-      "ts": "2026-11-08T22:37:35.385Z",
-      "since": "2026-11-08T22:37:35.385Z"
+      "ts": "2026-11-08T23:41:02.285Z",
+      "since": "2026-11-08T23:41:02.285Z"
     },
     "garage-sale-bot": {
       "state": "done",
