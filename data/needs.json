@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T01:33:41.179Z",
+  "updatedAt": "2026-11-08T20:26:17.049Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -499,6 +499,16 @@
       "text": "Daily bot-review session",
       "project": null,
       "ts": "2026-11-08T01:33:41.179Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611082026-2ac6",
+      "bot": "accounting-bot",
+      "kind": "question",
+      "text": "Weekly check-in; need businesses",
+      "project": "Accounting",
+      "ts": "2026-11-08T20:26:17.049Z",
       "handled": false,
       "handledAt": null
     }
