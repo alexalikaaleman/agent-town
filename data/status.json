@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T13:05:30.282Z",
+  "updatedAt": "2026-11-08T13:37:41.414Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -200,11 +200,11 @@
     },
     "context-bot": {
       "state": "working",
-      "text": "Weekly backup tick",
+      "text": "Weekly backup verification",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-08T13:05:30.282Z",
+      "ts": "2026-11-08T13:37:41.414Z",
       "since": "2026-11-08T13:05:30.282Z"
     }
   }
