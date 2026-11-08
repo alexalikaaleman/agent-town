@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T22:33:31.447Z",
+  "updatedAt": "2026-11-08T22:36:51.842Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -529,6 +529,16 @@
       "text": "Bot permission protocol set; awaiting",
       "project": null,
       "ts": "2026-11-08T22:33:31.447Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611082236-4d7b",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "Site art ready; OK to save to Drive?",
+      "project": "Alika TreeD site",
+      "ts": "2026-11-08T22:36:51.842Z",
       "handled": false,
       "handledAt": null
     }
