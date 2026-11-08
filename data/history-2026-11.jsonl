@@ -300,3 +300,4 @@
 {"ts":"2026-11-07T20:32:39.630Z","bot":"chief-of-staff","state":"done","text":"Urgent check done; next: Monday rundown"}
 {"ts":"2026-11-07T21:16:41.855Z","bot":"masterbot","state":"working","text":"Proactive review"}
 {"ts":"2026-11-07T21:17:37.101Z","bot":"masterbot","state":"done","text":"Proactive done; idle, nothing queued"}
+{"ts":"2026-11-08T01:33:41.179Z","bot":"masterbot","needId":"n202611080133-f41f","state":"needs-alex","text":"Daily bot-review session","needs":"question"}

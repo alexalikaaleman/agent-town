@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T20:22:41.327Z",
+  "updatedAt": "2026-11-08T01:33:41.179Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -489,6 +489,16 @@
       "text": "Pick: jam, MakerWorld, Etsy sale",
       "project": "Income",
       "ts": "2026-11-07T20:22:41.327Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611080133-f41f",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Daily bot-review session",
+      "project": null,
+      "ts": "2026-11-08T01:33:41.179Z",
       "handled": false,
       "handledAt": null
     }
