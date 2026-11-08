@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T18:28:56.681Z",
+  "updatedAt": "2026-11-08T20:25:18.287Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -206,6 +206,15 @@
       "needs": null,
       "ts": "2026-11-08T14:09:35.824Z",
       "since": "2026-11-08T14:09:35.824Z"
+    },
+    "accounting-bot": {
+      "state": "working",
+      "text": "Weekly receipt check-in",
+      "project": "Accounting",
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-08T20:25:18.287Z",
+      "since": "2026-11-08T20:25:18.287Z"
     }
   }
 }
