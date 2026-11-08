@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T18:27:34.689Z",
+  "updatedAt": "2026-11-08T18:28:56.681Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,16 +16,16 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Reviewing open work",
+      "state": "done",
+      "text": "Review done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": {
         "id": "n202611080133-f41f",
         "kind": "question"
       },
-      "ts": "2026-11-08T18:27:34.689Z",
-      "since": "2026-11-08T18:27:34.689Z"
+      "ts": "2026-11-08T18:28:56.681Z",
+      "since": "2026-11-08T18:28:56.681Z"
     },
     "game-revision-logger": {
       "state": "done",
