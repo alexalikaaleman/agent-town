@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T22:33:26.385Z",
+  "updatedAt": "2026-11-08T22:33:31.447Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -217,13 +217,16 @@
       "since": "2026-11-08T20:30:18.824Z"
     },
     "website-builder-bot": {
-      "state": "working",
-      "text": "Review gameplay clip sources",
+      "state": "needs-alex",
+      "text": "Bot permission protocol set; awaiting",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-08T22:20:00.415Z",
-      "since": "2026-11-08T22:20:00.415Z"
+      "needs": {
+        "id": "n202611082233-db0b",
+        "kind": "question"
+      },
+      "ts": "2026-11-08T22:33:31.447Z",
+      "since": "2026-11-08T22:33:31.447Z"
     }
   }
 }
