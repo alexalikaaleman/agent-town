@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T20:26:17.049Z",
+  "updatedAt": "2026-11-08T20:27:41.545Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -509,8 +509,8 @@
       "text": "Weekly check-in; need businesses",
       "project": "Accounting",
       "ts": "2026-11-08T20:26:17.049Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-08T20:27:41.545Z"
     }
   ]
 }
