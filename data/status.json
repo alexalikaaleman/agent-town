@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T21:18:57.564Z",
+  "updatedAt": "2026-11-09T21:22:34.394Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -236,10 +236,7 @@
       "text": "SEO preview budget and favicon",
       "project": "Alika TreeD",
       "with": [],
-      "needs": {
-        "id": "n202611091812-5eda",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-09T18:12:33.743Z",
       "since": "2026-11-09T18:12:33.743Z"
     },
