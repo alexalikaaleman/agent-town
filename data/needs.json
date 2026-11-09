@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:42:28.575Z",
+  "updatedAt": "2026-11-09T00:46:26.120Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -559,8 +559,8 @@
       "text": "Build bot text formatting approval",
       "project": null,
       "ts": "2026-11-09T00:42:28.575Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-09T00:46:26.120Z"
     }
   ]
 }
