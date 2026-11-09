@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T01:12:37.013Z",
+  "updatedAt": "2026-11-09T01:25:51.918Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -589,8 +589,8 @@
       "text": "Banner upload computer update",
       "project": null,
       "ts": "2026-11-09T01:12:37.013Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-09T01:25:51.918Z"
     }
   ]
 }

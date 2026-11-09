@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T01:24:30.835Z",
+  "updatedAt": "2026-11-09T01:25:51.918Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -214,16 +214,13 @@
       "since": "2026-11-08T20:30:18.824Z"
     },
     "website-builder-bot": {
-      "state": "needs-alex",
-      "text": "Banner upload computer update",
+      "state": "working",
+      "text": "Repair banner publishing path",
       "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611090112-b65e",
-        "kind": "question"
-      },
-      "ts": "2026-11-09T01:12:37.013Z",
-      "since": "2026-11-09T01:12:37.013Z"
+      "needs": null,
+      "ts": "2026-11-09T01:25:51.918Z",
+      "since": "2026-11-09T01:25:51.918Z"
     }
   }
 }
