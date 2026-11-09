@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T23:45:45.317Z",
+  "updatedAt": "2026-11-09T23:45:49.253Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -46,13 +46,13 @@
       "since": "2026-11-02T10:38:42.195Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "8B intros done; next: 8A Dragon Wakes",
+      "state": "working",
+      "text": "8A Dragon Wakes scenes",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T23:45:45.317Z",
-      "since": "2026-11-09T23:45:45.317Z"
+      "ts": "2026-11-09T23:45:49.253Z",
+      "since": "2026-11-09T23:45:49.253Z"
     },
     "robotemplate": {
       "state": "done",
