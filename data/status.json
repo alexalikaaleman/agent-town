@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:36:29.393Z",
+  "updatedAt": "2026-11-09T00:42:13.559Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,16 +16,16 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Website bot redesign preflight",
+      "state": "done",
+      "text": "Website bot done; next: build bot",
       "project": null,
       "with": [],
       "needs": {
         "id": "n202611080133-f41f",
         "kind": "question"
       },
-      "ts": "2026-11-09T00:35:19.463Z",
-      "since": "2026-11-08T22:26:08.549Z"
+      "ts": "2026-11-09T00:42:13.559Z",
+      "since": "2026-11-09T00:42:13.559Z"
     },
     "game-revision-logger": {
       "state": "done",
