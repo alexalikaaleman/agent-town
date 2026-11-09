@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T21:22:38.582Z",
+  "updatedAt": "2026-11-09T21:22:42.804Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -224,10 +224,7 @@
       "text": "Item 6 preview budget",
       "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611091811-f677",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-09T18:11:47.933Z",
       "since": "2026-11-09T18:11:47.933Z"
     },

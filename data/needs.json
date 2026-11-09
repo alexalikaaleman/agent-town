@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T21:22:34.394Z",
+  "updatedAt": "2026-11-09T21:22:42.804Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -659,8 +659,8 @@
       "text": "Item 6 preview budget",
       "project": null,
       "ts": "2026-11-09T18:11:47.933Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-09T21:22:42.804Z"
     },
     {
       "id": "n202611091812-5eda",
