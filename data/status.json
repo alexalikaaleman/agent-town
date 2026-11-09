@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:42:13.559Z",
+  "updatedAt": "2026-11-09T00:42:28.575Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,16 +16,16 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Website bot done; next: build bot",
+      "state": "needs-alex",
+      "text": "Build bot text formatting approval",
       "project": null,
       "with": [],
       "needs": {
-        "id": "n202611080133-f41f",
+        "id": "n202611090042-6a18",
         "kind": "question"
       },
-      "ts": "2026-11-09T00:42:13.559Z",
-      "since": "2026-11-09T00:42:13.559Z"
+      "ts": "2026-11-09T00:42:28.575Z",
+      "since": "2026-11-09T00:42:28.575Z"
     },
     "game-revision-logger": {
       "state": "done",
