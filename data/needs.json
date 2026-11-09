@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T08:21:47.759Z",
+  "updatedAt": "2026-11-09T18:06:11.272Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -641,6 +641,16 @@
       "ts": "2026-11-09T08:14:16.001Z",
       "handled": true,
       "handledAt": "2026-11-09T08:21:47.759Z"
+    },
+    {
+      "id": "n202611091806-815a",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "Dragon resume: need Alex's go",
+      "project": "Dragon rebuild",
+      "ts": "2026-11-09T18:06:11.272Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

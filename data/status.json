@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T18:06:06.194Z",
+  "updatedAt": "2026-11-09T18:06:11.272Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,16 @@
       "since": "2026-11-09T01:26:07.414Z"
     },
     "game-design-document-bot": {
-      "state": "done",
-      "text": "Dragon fixes check, on hold",
+      "state": "needs-alex",
+      "text": "Dragon resume: need Alex's go",
       "project": "Dragon rebuild",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-02T07:51:09.091Z",
-      "since": "2026-11-02T07:51:09.091Z"
+      "needs": {
+        "id": "n202611091806-815a",
+        "kind": "question"
+      },
+      "ts": "2026-11-09T18:06:11.272Z",
+      "since": "2026-11-09T18:06:11.272Z"
     },
     "concept-art-bot": {
       "state": "working",
