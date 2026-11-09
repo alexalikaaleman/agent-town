@@ -425,3 +425,4 @@
 {"ts":"2026-11-09T11:15:07.258Z","bot":"playtest-qa-bot","state":"done","text":"CL check done; idle, nothing queued"}
 {"ts":"2026-11-09T16:09:26.965Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep"}
 {"ts":"2026-11-09T16:11:47.787Z","bot":"robo-maintenance-bot","state":"done","text":"Sweep done; idle, nothing queued"}
+{"ts":"2026-11-09T18:03:41.430Z","bot":"masterbot","state":"working","text":"Dragon push restart","project":"dragon"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T16:11:47.787Z",
+  "updatedAt": "2026-11-09T18:03:41.430Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,13 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Setup review done; idle, nothing queued",
-      "project": null,
+      "state": "working",
+      "text": "Dragon push restart",
+      "project": "dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T01:30:06.650Z",
-      "since": "2026-11-09T01:30:06.650Z"
+      "ts": "2026-11-09T18:03:41.430Z",
+      "since": "2026-11-09T18:03:41.430Z"
     },
     "game-revision-logger": {
       "state": "done",
