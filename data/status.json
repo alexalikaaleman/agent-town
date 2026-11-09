@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T18:16:55.426Z",
+  "updatedAt": "2026-11-09T18:17:14.210Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,16 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Dragon restart done; idle, nothing queu…",
+      "state": "needs-alex",
+      "text": "Dragon art: 2 questions",
       "project": "dragon",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-09T18:06:16.549Z",
-      "since": "2026-11-09T18:06:16.549Z"
+      "needs": {
+        "id": "n202611091817-5a5d",
+        "kind": "question"
+      },
+      "ts": "2026-11-09T18:17:14.210Z",
+      "since": "2026-11-09T18:17:14.210Z"
     },
     "game-revision-logger": {
       "state": "done",
