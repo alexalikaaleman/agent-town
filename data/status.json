@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:43:13.140Z",
+  "updatedAt": "2026-11-09T00:44:50.475Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,13 @@
       "since": "2026-11-02T07:51:09.091Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Mashup banner done; idle, nothing queued",
-      "project": "Alika TreeD site",
+      "state": "working",
+      "text": "Bus Ninja banner revision",
+      "project": "Alika TreeD Website",
       "with": [],
       "needs": null,
-      "ts": "2026-11-08T23:44:46.718Z",
-      "since": "2026-11-08T23:44:46.718Z"
+      "ts": "2026-11-09T00:44:50.475Z",
+      "since": "2026-11-09T00:44:50.475Z"
     },
     "garage-sale-bot": {
       "state": "done",
