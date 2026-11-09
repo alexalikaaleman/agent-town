@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T18:17:14.210Z",
+  "updatedAt": "2026-11-09T18:21:31.058Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -47,11 +47,11 @@
     },
     "cutscene-bot": {
       "state": "working",
-      "text": "Greek PrincessChase cutscene",
+      "text": "Prehistoric PrincessChase cutscene",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T18:06:24.721Z",
+      "ts": "2026-11-09T18:21:31.058Z",
       "since": "2026-11-09T18:06:24.721Z"
     },
     "robotemplate": {
