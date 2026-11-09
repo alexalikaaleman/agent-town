@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T18:11:47.933Z",
+  "updatedAt": "2026-11-09T18:12:33.743Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -659,6 +659,16 @@
       "text": "Item 6 preview budget",
       "project": null,
       "ts": "2026-11-09T18:11:47.933Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611091812-5eda",
+      "bot": "release-marketing-bot",
+      "kind": "question",
+      "text": "SEO preview budget and favicon",
+      "project": "Alika TreeD",
+      "ts": "2026-11-09T18:12:33.743Z",
       "handled": false,
       "handledAt": null
     }

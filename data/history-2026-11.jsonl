@@ -436,3 +436,4 @@
 {"ts":"2026-11-09T18:11:20.230Z","bot":"release-marketing-bot","state":"working","text":"SEO spec handoff to Web Bot","project":"Alika TreeD"}
 {"ts":"2026-11-09T18:11:31.651Z","bot":"release-marketing-bot","state":"done","text":"SEO handoff done; idle, nothing queued","project":"Alika TreeD"}
 {"ts":"2026-11-09T18:11:47.933Z","bot":"website-builder-bot","needId":"n202611091811-f677","state":"needs-alex","text":"Item 6 preview budget","needs":"question"}
+{"ts":"2026-11-09T18:12:33.743Z","bot":"release-marketing-bot","needId":"n202611091812-5eda","state":"needs-alex","text":"SEO preview budget and favicon","project":"Alika TreeD","needs":"question"}
