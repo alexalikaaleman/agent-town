@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T20:39:54.894Z",
+  "updatedAt": "2026-11-09T20:54:56.986Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -47,11 +47,11 @@
     },
     "cutscene-bot": {
       "state": "working",
-      "text": "DistantFuture PrincessChase",
+      "text": "EndOfTime PrincessChase",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T20:39:54.894Z",
+      "ts": "2026-11-09T20:54:56.986Z",
       "since": "2026-11-09T18:06:24.721Z"
     },
     "robotemplate": {
