@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T04:12:22.284Z",
+  "updatedAt": "2026-11-09T04:12:26.140Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -214,13 +214,13 @@
       "since": "2026-11-08T20:30:18.824Z"
     },
     "website-builder-bot": {
-      "state": "needs-alex",
-      "text": "Confirm site improvements scope",
+      "state": "working",
+      "text": "www redirect",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T04:09:55.245Z",
-      "since": "2026-11-09T04:09:55.245Z"
+      "ts": "2026-11-09T04:12:26.140Z",
+      "since": "2026-11-09T04:12:26.140Z"
     },
     "release-marketing-bot": {
       "state": "done",
