@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:58:15.509Z",
+  "updatedAt": "2026-11-09T01:00:02.095Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -579,8 +579,8 @@
       "text": "Banner publication approval",
       "project": null,
       "ts": "2026-11-09T00:58:15.509Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-09T01:00:02.095Z"
     }
   ]
 }
