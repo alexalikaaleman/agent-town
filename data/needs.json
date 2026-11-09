@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:23:12.349Z",
+  "updatedAt": "2026-11-09T00:24:34.334Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -549,8 +549,8 @@
       "text": "Resume after usage checkpoint",
       "project": null,
       "ts": "2026-11-09T00:23:12.349Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-09T00:24:34.334Z"
     }
   ]
 }
