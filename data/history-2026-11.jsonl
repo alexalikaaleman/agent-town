@@ -404,3 +404,4 @@
 {"ts":"2026-11-09T02:55:45.368Z","bot":"website-builder-bot","state":"working","text":"Fix video respawn and cleanup"}
 {"ts":"2026-11-09T03:04:16.879Z","bot":"website-builder-bot","state":"done","text":"Respawn fix done; idle, nothing queued"}
 {"ts":"2026-11-09T04:05:03.313Z","bot":"robo-helper-bot","needId":"n202611090405-9975","state":"needs-alex","text":"Library audit: 6 items for you","needs":"question"}
+{"ts":"2026-11-09T04:09:24.404Z","bot":"release-marketing-bot","handled":"n202611090248-0fca"}

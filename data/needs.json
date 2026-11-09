@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T04:05:03.313Z",
+  "updatedAt": "2026-11-09T04:09:24.404Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -599,8 +599,8 @@
       "text": "Approve site review list",
       "project": "Alika TreeD",
       "ts": "2026-11-09T02:48:29.312Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-09T04:09:24.404Z"
     },
     {
       "id": "n202611090405-9975",
