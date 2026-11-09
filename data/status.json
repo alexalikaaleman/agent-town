@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T04:10:50.090Z",
+  "updatedAt": "2026-11-09T04:10:54.211Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -226,13 +226,13 @@
       "since": "2026-11-09T04:09:55.245Z"
     },
     "release-marketing-bot": {
-      "state": "needs-alex",
-      "text": "Site build questions",
+      "state": "done",
+      "text": "Site paused; idle until Alex resumes",
       "project": "Alika TreeD",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T04:10:32.964Z",
-      "since": "2026-11-09T04:10:32.964Z"
+      "ts": "2026-11-09T04:10:54.211Z",
+      "since": "2026-11-09T04:10:54.211Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",
