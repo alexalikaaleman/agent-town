@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:49:51.321Z",
+  "updatedAt": "2026-11-09T00:57:48.047Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,16 +73,13 @@
       "since": "2026-11-02T07:51:09.091Z"
     },
     "concept-art-bot": {
-      "state": "needs-alex",
-      "text": "Banner art budget decision",
+      "state": "working",
+      "text": "Bus Ninja banner revision",
       "project": "Alika TreeD Website",
       "with": [],
-      "needs": {
-        "id": "n202611090046-698b",
-        "kind": "question"
-      },
-      "ts": "2026-11-09T00:46:35.904Z",
-      "since": "2026-11-09T00:46:35.904Z"
+      "needs": null,
+      "ts": "2026-11-09T00:57:48.047Z",
+      "since": "2026-11-09T00:57:48.047Z"
     },
     "garage-sale-bot": {
       "state": "done",
