@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T18:03:41.430Z",
+  "updatedAt": "2026-11-09T18:06:06.194Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,13 +73,13 @@
       "since": "2026-11-02T07:51:09.091Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Banner v02 done; idle, nothing queued",
-      "project": "Alika TreeD Website",
+      "state": "working",
+      "text": "Medieval DragonEnd S13 art",
+      "project": "Dragon Revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T01:03:24.840Z",
-      "since": "2026-11-09T01:03:24.840Z"
+      "ts": "2026-11-09T18:06:06.194Z",
+      "since": "2026-11-09T18:06:06.194Z"
     },
     "garage-sale-bot": {
       "state": "done",
