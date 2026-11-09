@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T21:22:34.394Z",
+  "updatedAt": "2026-11-09T21:22:38.582Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -232,13 +232,13 @@
       "since": "2026-11-09T18:11:47.933Z"
     },
     "release-marketing-bot": {
-      "state": "needs-alex",
-      "text": "SEO preview budget and favicon",
+      "state": "done",
+      "text": "SEO answers sent; idle, nothing queued",
       "project": "Alika TreeD",
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T18:12:33.743Z",
-      "since": "2026-11-09T18:12:33.743Z"
+      "ts": "2026-11-09T21:22:38.582Z",
+      "since": "2026-11-09T21:22:38.582Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",
