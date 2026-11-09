@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T02:47:03.057Z",
+  "updatedAt": "2026-11-09T02:48:29.312Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -223,13 +223,16 @@
       "since": "2026-11-09T02:17:30.406Z"
     },
     "release-marketing-bot": {
-      "state": "working",
-      "text": "Website review",
+      "state": "needs-alex",
+      "text": "Approve site review list",
       "project": "Alika TreeD",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-09T02:47:03.057Z",
-      "since": "2026-11-09T02:47:03.057Z"
+      "needs": {
+        "id": "n202611090248-0fca",
+        "kind": "question"
+      },
+      "ts": "2026-11-09T02:48:29.312Z",
+      "since": "2026-11-09T02:48:29.312Z"
     }
   }
 }

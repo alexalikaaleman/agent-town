@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T01:25:51.918Z",
+  "updatedAt": "2026-11-09T02:48:29.312Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -591,6 +591,16 @@
       "ts": "2026-11-09T01:12:37.013Z",
       "handled": true,
       "handledAt": "2026-11-09T01:25:51.918Z"
+    },
+    {
+      "id": "n202611090248-0fca",
+      "bot": "release-marketing-bot",
+      "kind": "question",
+      "text": "Approve site review list",
+      "project": "Alika TreeD",
+      "ts": "2026-11-09T02:48:29.312Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
