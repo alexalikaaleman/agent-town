@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:05:19.103Z",
+  "updatedAt": "2026-11-09T00:20:56.922Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -218,11 +218,11 @@
     },
     "website-builder-bot": {
       "state": "working",
-      "text": "Castle live next; menu and shop",
+      "text": "Publish usage checkpoint repair",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-09T00:05:19.103Z",
+      "ts": "2026-11-09T00:20:56.922Z",
       "since": "2026-11-08T23:37:38.468Z"
     }
   }
