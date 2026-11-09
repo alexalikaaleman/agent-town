@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T03:04:16.879Z",
+  "updatedAt": "2026-11-09T04:05:03.313Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -233,6 +233,18 @@
       },
       "ts": "2026-11-09T02:48:29.312Z",
       "since": "2026-11-09T02:48:29.312Z"
+    },
+    "robo-helper-bot": {
+      "state": "needs-alex",
+      "text": "Library audit: 6 items for you",
+      "project": null,
+      "with": [],
+      "needs": {
+        "id": "n202611090405-9975",
+        "kind": "question"
+      },
+      "ts": "2026-11-09T04:05:03.313Z",
+      "since": "2026-11-09T04:05:03.313Z"
     }
   }
 }
