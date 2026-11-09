@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T18:06:24.721Z",
+  "updatedAt": "2026-11-09T18:06:33.067Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,16 +52,16 @@
       "since": "2026-11-09T18:06:24.721Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Upload review done; next: Alex review",
-      "project": "Website review",
+      "state": "working",
+      "text": "Medieval map gen resume",
+      "project": "Dragon revamp",
       "with": [],
       "needs": {
         "id": "n202611071911-3847",
         "kind": "question"
       },
-      "ts": "2026-11-09T01:26:07.414Z",
-      "since": "2026-11-09T01:26:07.414Z"
+      "ts": "2026-11-09T18:06:33.067Z",
+      "since": "2026-11-09T18:06:33.067Z"
     },
     "game-design-document-bot": {
       "state": "needs-alex",
