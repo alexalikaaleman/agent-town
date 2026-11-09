@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T19:22:13.002Z",
+  "updatedAt": "2026-11-09T19:25:53.373Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -119,12 +119,12 @@
     },
     "chief-of-staff": {
       "state": "done",
-      "text": "Urgent check done; next: Monday rundown",
+      "text": "Rundown done; next: urgent check 10:23",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-07T20:32:39.630Z",
-      "since": "2026-11-07T20:32:39.630Z"
+      "ts": "2026-11-09T19:25:53.373Z",
+      "since": "2026-11-09T19:25:53.373Z"
     },
     "brainstorm-bot": {
       "state": "needs-alex",
