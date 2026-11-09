@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T00:46:26.120Z",
+  "updatedAt": "2026-11-09T00:46:35.904Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -561,6 +561,16 @@
       "ts": "2026-11-09T00:42:28.575Z",
       "handled": true,
       "handledAt": "2026-11-09T00:46:26.120Z"
+    },
+    {
+      "id": "n202611090046-698b",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "Banner art budget decision",
+      "project": "Alika TreeD Website",
+      "ts": "2026-11-09T00:46:35.904Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
