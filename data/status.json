@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:19:52.691Z",
+  "updatedAt": "2026-11-10T05:25:49.014Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -58,16 +58,16 @@
       "since": "2026-11-10T05:17:00.610Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Dragon republish plan",
-      "project": "Dragon revamp",
+      "state": "done",
+      "text": "Republish plan done; next: Alex review",
+      "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611071911-3847",
         "kind": "question"
       },
-      "ts": "2026-11-10T05:17:38.277Z",
-      "since": "2026-11-10T05:17:38.277Z"
+      "ts": "2026-11-10T05:25:49.014Z",
+      "since": "2026-11-10T05:25:49.014Z"
     },
     "game-design-document-bot": {
       "state": "needs-alex",
