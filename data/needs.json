@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T21:33:18.068Z",
+  "updatedAt": "2026-11-10T01:36:44.657Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -689,6 +689,16 @@
       "text": "Item 6 preview: publish?",
       "project": null,
       "ts": "2026-11-09T21:33:18.068Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611100136-cc6a",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Dragon map: keep new textures?",
+      "project": "dragon",
+      "ts": "2026-11-10T01:36:44.657Z",
       "handled": false,
       "handledAt": null
     }

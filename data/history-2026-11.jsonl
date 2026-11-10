@@ -465,3 +465,4 @@
 {"ts":"2026-11-09T23:45:45.317Z","bot":"cutscene-bot","state":"done","text":"8B intros done; next: 8A Dragon Wakes","project":"Dragon revamp"}
 {"ts":"2026-11-09T23:45:49.253Z","bot":"cutscene-bot","state":"working","text":"8A Dragon Wakes scenes","project":"Dragon revamp"}
 {"ts":"2026-11-10T00:39:49.045Z","bot":"cutscene-bot","state":"done","text":"Cutscenes to 22%; idle till reset","project":"Dragon revamp"}
+{"ts":"2026-11-10T01:36:44.657Z","bot":"masterbot","needId":"n202611100136-cc6a","state":"needs-alex","text":"Dragon map: keep new textures?","project":"dragon","needs":"question"}
