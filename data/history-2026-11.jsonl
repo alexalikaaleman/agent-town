@@ -484,3 +484,4 @@
 {"ts":"2026-11-10T10:21:03.349Z","bot":"cutscene-bot","state":"working","text":"Generating 3D teaser cutscene","project":"Dragon revamp"}
 {"ts":"2026-11-10T10:57:45.091Z","bot":"cutscene-bot","state":"done","text":"3D teaser v01 done; next: Alex review","project":"Dragon revamp"}
 {"ts":"2026-11-10T11:02:36.793Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
+{"ts":"2026-11-10T11:14:30.808Z","bot":"playtest-qa-bot","state":"done","text":"CL check done; idle, nothing queued"}
