@@ -471,3 +471,4 @@
 {"ts":"2026-11-10T05:17:38.277Z","bot":"robotemplate","state":"working","text":"Dragon republish plan","project":"Dragon revamp"}
 {"ts":"2026-11-10T05:19:26.132Z","bot":"game-build-bible","needId":"n202611100519-0982","state":"needs-alex","text":"OK to send dragon status?","needs":"question"}
 {"ts":"2026-11-10T05:19:33.795Z","bot":"ai-prompt-bot","state":"working","text":"Dragon status for RoboTemplate","project":"Dragon game"}
+{"ts":"2026-11-10T05:19:52.691Z","bot":"ai-prompt-bot","state":"done","text":"Dragon status sent; idle, nothing queued","project":"Dragon game"}

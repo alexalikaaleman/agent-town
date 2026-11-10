@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:19:33.795Z",
+  "updatedAt": "2026-11-10T05:19:52.691Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -256,13 +256,13 @@
       "since": "2026-11-09T04:05:03.313Z"
     },
     "ai-prompt-bot": {
-      "state": "working",
-      "text": "Dragon status for RoboTemplate",
+      "state": "done",
+      "text": "Dragon status sent; idle, nothing queued",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-10T05:19:33.795Z",
-      "since": "2026-11-10T05:19:33.795Z"
+      "ts": "2026-11-10T05:19:52.691Z",
+      "since": "2026-11-10T05:19:52.691Z"
     }
   }
 }
