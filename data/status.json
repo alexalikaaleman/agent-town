@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T17:33:25.471Z",
+  "updatedAt": "2026-11-10T17:50:09.614Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -127,16 +127,16 @@
       "since": "2026-11-09T19:25:53.373Z"
     },
     "brainstorm-bot": {
-      "state": "done",
-      "text": "Penalty PDF done; next: debate PDF wait",
+      "state": "working",
+      "text": "GET back-filing section PDF",
       "project": "Alika TreeD",
       "with": [],
       "needs": {
         "id": "n202611060327-1bb8",
         "kind": "question"
       },
-      "ts": "2026-11-10T17:33:25.471Z",
-      "since": "2026-11-10T17:33:25.471Z"
+      "ts": "2026-11-10T17:50:09.614Z",
+      "since": "2026-11-10T17:50:09.614Z"
     },
     "google-drive-manager": {
       "state": "done",
