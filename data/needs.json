@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T01:36:44.657Z",
+  "updatedAt": "2026-11-10T05:19:26.132Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -699,6 +699,16 @@
       "text": "Dragon map: keep new textures?",
       "project": "dragon",
       "ts": "2026-11-10T01:36:44.657Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611100519-0982",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "OK to send dragon status?",
+      "project": null,
+      "ts": "2026-11-10T05:19:26.132Z",
       "handled": false,
       "handledAt": null
     }
