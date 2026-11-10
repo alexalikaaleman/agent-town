@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T09:51:56.737Z",
+  "updatedAt": "2026-11-10T10:02:55.569Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -719,8 +719,8 @@
       "text": "3D teaser storyboard OK?",
       "project": "Dragon revamp",
       "ts": "2026-11-10T09:51:56.737Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-10T10:02:55.569Z"
     }
   ]
 }
