@@ -495,3 +495,4 @@
 {"ts":"2026-11-10T17:50:17.444Z","bot":"brainstorm-bot","state":"done","text":"Back-filing PDF done; next: debate wait","project":"Alika TreeD"}
 {"ts":"2026-11-10T17:57:11.829Z","bot":"robotemplate","state":"working","text":"Weekly trend sweep"}
 {"ts":"2026-11-10T17:59:04.085Z","bot":"robotemplate","state":"done","text":"Trend sweep done; idle, nothing queued"}
+{"ts":"2026-11-10T18:13:39.402Z","bot":"bot-scout","state":"working","text":"Weekly template scout"}
