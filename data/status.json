@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T20:24:33.138Z",
+  "updatedAt": "2026-11-10T21:06:18.844Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -185,12 +185,12 @@
     },
     "larry-h-robot": {
       "state": "done",
-      "text": "GET rate answer done; idle, none queued",
+      "text": "VD draft done; next: review GET Bot dra…",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-10T18:46:43.932Z",
-      "since": "2026-11-10T18:46:43.932Z"
+      "ts": "2026-11-10T21:06:18.844Z",
+      "since": "2026-11-10T21:06:18.844Z"
     },
     "game-additions-bot": {
       "state": "done",
