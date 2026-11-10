@@ -497,3 +497,4 @@
 {"ts":"2026-11-10T17:59:04.085Z","bot":"robotemplate","state":"done","text":"Trend sweep done; idle, nothing queued"}
 {"ts":"2026-11-10T18:13:39.402Z","bot":"bot-scout","state":"working","text":"Weekly template scout"}
 {"ts":"2026-11-10T18:17:43.082Z","bot":"bot-scout","state":"done","text":"Weekly scout done; idle, nothing queued"}
+{"ts":"2026-11-10T18:18:06.262Z","bot":"bot-scout","needId":"n202611101818-ab7d","state":"needs-alex","text":"Weekly picks: go one at a time?","needs":"question"}

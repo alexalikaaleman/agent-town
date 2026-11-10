@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T10:02:55.569Z",
+  "updatedAt": "2026-11-10T18:18:06.262Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -721,6 +721,16 @@
       "ts": "2026-11-10T09:51:56.737Z",
       "handled": true,
       "handledAt": "2026-11-10T10:02:55.569Z"
+    },
+    {
+      "id": "n202611101818-ab7d",
+      "bot": "bot-scout",
+      "kind": "question",
+      "text": "Weekly picks: go one at a time?",
+      "project": null,
+      "ts": "2026-11-10T18:18:06.262Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
