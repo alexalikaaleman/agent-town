@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:52:07.924Z",
+  "updatedAt": "2026-11-10T09:51:56.737Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -46,13 +46,16 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "Review reel done; idle till reset",
+      "state": "needs-alex",
+      "text": "3D teaser storyboard OK?",
       "project": "Dragon revamp",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-10T05:17:00.610Z",
-      "since": "2026-11-10T05:17:00.610Z"
+      "needs": {
+        "id": "n202611100951-a3dd",
+        "kind": "question"
+      },
+      "ts": "2026-11-10T09:51:56.737Z",
+      "since": "2026-11-10T09:51:56.737Z"
     },
     "robotemplate": {
       "state": "done",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:51:26.895Z",
+  "updatedAt": "2026-11-10T09:51:56.737Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -711,6 +711,16 @@
       "ts": "2026-11-10T05:19:26.132Z",
       "handled": true,
       "handledAt": "2026-11-10T05:51:26.895Z"
+    },
+    {
+      "id": "n202611100951-a3dd",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "3D teaser storyboard OK?",
+      "project": "Dragon revamp",
+      "ts": "2026-11-10T09:51:56.737Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

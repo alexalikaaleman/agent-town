@@ -478,3 +478,4 @@
 {"ts":"2026-11-10T05:51:26.895Z","bot":"game-build-bible","handled":"n202611100519-0982"}
 {"ts":"2026-11-10T05:51:30.339Z","bot":"game-build-bible","state":"done","text":"Dragon sync moot; idle, nothing queued"}
 {"ts":"2026-11-10T05:52:07.924Z","bot":"robotemplate","state":"done","text":"Art index done; next: art bot answers","project":"Dragon game"}
+{"ts":"2026-11-10T09:51:56.737Z","bot":"cutscene-bot","needId":"n202611100951-a3dd","state":"needs-alex","text":"3D teaser storyboard OK?","project":"Dragon revamp","needs":"question"}
