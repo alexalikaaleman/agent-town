@@ -467,3 +467,4 @@
 {"ts":"2026-11-10T00:39:49.045Z","bot":"cutscene-bot","state":"done","text":"Cutscenes to 22%; idle till reset","project":"Dragon revamp"}
 {"ts":"2026-11-10T01:36:44.657Z","bot":"masterbot","needId":"n202611100136-cc6a","state":"needs-alex","text":"Dragon map: keep new textures?","project":"dragon","needs":"question"}
 {"ts":"2026-11-10T05:05:35.904Z","bot":"cutscene-bot","state":"working","text":"New scenes compilation reel","project":"Dragon revamp"}
+{"ts":"2026-11-10T05:17:00.610Z","bot":"cutscene-bot","state":"done","text":"Review reel done; idle till reset","project":"Dragon revamp"}
