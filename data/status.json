@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:39:49.084Z",
+  "updatedAt": "2026-11-10T05:51:26.895Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,10 +41,7 @@
       "text": "OK to send dragon status?",
       "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611100519-0982",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-10T05:19:26.132Z",
       "since": "2026-11-10T05:19:26.132Z"
     },

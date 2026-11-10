@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:19:26.132Z",
+  "updatedAt": "2026-11-10T05:51:26.895Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -709,8 +709,8 @@
       "text": "OK to send dragon status?",
       "project": null,
       "ts": "2026-11-10T05:19:26.132Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-10T05:51:26.895Z"
     }
   ]
 }
