@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T18:43:42.282Z",
+  "updatedAt": "2026-11-10T18:45:53.430Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -184,13 +184,13 @@
       "since": "2026-11-07T20:22:41.327Z"
     },
     "larry-h-robot": {
-      "state": "working",
-      "text": "Rideshare GET rate question",
+      "state": "done",
+      "text": "GET rate findings ready for GET Bot",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-10T18:43:42.282Z",
-      "since": "2026-11-10T18:43:42.282Z"
+      "ts": "2026-11-10T18:45:53.430Z",
+      "since": "2026-11-10T18:45:53.430Z"
     },
     "game-additions-bot": {
       "state": "done",
