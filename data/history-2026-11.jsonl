@@ -481,3 +481,4 @@
 {"ts":"2026-11-10T09:51:56.737Z","bot":"cutscene-bot","needId":"n202611100951-a3dd","state":"needs-alex","text":"3D teaser storyboard OK?","project":"Dragon revamp","needs":"question"}
 {"ts":"2026-11-10T10:02:55.569Z","bot":"cutscene-bot","handled":"n202611100951-a3dd"}
 {"ts":"2026-11-10T10:02:59.774Z","bot":"cutscene-bot","state":"working","text":"3D teaser refs and prompts","project":"Dragon revamp"}
+{"ts":"2026-11-10T10:21:03.349Z","bot":"cutscene-bot","state":"working","text":"Generating 3D teaser cutscene","project":"Dragon revamp"}
