@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T01:36:44.657Z",
+  "updatedAt": "2026-11-10T05:05:35.904Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -46,13 +46,13 @@
       "since": "2026-11-02T10:38:42.195Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "Cutscenes to 22%; idle till reset",
+      "state": "working",
+      "text": "New scenes compilation reel",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-10T00:39:49.045Z",
-      "since": "2026-11-10T00:39:49.045Z"
+      "ts": "2026-11-10T05:05:35.904Z",
+      "since": "2026-11-10T05:05:35.904Z"
     },
     "robotemplate": {
       "state": "done",
