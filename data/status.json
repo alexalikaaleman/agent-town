@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T18:18:06.262Z",
+  "updatedAt": "2026-11-10T18:43:42.282Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -184,13 +184,13 @@
       "since": "2026-11-07T20:22:41.327Z"
     },
     "larry-h-robot": {
-      "state": "done",
-      "text": "Review PDF done; idle, nothing queued",
+      "state": "working",
+      "text": "Rideshare GET rate question",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-06T03:24:29.575Z",
-      "since": "2026-11-06T03:24:29.575Z"
+      "ts": "2026-11-10T18:43:42.282Z",
+      "since": "2026-11-10T18:43:42.282Z"
     },
     "game-additions-bot": {
       "state": "done",
