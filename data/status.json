@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T20:23:56.442Z",
+  "updatedAt": "2026-11-10T20:24:33.138Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -172,16 +172,16 @@
       "since": "2026-11-10T18:18:06.262Z"
     },
     "hustle-bot": {
-      "state": "done",
-      "text": "Income session done; next: Alex picks",
+      "state": "needs-alex",
+      "text": "Pick: Cults contest, overlays, audit",
       "project": null,
       "with": [],
       "needs": {
-        "id": "n202611072022-5d16",
+        "id": "n202611102024-b417",
         "kind": "question"
       },
-      "ts": "2026-11-10T20:23:56.442Z",
-      "since": "2026-11-10T20:23:56.442Z"
+      "ts": "2026-11-10T20:24:33.138Z",
+      "since": "2026-11-10T20:24:33.138Z"
     },
     "larry-h-robot": {
       "state": "done",

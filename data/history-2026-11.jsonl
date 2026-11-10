@@ -503,3 +503,4 @@
 {"ts":"2026-11-10T18:46:43.932Z","bot":"larry-h-robot","state":"done","text":"GET rate answer done; idle, none queued"}
 {"ts":"2026-11-10T20:22:51.874Z","bot":"hustle-bot","state":"working","text":"Income strategy session"}
 {"ts":"2026-11-10T20:23:56.442Z","bot":"hustle-bot","state":"done","text":"Income session done; next: Alex picks"}
+{"ts":"2026-11-10T20:24:33.138Z","bot":"hustle-bot","needId":"n202611102024-b417","state":"needs-alex","text":"Pick: Cults contest, overlays, audit","needs":"question"}

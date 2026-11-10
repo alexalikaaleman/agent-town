@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T18:18:06.262Z",
+  "updatedAt": "2026-11-10T20:24:33.138Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -729,6 +729,16 @@
       "text": "Weekly picks: go one at a time?",
       "project": null,
       "ts": "2026-11-10T18:18:06.262Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611102024-b417",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Pick: Cults contest, overlays, audit",
+      "project": null,
+      "ts": "2026-11-10T20:24:33.138Z",
       "handled": false,
       "handledAt": null
     }
