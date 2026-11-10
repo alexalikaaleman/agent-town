@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T05:51:26.895Z",
+  "updatedAt": "2026-11-10T05:51:30.339Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-02T07:50:34.404Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "OK to send dragon status?",
+      "state": "done",
+      "text": "Dragon sync moot; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-10T05:19:26.132Z",
-      "since": "2026-11-10T05:19:26.132Z"
+      "ts": "2026-11-10T05:51:30.339Z",
+      "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
       "state": "done",
