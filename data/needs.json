@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T10:38:48.196Z",
+  "updatedAt": "2026-11-11T10:39:29.501Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -861,6 +861,16 @@
       "ts": "2026-11-11T09:39:52.174Z",
       "handled": true,
       "handledAt": "2026-11-11T09:40:57.489Z"
+    },
+    {
+      "id": "n202611111039-0667",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "Add more games to website?",
+      "project": null,
+      "ts": "2026-11-11T10:39:29.501Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
