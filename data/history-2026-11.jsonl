@@ -535,3 +535,4 @@
 {"ts":"2026-11-11T08:26:46.248Z","bot":"website-builder-bot","state":"working","text":"Homepage text and name changes"}
 {"ts":"2026-11-11T08:30:29.877Z","bot":"website-builder-bot","needId":"n202611110830-52f2","state":"needs-alex","text":"Name changes preview: publish?","needs":"question"}
 {"ts":"2026-11-11T08:30:44.582Z","bot":"cutscene-bot","state":"done","text":"3D teaser v09 done; next: Alex review","project":"Dragon revamp"}
+{"ts":"2026-11-11T08:31:36.878Z","bot":"robotemplate","state":"working","text":"Dragon cutscene v09 check","project":"Dragon game"}
