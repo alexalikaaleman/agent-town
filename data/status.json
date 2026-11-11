@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T01:37:27.766Z",
+  "updatedAt": "2026-11-11T01:49:22.533Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -184,13 +184,13 @@
       "since": "2026-11-10T20:24:33.138Z"
     },
     "larry-h-robot": {
-      "state": "working",
-      "text": "VD statement redo with DoorDash",
+      "state": "done",
+      "text": "VD redo done; next: Alex fills blanks",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T01:37:27.766Z",
-      "since": "2026-11-11T01:37:27.766Z"
+      "ts": "2026-11-11T01:49:22.533Z",
+      "since": "2026-11-11T01:49:22.533Z"
     },
     "game-additions-bot": {
       "state": "done",
