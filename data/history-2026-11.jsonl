@@ -608,3 +608,4 @@
 {"ts":"2026-11-11T16:12:57.295Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep"}
 {"ts":"2026-11-11T16:14:51.340Z","bot":"robo-maintenance-bot","state":"done","text":"Sweep done; idle, nothing queued"}
 {"ts":"2026-11-11T19:59:23.963Z","bot":"robotemplate","needId":"n202611111959-8b30","state":"needs-alex","text":"Dragon video test paste ready","project":"Dragon game","needs":"question"}
+{"ts":"2026-11-11T20:19:43.376Z","bot":"robotemplate","handled":"n202611111959-8b30"}

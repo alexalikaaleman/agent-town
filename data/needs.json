@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T19:59:23.963Z",
+  "updatedAt": "2026-11-11T20:19:43.376Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -919,8 +919,8 @@
       "text": "Dragon video test paste ready",
       "project": "Dragon game",
       "ts": "2026-11-11T19:59:23.963Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T20:19:43.376Z"
     }
   ]
 }
