@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T10:44:46.041Z",
+  "updatedAt": "2026-11-11T10:50:34.930Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -871,6 +871,16 @@
       "ts": "2026-11-11T10:39:29.501Z",
       "handled": true,
       "handledAt": "2026-11-11T10:44:46.041Z"
+    },
+    {
+      "id": "n202611111050-de96",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "Ask GitWriter for game links?",
+      "project": null,
+      "ts": "2026-11-11T10:50:34.930Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
