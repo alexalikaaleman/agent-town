@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T05:25:44.275Z",
+  "updatedAt": "2026-11-11T08:30:29.877Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -751,6 +751,16 @@
       "ts": "2026-11-11T05:23:24.984Z",
       "handled": true,
       "handledAt": "2026-11-11T05:25:44.275Z"
+    },
+    {
+      "id": "n202611110830-52f2",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Name changes preview: publish?",
+      "project": null,
+      "ts": "2026-11-11T08:30:29.877Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
