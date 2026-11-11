@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T21:36:13.365Z",
+  "updatedAt": "2026-11-11T22:46:22.375Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -181,13 +181,13 @@
       "since": "2026-11-10T20:24:33.138Z"
     },
     "larry-h-robot": {
-      "state": "done",
-      "text": "Sales setup advice done; idle",
+      "state": "working",
+      "text": "CPA print packet handoff",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T08:41:40.468Z",
-      "since": "2026-11-11T08:41:40.468Z"
+      "ts": "2026-11-11T22:46:22.375Z",
+      "since": "2026-11-11T22:46:22.375Z"
     },
     "game-additions-bot": {
       "state": "done",
