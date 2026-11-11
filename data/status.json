@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T23:15:03.816Z",
+  "updatedAt": "2026-11-11T23:23:55.789Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -181,13 +181,13 @@
       "since": "2026-11-10T20:24:33.138Z"
     },
     "larry-h-robot": {
-      "state": "working",
-      "text": "CPA packet v4",
+      "state": "done",
+      "text": "CPA packet v4 done; next: Alex's returns",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T23:15:03.816Z",
-      "since": "2026-11-11T23:15:03.816Z"
+      "ts": "2026-11-11T23:23:55.789Z",
+      "since": "2026-11-11T23:23:55.789Z"
     },
     "game-additions-bot": {
       "state": "done",

@@ -617,3 +617,4 @@
 {"ts":"2026-11-11T23:12:05.793Z","bot":"larry-h-robot","needId":"n202611112312-a494","state":"needs-alex","text":"VD letter blanks","needs":"question"}
 {"ts":"2026-11-11T23:14:59.788Z","bot":"larry-h-robot","handled":"n202611112312-a494"}
 {"ts":"2026-11-11T23:15:03.816Z","bot":"larry-h-robot","state":"working","text":"CPA packet v4"}
+{"ts":"2026-11-11T23:23:55.789Z","bot":"larry-h-robot","state":"done","text":"CPA packet v4 done; next: Alex's returns"}
