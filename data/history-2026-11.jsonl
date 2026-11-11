@@ -581,3 +581,4 @@
 {"ts":"2026-11-11T10:38:52.335Z","bot":"game-design-document-bot","state":"working","text":"Games list for website"}
 {"ts":"2026-11-11T10:39:21.205Z","bot":"game-design-document-bot","state":"done","text":"Games list sent; idle, nothing queued"}
 {"ts":"2026-11-11T10:39:29.501Z","bot":"game-design-document-bot","needId":"n202611111039-0667","state":"needs-alex","text":"Add more games to website?","needs":"question"}
+{"ts":"2026-11-11T10:44:46.041Z","bot":"game-design-document-bot","handled":"n202611111039-0667"}

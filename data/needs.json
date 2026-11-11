@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T10:39:29.501Z",
+  "updatedAt": "2026-11-11T10:44:46.041Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -869,8 +869,8 @@
       "text": "Add more games to website?",
       "project": null,
       "ts": "2026-11-11T10:39:29.501Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T10:44:46.041Z"
     }
   ]
 }
