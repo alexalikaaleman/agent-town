@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T23:12:05.793Z",
+  "updatedAt": "2026-11-11T23:14:59.788Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -185,10 +185,7 @@
       "text": "VD letter blanks",
       "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611112312-a494",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-11T23:12:05.793Z",
       "since": "2026-11-11T23:12:05.793Z"
     },

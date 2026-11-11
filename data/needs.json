@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T23:12:05.793Z",
+  "updatedAt": "2026-11-11T23:14:59.788Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -939,8 +939,8 @@
       "text": "VD letter blanks",
       "project": null,
       "ts": "2026-11-11T23:12:05.793Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T23:14:59.788Z"
     }
   ]
 }
