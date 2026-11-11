@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T02:33:58.822Z",
+  "updatedAt": "2026-11-11T02:34:27.471Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -184,13 +184,13 @@
       "since": "2026-11-10T20:24:33.138Z"
     },
     "larry-h-robot": {
-      "state": "working",
-      "text": "VD statement recheck and PDF",
+      "state": "done",
+      "text": "VD final PDF done; next: Alex fills bla…",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T02:29:16.091Z",
-      "since": "2026-11-11T02:29:16.091Z"
+      "ts": "2026-11-11T02:34:27.471Z",
+      "since": "2026-11-11T02:34:27.471Z"
     },
     "game-additions-bot": {
       "state": "done",
