@@ -549,3 +549,4 @@
 {"ts":"2026-11-11T08:41:54.605Z","bot":"release-marketing-bot","state":"working","text":"Indie sales channel compare"}
 {"ts":"2026-11-11T08:42:17.915Z","bot":"release-marketing-bot","state":"done","text":"Channel compare done; idle, nothing que…"}
 {"ts":"2026-11-11T08:42:33.189Z","bot":"website-builder-bot","needId":"n202611110842-dff3","state":"needs-alex","text":"Rev25 preview ready for review","needs":"question"}
+{"ts":"2026-11-11T08:43:00.846Z","bot":"website-builder-bot","handled":"n202611110842-dff3"}

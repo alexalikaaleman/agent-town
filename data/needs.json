@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:42:33.189Z",
+  "updatedAt": "2026-11-11T08:43:00.846Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -779,8 +779,8 @@
       "text": "Rev25 preview ready for review",
       "project": null,
       "ts": "2026-11-11T08:42:33.189Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T08:43:00.846Z"
     }
   ]
 }
