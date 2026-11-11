@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:45:45.978Z",
+  "updatedAt": "2026-11-11T10:38:48.196Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -68,10 +68,7 @@
       "text": "OK to send game list to Website Bot?",
       "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611110910-0f2c",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-11T09:10:25.697Z",
       "since": "2026-11-11T09:10:25.697Z"
     },
