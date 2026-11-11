@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:44:56.761Z",
+  "updatedAt": "2026-11-11T08:46:27.260Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -791,6 +791,16 @@
       "ts": "2026-11-11T08:43:05.046Z",
       "handled": true,
       "handledAt": "2026-11-11T08:44:56.761Z"
+    },
+    {
+      "id": "n202611110846-f358",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Placeholders preview: go live?",
+      "project": null,
+      "ts": "2026-11-11T08:46:27.260Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
