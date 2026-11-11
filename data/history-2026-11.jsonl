@@ -556,3 +556,4 @@
 {"ts":"2026-11-11T08:46:27.260Z","bot":"website-builder-bot","needId":"n202611110846-f358","state":"needs-alex","text":"Placeholders preview: go live?","needs":"question"}
 {"ts":"2026-11-11T08:47:13.197Z","bot":"cutscene-bot","state":"working","text":"3D teaser v10","project":"Dragon revamp"}
 {"ts":"2026-11-11T08:51:55.579Z","bot":"website-builder-bot","handled":"n202611110846-f358"}
+{"ts":"2026-11-11T08:51:59.339Z","bot":"website-builder-bot","state":"done","text":"Placeholders live; next: links"}
