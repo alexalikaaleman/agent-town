@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:36:16.215Z",
+  "updatedAt": "2026-11-11T08:40:57.364Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -226,13 +226,13 @@
       "since": "2026-11-11T08:36:16.215Z"
     },
     "release-marketing-bot": {
-      "state": "done",
-      "text": "Assets spec done; next: WBB builds",
+      "state": "working",
+      "text": "Asset sales route advice",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T08:35:07.947Z",
-      "since": "2026-11-11T08:35:07.947Z"
+      "ts": "2026-11-11T08:40:57.364Z",
+      "since": "2026-11-11T08:40:57.364Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",
