@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:43:05.046Z",
+  "updatedAt": "2026-11-11T08:44:56.761Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -789,8 +789,8 @@
       "text": "Rev25 yes; link",
       "project": null,
       "ts": "2026-11-11T08:43:05.046Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T08:44:56.761Z"
     }
   ]
 }
