@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T06:44:00.844Z",
+  "updatedAt": "2026-11-11T07:20:59.347Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -46,13 +46,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "3D teaser v07 done; next: Alex review",
+      "state": "working",
+      "text": "3D teaser v08",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T06:44:00.844Z",
-      "since": "2026-11-11T06:44:00.844Z"
+      "ts": "2026-11-11T07:20:59.347Z",
+      "since": "2026-11-11T07:20:59.347Z"
     },
     "robotemplate": {
       "state": "working",
