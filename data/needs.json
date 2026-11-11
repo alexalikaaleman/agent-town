@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:07:20.655Z",
+  "updatedAt": "2026-11-11T09:10:25.697Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -819,6 +819,16 @@
       "text": "Music section: approve in chat",
       "project": "alikatreed",
       "ts": "2026-11-11T09:07:20.655Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611110910-0f2c",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "OK to send game list to Website Bot?",
+      "project": null,
+      "ts": "2026-11-11T09:10:25.697Z",
       "handled": false,
       "handledAt": null
     }
