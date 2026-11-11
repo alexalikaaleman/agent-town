@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T05:23:24.984Z",
+  "updatedAt": "2026-11-11T05:25:44.275Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -749,8 +749,8 @@
       "text": "Dragon cutscene v05 fix list",
       "project": "Dragon game",
       "ts": "2026-11-11T05:23:24.984Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T05:25:44.275Z"
     }
   ]
 }
