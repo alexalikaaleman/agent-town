@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:30:29.877Z",
+  "updatedAt": "2026-11-11T08:32:08.346Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -759,8 +759,8 @@
       "text": "Name changes preview: publish?",
       "project": null,
       "ts": "2026-11-11T08:30:29.877Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T08:32:08.346Z"
     }
   ]
 }
