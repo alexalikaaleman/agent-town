@@ -575,3 +575,4 @@
 {"ts":"2026-11-11T09:38:33.173Z","bot":"website-builder-bot","state":"done","text":"Rev28 live; next: guide PDF","project":"alikatreed"}
 {"ts":"2026-11-11T09:39:52.174Z","bot":"website-builder-bot","needId":"n202611110939-91fd","state":"needs-alex","text":"Delete old guide copies?","project":"alikatreed","needs":"question"}
 {"ts":"2026-11-11T09:40:57.489Z","bot":"website-builder-bot","handled":"n202611110939-91fd"}
+{"ts":"2026-11-11T09:44:13.839Z","bot":"cutscene-bot","state":"done","text":"3D teaser v10 done; next: Alex review","project":"Dragon revamp"}
