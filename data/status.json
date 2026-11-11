@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:34:36.452Z",
+  "updatedAt": "2026-11-11T08:35:07.947Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -229,13 +229,13 @@
       "since": "2026-11-11T08:33:21.700Z"
     },
     "release-marketing-bot": {
-      "state": "working",
-      "text": "Game Assets section spec",
+      "state": "done",
+      "text": "Assets spec done; next: WBB builds",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T08:34:36.452Z",
-      "since": "2026-11-11T08:34:36.452Z"
+      "ts": "2026-11-11T08:35:07.947Z",
+      "since": "2026-11-11T08:35:07.947Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",

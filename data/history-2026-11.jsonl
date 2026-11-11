@@ -540,3 +540,4 @@
 {"ts":"2026-11-11T08:32:17.073Z","bot":"website-builder-bot","state":"working","text":"Name changes, then publish"}
 {"ts":"2026-11-11T08:33:21.700Z","bot":"website-builder-bot","needId":"n202611110833-4848","state":"needs-alex","text":"Etsy shop link","needs":"question"}
 {"ts":"2026-11-11T08:34:36.452Z","bot":"release-marketing-bot","state":"working","text":"Game Assets section spec"}
+{"ts":"2026-11-11T08:35:07.947Z","bot":"release-marketing-bot","state":"done","text":"Assets spec done; next: WBB builds"}
