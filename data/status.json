@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:41:40.468Z",
+  "updatedAt": "2026-11-11T08:41:54.605Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -226,13 +226,13 @@
       "since": "2026-11-11T08:36:16.215Z"
     },
     "release-marketing-bot": {
-      "state": "done",
-      "text": "Sales advice done; idle, nothing queued",
+      "state": "working",
+      "text": "Indie sales channel compare",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T08:41:30.975Z",
-      "since": "2026-11-11T08:41:30.975Z"
+      "ts": "2026-11-11T08:41:54.605Z",
+      "since": "2026-11-11T08:41:54.605Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",
