@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T10:51:34.685Z",
+  "updatedAt": "2026-11-11T10:55:12.548Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,13 @@
       "since": "2026-11-11T05:25:48.667Z"
     },
     "game-design-document-bot": {
-      "state": "working",
-      "text": "Game screenshots for site",
+      "state": "done",
+      "text": "Screenshots sent; next: HoW sign-in",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T10:51:34.685Z",
-      "since": "2026-11-11T10:51:34.685Z"
+      "ts": "2026-11-11T10:55:12.548Z",
+      "since": "2026-11-11T10:55:12.548Z"
     },
     "concept-art-bot": {
       "state": "done",

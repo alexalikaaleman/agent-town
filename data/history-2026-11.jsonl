@@ -587,3 +587,4 @@
 {"ts":"2026-11-11T10:50:34.930Z","bot":"game-design-document-bot","needId":"n202611111050-de96","state":"needs-alex","text":"Ask GitWriter for game links?","needs":"question"}
 {"ts":"2026-11-11T10:51:30.552Z","bot":"game-design-document-bot","handled":"n202611111050-de96"}
 {"ts":"2026-11-11T10:51:34.685Z","bot":"game-design-document-bot","state":"working","text":"Game screenshots for site"}
+{"ts":"2026-11-11T10:55:12.548Z","bot":"game-design-document-bot","state":"done","text":"Screenshots sent; next: HoW sign-in"}
