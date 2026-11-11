@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T20:24:33.138Z",
+  "updatedAt": "2026-11-11T02:38:14.340Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -689,8 +689,8 @@
       "text": "Item 6 preview: publish?",
       "project": null,
       "ts": "2026-11-09T21:33:18.068Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T02:38:14.340Z"
     },
     {
       "id": "n202611100136-cc6a",
