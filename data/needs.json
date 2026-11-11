@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T11:02:52.922Z",
+  "updatedAt": "2026-11-11T11:04:45.447Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -889,8 +889,8 @@
       "text": "Site update ready to go live",
       "project": "alikatreed",
       "ts": "2026-11-11T11:02:52.922Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T11:04:45.447Z"
     }
   ]
 }
