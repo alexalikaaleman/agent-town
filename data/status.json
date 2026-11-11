@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:40:57.364Z",
+  "updatedAt": "2026-11-11T08:41:30.975Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -226,13 +226,13 @@
       "since": "2026-11-11T08:36:16.215Z"
     },
     "release-marketing-bot": {
-      "state": "working",
-      "text": "Asset sales route advice",
+      "state": "done",
+      "text": "Sales advice done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T08:40:57.364Z",
-      "since": "2026-11-11T08:40:57.364Z"
+      "ts": "2026-11-11T08:41:30.975Z",
+      "since": "2026-11-11T08:41:30.975Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",
