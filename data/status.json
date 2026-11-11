@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:05:06.597Z",
+  "updatedAt": "2026-11-11T09:06:47.671Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -221,10 +221,7 @@
       "text": "Set studio log password",
       "project": "alikatreed",
       "with": [],
-      "needs": {
-        "id": "n202611110905-acce",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-11T09:05:06.597Z",
       "since": "2026-11-11T09:05:06.597Z"
     },
