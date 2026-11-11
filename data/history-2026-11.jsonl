@@ -612,3 +612,4 @@
 {"ts":"2026-11-11T20:19:47.336Z","bot":"robotemplate","state":"working","text":"Writing dragon plan v1","project":"Dragon game"}
 {"ts":"2026-11-11T20:31:14.757Z","bot":"chief-of-staff","state":"done","text":"Urgent check done; idle, nothing queued"}
 {"ts":"2026-11-11T21:35:20.984Z","bot":"robotemplate","state":"working","text":"Checking dragon plan setup","project":"Dragon game"}
+{"ts":"2026-11-11T21:36:13.365Z","bot":"robotemplate","needId":"n202611112136-ea46","state":"needs-alex","text":"Dragon plan check: 2 fixes to OK","project":"Dragon game","needs":"question"}

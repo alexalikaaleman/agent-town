@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T21:35:20.984Z",
+  "updatedAt": "2026-11-11T21:36:13.365Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,16 @@
       "since": "2026-11-11T09:44:13.839Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Checking dragon plan setup",
+      "state": "needs-alex",
+      "text": "Dragon plan check: 2 fixes to OK",
       "project": "Dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-11T21:35:20.984Z",
-      "since": "2026-11-11T20:19:47.336Z"
+      "needs": {
+        "id": "n202611112136-ea46",
+        "kind": "question"
+      },
+      "ts": "2026-11-11T21:36:13.365Z",
+      "since": "2026-11-11T21:36:13.365Z"
     },
     "game-design-document-bot": {
       "state": "done",
