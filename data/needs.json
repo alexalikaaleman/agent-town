@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:20:39.092Z",
+  "updatedAt": "2026-11-11T09:23:32.303Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -841,6 +841,16 @@
       "ts": "2026-11-11T09:18:34.111Z",
       "handled": true,
       "handledAt": "2026-11-11T09:20:39.092Z"
+    },
+    {
+      "id": "n202611110923-0954",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Delete 2 unused buckets?",
+      "project": "alikatreed",
+      "ts": "2026-11-11T09:23:32.303Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
