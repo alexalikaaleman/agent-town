@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:26:47.018Z",
+  "updatedAt": "2026-11-11T09:39:52.174Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -849,6 +849,16 @@
       "text": "Delete 2 unused buckets?",
       "project": "alikatreed",
       "ts": "2026-11-11T09:23:32.303Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611110939-91fd",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Delete old guide copies?",
+      "project": "alikatreed",
+      "ts": "2026-11-11T09:39:52.174Z",
       "handled": false,
       "handledAt": null
     }

@@ -573,3 +573,4 @@
 {"ts":"2026-11-11T09:26:51.610Z","bot":"website-builder-bot","state":"done","text":"Music/videos live; next: links","project":"alikatreed"}
 {"ts":"2026-11-11T09:34:37.244Z","bot":"website-builder-bot","state":"working","text":"Updating how-to guide PDF","project":"alikatreed"}
 {"ts":"2026-11-11T09:38:33.173Z","bot":"website-builder-bot","state":"done","text":"Rev28 live; next: guide PDF","project":"alikatreed"}
+{"ts":"2026-11-11T09:39:52.174Z","bot":"website-builder-bot","needId":"n202611110939-91fd","state":"needs-alex","text":"Delete old guide copies?","project":"alikatreed","needs":"question"}
