@@ -614,3 +614,4 @@
 {"ts":"2026-11-11T21:35:20.984Z","bot":"robotemplate","state":"working","text":"Checking dragon plan setup","project":"Dragon game"}
 {"ts":"2026-11-11T21:36:13.365Z","bot":"robotemplate","needId":"n202611112136-ea46","state":"needs-alex","text":"Dragon plan check: 2 fixes to OK","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-11T22:46:22.375Z","bot":"larry-h-robot","state":"working","text":"CPA print packet handoff"}
+{"ts":"2026-11-11T23:12:05.793Z","bot":"larry-h-robot","needId":"n202611112312-a494","state":"needs-alex","text":"VD letter blanks","needs":"question"}

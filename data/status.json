@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T22:46:22.375Z",
+  "updatedAt": "2026-11-11T23:12:05.793Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -181,13 +181,16 @@
       "since": "2026-11-10T20:24:33.138Z"
     },
     "larry-h-robot": {
-      "state": "working",
-      "text": "CPA print packet handoff",
+      "state": "needs-alex",
+      "text": "VD letter blanks",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-11T22:46:22.375Z",
-      "since": "2026-11-11T22:46:22.375Z"
+      "needs": {
+        "id": "n202611112312-a494",
+        "kind": "question"
+      },
+      "ts": "2026-11-11T23:12:05.793Z",
+      "since": "2026-11-11T23:12:05.793Z"
     },
     "game-additions-bot": {
       "state": "done",

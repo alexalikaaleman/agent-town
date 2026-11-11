@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T21:36:13.365Z",
+  "updatedAt": "2026-11-11T23:12:05.793Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -929,6 +929,16 @@
       "text": "Dragon plan check: 2 fixes to OK",
       "project": "Dragon game",
       "ts": "2026-11-11T21:36:13.365Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611112312-a494",
+      "bot": "larry-h-robot",
+      "kind": "question",
+      "text": "VD letter blanks",
+      "project": null,
+      "ts": "2026-11-11T23:12:05.793Z",
       "handled": false,
       "handledAt": null
     }
