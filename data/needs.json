@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:39:52.174Z",
+  "updatedAt": "2026-11-11T09:40:57.489Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -859,8 +859,8 @@
       "text": "Delete old guide copies?",
       "project": "alikatreed",
       "ts": "2026-11-11T09:39:52.174Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T09:40:57.489Z"
     }
   ]
 }

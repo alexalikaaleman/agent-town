@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T09:39:52.174Z",
+  "updatedAt": "2026-11-11T09:40:57.489Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -221,10 +221,7 @@
       "text": "Delete old guide copies?",
       "project": "alikatreed",
       "with": [],
-      "needs": {
-        "id": "n202611110939-91fd",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-11T09:39:52.174Z",
       "since": "2026-11-11T09:39:52.174Z"
     },
