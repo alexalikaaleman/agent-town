@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:46:27.260Z",
+  "updatedAt": "2026-11-11T08:51:55.579Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -799,8 +799,8 @@
       "text": "Placeholders preview: go live?",
       "project": null,
       "ts": "2026-11-11T08:46:27.260Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T08:51:55.579Z"
     }
   ]
 }
