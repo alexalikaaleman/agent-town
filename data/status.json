@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T10:59:58.683Z",
+  "updatedAt": "2026-11-11T11:02:03.550Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -65,12 +65,12 @@
     },
     "game-design-document-bot": {
       "state": "done",
-      "text": "Dragon title shot done; idle",
+      "text": "Site screenshots done; idle",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T10:59:58.683Z",
-      "since": "2026-11-11T10:59:58.683Z"
+      "ts": "2026-11-11T11:02:03.550Z",
+      "since": "2026-11-11T11:02:03.550Z"
     },
     "concept-art-bot": {
       "state": "done",
