@@ -520,3 +520,4 @@
 {"ts":"2026-11-11T03:55:01.019Z","bot":"cutscene-bot","state":"done","text":"3D teaser v03 done; next: Alex review","project":"Dragon revamp"}
 {"ts":"2026-11-11T04:10:52.101Z","bot":"cutscene-bot","state":"working","text":"3D teaser v04 fixes","project":"Dragon revamp"}
 {"ts":"2026-11-11T04:22:38.331Z","bot":"cutscene-bot","state":"done","text":"3D teaser v04 done; next: Alex review","project":"Dragon revamp"}
+{"ts":"2026-11-11T05:23:24.984Z","bot":"robotemplate","needId":"n202611110523-f688","state":"needs-alex","text":"Dragon cutscene v05 fix list","project":"Dragon game","needs":"question"}
