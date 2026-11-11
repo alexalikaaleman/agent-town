@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T11:18:30.508Z",
+  "updatedAt": "2026-11-11T11:22:02.752Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -218,10 +218,7 @@
       "text": "Menu and page fixes ready to go live",
       "project": "alikatreed",
       "with": [],
-      "needs": {
-        "id": "n202611111118-1035",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-11T11:18:30.508Z",
       "since": "2026-11-11T11:18:30.508Z"
     },

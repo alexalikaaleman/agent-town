@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T11:18:30.508Z",
+  "updatedAt": "2026-11-11T11:22:02.752Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -899,8 +899,8 @@
       "text": "Menu and page fixes ready to go live",
       "project": "alikatreed",
       "ts": "2026-11-11T11:18:30.508Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-11T11:22:02.752Z"
     }
   ]
 }
