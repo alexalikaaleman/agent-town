@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:32:08.346Z",
+  "updatedAt": "2026-11-11T08:33:21.700Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -761,6 +761,16 @@
       "ts": "2026-11-11T08:30:29.877Z",
       "handled": true,
       "handledAt": "2026-11-11T08:32:08.346Z"
+    },
+    {
+      "id": "n202611110833-4848",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Etsy shop link",
+      "project": null,
+      "ts": "2026-11-11T08:33:21.700Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
