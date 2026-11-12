@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:53:44.629Z",
+  "updatedAt": "2026-11-12T12:53:48.700Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,13 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "needs-alex",
-      "text": "OK Website Bot no-interrupt rule?",
+      "state": "done",
+      "text": "Rule ask done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-12T12:52:36.215Z",
-      "since": "2026-11-12T12:52:36.215Z"
+      "ts": "2026-11-12T12:53:48.700Z",
+      "since": "2026-11-12T12:53:48.700Z"
     },
     "game-revision-logger": {
       "state": "done",
