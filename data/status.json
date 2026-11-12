@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:39:14.617Z",
+  "updatedAt": "2026-11-12T12:52:19.242Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,16 @@
       "since": "2026-11-11T09:44:13.839Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Call done; next: dragon fixes OK",
+      "state": "needs-alex",
+      "text": "Website bot voice rule OK?",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-12T00:41:18.997Z",
-      "since": "2026-11-12T00:41:18.997Z"
+      "needs": {
+        "id": "n202611121252-a9bb",
+        "kind": "question"
+      },
+      "ts": "2026-11-12T12:52:19.242Z",
+      "since": "2026-11-12T12:52:19.242Z"
     },
     "game-design-document-bot": {
       "state": "done",

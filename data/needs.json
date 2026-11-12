@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:20:04.288Z",
+  "updatedAt": "2026-11-12T12:52:19.242Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1029,6 +1029,16 @@
       "text": "Checklist: OK to trash old copy?",
       "project": "alikatreed",
       "ts": "2026-11-12T12:20:04.288Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611121252-a9bb",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Website bot voice rule OK?",
+      "project": null,
+      "ts": "2026-11-12T12:52:19.242Z",
       "handled": false,
       "handledAt": null
     }
