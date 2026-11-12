@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:53:25.978Z",
+  "updatedAt": "2026-11-12T12:53:44.629Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1049,8 +1049,8 @@
       "text": "OK Website Bot no-interrupt rule?",
       "project": null,
       "ts": "2026-11-12T12:52:36.215Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-12T12:53:44.629Z"
     }
   ]
 }
