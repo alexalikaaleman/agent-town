@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:53:48.700Z",
+  "updatedAt": "2026-11-12T12:54:14.526Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,13 @@
       "since": "2026-11-06T03:45:20.798Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Rule ask done; idle, nothing queued",
+      "state": "working",
+      "text": "Website Bot core v2.1 edit",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-12T12:53:48.700Z",
-      "since": "2026-11-12T12:53:48.700Z"
+      "ts": "2026-11-12T12:54:14.526Z",
+      "since": "2026-11-12T12:54:14.526Z"
     },
     "game-revision-logger": {
       "state": "done",
