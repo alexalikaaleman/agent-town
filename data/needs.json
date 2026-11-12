@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:53:44.629Z",
+  "updatedAt": "2026-11-12T18:14:12.707Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1051,6 +1051,16 @@
       "ts": "2026-11-12T12:52:36.215Z",
       "handled": true,
       "handledAt": "2026-11-12T12:53:44.629Z"
+    },
+    {
+      "id": "n202611121814-2a8c",
+      "bot": "playtest-qa-bot",
+      "kind": "question",
+      "text": "Ask: Bad Dog changelog button",
+      "project": "Bad Dog",
+      "ts": "2026-11-12T18:14:12.707Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
