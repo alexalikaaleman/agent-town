@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T11:44:50.047Z",
+  "updatedAt": "2026-11-12T11:47:18.565Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -989,6 +989,16 @@
       "text": "Trash updated checklist copy?",
       "project": "alikatreed",
       "ts": "2026-11-12T11:44:50.047Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611121147-2365",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Trash older Sabrina copy?",
+      "project": "alikatreed",
+      "ts": "2026-11-12T11:47:18.565Z",
       "handled": false,
       "handledAt": null
     }

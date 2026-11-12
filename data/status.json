@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T11:44:50.047Z",
+  "updatedAt": "2026-11-12T11:47:18.565Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -215,15 +215,15 @@
     },
     "website-builder-bot": {
       "state": "needs-alex",
-      "text": "Trash updated checklist copy?",
+      "text": "Trash older Sabrina copy?",
       "project": "alikatreed",
       "with": [],
       "needs": {
-        "id": "n202611121144-13fc",
+        "id": "n202611121147-2365",
         "kind": "question"
       },
-      "ts": "2026-11-12T11:44:50.047Z",
-      "since": "2026-11-12T11:44:50.047Z"
+      "ts": "2026-11-12T11:47:18.565Z",
+      "since": "2026-11-12T11:47:18.565Z"
     },
     "release-marketing-bot": {
       "state": "done",
