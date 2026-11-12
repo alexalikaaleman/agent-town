@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:12:47.456Z",
+  "updatedAt": "2026-11-12T12:13:54.617Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -218,10 +218,7 @@
       "text": "Checklist: OK to trash old copy?",
       "project": "alikatreed",
       "with": [],
-      "needs": {
-        "id": "n202611121212-91be",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-12T12:12:47.456Z",
       "since": "2026-11-12T12:12:47.456Z"
     },
