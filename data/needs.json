@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T11:36:29.460Z",
+  "updatedAt": "2026-11-12T11:44:20.741Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -979,8 +979,8 @@
       "text": "Trash old checklist copy?",
       "project": "alikatreed",
       "ts": "2026-11-12T11:36:29.460Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-12T11:44:20.741Z"
     }
   ]
 }
