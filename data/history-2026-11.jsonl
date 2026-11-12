@@ -621,3 +621,4 @@
 {"ts":"2026-11-12T00:26:31.228Z","bot":"masterbot","state":"working","text":"Phone call for Alex"}
 {"ts":"2026-11-12T00:38:15.687Z","bot":"robotemplate","needId":"n202611120038-7bdb","state":"needs-alex","text":"Phone call request: OK exception?","needs":"question"}
 {"ts":"2026-11-12T00:41:14.972Z","bot":"robotemplate","handled":"n202611120038-7bdb"}
+{"ts":"2026-11-12T00:41:18.997Z","bot":"robotemplate","state":"done","text":"Call done; next: dragon fixes OK"}
