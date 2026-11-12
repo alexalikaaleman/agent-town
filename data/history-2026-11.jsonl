@@ -631,3 +631,4 @@
 {"ts":"2026-11-12T11:08:04.088Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check","project":"QA changelogs"}
 {"ts":"2026-11-12T11:08:47.284Z","bot":"website-builder-bot","state":"working","text":"Friend website checklist","project":"alikatreed"}
 {"ts":"2026-11-12T11:18:33.891Z","bot":"playtest-qa-bot","state":"done","text":"Nightly CL done; idle, nothing queued","project":"QA changelogs"}
+{"ts":"2026-11-12T11:30:10.666Z","bot":"website-builder-bot","needId":"n202611121130-9119","state":"needs-alex","text":"OK to build questionnaire form?","project":"alikatreed","needs":"question"}
