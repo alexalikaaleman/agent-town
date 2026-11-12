@@ -656,3 +656,4 @@
 {"ts":"2026-11-12T12:39:14.617Z","bot":"website-builder-bot","state":"done","text":"Checklist done; idle, nothing queued","project":"alikatreed"}
 {"ts":"2026-11-12T12:52:19.242Z","bot":"robotemplate","needId":"n202611121252-a9bb","state":"needs-alex","text":"Website bot voice rule OK?","needs":"question"}
 {"ts":"2026-11-12T12:52:36.215Z","bot":"masterbot","needId":"n202611121252-6dfe","state":"needs-alex","text":"OK Website Bot no-interrupt rule?","needs":"question"}
+{"ts":"2026-11-12T12:53:25.978Z","bot":"robotemplate","handled":"n202611121252-a9bb"}
