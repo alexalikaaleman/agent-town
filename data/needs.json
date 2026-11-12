@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T23:14:59.788Z",
+  "updatedAt": "2026-11-12T00:38:15.687Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -941,6 +941,16 @@
       "ts": "2026-11-11T23:12:05.793Z",
       "handled": true,
       "handledAt": "2026-11-11T23:14:59.788Z"
+    },
+    {
+      "id": "n202611120038-7bdb",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Phone call request: OK exception?",
+      "project": null,
+      "ts": "2026-11-12T00:38:15.687Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

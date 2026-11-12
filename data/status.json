@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T00:26:31.228Z",
+  "updatedAt": "2026-11-12T00:38:15.687Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,15 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "Dragon plan check: 2 fixes to OK",
-      "project": "Dragon game",
+      "text": "Phone call request: OK exception?",
+      "project": null,
       "with": [],
       "needs": {
-        "id": "n202611112136-ea46",
+        "id": "n202611120038-7bdb",
         "kind": "question"
       },
-      "ts": "2026-11-11T21:36:13.365Z",
-      "since": "2026-11-11T21:36:13.365Z"
+      "ts": "2026-11-12T00:38:15.687Z",
+      "since": "2026-11-12T00:38:15.687Z"
     },
     "game-design-document-bot": {
       "state": "done",
