@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:11:28.816Z",
+  "updatedAt": "2026-11-12T12:11:53.310Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -999,8 +999,8 @@
       "text": "Trash older Sabrina copy?",
       "project": "alikatreed",
       "ts": "2026-11-12T11:47:18.565Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-12T12:11:53.310Z"
     },
     {
       "id": "n202611121210-b03e",
