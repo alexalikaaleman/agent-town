@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:52:19.242Z",
+  "updatedAt": "2026-11-12T12:52:36.215Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1039,6 +1039,16 @@
       "text": "Website bot voice rule OK?",
       "project": null,
       "ts": "2026-11-12T12:52:19.242Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611121252-6dfe",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "OK Website Bot no-interrupt rule?",
+      "project": null,
+      "ts": "2026-11-12T12:52:36.215Z",
       "handled": false,
       "handledAt": null
     }
