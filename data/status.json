@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T00:41:18.997Z",
+  "updatedAt": "2026-11-12T01:33:25.372Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -251,6 +251,15 @@
       "needs": null,
       "ts": "2026-11-10T05:19:52.691Z",
       "since": "2026-11-10T05:19:52.691Z"
+    },
+    "mochizuki-bot": {
+      "state": "done",
+      "text": "Uncle fix done; idle, nothing queued",
+      "project": null,
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-12T01:33:25.372Z",
+      "since": "2026-11-12T01:33:25.372Z"
     }
   }
 }
