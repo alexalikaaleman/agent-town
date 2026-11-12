@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:10:00.763Z",
+  "updatedAt": "2026-11-12T12:11:23.142Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1009,8 +1009,8 @@
       "text": "Checklist cleanup OK?",
       "project": "alikatreed",
       "ts": "2026-11-12T12:10:00.763Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-12T12:11:23.142Z"
     }
   ]
 }
