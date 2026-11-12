@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:11:53.310Z",
+  "updatedAt": "2026-11-12T12:12:47.456Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1011,6 +1011,16 @@
       "ts": "2026-11-12T12:10:00.763Z",
       "handled": true,
       "handledAt": "2026-11-12T12:11:23.142Z"
+    },
+    {
+      "id": "n202611121212-91be",
+      "bot": "website-builder-bot",
+      "kind": "question",
+      "text": "Checklist: OK to trash old copy?",
+      "project": "alikatreed",
+      "ts": "2026-11-12T12:12:47.456Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

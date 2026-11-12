@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T12:11:45.987Z",
+  "updatedAt": "2026-11-12T12:12:47.456Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -214,13 +214,16 @@
       "since": "2026-11-08T20:30:18.824Z"
     },
     "website-builder-bot": {
-      "state": "done",
-      "text": "Checklist done; idle, nothing queued",
+      "state": "needs-alex",
+      "text": "Checklist: OK to trash old copy?",
       "project": "alikatreed",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-12T12:11:45.987Z",
-      "since": "2026-11-12T12:11:45.987Z"
+      "needs": {
+        "id": "n202611121212-91be",
+        "kind": "question"
+      },
+      "ts": "2026-11-12T12:12:47.456Z",
+      "since": "2026-11-12T12:12:47.456Z"
     },
     "release-marketing-bot": {
       "state": "done",
