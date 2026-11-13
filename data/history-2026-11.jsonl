@@ -793,3 +793,4 @@
 {"ts":"2026-11-13T22:21:11.584Z","bot":"robotemplate","needId":"n202611132221-b776","state":"needs-alex","text":"P2 test paste ready","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T22:21:25.421Z","bot":"playtest-qa-bot","state":"done","text":"P9 and P10 checklists done; idle","project":"Super Happy Fun Excelle…"}
 {"ts":"2026-11-13T22:21:50.494Z","bot":"playtest-qa-bot","state":"done","text":"P9/P10 checklists done; idle","project":"Dragon game"}
+{"ts":"2026-11-13T22:21:58.199Z","bot":"game-design-document-bot","state":"done","text":"P10 spec done; idle, nothing queued","project":"Dragon"}
