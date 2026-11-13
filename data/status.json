@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T23:45:35.225Z",
+  "updatedAt": "2026-11-13T23:46:24.806Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -115,16 +115,16 @@
       "since": "2026-11-13T16:16:43.017Z"
     },
     "chief-of-staff": {
-      "state": "working",
-      "text": "Dragon held-up watch",
+      "state": "done",
+      "text": "Dragon watch done; idle, nothing queued",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611132250-38bb",
         "kind": "question"
       },
-      "ts": "2026-11-13T23:45:35.225Z",
-      "since": "2026-11-13T23:45:35.225Z"
+      "ts": "2026-11-13T23:46:24.806Z",
+      "since": "2026-11-13T23:46:24.806Z"
     },
     "brainstorm-bot": {
       "state": "done",
