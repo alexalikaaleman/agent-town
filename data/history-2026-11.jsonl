@@ -716,3 +716,4 @@
 {"ts":"2026-11-13T21:36:22.673Z","bot":"robotemplate","needId":"n202611132136-b126","state":"needs-alex","text":"GDD + GitWriter need Alex's yes","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T21:38:15.989Z","bot":"gitwriter-3d-bot","handled":"n202611132135-00a3"}
 {"ts":"2026-11-13T21:38:20.118Z","bot":"gitwriter-3d-bot","state":"working","text":"Dragon P2 read-only check","project":"dragon game"}
+{"ts":"2026-11-13T21:38:25.871Z","bot":"playtest-qa-bot","state":"done","text":"Dragon P2-P6 checklists done; idle","project":"Super Happy Fun Excelle…"}
