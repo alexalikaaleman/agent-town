@@ -678,3 +678,4 @@
 {"ts":"2026-11-13T05:04:48.860Z","bot":"game-design-document-bot","needId":"n202611130504-6d1e","state":"needs-alex","text":"OK RoboTemplate dragon sync?","project":"Dragon","needs":"question"}
 {"ts":"2026-11-13T05:04:55.726Z","bot":"robotemplate","needId":"n202611130504-07d9","state":"needs-alex","text":"Dragon art swap choice","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T05:05:13.707Z","bot":"game-design-document-bot","handled":"n202611130504-6d1e"}
+{"ts":"2026-11-13T05:05:22.992Z","bot":"game-design-document-bot","state":"done","text":"Dragon sync saved; idle, nothing queued","project":"Dragon"}
