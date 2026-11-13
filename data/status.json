@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:39:03.027Z",
+  "updatedAt": "2026-11-13T21:39:31.993Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -97,16 +97,16 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "Dragon checklists done; idle",
+      "state": "working",
+      "text": "Dragon debug skip proposal",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611121814-2a8c",
         "kind": "question"
       },
-      "ts": "2026-11-13T21:39:03.027Z",
-      "since": "2026-11-13T21:39:03.027Z"
+      "ts": "2026-11-13T21:39:31.993Z",
+      "since": "2026-11-13T21:39:31.993Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
