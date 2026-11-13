@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:22:19.970Z",
+  "updatedAt": "2026-11-13T22:22:26.020Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,16 +43,16 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "roguelike + lair hub shot lists",
+      "state": "needs-alex",
+      "text": "P7/P8 lists up; questions for Alex",
       "project": "Dragon revamp",
       "with": [],
       "needs": {
-        "id": "n202611132214-7561",
+        "id": "n202611132222-4a72",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:16:29.177Z",
-      "since": "2026-11-13T22:16:29.177Z"
+      "ts": "2026-11-13T22:22:26.020Z",
+      "since": "2026-11-13T22:22:26.020Z"
     },
     "robotemplate": {
       "state": "needs-alex",

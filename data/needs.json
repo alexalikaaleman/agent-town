@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:22:11.636Z",
+  "updatedAt": "2026-11-13T22:22:26.020Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1299,6 +1299,16 @@
       "text": "GDD next job OK?",
       "project": "Dragon game",
       "ts": "2026-11-13T22:22:11.636Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132222-4a72",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "P7/P8 lists up; questions for Alex",
+      "project": "Dragon revamp",
+      "ts": "2026-11-13T22:22:26.020Z",
       "handled": false,
       "handledAt": null
     }
