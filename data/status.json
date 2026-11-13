@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:34:29.516Z",
+  "updatedAt": "2026-11-13T22:34:45.405Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -94,13 +94,13 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "working",
-      "text": "OG P3 B1-B4 phone checklist",
+      "state": "done",
+      "text": "OG P3 checklist done; idle",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:32:44.824Z",
-      "since": "2026-11-13T22:32:44.824Z"
+      "ts": "2026-11-13T22:34:45.405Z",
+      "since": "2026-11-13T22:34:45.405Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
