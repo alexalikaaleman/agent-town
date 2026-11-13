@@ -724,3 +724,4 @@
 {"ts":"2026-11-13T21:40:00.038Z","bot":"robotemplate","state":"working","text":"Dragon P2 session jobs","project":"Dragon game"}
 {"ts":"2026-11-13T21:40:14.736Z","bot":"game-design-document-bot","handled":"n202611132135-d014"}
 {"ts":"2026-11-13T21:40:18.820Z","bot":"game-design-document-bot","state":"working","text":"P2 OG docs + P6/P7 specs","project":"Dragon"}
+{"ts":"2026-11-13T21:40:56.257Z","bot":"robotemplate","needId":"n202611132140-c0e6","state":"needs-alex","text":"Cutscene Arrival question","project":"Dragon game","needs":"question"}

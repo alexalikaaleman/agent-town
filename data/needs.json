@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:40:14.736Z",
+  "updatedAt": "2026-11-13T21:40:56.257Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1181,6 +1181,16 @@
       "ts": "2026-11-13T21:36:22.673Z",
       "handled": true,
       "handledAt": "2026-11-13T21:39:56.020Z"
+    },
+    {
+      "id": "n202611132140-c0e6",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Cutscene Arrival question",
+      "project": "Dragon game",
+      "ts": "2026-11-13T21:40:56.257Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
