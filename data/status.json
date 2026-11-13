@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:34:45.405Z",
+  "updatedAt": "2026-11-13T22:34:55.348Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,16 +73,16 @@
       "since": "2026-11-13T22:29:23.765Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "P25-28 inventory done; idle, none queued",
+      "state": "working",
+      "text": "Dragon master missing-art list",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611130535-abd2",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:34:29.516Z",
-      "since": "2026-11-13T22:34:29.516Z"
+      "ts": "2026-11-13T22:34:55.348Z",
+      "since": "2026-11-13T22:34:55.348Z"
     },
     "garage-sale-bot": {
       "state": "done",
