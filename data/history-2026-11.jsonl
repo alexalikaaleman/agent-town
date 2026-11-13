@@ -801,3 +801,4 @@
 {"ts":"2026-11-13T22:22:26.020Z","bot":"cutscene-bot","needId":"n202611132222-4a72","state":"needs-alex","text":"P7/P8 lists up; questions for Alex","project":"Dragon revamp","needs":"question"}
 {"ts":"2026-11-13T22:22:29.933Z","bot":"cutscene-bot","state":"done","text":"P7/P8 v01 done; await Alex yes","project":"Dragon revamp"}
 {"ts":"2026-11-13T22:22:36.463Z","bot":"robotemplate","handled":"n202611132222-5abd"}
+{"ts":"2026-11-13T22:22:42.269Z","bot":"game-design-document-bot","state":"working","text":"Dragon P11+ phase specs","project":"Dragon"}

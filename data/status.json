@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:22:36.463Z",
+  "updatedAt": "2026-11-13T22:22:42.269Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,13 @@
       "since": "2026-11-13T22:22:11.636Z"
     },
     "game-design-document-bot": {
-      "state": "done",
-      "text": "P10 spec done; idle, nothing queued",
+      "state": "working",
+      "text": "Dragon P11+ phase specs",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:21:58.199Z",
-      "since": "2026-11-13T22:21:58.199Z"
+      "ts": "2026-11-13T22:22:42.269Z",
+      "since": "2026-11-13T22:22:42.269Z"
     },
     "concept-art-bot": {
       "state": "done",
