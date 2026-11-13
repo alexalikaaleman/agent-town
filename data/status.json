@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:17:40.682Z",
+  "updatedAt": "2026-11-13T22:17:45.702Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -94,13 +94,13 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "working",
-      "text": "Dragon P7/P8 checklists, P4 v2",
-      "project": "Dragon game",
+      "state": "done",
+      "text": "checklists done; idle",
+      "project": "Super Happy Fun Excelle…",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:15:27.833Z",
-      "since": "2026-11-13T22:15:27.833Z"
+      "ts": "2026-11-13T22:17:45.702Z",
+      "since": "2026-11-13T22:17:45.702Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
