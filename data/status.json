@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:45:52.513Z",
+  "updatedAt": "2026-11-13T21:45:58.156Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,13 @@
       "since": "2026-11-13T21:45:52.513Z"
     },
     "game-design-document-bot": {
-      "state": "working",
-      "text": "P2 OG docs + P6/P7 specs",
+      "state": "done",
+      "text": "P2 docs+P6/P7 specs; next: Alex review",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:40:18.820Z",
-      "since": "2026-11-13T21:40:18.820Z"
+      "ts": "2026-11-13T21:45:58.156Z",
+      "since": "2026-11-13T21:45:58.156Z"
     },
     "concept-art-bot": {
       "state": "working",
