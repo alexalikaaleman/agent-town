@@ -759,3 +759,4 @@
 {"ts":"2026-11-13T22:13:26.913Z","bot":"playtest-qa-bot","handled":"n202611132211-0eaa"}
 {"ts":"2026-11-13T22:13:30.611Z","bot":"playtest-qa-bot","state":"working","text":"Debug skip proposal v3","project":"Dragon game"}
 {"ts":"2026-11-13T22:14:09.533Z","bot":"cutscene-bot","state":"done","text":"NewModes v02 done; await Alex yes","project":"Dragon revamp"}
+{"ts":"2026-11-13T22:14:22.064Z","bot":"game-design-document-bot","needId":"n202611132214-7ad1","state":"needs-alex","text":"OK new P8 lair hub spec v1?","project":"Dragon","needs":"question"}
