@@ -743,3 +743,4 @@
 {"ts":"2026-11-13T21:53:24.504Z","bot":"robotemplate","state":"working","text":"Dragon P2 session","project":"Dragon game"}
 {"ts":"2026-11-13T21:53:39.593Z","bot":"cutscene-bot","state":"working","text":"linear P19-P22 cutscene lists","project":"Dragon revamp"}
 {"ts":"2026-11-13T21:55:40.363Z","bot":"cutscene-bot","state":"done","text":"P19-P22 lists done; next: P23 IceAge","project":"Dragon revamp"}
+{"ts":"2026-11-13T21:57:35.551Z","bot":"cutscene-bot","state":"working","text":"linear P23-P24 cutscene lists","project":"Dragon revamp"}
