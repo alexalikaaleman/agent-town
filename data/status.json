@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:36:09.090Z",
+  "updatedAt": "2026-11-13T05:43:14.274Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,16 +52,16 @@
       "since": "2026-11-13T05:36:05.225Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Mode questions for scan",
+      "state": "working",
+      "text": "Art mode labels recheck",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611130521-e3f6",
         "kind": "question"
       },
-      "ts": "2026-11-13T05:21:17.584Z",
-      "since": "2026-11-13T05:21:17.584Z"
+      "ts": "2026-11-13T05:43:14.274Z",
+      "since": "2026-11-13T05:43:14.274Z"
     },
     "game-design-document-bot": {
       "state": "needs-alex",

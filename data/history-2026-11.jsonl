@@ -687,3 +687,4 @@
 {"ts":"2026-11-13T05:35:58.965Z","bot":"concept-art-bot","needId":"n202611130535-abd2","state":"needs-alex","text":"OK to rename 18 dragon art files?","project":"Dragon","needs":"question"}
 {"ts":"2026-11-13T05:36:05.225Z","bot":"cutscene-bot","state":"working","text":"OG/linear mode renames","project":"Dragon revamp"}
 {"ts":"2026-11-13T05:36:09.090Z","bot":"game-design-document-bot","needId":"n202611130536-0f89","state":"needs-alex","text":"OK dragon mode rename rows?","project":"Dragon","needs":"question"}
+{"ts":"2026-11-13T05:43:14.274Z","bot":"robotemplate","state":"working","text":"Art mode labels recheck","project":"Dragon game"}
