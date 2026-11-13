@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:39:56.020Z",
+  "updatedAt": "2026-11-13T21:40:14.736Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1159,8 +1159,8 @@
       "text": "OK P2 dragon docs + P6/P7 specs?",
       "project": "Dragon",
       "ts": "2026-11-13T21:35:34.334Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T21:40:14.736Z"
     },
     {
       "id": "n202611132135-00a3",
