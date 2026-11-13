@@ -757,3 +757,4 @@
 {"ts":"2026-11-13T22:12:45.460Z","bot":"game-design-document-bot","state":"done","text":"P-doc v2s done; next: Alex review","project":"Dragon"}
 {"ts":"2026-11-13T22:12:50.449Z","bot":"cutscene-bot","state":"working","text":"NewModes front-end shot lists v02","project":"Dragon revamp","handled":"n202611132202-318e"}
 {"ts":"2026-11-13T22:13:26.913Z","bot":"playtest-qa-bot","handled":"n202611132211-0eaa"}
+{"ts":"2026-11-13T22:13:30.611Z","bot":"playtest-qa-bot","state":"working","text":"Debug skip proposal v3","project":"Dragon game"}
