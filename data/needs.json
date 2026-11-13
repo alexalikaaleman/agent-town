@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:23:27.367Z",
+  "updatedAt": "2026-11-13T22:28:17.505Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1219,8 +1219,8 @@
       "text": "Cutscene: which mode for front end",
       "project": "dragon game",
       "ts": "2026-11-13T22:09:45.042Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T22:28:17.505Z"
     },
     {
       "id": "n202611132211-0eaa",
@@ -1311,6 +1311,16 @@
       "ts": "2026-11-13T22:22:26.020Z",
       "handled": true,
       "handledAt": "2026-11-13T22:23:27.367Z"
+    },
+    {
+      "id": "n202611132228-0a19",
+      "bot": "chief-of-staff",
+      "kind": "question",
+      "text": "Cutscene picks + P2 paste ready",
+      "project": "dragon game",
+      "ts": "2026-11-13T22:28:17.505Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

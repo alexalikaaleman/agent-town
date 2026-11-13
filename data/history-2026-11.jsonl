@@ -812,3 +812,4 @@
 {"ts":"2026-11-13T22:26:59.354Z","bot":"cutscene-bot","state":"working","text":"linear P11-P24 spec check","project":"Dragon revamp"}
 {"ts":"2026-11-13T22:27:19.969Z","bot":"playtest-qa-bot","state":"done","text":"P15-P19 checklists done; idle","project":"Dragon game"}
 {"ts":"2026-11-13T22:27:37.139Z","bot":"playtest-qa-bot","state":"working","text":"P20-P24 linear era checklists","project":"Dragon game"}
+{"ts":"2026-11-13T22:28:17.505Z","bot":"chief-of-staff","needId":"n202611132228-0a19","state":"needs-alex","text":"Cutscene picks + P2 paste ready","project":"dragon game","needs":"question","handled":"n202611132209-e253"}

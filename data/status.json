@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:27:37.139Z",
+  "updatedAt": "2026-11-13T22:28:17.505Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -113,15 +113,15 @@
     },
     "chief-of-staff": {
       "state": "needs-alex",
-      "text": "Cutscene: which mode for front end",
+      "text": "Cutscene picks + P2 paste ready",
       "project": "dragon game",
       "with": [],
       "needs": {
-        "id": "n202611132209-e253",
+        "id": "n202611132228-0a19",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:09:45.042Z",
-      "since": "2026-11-13T22:09:45.042Z"
+      "ts": "2026-11-13T22:28:17.505Z",
+      "since": "2026-11-13T22:28:17.505Z"
     },
     "brainstorm-bot": {
       "state": "done",
