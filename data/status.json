@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:59:12.131Z",
+  "updatedAt": "2026-11-13T11:07:26.413Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -94,16 +94,16 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "needs-alex",
-      "text": "Ask: Bad Dog changelog button",
-      "project": "Bad Dog",
+      "state": "working",
+      "text": "Nightly changelog check",
+      "project": null,
       "with": [],
       "needs": {
         "id": "n202611121814-2a8c",
         "kind": "question"
       },
-      "ts": "2026-11-12T18:14:12.707Z",
-      "since": "2026-11-12T18:14:12.707Z"
+      "ts": "2026-11-13T11:07:26.413Z",
+      "since": "2026-11-13T11:07:26.413Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
