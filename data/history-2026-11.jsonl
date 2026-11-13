@@ -791,3 +791,4 @@
 {"ts":"2026-11-13T22:21:01.497Z","bot":"robotemplate","handled":"n202611132220-997d"}
 {"ts":"2026-11-13T22:21:05.786Z","bot":"game-design-document-bot","state":"working","text":"P10 linear spec v1","project":"Dragon"}
 {"ts":"2026-11-13T22:21:11.584Z","bot":"robotemplate","needId":"n202611132221-b776","state":"needs-alex","text":"P2 test paste ready","project":"Dragon game","needs":"question"}
+{"ts":"2026-11-13T22:21:25.421Z","bot":"playtest-qa-bot","state":"done","text":"P9 and P10 checklists done; idle","project":"Super Happy Fun Excelle…"}
