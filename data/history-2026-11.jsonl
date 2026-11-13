@@ -816,3 +816,4 @@
 {"ts":"2026-11-13T22:28:52.041Z","bot":"concept-art-bot","state":"done","text":"Roguelike inventory done; idle, none qu…","project":"Dragon game"}
 {"ts":"2026-11-13T22:28:58.400Z","bot":"game-design-document-bot","state":"done","text":"P11-P28 specs done; idle, nothing queued","project":"Dragon"}
 {"ts":"2026-11-13T22:29:16.904Z","bot":"concept-art-bot","state":"working","text":"Dragon P25-P28 front end inventory","project":"Dragon game"}
+{"ts":"2026-11-13T22:29:23.765Z","bot":"game-design-document-bot","needId":"n202611132229-cebb","state":"needs-alex","text":"OK P2-P28 open questions list?","project":"Dragon","needs":"question"}

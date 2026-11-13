@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:28:17.505Z",
+  "updatedAt": "2026-11-13T22:29:23.765Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1319,6 +1319,16 @@
       "text": "Cutscene picks + P2 paste ready",
       "project": "dragon game",
       "ts": "2026-11-13T22:28:17.505Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132229-cebb",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "OK P2-P28 open questions list?",
+      "project": "Dragon",
+      "ts": "2026-11-13T22:29:23.765Z",
       "handled": false,
       "handledAt": null
     }
