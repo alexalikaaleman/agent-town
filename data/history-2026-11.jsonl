@@ -705,3 +705,4 @@
 {"ts":"2026-11-13T21:13:35.803Z","bot":"robotemplate","needId":"n202611132113-456a","state":"needs-alex","text":"Dragon start: go?","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T21:14:25.418Z","bot":"robotemplate","handled":"n202611132113-456a"}
 {"ts":"2026-11-13T21:14:29.311Z","bot":"robotemplate","state":"working","text":"Dragon cleanups, then P2","project":"Dragon game"}
+{"ts":"2026-11-13T21:16:25.740Z","bot":"robotemplate","needId":"n202611132116-e894","state":"needs-alex","text":"Dragon P2: go for bots?","project":"Dragon game","needs":"question"}
