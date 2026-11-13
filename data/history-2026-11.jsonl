@@ -787,3 +787,4 @@
 {"ts":"2026-11-13T22:19:54.341Z","bot":"playtest-qa-bot","state":"done","text":"P8 checklist v2 done; idle","project":"Dragon game"}
 {"ts":"2026-11-13T22:20:08.913Z","bot":"game-design-document-bot","state":"done","text":"P9 spec done; idle, nothing queued","project":"Dragon"}
 {"ts":"2026-11-13T22:20:16.717Z","bot":"playtest-qa-bot","state":"working","text":"P10 linear checklist (+P9)","project":"Dragon game"}
+{"ts":"2026-11-13T22:20:26.640Z","bot":"robotemplate","needId":"n202611132220-997d","state":"needs-alex","text":"GDD next job OK?","project":"Dragon game","needs":"question"}

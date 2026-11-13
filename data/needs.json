@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:18:18.550Z",
+  "updatedAt": "2026-11-13T22:20:26.640Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1271,6 +1271,16 @@
       "ts": "2026-11-13T22:17:54.431Z",
       "handled": true,
       "handledAt": "2026-11-13T22:18:18.550Z"
+    },
+    {
+      "id": "n202611132220-997d",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "GDD next job OK?",
+      "project": "Dragon game",
+      "ts": "2026-11-13T22:20:26.640Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
