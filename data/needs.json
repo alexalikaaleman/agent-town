@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:08:01.786Z",
+  "updatedAt": "2026-11-13T05:21:13.419Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1089,8 +1089,8 @@
       "text": "OK tonight's push plan",
       "project": "Dragon game",
       "ts": "2026-11-13T05:08:01.786Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T05:21:13.419Z"
     }
   ]
 }

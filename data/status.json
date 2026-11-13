@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:08:01.786Z",
+  "updatedAt": "2026-11-13T05:21:13.419Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "OK tonight's push plan",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611130508-5196",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-13T05:08:01.786Z",
       "since": "2026-11-13T05:08:01.786Z"
     },
