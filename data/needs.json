@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:13:35.803Z",
+  "updatedAt": "2026-11-13T21:14:25.418Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1139,8 +1139,8 @@
       "text": "Dragon start: go?",
       "project": "Dragon game",
       "ts": "2026-11-13T21:13:35.803Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T21:14:25.418Z"
     }
   ]
 }
