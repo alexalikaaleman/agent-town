@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T18:14:12.707Z",
+  "updatedAt": "2026-11-13T03:44:34.505Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -929,8 +929,8 @@
       "text": "Dragon plan check: 2 fixes to OK",
       "project": "Dragon game",
       "ts": "2026-11-11T21:36:13.365Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T03:44:34.505Z"
     },
     {
       "id": "n202611112312-a494",
