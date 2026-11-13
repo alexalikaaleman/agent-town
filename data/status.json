@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:41:10.849Z",
+  "updatedAt": "2026-11-13T21:41:35.501Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -95,15 +95,15 @@
     },
     "playtest-qa-bot": {
       "state": "done",
-      "text": "P5/P6 updated; L2 skip proposed",
-      "project": "Super Happy Fun Excelle…",
+      "text": "Debug skip proposal done; idle",
+      "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611121814-2a8c",
         "kind": "question"
       },
-      "ts": "2026-11-13T21:41:10.849Z",
-      "since": "2026-11-13T21:41:10.849Z"
+      "ts": "2026-11-13T21:41:35.501Z",
+      "since": "2026-11-13T21:41:35.501Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
