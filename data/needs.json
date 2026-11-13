@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:12:50.449Z",
+  "updatedAt": "2026-11-13T22:13:26.913Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1229,8 +1229,8 @@
       "text": "Debug skip v2: 2 small questions",
       "project": "Dragon game",
       "ts": "2026-11-13T22:11:04.287Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T22:13:26.913Z"
     }
   ]
 }
