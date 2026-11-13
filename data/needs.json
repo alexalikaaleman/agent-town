@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:14:45.724Z",
+  "updatedAt": "2026-11-13T22:15:42.927Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1239,8 +1239,8 @@
       "text": "OK new P8 lair hub spec v1?",
       "project": "Dragon",
       "ts": "2026-11-13T22:14:22.064Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T22:15:42.927Z"
     },
     {
       "id": "n202611132214-7561",
