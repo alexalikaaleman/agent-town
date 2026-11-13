@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:16:13.171Z",
+  "updatedAt": "2026-11-13T22:16:16.725Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,13 @@
       "since": "2026-11-13T22:16:07.407Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "GDD needs yes for P8 spec",
+      "state": "working",
+      "text": "Dragon P2 session",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:14:45.724Z",
-      "since": "2026-11-13T22:14:45.724Z"
+      "ts": "2026-11-13T22:16:16.725Z",
+      "since": "2026-11-13T22:16:16.725Z"
     },
     "game-design-document-bot": {
       "state": "working",
