@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:34:59.485Z",
+  "updatedAt": "2026-11-13T21:35:34.334Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1151,6 +1151,16 @@
       "ts": "2026-11-13T21:16:25.740Z",
       "handled": true,
       "handledAt": "2026-11-13T21:34:59.485Z"
+    },
+    {
+      "id": "n202611132135-d014",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "OK P2 dragon docs + P6/P7 specs?",
+      "project": "Dragon",
+      "ts": "2026-11-13T21:35:34.334Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
