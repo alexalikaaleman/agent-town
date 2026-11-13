@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:19:30.064Z",
+  "updatedAt": "2026-11-13T22:19:54.341Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -95,12 +95,12 @@
     },
     "playtest-qa-bot": {
       "state": "done",
-      "text": "P8 LairHub checklist v2 done; idle",
-      "project": "Super Happy Fun Excelle…",
+      "text": "P8 checklist v2 done; idle",
+      "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:19:30.064Z",
-      "since": "2026-11-13T22:19:30.064Z"
+      "ts": "2026-11-13T22:19:54.341Z",
+      "since": "2026-11-13T22:19:54.341Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
