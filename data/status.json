@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:48:40.580Z",
+  "updatedAt": "2026-11-13T21:53:20.735Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Rambo vs UNKO question",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611132145-c5a7",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-13T21:45:52.513Z",
       "since": "2026-11-13T21:45:52.513Z"
     },
