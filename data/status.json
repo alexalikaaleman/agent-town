@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:10:08.252Z",
+  "updatedAt": "2026-11-13T22:10:12.465Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,13 @@
       "since": "2026-11-13T21:53:24.504Z"
     },
     "game-design-document-bot": {
-      "state": "done",
-      "text": "P2 docs+P6/P7 specs; next: Alex review",
+      "state": "working",
+      "text": "Dragon P-doc v2s from Alex answers",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:45:58.156Z",
-      "since": "2026-11-13T21:45:58.156Z"
+      "ts": "2026-11-13T22:10:12.465Z",
+      "since": "2026-11-13T22:10:12.465Z"
     },
     "concept-art-bot": {
       "state": "done",
