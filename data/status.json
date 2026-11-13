@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:14:29.736Z",
+  "updatedAt": "2026-11-13T22:14:33.554Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,16 +73,16 @@
       "since": "2026-11-13T22:14:22.064Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "P10-14 inventory done; idle, none queued",
+      "state": "working",
+      "text": "Dragon P15-P19 linear art inventory",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611130535-abd2",
         "kind": "question"
       },
-      "ts": "2026-11-13T21:48:40.580Z",
-      "since": "2026-11-13T21:48:40.580Z"
+      "ts": "2026-11-13T22:14:33.554Z",
+      "since": "2026-11-13T22:14:33.554Z"
     },
     "garage-sale-bot": {
       "state": "done",
