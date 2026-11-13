@@ -750,3 +750,4 @@
 {"ts":"2026-11-13T22:02:59.825Z","bot":"cutscene-bot","needId":"n202611132202-318e","state":"needs-alex","text":"which mode?","project":"Dragon revamp","needs":"question"}
 {"ts":"2026-11-13T22:07:53.762Z","bot":"chief-of-staff","state":"working","text":"Dragon session held-up watch","project":"dragon game"}
 {"ts":"2026-11-13T22:09:45.042Z","bot":"chief-of-staff","needId":"n202611132209-e253","state":"needs-alex","text":"Cutscene: which mode for front end","project":"dragon game","needs":"question"}
+{"ts":"2026-11-13T22:10:08.252Z","bot":"playtest-qa-bot","state":"working","text":"Debug skip proposal v2","project":"Dragon game"}
