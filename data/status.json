@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:41:35.501Z",
+  "updatedAt": "2026-11-13T21:41:41.313Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -118,13 +118,13 @@
       "since": "2026-11-13T16:16:43.017Z"
     },
     "chief-of-staff": {
-      "state": "done",
-      "text": "Urgent check done; idle, nothing queued",
-      "project": null,
+      "state": "working",
+      "text": "Watching dragon session bots",
+      "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T20:26:55.197Z",
-      "since": "2026-11-13T20:26:55.197Z"
+      "ts": "2026-11-13T21:41:41.313Z",
+      "since": "2026-11-13T21:41:41.313Z"
     },
     "brainstorm-bot": {
       "state": "done",
