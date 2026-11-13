@@ -732,3 +732,4 @@
 {"ts":"2026-11-13T21:42:57.988Z","bot":"robotemplate","handled":"n202611132140-c0e6"}
 {"ts":"2026-11-13T21:43:42.709Z","bot":"cutscene-bot","state":"done","text":"P11-P14 lists done; next: P15 WW2","project":"Dragon revamp"}
 {"ts":"2026-11-13T21:43:51.391Z","bot":"concept-art-bot","state":"done","text":"P4-P8 inventory done; next: Alex picks","project":"Dragon game"}
+{"ts":"2026-11-13T21:44:16.296Z","bot":"concept-art-bot","state":"working","text":"Dragon P10-P14 linear art inventory","project":"Dragon game"}
