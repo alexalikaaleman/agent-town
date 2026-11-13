@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:14:22.064Z",
+  "updatedAt": "2026-11-13T22:14:40.056Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1239,6 +1239,16 @@
       "text": "OK new P8 lair hub spec v1?",
       "project": "Dragon",
       "ts": "2026-11-13T22:14:22.064Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132214-7561",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "NewModes theme, rename, attract picks",
+      "project": "Dragon revamp",
+      "ts": "2026-11-13T22:14:40.056Z",
       "handled": false,
       "handledAt": null
     }
