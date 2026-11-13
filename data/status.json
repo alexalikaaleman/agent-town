@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T04:51:13.280Z",
+  "updatedAt": "2026-11-13T04:54:11.737Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,13 +70,13 @@
       "since": "2026-11-11T11:02:03.550Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Dragon art inventory for sync",
+      "state": "done",
+      "text": "Art inventory done; next: send to RT",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T04:51:13.280Z",
-      "since": "2026-11-13T04:51:13.280Z"
+      "ts": "2026-11-13T04:54:11.737Z",
+      "since": "2026-11-13T04:54:11.737Z"
     },
     "garage-sale-bot": {
       "state": "done",
