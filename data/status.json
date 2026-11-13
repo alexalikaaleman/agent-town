@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:58:23.336Z",
+  "updatedAt": "2026-11-13T21:59:40.137Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,13 +43,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "Linear era lists done; now idle",
+      "state": "working",
+      "text": "P25-P28 front-end cutscene lists",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:58:23.336Z",
-      "since": "2026-11-13T21:58:23.336Z"
+      "ts": "2026-11-13T21:59:40.137Z",
+      "since": "2026-11-13T21:59:40.137Z"
     },
     "robotemplate": {
       "state": "working",
