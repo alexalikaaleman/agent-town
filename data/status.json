@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:12:45.460Z",
+  "updatedAt": "2026-11-13T22:12:50.449Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,16 +43,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "needs-alex",
-      "text": "which mode?",
+      "state": "working",
+      "text": "NewModes front-end shot lists v02",
       "project": "Dragon revamp",
       "with": [],
-      "needs": {
-        "id": "n202611132202-318e",
-        "kind": "question"
-      },
-      "ts": "2026-11-13T22:02:59.825Z",
-      "since": "2026-11-13T22:02:59.825Z"
+      "needs": null,
+      "ts": "2026-11-13T22:12:50.449Z",
+      "since": "2026-11-13T22:12:50.449Z"
     },
     "robotemplate": {
       "state": "working",

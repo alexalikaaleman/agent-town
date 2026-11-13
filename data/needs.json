@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:11:04.287Z",
+  "updatedAt": "2026-11-13T22:12:50.449Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1209,8 +1209,8 @@
       "text": "which mode?",
       "project": "Dragon revamp",
       "ts": "2026-11-13T22:02:59.825Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T22:12:50.449Z"
     },
     {
       "id": "n202611132209-e253",
