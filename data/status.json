@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:35:45.769Z",
+  "updatedAt": "2026-11-13T21:35:53.051Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "Hide/show live; idle, nothing queued",
-      "project": "Agent Town",
+      "state": "needs-alex",
+      "text": "Dragon P2 check: usage over my cap",
+      "project": "dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-06T03:45:20.798Z",
-      "since": "2026-11-06T03:45:20.798Z"
+      "needs": {
+        "id": "n202611132135-00a3",
+        "kind": "question"
+      },
+      "ts": "2026-11-13T21:35:53.051Z",
+      "since": "2026-11-13T21:35:53.051Z"
     },
     "masterbot": {
       "state": "done",
