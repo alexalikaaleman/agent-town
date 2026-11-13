@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:36:09.090Z",
+  "updatedAt": "2026-11-13T05:46:07.237Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1119,8 +1119,8 @@
       "text": "OK dragon mode rename rows?",
       "project": "Dragon",
       "ts": "2026-11-13T05:36:09.090Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T05:46:07.237Z"
     }
   ]
 }
