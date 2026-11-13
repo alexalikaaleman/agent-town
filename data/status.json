@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:39:56.020Z",
+  "updatedAt": "2026-11-13T21:40:00.038Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-13T21:39:43.005Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "GDD + GitWriter need Alex's yes",
+      "state": "working",
+      "text": "Dragon P2 session jobs",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:36:22.673Z",
-      "since": "2026-11-13T21:36:22.673Z"
+      "ts": "2026-11-13T21:40:00.038Z",
+      "since": "2026-11-13T21:40:00.038Z"
     },
     "game-design-document-bot": {
       "state": "needs-alex",
