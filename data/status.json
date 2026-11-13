@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:46:07.237Z",
+  "updatedAt": "2026-11-13T05:46:10.735Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,13 @@
       "since": "2026-11-13T05:43:14.274Z"
     },
     "game-design-document-bot": {
-      "state": "needs-alex",
-      "text": "OK dragon mode rename rows?",
+      "state": "blocked",
+      "text": "Dragon paused; awaiting art map",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T05:36:09.090Z",
-      "since": "2026-11-13T05:36:09.090Z"
+      "ts": "2026-11-13T05:46:10.735Z",
+      "since": "2026-11-13T05:46:10.735Z"
     },
     "concept-art-bot": {
       "state": "needs-alex",

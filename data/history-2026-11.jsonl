@@ -690,3 +690,4 @@
 {"ts":"2026-11-13T05:43:14.274Z","bot":"robotemplate","state":"working","text":"Art mode labels recheck","project":"Dragon game"}
 {"ts":"2026-11-13T05:44:28.472Z","bot":"cutscene-bot","state":"done","text":"Mode renames done; next: HOLD answers","project":"Dragon revamp"}
 {"ts":"2026-11-13T05:46:07.237Z","bot":"game-design-document-bot","handled":"n202611130536-0f89"}
+{"ts":"2026-11-13T05:46:10.735Z","bot":"game-design-document-bot","state":"blocked","text":"Dragon paused; awaiting art map","project":"Dragon"}
