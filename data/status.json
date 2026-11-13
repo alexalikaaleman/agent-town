@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T16:16:43.017Z",
+  "updatedAt": "2026-11-13T19:12:49.292Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -193,13 +193,13 @@
       "since": "2026-11-11T23:23:55.789Z"
     },
     "game-additions-bot": {
-      "state": "done",
-      "text": "Weekly check done; idle, nothing queued",
-      "project": "game-additions",
+      "state": "working",
+      "text": "Weekly additions reminder check",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-06T19:16:02.319Z",
-      "since": "2026-11-06T19:16:02.319Z"
+      "ts": "2026-11-13T19:12:49.292Z",
+      "since": "2026-11-13T19:12:49.292Z"
     },
     "context-bot": {
       "state": "done",
