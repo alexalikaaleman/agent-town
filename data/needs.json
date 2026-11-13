@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:04:48.860Z",
+  "updatedAt": "2026-11-13T05:04:55.726Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1069,6 +1069,16 @@
       "text": "OK RoboTemplate dragon sync?",
       "project": "Dragon",
       "ts": "2026-11-13T05:04:48.860Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611130504-07d9",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Dragon art swap choice",
+      "project": "Dragon game",
+      "ts": "2026-11-13T05:04:55.726Z",
       "handled": false,
       "handledAt": null
     }
