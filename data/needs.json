@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:09:45.042Z",
+  "updatedAt": "2026-11-13T22:11:04.287Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1219,6 +1219,16 @@
       "text": "Cutscene: which mode for front end",
       "project": "dragon game",
       "ts": "2026-11-13T22:09:45.042Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132211-0eaa",
+      "bot": "playtest-qa-bot",
+      "kind": "question",
+      "text": "Debug skip v2: 2 small questions",
+      "project": "Dragon game",
+      "ts": "2026-11-13T22:11:04.287Z",
       "handled": false,
       "handledAt": null
     }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:10:43.532Z",
+  "updatedAt": "2026-11-13T22:11:04.287Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -94,16 +94,16 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "L2 skip proposal v2 written; idle",
-      "project": "Super Happy Fun Excelle…",
+      "state": "needs-alex",
+      "text": "Debug skip v2: 2 small questions",
+      "project": "Dragon game",
       "with": [],
       "needs": {
-        "id": "n202611121814-2a8c",
+        "id": "n202611132211-0eaa",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:10:43.532Z",
-      "since": "2026-11-13T22:10:43.532Z"
+      "ts": "2026-11-13T22:11:04.287Z",
+      "since": "2026-11-13T22:11:04.287Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
