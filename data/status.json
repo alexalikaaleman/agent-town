@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:22:08.811Z",
+  "updatedAt": "2026-11-13T22:22:11.636Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,15 +56,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "P2 test paste ready",
+      "text": "GDD next job OK?",
       "project": "Dragon game",
       "with": [],
       "needs": {
-        "id": "n202611132221-b776",
+        "id": "n202611132222-5abd",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:21:11.584Z",
-      "since": "2026-11-13T22:21:11.584Z"
+      "ts": "2026-11-13T22:22:11.636Z",
+      "since": "2026-11-13T22:22:11.636Z"
     },
     "game-design-document-bot": {
       "state": "done",

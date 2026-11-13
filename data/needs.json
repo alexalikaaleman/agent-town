@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:21:11.584Z",
+  "updatedAt": "2026-11-13T22:22:11.636Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1289,6 +1289,16 @@
       "text": "P2 test paste ready",
       "project": "Dragon game",
       "ts": "2026-11-13T22:21:11.584Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132222-5abd",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "GDD next job OK?",
+      "project": "Dragon game",
+      "ts": "2026-11-13T22:22:11.636Z",
       "handled": false,
       "handledAt": null
     }
