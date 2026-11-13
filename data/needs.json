@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:29:23.765Z",
+  "updatedAt": "2026-11-13T22:50:47.400Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1329,6 +1329,16 @@
       "text": "OK P2-P28 open questions list?",
       "project": "Dragon",
       "ts": "2026-11-13T22:29:23.765Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132250-38bb",
+      "bot": "chief-of-staff",
+      "kind": "question",
+      "text": "GDD P2-P28 questions list OK?",
+      "project": "dragon game",
+      "ts": "2026-11-13T22:50:47.400Z",
       "handled": false,
       "handledAt": null
     }

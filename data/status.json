@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:38:33.584Z",
+  "updatedAt": "2026-11-13T22:50:47.400Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -116,15 +116,15 @@
     },
     "chief-of-staff": {
       "state": "needs-alex",
-      "text": "Cutscene picks + P2 paste ready",
+      "text": "GDD P2-P28 questions list OK?",
       "project": "dragon game",
       "with": [],
       "needs": {
-        "id": "n202611132228-0a19",
+        "id": "n202611132250-38bb",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:28:17.505Z",
-      "since": "2026-11-13T22:28:17.505Z"
+      "ts": "2026-11-13T22:50:47.400Z",
+      "since": "2026-11-13T22:50:47.400Z"
     },
     "brainstorm-bot": {
       "state": "done",
