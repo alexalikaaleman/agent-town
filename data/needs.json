@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:05:13.707Z",
+  "updatedAt": "2026-11-13T05:07:53.558Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1079,8 +1079,8 @@
       "text": "Dragon art swap choice",
       "project": "Dragon game",
       "ts": "2026-11-13T05:04:55.726Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T05:07:53.558Z"
     }
   ]
 }
