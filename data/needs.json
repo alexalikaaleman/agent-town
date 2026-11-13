@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T20:24:42.843Z",
+  "updatedAt": "2026-11-13T21:13:35.803Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1129,6 +1129,16 @@
       "text": "Pick: Gumroad guide, wallpaper pack",
       "project": null,
       "ts": "2026-11-13T20:24:42.843Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611132113-456a",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Dragon start: go?",
+      "project": "Dragon game",
+      "ts": "2026-11-13T21:13:35.803Z",
       "handled": false,
       "handledAt": null
     }

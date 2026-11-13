@@ -702,3 +702,4 @@
 {"ts":"2026-11-13T20:24:08.471Z","bot":"hustle-bot","state":"done","text":"Income session done; next: Alex picks","project":"Income"}
 {"ts":"2026-11-13T20:24:42.843Z","bot":"hustle-bot","needId":"n202611132024-1ff1","state":"needs-alex","text":"Pick: Gumroad guide, wallpaper pack","needs":"question"}
 {"ts":"2026-11-13T20:26:55.197Z","bot":"chief-of-staff","state":"done","text":"Urgent check done; idle, nothing queued"}
+{"ts":"2026-11-13T21:13:35.803Z","bot":"robotemplate","needId":"n202611132113-456a","state":"needs-alex","text":"Dragon start: go?","project":"Dragon game","needs":"question"}
