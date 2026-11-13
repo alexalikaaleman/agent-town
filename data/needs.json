@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:22:26.020Z",
+  "updatedAt": "2026-11-13T22:22:36.463Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1299,8 +1299,8 @@
       "text": "GDD next job OK?",
       "project": "Dragon game",
       "ts": "2026-11-13T22:22:11.636Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T22:22:36.463Z"
     },
     {
       "id": "n202611132222-4a72",

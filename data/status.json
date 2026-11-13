@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:22:29.933Z",
+  "updatedAt": "2026-11-13T22:22:36.463Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -59,10 +59,7 @@
       "text": "GDD next job OK?",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611132222-5abd",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-13T22:22:11.636Z",
       "since": "2026-11-13T22:22:11.636Z"
     },
