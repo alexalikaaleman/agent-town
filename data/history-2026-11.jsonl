@@ -782,3 +782,4 @@
 {"ts":"2026-11-13T22:18:18.550Z","bot":"robotemplate","handled":"n202611132217-3de9"}
 {"ts":"2026-11-13T22:18:22.290Z","bot":"robotemplate","state":"working","text":"Dragon P2 session","project":"Dragon game"}
 {"ts":"2026-11-13T22:18:28.812Z","bot":"game-design-document-bot","state":"working","text":"P9 linear spec v1","project":"Dragon"}
+{"ts":"2026-11-13T22:18:46.020Z","bot":"playtest-qa-bot","state":"working","text":"P8 lair hub checklist v2","project":"Dragon game"}

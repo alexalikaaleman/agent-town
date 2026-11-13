@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:18:28.812Z",
+  "updatedAt": "2026-11-13T22:18:46.020Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -94,13 +94,13 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "checklists done; idle",
+      "state": "working",
+      "text": "P8 lair hub checklist v2",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:18:14.027Z",
-      "since": "2026-11-13T22:18:14.027Z"
+      "ts": "2026-11-13T22:18:46.020Z",
+      "since": "2026-11-13T22:18:46.020Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
