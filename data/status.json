@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:30:10.721Z",
+  "updatedAt": "2026-11-13T22:30:30.153Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -94,13 +94,13 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "P20-P24 checklists done; idle",
+      "state": "working",
+      "text": "P25-P28 checklists",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:30:10.721Z",
-      "since": "2026-11-13T22:30:10.721Z"
+      "ts": "2026-11-13T22:30:30.153Z",
+      "since": "2026-11-13T22:30:30.153Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
