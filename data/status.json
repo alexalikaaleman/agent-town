@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:21:13.419Z",
+  "updatedAt": "2026-11-13T05:21:17.584Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -53,12 +53,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "OK tonight's push plan",
+      "text": "Mode questions for scan",
       "project": "Dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-13T05:08:01.786Z",
-      "since": "2026-11-13T05:08:01.786Z"
+      "needs": {
+        "id": "n202611130521-e3f6",
+        "kind": "question"
+      },
+      "ts": "2026-11-13T05:21:17.584Z",
+      "since": "2026-11-13T05:21:17.584Z"
     },
     "game-design-document-bot": {
       "state": "done",

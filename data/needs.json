@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:21:13.419Z",
+  "updatedAt": "2026-11-13T05:21:17.584Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1091,6 +1091,16 @@
       "ts": "2026-11-13T05:08:01.786Z",
       "handled": true,
       "handledAt": "2026-11-13T05:21:13.419Z"
+    },
+    {
+      "id": "n202611130521-e3f6",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Mode questions for scan",
+      "project": "Dragon game",
+      "ts": "2026-11-13T05:21:17.584Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
