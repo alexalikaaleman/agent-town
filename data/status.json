@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:27:19.969Z",
+  "updatedAt": "2026-11-13T22:27:37.139Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -91,13 +91,13 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "P15-P19 checklists done; idle",
+      "state": "working",
+      "text": "P20-P24 linear era checklists",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:27:19.969Z",
-      "since": "2026-11-13T22:27:19.969Z"
+      "ts": "2026-11-13T22:27:37.139Z",
+      "since": "2026-11-13T22:27:37.139Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
