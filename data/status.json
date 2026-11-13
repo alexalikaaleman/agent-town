@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T04:54:11.737Z",
+  "updatedAt": "2026-11-13T05:04:09.772Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -53,11 +53,11 @@
     },
     "robotemplate": {
       "state": "working",
-      "text": "Sync art bot before P2",
+      "text": "Syncing dragon bots to plan v7",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T04:50:47.651Z",
+      "ts": "2026-11-13T05:04:09.772Z",
       "since": "2026-11-13T04:50:47.651Z"
     },
     "game-design-document-bot": {
