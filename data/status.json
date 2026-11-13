@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:21:58.199Z",
+  "updatedAt": "2026-11-13T22:22:02.237Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Dragon P2 v4 re-check",
+      "state": "done",
+      "text": "P2 re-check PASS; idle, nothing queued",
       "project": "dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:14:29.736Z",
-      "since": "2026-11-13T22:14:29.736Z"
+      "ts": "2026-11-13T22:22:02.237Z",
+      "since": "2026-11-13T22:22:02.237Z"
     },
     "masterbot": {
       "state": "done",
