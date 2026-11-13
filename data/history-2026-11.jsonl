@@ -747,3 +747,4 @@
 {"ts":"2026-11-13T21:58:23.336Z","bot":"cutscene-bot","state":"done","text":"Linear era lists done; now idle","project":"Dragon revamp"}
 {"ts":"2026-11-13T21:59:40.137Z","bot":"cutscene-bot","state":"working","text":"P25-P28 front-end cutscene lists","project":"Dragon revamp"}
 {"ts":"2026-11-13T22:01:57.435Z","bot":"cutscene-bot","state":"done","text":"P25-P28 lists done; now idle","project":"Dragon revamp"}
+{"ts":"2026-11-13T22:02:59.825Z","bot":"cutscene-bot","needId":"n202611132202-318e","state":"needs-alex","text":"which mode?","project":"Dragon revamp","needs":"question"}

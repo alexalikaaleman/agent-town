@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:53:20.735Z",
+  "updatedAt": "2026-11-13T22:02:59.825Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1201,6 +1201,16 @@
       "ts": "2026-11-13T21:45:52.513Z",
       "handled": true,
       "handledAt": "2026-11-13T21:53:20.735Z"
+    },
+    {
+      "id": "n202611132202-318e",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "which mode?",
+      "project": "Dragon revamp",
+      "ts": "2026-11-13T22:02:59.825Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
