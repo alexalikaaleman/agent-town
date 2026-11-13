@@ -826,3 +826,4 @@
 {"ts":"2026-11-13T22:34:29.516Z","bot":"concept-art-bot","state":"done","text":"P25-28 inventory done; idle, none queued","project":"Dragon game"}
 {"ts":"2026-11-13T22:34:45.405Z","bot":"playtest-qa-bot","state":"done","text":"OG P3 checklist done; idle","project":"Dragon game"}
 {"ts":"2026-11-13T22:34:55.348Z","bot":"concept-art-bot","state":"working","text":"Dragon master missing-art list","project":"Dragon game"}
+{"ts":"2026-11-13T22:35:09.281Z","bot":"cutscene-bot","state":"done","text":"P7/P8 v02 + P25-28 check done; idle","project":"Dragon revamp"}

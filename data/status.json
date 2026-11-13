@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:34:55.348Z",
+  "updatedAt": "2026-11-13T22:35:09.281Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,13 +43,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "P7/P8 v02 + P25-P28 spec check",
+      "state": "done",
+      "text": "P7/P8 v02 + P25-28 check done; idle",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:30:55.176Z",
-      "since": "2026-11-13T22:30:55.176Z"
+      "ts": "2026-11-13T22:35:09.281Z",
+      "since": "2026-11-13T22:35:09.281Z"
     },
     "robotemplate": {
       "state": "needs-alex",
