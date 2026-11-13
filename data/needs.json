@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:04:55.726Z",
+  "updatedAt": "2026-11-13T05:05:13.707Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1069,8 +1069,8 @@
       "text": "OK RoboTemplate dragon sync?",
       "project": "Dragon",
       "ts": "2026-11-13T05:04:48.860Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T05:05:13.707Z"
     },
     {
       "id": "n202611130504-07d9",
