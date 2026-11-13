@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:39:31.993Z",
+  "updatedAt": "2026-11-13T21:39:43.005Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,13 +43,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "OG v10 check + linear EoT links",
+      "state": "done",
+      "text": "v10 confirmed; next: RT beat answers",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:35:45.769Z",
-      "since": "2026-11-13T21:35:45.769Z"
+      "ts": "2026-11-13T21:39:43.005Z",
+      "since": "2026-11-13T21:39:43.005Z"
     },
     "robotemplate": {
       "state": "needs-alex",
