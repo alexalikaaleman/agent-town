@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:21:01.497Z",
+  "updatedAt": "2026-11-13T22:21:11.584Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1281,6 +1281,16 @@
       "ts": "2026-11-13T22:20:26.640Z",
       "handled": true,
       "handledAt": "2026-11-13T22:21:01.497Z"
+    },
+    {
+      "id": "n202611132221-b776",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "P2 test paste ready",
+      "project": "Dragon game",
+      "ts": "2026-11-13T22:21:11.584Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
