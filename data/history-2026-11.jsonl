@@ -821,3 +821,4 @@
 {"ts":"2026-11-13T22:30:10.721Z","bot":"playtest-qa-bot","state":"done","text":"P20-P24 checklists done; idle","project":"Dragon game"}
 {"ts":"2026-11-13T22:30:30.153Z","bot":"playtest-qa-bot","state":"working","text":"P25-P28 checklists","project":"Dragon game"}
 {"ts":"2026-11-13T22:30:55.176Z","bot":"cutscene-bot","state":"working","text":"P7/P8 v02 + P25-P28 spec check","project":"Dragon revamp"}
+{"ts":"2026-11-13T22:32:21.584Z","bot":"playtest-qa-bot","state":"done","text":"P25-P28 done; idle, nothing queued","project":"Dragon game"}
