@@ -730,3 +730,4 @@
 {"ts":"2026-11-13T21:41:35.501Z","bot":"playtest-qa-bot","state":"done","text":"Debug skip proposal done; idle","project":"Dragon game"}
 {"ts":"2026-11-13T21:41:41.313Z","bot":"chief-of-staff","state":"working","text":"Watching dragon session bots","project":"Dragon game"}
 {"ts":"2026-11-13T21:42:57.988Z","bot":"robotemplate","handled":"n202611132140-c0e6"}
+{"ts":"2026-11-13T21:43:42.709Z","bot":"cutscene-bot","state":"done","text":"P11-P14 lists done; next: P15 WW2","project":"Dragon revamp"}

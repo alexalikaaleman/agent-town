@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:42:57.988Z",
+  "updatedAt": "2026-11-13T21:43:42.709Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,13 +43,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "linear P11-P14 cutscene lists",
+      "state": "done",
+      "text": "P11-P14 lists done; next: P15 WW2",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:41:06.158Z",
-      "since": "2026-11-13T21:41:06.158Z"
+      "ts": "2026-11-13T21:43:42.709Z",
+      "since": "2026-11-13T21:43:42.709Z"
     },
     "robotemplate": {
       "state": "needs-alex",
