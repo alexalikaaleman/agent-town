@@ -710,3 +710,4 @@
 {"ts":"2026-11-13T21:35:03.697Z","bot":"robotemplate","state":"working","text":"Dragon P2 session jobs","project":"Dragon game"}
 {"ts":"2026-11-13T21:35:26.005Z","bot":"concept-art-bot","state":"working","text":"Dragon P4-P8 art inventory","project":"Dragon game"}
 {"ts":"2026-11-13T21:35:34.334Z","bot":"game-design-document-bot","needId":"n202611132135-d014","state":"needs-alex","text":"OK P2 dragon docs + P6/P7 specs?","project":"Dragon","needs":"question"}
+{"ts":"2026-11-13T21:35:38.745Z","bot":"playtest-qa-bot","state":"working","text":"Dragon P2-P6 phone checklists","project":"Dragon game"}
