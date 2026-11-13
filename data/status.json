@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:02:59.825Z",
+  "updatedAt": "2026-11-13T22:07:53.762Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -119,11 +119,11 @@
     },
     "chief-of-staff": {
       "state": "working",
-      "text": "Watching dragon session bots",
-      "project": "Dragon game",
+      "text": "Dragon session held-up watch",
+      "project": "dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:41:41.313Z",
+      "ts": "2026-11-13T22:07:53.762Z",
       "since": "2026-11-13T21:41:41.313Z"
     },
     "brainstorm-bot": {
