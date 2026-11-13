@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:16:07.407Z",
+  "updatedAt": "2026-11-13T22:16:13.171Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -59,10 +59,7 @@
       "text": "GDD needs yes for P8 spec",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611132214-bbd5",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-13T22:14:45.724Z",
       "since": "2026-11-13T22:14:45.724Z"
     },
