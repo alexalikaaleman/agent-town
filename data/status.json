@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:28:58.400Z",
+  "updatedAt": "2026-11-13T22:29:16.904Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,16 +70,16 @@
       "since": "2026-11-13T22:28:58.400Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Roguelike inventory done; idle, none qu…",
+      "state": "working",
+      "text": "Dragon P25-P28 front end inventory",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611130535-abd2",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:28:52.041Z",
-      "since": "2026-11-13T22:28:52.041Z"
+      "ts": "2026-11-13T22:29:16.904Z",
+      "since": "2026-11-13T22:29:16.904Z"
     },
     "garage-sale-bot": {
       "state": "done",
