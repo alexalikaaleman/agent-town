@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:14:25.418Z",
+  "updatedAt": "2026-11-13T21:14:29.311Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-13T05:44:28.472Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Dragon start: go?",
+      "state": "working",
+      "text": "Dragon cleanups, then P2",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:13:35.803Z",
-      "since": "2026-11-13T21:13:35.803Z"
+      "ts": "2026-11-13T21:14:29.311Z",
+      "since": "2026-11-13T21:14:29.311Z"
     },
     "game-design-document-bot": {
       "state": "blocked",
