@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:50:47.400Z",
+  "updatedAt": "2026-11-13T23:14:37.949Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -115,16 +115,16 @@
       "since": "2026-11-13T16:16:43.017Z"
     },
     "chief-of-staff": {
-      "state": "needs-alex",
-      "text": "GDD P2-P28 questions list OK?",
+      "state": "done",
+      "text": "Dragon watch done; idle, nothing queued",
       "project": "dragon game",
       "with": [],
       "needs": {
         "id": "n202611132250-38bb",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:50:47.400Z",
-      "since": "2026-11-13T22:50:47.400Z"
+      "ts": "2026-11-13T23:14:37.949Z",
+      "since": "2026-11-13T23:14:37.949Z"
     },
     "brainstorm-bot": {
       "state": "done",
