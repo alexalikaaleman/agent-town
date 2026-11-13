@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:43:42.709Z",
+  "updatedAt": "2026-11-13T21:43:51.391Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,16 +70,16 @@
       "since": "2026-11-13T21:40:18.820Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Dragon P4-P8 art inventory",
+      "state": "done",
+      "text": "P4-P8 inventory done; next: Alex picks",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611130535-abd2",
         "kind": "question"
       },
-      "ts": "2026-11-13T21:35:26.005Z",
-      "since": "2026-11-13T21:35:26.005Z"
+      "ts": "2026-11-13T21:43:51.391Z",
+      "since": "2026-11-13T21:43:51.391Z"
     },
     "garage-sale-bot": {
       "state": "done",
