@@ -768,3 +768,4 @@
 {"ts":"2026-11-13T22:15:12.087Z","bot":"playtest-qa-bot","state":"done","text":"Debug skip v3 done; idle","project":"Dragon game"}
 {"ts":"2026-11-13T22:15:27.833Z","bot":"playtest-qa-bot","state":"working","text":"Dragon P7/P8 checklists, P4 v2","project":"Dragon game"}
 {"ts":"2026-11-13T22:15:42.927Z","bot":"game-design-document-bot","handled":"n202611132214-7ad1"}
+{"ts":"2026-11-13T22:15:46.788Z","bot":"game-design-document-bot","state":"working","text":"P8 lair hub spec v1","project":"Dragon"}
