@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:28:17.505Z",
+  "updatedAt": "2026-11-13T22:28:52.041Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,16 +70,16 @@
       "since": "2026-11-13T22:22:42.269Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Dragon roguelike art inventory",
+      "state": "done",
+      "text": "Roguelike inventory done; idle, none qu…",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611130535-abd2",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:22:46.893Z",
-      "since": "2026-11-13T22:22:46.893Z"
+      "ts": "2026-11-13T22:28:52.041Z",
+      "since": "2026-11-13T22:28:52.041Z"
     },
     "garage-sale-bot": {
       "state": "done",
