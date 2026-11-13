@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:36:22.673Z",
+  "updatedAt": "2026-11-13T21:38:15.989Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1169,8 +1169,8 @@
       "text": "Dragon P2 check: usage over my cap",
       "project": "dragon game",
       "ts": "2026-11-13T21:35:53.051Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T21:38:15.989Z"
     },
     {
       "id": "n202611132136-b126",
