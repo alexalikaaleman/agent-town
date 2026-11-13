@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:15:46.788Z",
+  "updatedAt": "2026-11-13T22:16:07.407Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,16 +43,16 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "needs-alex",
-      "text": "NewModes theme, rename, attract picks",
+      "state": "done",
+      "text": "Linear pick list done; idle, nothing qu…",
       "project": "Dragon revamp",
       "with": [],
       "needs": {
         "id": "n202611132214-7561",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:14:40.056Z",
-      "since": "2026-11-13T22:14:40.056Z"
+      "ts": "2026-11-13T22:16:07.407Z",
+      "since": "2026-11-13T22:16:07.407Z"
     },
     "robotemplate": {
       "state": "needs-alex",
