@@ -725,3 +725,4 @@
 {"ts":"2026-11-13T21:40:14.736Z","bot":"game-design-document-bot","handled":"n202611132135-d014"}
 {"ts":"2026-11-13T21:40:18.820Z","bot":"game-design-document-bot","state":"working","text":"P2 OG docs + P6/P7 specs","project":"Dragon"}
 {"ts":"2026-11-13T21:40:56.257Z","bot":"robotemplate","needId":"n202611132140-c0e6","state":"needs-alex","text":"Cutscene Arrival question","project":"Dragon game","needs":"question"}
+{"ts":"2026-11-13T21:41:06.158Z","bot":"cutscene-bot","state":"working","text":"linear P11-P14 cutscene lists","project":"Dragon revamp"}
