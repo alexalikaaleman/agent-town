@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:34:59.485Z",
+  "updatedAt": "2026-11-13T21:35:03.697Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-13T05:44:28.472Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Dragon P2: go for bots?",
+      "state": "working",
+      "text": "Dragon P2 session jobs",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T21:16:25.740Z",
-      "since": "2026-11-13T21:16:25.740Z"
+      "ts": "2026-11-13T21:35:03.697Z",
+      "since": "2026-11-13T21:35:03.697Z"
     },
     "game-design-document-bot": {
       "state": "blocked",
