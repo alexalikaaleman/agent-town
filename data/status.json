@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:16:25.740Z",
+  "updatedAt": "2026-11-13T21:34:59.485Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Dragon P2: go for bots?",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611132116-e894",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-13T21:16:25.740Z",
       "since": "2026-11-13T21:16:25.740Z"
     },

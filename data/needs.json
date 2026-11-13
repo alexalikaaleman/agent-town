@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:16:25.740Z",
+  "updatedAt": "2026-11-13T21:34:59.485Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1149,8 +1149,8 @@
       "text": "Dragon P2: go for bots?",
       "project": "Dragon game",
       "ts": "2026-11-13T21:16:25.740Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T21:34:59.485Z"
     }
   ]
 }
