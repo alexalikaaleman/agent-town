@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:24:58.056Z",
+  "updatedAt": "2026-11-13T22:25:29.162Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -92,12 +92,12 @@
     },
     "playtest-qa-bot": {
       "state": "done",
-      "text": "P11-P14 and P10 v2 done; idle",
-      "project": "Super Happy Fun Excelle…",
+      "text": "P11-14 + P10v2 done; idle",
+      "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:24:58.056Z",
-      "since": "2026-11-13T22:24:58.056Z"
+      "ts": "2026-11-13T22:25:29.162Z",
+      "since": "2026-11-13T22:25:29.162Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
