@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T03:44:34.505Z",
+  "updatedAt": "2026-11-13T05:04:48.860Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1059,6 +1059,16 @@
       "text": "Ask: Bad Dog changelog button",
       "project": "Bad Dog",
       "ts": "2026-11-12T18:14:12.707Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611130504-6d1e",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "OK RoboTemplate dragon sync?",
+      "project": "Dragon",
+      "ts": "2026-11-13T05:04:48.860Z",
       "handled": false,
       "handledAt": null
     }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:04:09.772Z",
+  "updatedAt": "2026-11-13T05:04:48.860Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -61,13 +61,16 @@
       "since": "2026-11-13T04:50:47.651Z"
     },
     "game-design-document-bot": {
-      "state": "done",
-      "text": "Site screenshots done; idle",
-      "project": null,
+      "state": "needs-alex",
+      "text": "OK RoboTemplate dragon sync?",
+      "project": "Dragon",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-11T11:02:03.550Z",
-      "since": "2026-11-11T11:02:03.550Z"
+      "needs": {
+        "id": "n202611130504-6d1e",
+        "kind": "question"
+      },
+      "ts": "2026-11-13T05:04:48.860Z",
+      "since": "2026-11-13T05:04:48.860Z"
     },
     "concept-art-bot": {
       "state": "done",
