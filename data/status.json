@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:19:54.341Z",
+  "updatedAt": "2026-11-13T22:20:08.913Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -64,13 +64,13 @@
       "since": "2026-11-13T22:18:22.290Z"
     },
     "game-design-document-bot": {
-      "state": "working",
-      "text": "P9 linear spec v1",
+      "state": "done",
+      "text": "P9 spec done; idle, nothing queued",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:18:28.812Z",
-      "since": "2026-11-13T22:18:28.812Z"
+      "ts": "2026-11-13T22:20:08.913Z",
+      "since": "2026-11-13T22:20:08.913Z"
     },
     "concept-art-bot": {
       "state": "working",
