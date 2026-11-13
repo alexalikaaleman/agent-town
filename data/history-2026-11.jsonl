@@ -799,3 +799,4 @@
 {"ts":"2026-11-13T22:22:11.636Z","bot":"robotemplate","needId":"n202611132222-5abd","state":"needs-alex","text":"GDD next job OK?","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T22:22:19.970Z","bot":"concept-art-bot","state":"done","text":"P20-24 inventory done; idle, none queued","project":"Dragon game"}
 {"ts":"2026-11-13T22:22:26.020Z","bot":"cutscene-bot","needId":"n202611132222-4a72","state":"needs-alex","text":"P7/P8 lists up; questions for Alex","project":"Dragon revamp","needs":"question"}
+{"ts":"2026-11-13T22:22:29.933Z","bot":"cutscene-bot","state":"done","text":"P7/P8 v01 done; await Alex yes","project":"Dragon revamp"}
