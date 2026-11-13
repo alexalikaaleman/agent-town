@@ -736,3 +736,4 @@
 {"ts":"2026-11-13T21:44:44.273Z","bot":"gitwriter-3d-bot","state":"done","text":"P2 check done; idle, nothing queued","project":"dragon game"}
 {"ts":"2026-11-13T21:45:52.513Z","bot":"robotemplate","needId":"n202611132145-c5a7","state":"needs-alex","text":"Rambo vs UNKO question","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T21:45:58.156Z","bot":"game-design-document-bot","state":"done","text":"P2 docs+P6/P7 specs; next: Alex review","project":"Dragon"}
+{"ts":"2026-11-13T21:46:08.439Z","bot":"cutscene-bot","state":"working","text":"linear P15-P18 cutscene lists","project":"Dragon revamp"}
