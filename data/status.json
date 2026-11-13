@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:07:53.762Z",
+  "updatedAt": "2026-11-13T22:09:45.042Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -118,13 +118,16 @@
       "since": "2026-11-13T16:16:43.017Z"
     },
     "chief-of-staff": {
-      "state": "working",
-      "text": "Dragon session held-up watch",
+      "state": "needs-alex",
+      "text": "Cutscene: which mode for front end",
       "project": "dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-13T22:07:53.762Z",
-      "since": "2026-11-13T21:41:41.313Z"
+      "needs": {
+        "id": "n202611132209-e253",
+        "kind": "question"
+      },
+      "ts": "2026-11-13T22:09:45.042Z",
+      "since": "2026-11-13T22:09:45.042Z"
     },
     "brainstorm-bot": {
       "state": "done",
