@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:46:07.237Z",
+  "updatedAt": "2026-11-13T20:24:42.843Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1121,6 +1121,16 @@
       "ts": "2026-11-13T05:36:09.090Z",
       "handled": true,
       "handledAt": "2026-11-13T05:46:07.237Z"
+    },
+    {
+      "id": "n202611132024-1ff1",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Pick: Gumroad guide, wallpaper pack",
+      "project": null,
+      "ts": "2026-11-13T20:24:42.843Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

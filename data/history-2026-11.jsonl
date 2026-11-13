@@ -700,3 +700,4 @@
 {"ts":"2026-11-13T19:13:26.908Z","bot":"game-additions-bot","state":"done","text":"Reminder done; idle, nothing queued"}
 {"ts":"2026-11-13T20:22:33.298Z","bot":"hustle-bot","state":"working","text":"Income strategy session","project":"Income"}
 {"ts":"2026-11-13T20:24:08.471Z","bot":"hustle-bot","state":"done","text":"Income session done; next: Alex picks","project":"Income"}
+{"ts":"2026-11-13T20:24:42.843Z","bot":"hustle-bot","needId":"n202611132024-1ff1","state":"needs-alex","text":"Pick: Gumroad guide, wallpaper pack","needs":"question"}
