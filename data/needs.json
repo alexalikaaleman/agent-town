@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T21:40:56.257Z",
+  "updatedAt": "2026-11-13T21:42:57.988Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1189,8 +1189,8 @@
       "text": "Cutscene Arrival question",
       "project": "Dragon game",
       "ts": "2026-11-13T21:40:56.257Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-13T21:42:57.988Z"
     }
   ]
 }
