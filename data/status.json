@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:25:46.446Z",
+  "updatedAt": "2026-11-13T22:25:49.817Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,13 +43,13 @@
       "since": "2026-11-10T05:51:30.339Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "linear P9/P10 shot lists v02",
+      "state": "done",
+      "text": "P9/P10 lists done; await Alex",
       "project": "Dragon revamp",
       "with": [],
       "needs": null,
-      "ts": "2026-11-13T22:23:27.367Z",
-      "since": "2026-11-13T22:23:27.367Z"
+      "ts": "2026-11-13T22:25:49.817Z",
+      "since": "2026-11-13T22:25:49.817Z"
     },
     "robotemplate": {
       "state": "needs-alex",
