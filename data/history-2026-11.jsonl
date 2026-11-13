@@ -684,3 +684,4 @@
 {"ts":"2026-11-13T05:08:01.786Z","bot":"robotemplate","needId":"n202611130508-5196","state":"needs-alex","text":"OK tonight's push plan","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-13T05:21:13.419Z","bot":"robotemplate","handled":"n202611130508-5196"}
 {"ts":"2026-11-13T05:21:17.584Z","bot":"robotemplate","needId":"n202611130521-e3f6","state":"needs-alex","text":"Mode questions for scan","project":"Dragon game","needs":"question"}
+{"ts":"2026-11-13T05:35:58.965Z","bot":"concept-art-bot","needId":"n202611130535-abd2","state":"needs-alex","text":"OK to rename 18 dragon art files?","project":"Dragon","needs":"question"}

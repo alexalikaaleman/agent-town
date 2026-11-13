@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:21:17.584Z",
+  "updatedAt": "2026-11-13T05:35:58.965Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,13 +73,16 @@
       "since": "2026-11-13T05:05:22.992Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Art inventory done; next: send to RT",
+      "state": "needs-alex",
+      "text": "OK to rename 18 dragon art files?",
       "project": "Dragon",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-13T04:54:11.737Z",
-      "since": "2026-11-13T04:54:11.737Z"
+      "needs": {
+        "id": "n202611130535-abd2",
+        "kind": "question"
+      },
+      "ts": "2026-11-13T05:35:58.965Z",
+      "since": "2026-11-13T05:35:58.965Z"
     },
     "garage-sale-bot": {
       "state": "done",

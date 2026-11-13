@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T05:21:17.584Z",
+  "updatedAt": "2026-11-13T05:35:58.965Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1099,6 +1099,16 @@
       "text": "Mode questions for scan",
       "project": "Dragon game",
       "ts": "2026-11-13T05:21:17.584Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611130535-abd2",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "OK to rename 18 dragon art files?",
+      "project": "Dragon",
+      "ts": "2026-11-13T05:35:58.965Z",
       "handled": false,
       "handledAt": null
     }
