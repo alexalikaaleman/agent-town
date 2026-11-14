@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:45:27.066Z",
+  "updatedAt": "2026-11-14T19:57:14.735Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1629,8 +1629,8 @@
       "text": "P2f v2 not a PASS; 2 scope Qs",
       "project": "Dragon OG",
       "ts": "2026-11-14T19:38:02.328Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T19:57:14.735Z"
     },
     {
       "id": "n202611141945-b973",

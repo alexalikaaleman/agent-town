@@ -1,22 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:45:27.066Z",
+  "updatedAt": "2026-11-14T19:57:14.735Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "needs-alex",
-      "text": "P2f v2 not a PASS; 2 scope Qs",
+      "state": "done",
+      "text": "P2f check done; next: v3 re-check",
       "project": "Dragon OG",
       "with": [],
-      "needs": {
-        "id": "n202611141938-5149",
-        "kind": "question"
-      },
-      "ts": "2026-11-14T19:38:02.328Z",
-      "since": "2026-11-14T19:38:02.328Z"
+      "needs": null,
+      "ts": "2026-11-14T19:57:14.735Z",
+      "since": "2026-11-14T19:57:14.735Z"
     },
     "masterbot": {
       "state": "done",

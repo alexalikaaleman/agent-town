@@ -983,3 +983,4 @@
 {"ts":"2026-11-14T19:38:02.328Z","bot":"gitwriter-3d-bot","needId":"n202611141938-5149","state":"needs-alex","text":"P2f v2 not a PASS; 2 scope Qs","project":"Dragon OG","needs":"question"}
 {"ts":"2026-11-14T19:38:24.124Z","bot":"robotemplate","state":"working","text":"OG menu paste v3","project":"Dragon game"}
 {"ts":"2026-11-14T19:45:27.066Z","bot":"robotemplate","needId":"n202611141945-b973","state":"needs-alex","text":"Menu paste v3: 5/6 + re-check go","project":"Dragon game","needs":"question"}
+{"ts":"2026-11-14T19:57:14.735Z","bot":"gitwriter-3d-bot","state":"done","text":"P2f check done; next: v3 re-check","project":"Dragon OG","handled":"n202611141938-5149"}
