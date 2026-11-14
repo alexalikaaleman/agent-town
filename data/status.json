@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:12:07.447Z",
+  "updatedAt": "2026-11-14T02:12:19.362Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-02T07:50:34.404Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Dragon sync moot; idle, nothing queued",
-      "project": null,
+      "state": "needs-alex",
+      "text": "Bus Ninja 3D: when to start?",
+      "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-10T05:51:30.339Z",
-      "since": "2026-11-10T05:51:30.339Z"
+      "needs": {
+        "id": "n202611140212-2366",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T02:12:19.362Z",
+      "since": "2026-11-14T02:12:19.362Z"
     },
     "cutscene-bot": {
       "state": "done",

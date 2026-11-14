@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:12:07.447Z",
+  "updatedAt": "2026-11-14T02:12:19.362Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1381,6 +1381,16 @@
       "ts": "2026-11-14T02:05:45.066Z",
       "handled": true,
       "handledAt": "2026-11-14T02:12:07.447Z"
+    },
+    {
+      "id": "n202611140212-2366",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Bus Ninja 3D: when to start?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T02:12:19.362Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
