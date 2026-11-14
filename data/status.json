@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:32:28.481Z",
+  "updatedAt": "2026-11-14T03:41:40.274Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-14T03:29:51.069Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Bus Ninja map research",
+      "state": "needs-alex",
+      "text": "Save 2010 businesses rule?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T03:24:52.928Z",
-      "since": "2026-11-14T03:24:52.928Z"
+      "needs": {
+        "id": "n202611140341-a77c",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T03:41:40.274Z",
+      "since": "2026-11-14T03:41:40.274Z"
     },
     "cutscene-bot": {
       "state": "done",
