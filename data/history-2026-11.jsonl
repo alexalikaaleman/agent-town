@@ -938,3 +938,4 @@
 {"ts":"2026-11-14T10:46:46.892Z","bot":"robotemplate","state":"working","text":"Play-test menu fonts and offset","project":"Dragon"}
 {"ts":"2026-11-14T10:49:18.763Z","bot":"game-build-bible","state":"working","text":"Map research, 15% cap","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T10:59:04.296Z","bot":"robotemplate","needId":"n202611141059-b913","state":"needs-alex","text":"Menu paste: font + scope","project":"Dragon","needs":"question"}
+{"ts":"2026-11-14T11:09:36.594Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}

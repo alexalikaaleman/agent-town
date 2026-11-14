@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T10:59:04.296Z",
+  "updatedAt": "2026-11-14T11:09:36.594Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -91,13 +91,13 @@
       "since": "2026-11-07T18:07:28.732Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "OG lists done; idle",
-      "project": "Dragon game",
+      "state": "working",
+      "text": "Nightly changelog check",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:29:25.775Z",
-      "since": "2026-11-14T05:29:25.775Z"
+      "ts": "2026-11-14T11:09:36.594Z",
+      "since": "2026-11-14T11:09:36.594Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
