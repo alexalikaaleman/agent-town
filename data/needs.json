@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:32:03.952Z",
+  "updatedAt": "2026-11-14T18:32:50.999Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1569,8 +1569,8 @@
       "text": "Fix floor counts too?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T18:27:07.018Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T18:32:50.999Z"
     },
     {
       "id": "n202611141832-170f",
