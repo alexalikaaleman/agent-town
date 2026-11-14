@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:41:40.274Z",
+  "updatedAt": "2026-11-14T03:42:21.668Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1469,8 +1469,8 @@
       "text": "Save 2010 businesses rule?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T03:41:40.274Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T03:42:21.668Z"
     }
   ]
 }
