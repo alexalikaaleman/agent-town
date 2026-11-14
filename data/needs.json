@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:56:49.003Z",
+  "updatedAt": "2026-11-14T02:57:22.665Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1399,8 +1399,8 @@
       "text": "Bus Ninja 3D: where to store?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T02:56:49.003Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T02:57:22.665Z"
     }
   ]
 }

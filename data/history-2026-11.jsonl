@@ -859,3 +859,4 @@
 {"ts":"2026-11-14T02:29:32.983Z","bot":"chief-of-staff","state":"done","text":"Dragon watch done; idle, nothing queued"}
 {"ts":"2026-11-14T02:52:18.653Z","bot":"chief-of-staff","state":"done","text":"Dragon watch done; idle, nothing queued"}
 {"ts":"2026-11-14T02:56:49.003Z","bot":"game-build-bible","needId":"n202611140256-6fff","state":"needs-alex","text":"Bus Ninja 3D: where to store?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-14T02:57:22.665Z","bot":"game-build-bible","handled":"n202611140256-6fff"}

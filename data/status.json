@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:56:49.003Z",
+  "updatedAt": "2026-11-14T02:57:22.665Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -38,10 +38,7 @@
       "text": "Bus Ninja 3D: where to store?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611140256-6fff",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T02:56:49.003Z",
       "since": "2026-11-14T02:56:49.003Z"
     },
