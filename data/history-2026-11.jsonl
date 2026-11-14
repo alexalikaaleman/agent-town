@@ -929,3 +929,4 @@
 {"ts":"2026-11-14T08:35:36.614Z","bot":"masterbot","state":"done","text":"RT v3 applied; next: Alex reviews"}
 {"ts":"2026-11-14T08:35:40.336Z","bot":"masterbot","state":"done","text":"RT rules 7-8 added in v3","handled":"n202611140808-0bc2"}
 {"ts":"2026-11-14T10:26:29.356Z","bot":"robotemplate","state":"working","text":"Dragon state file setup","project":"Dragon"}
+{"ts":"2026-11-14T10:27:37.027Z","bot":"robotemplate","needId":"n202611141027-8d95","state":"needs-alex","text":"Review dragon state file","project":"Dragon","needs":"question"}
