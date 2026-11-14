@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:53:08.478Z",
+  "updatedAt": "2026-11-14T08:08:47.557Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,16 @@
       "since": "2026-11-14T05:33:27.768Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Website core v2.1 done; idle",
+      "state": "needs-alex",
+      "text": "RoboTemplate paste gate rule: yes?",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-12T12:54:53.153Z",
-      "since": "2026-11-12T12:54:53.153Z"
+      "needs": {
+        "id": "n202611140808-0bc2",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T08:08:47.557Z",
+      "since": "2026-11-14T08:08:47.557Z"
     },
     "game-revision-logger": {
       "state": "done",
