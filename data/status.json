@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T21:11:43.509Z",
+  "updatedAt": "2026-11-14T22:35:40.489Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Paste P2f v6, then republish",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611142111-595e",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T21:11:43.509Z",
       "since": "2026-11-14T21:11:43.509Z"
     },

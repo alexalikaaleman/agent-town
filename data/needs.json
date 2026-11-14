@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T21:11:43.509Z",
+  "updatedAt": "2026-11-14T22:35:40.489Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1659,8 +1659,8 @@
       "text": "Paste P2f v6, then republish",
       "project": "Dragon game",
       "ts": "2026-11-14T21:11:43.509Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T22:35:40.489Z"
     }
   ]
 }
