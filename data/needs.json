@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T04:08:06.836Z",
+  "updatedAt": "2026-11-14T04:08:52.016Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1489,8 +1489,8 @@
       "text": "Save camera decision?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T04:08:06.836Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T04:08:52.016Z"
     }
   ]
 }
