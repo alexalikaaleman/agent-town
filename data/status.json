@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:48:39.843Z",
+  "updatedAt": "2026-11-14T05:53:08.478Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-12T12:54:53.153Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging Bus Ninja research copy 2",
+      "state": "done",
+      "text": "Copies 2-3 logged; next: Alex to Master…",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:38:14.131Z",
-      "since": "2026-11-14T05:38:14.131Z"
+      "ts": "2026-11-14T05:53:08.478Z",
+      "since": "2026-11-14T05:53:08.478Z"
     },
     "game-build-bible": {
       "state": "done",
