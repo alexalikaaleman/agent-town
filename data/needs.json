@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T10:46:42.917Z",
+  "updatedAt": "2026-11-14T10:59:04.296Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1541,6 +1541,16 @@
       "ts": "2026-11-14T10:36:50.702Z",
       "handled": true,
       "handledAt": "2026-11-14T10:46:42.917Z"
+    },
+    {
+      "id": "n202611141059-b913",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Menu paste: font + scope",
+      "project": "Dragon",
+      "ts": "2026-11-14T10:59:04.296Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
