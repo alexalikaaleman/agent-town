@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T08:35:40.336Z",
+  "updatedAt": "2026-11-14T10:26:29.356Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Bus Ninja 3D map plan",
-      "project": "Bus Ninja 3D",
+      "state": "working",
+      "text": "Dragon state file setup",
+      "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T02:05:45.066Z",
-      "since": "2026-11-14T02:05:45.066Z"
+      "ts": "2026-11-14T10:26:29.356Z",
+      "since": "2026-11-14T10:26:29.356Z"
     },
     "game-design-document-bot": {
       "state": "done",
