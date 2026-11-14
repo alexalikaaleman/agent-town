@@ -960,3 +960,4 @@
 {"ts":"2026-11-14T18:32:50.999Z","bot":"game-build-bible","handled":"n202611141827-5ae0"}
 {"ts":"2026-11-14T18:32:55.090Z","bot":"game-build-bible","state":"working","text":"Redo floor counts","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T18:35:10.588Z","bot":"game-build-bible","state":"done","text":"Floor counts done; idle, nothing queued","project":"Bus Ninja 3D"}
+{"ts":"2026-11-14T18:51:11.485Z","bot":"game-build-bible","needId":"n202611141851-86b0","state":"needs-alex","text":"Connect Hermosa and Redondo?","project":"Bus Ninja 3D","needs":"question"}

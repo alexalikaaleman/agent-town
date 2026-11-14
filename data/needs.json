@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:32:50.999Z",
+  "updatedAt": "2026-11-14T18:51:11.485Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1579,6 +1579,16 @@
       "text": "Menu paste: 3 layout picks",
       "project": "Dragon game",
       "ts": "2026-11-14T18:32:03.952Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611141851-86b0",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Connect Hermosa and Redondo?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T18:51:11.485Z",
       "handled": false,
       "handledAt": null
     }
