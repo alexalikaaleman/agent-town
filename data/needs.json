@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:13:02.670Z",
+  "updatedAt": "2026-11-14T19:17:46.091Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1611,6 +1611,16 @@
       "ts": "2026-11-14T19:09:05.421Z",
       "handled": true,
       "handledAt": "2026-11-14T19:13:02.670Z"
+    },
+    {
+      "id": "n202611141917-c3ed",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "New usage cap for research?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T19:17:46.091Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
