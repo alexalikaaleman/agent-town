@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T22:35:40.489Z",
+  "updatedAt": "2026-11-14T22:35:44.286Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Paste P2f v6, then republish",
+      "state": "working",
+      "text": "P2f v6 live play-test",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T21:11:43.509Z",
-      "since": "2026-11-14T21:11:43.509Z"
+      "ts": "2026-11-14T22:35:44.286Z",
+      "since": "2026-11-14T22:35:44.286Z"
     },
     "game-design-document-bot": {
       "state": "done",
