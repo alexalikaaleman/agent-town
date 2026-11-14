@@ -871,3 +871,4 @@
 {"ts":"2026-11-14T03:14:38.916Z","bot":"chief-of-staff","state":"done","text":"Dragon watch done; idle, nothing queued"}
 {"ts":"2026-11-14T03:14:50.853Z","bot":"game-build-bible","handled":"n202611140314-9f10"}
 {"ts":"2026-11-14T03:14:54.363Z","bot":"game-build-bible","state":"working","text":"Copying map research to Drive","project":"Bus Ninja 3D"}
+{"ts":"2026-11-14T03:15:00.126Z","bot":"game-revision-logger","state":"working","text":"Logging Bus Ninja 3D decision note"}

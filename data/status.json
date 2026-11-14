@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:14:54.363Z",
+  "updatedAt": "2026-11-14T03:15:00.126Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-12T12:54:53.153Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Bus Ninja 3D logged; idle, nothing queu…",
+      "state": "working",
+      "text": "Logging Bus Ninja 3D decision note",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T03:06:28.961Z",
-      "since": "2026-11-14T03:06:28.961Z"
+      "ts": "2026-11-14T03:15:00.126Z",
+      "since": "2026-11-14T03:15:00.126Z"
     },
     "game-build-bible": {
       "state": "working",
