@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:12:19.362Z",
+  "updatedAt": "2026-11-14T02:13:34.616Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1389,8 +1389,8 @@
       "text": "Bus Ninja 3D: when to start?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T02:12:19.362Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T02:13:34.616Z"
     }
   ]
 }
