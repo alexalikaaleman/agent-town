@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:13:38.692Z",
+  "updatedAt": "2026-11-14T02:16:36.553Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -43,13 +43,13 @@
       "since": "2026-11-14T02:13:38.692Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "Bus Ninja 3D refs for GBB",
+      "state": "done",
+      "text": "Bus Ninja refs sent; idle, none queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T02:12:26.763Z",
-      "since": "2026-11-14T02:12:26.763Z"
+      "ts": "2026-11-14T02:16:36.553Z",
+      "since": "2026-11-14T02:16:36.553Z"
     },
     "robotemplate": {
       "state": "needs-alex",
