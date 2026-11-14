@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:33:27.768Z",
+  "updatedAt": "2026-11-14T05:33:34.185Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,13 +70,13 @@
       "since": "2026-11-14T05:26:48.559Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Missing dragon art, P4-P8 first",
+      "state": "done",
+      "text": "4 dragon art made; next: Steam vent",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:26:52.954Z",
-      "since": "2026-11-14T05:26:52.954Z"
+      "ts": "2026-11-14T05:33:34.185Z",
+      "since": "2026-11-14T05:33:34.185Z"
     },
     "garage-sale-bot": {
       "state": "done",
