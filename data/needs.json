@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:09:05.421Z",
+  "updatedAt": "2026-11-14T19:13:02.670Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1609,8 +1609,8 @@
       "text": "Save eastern edge decision?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T19:09:05.421Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T19:13:02.670Z"
     }
   ]
 }
