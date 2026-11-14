@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:38:02.328Z",
+  "updatedAt": "2026-11-14T19:38:24.124Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,11 +56,11 @@
     },
     "robotemplate": {
       "state": "working",
-      "text": "OG menu paste v2",
+      "text": "OG menu paste v3",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T19:21:39.812Z",
+      "ts": "2026-11-14T19:38:24.124Z",
       "since": "2026-11-14T19:21:39.812Z"
     },
     "game-design-document-bot": {
