@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T04:23:22.648Z",
+  "updatedAt": "2026-11-14T04:52:48.267Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -35,11 +35,11 @@
     },
     "game-build-bible": {
       "state": "working",
-      "text": "Bus Ninja map research",
+      "text": "Bus Ninja business sweep",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T04:21:59.524Z",
+      "ts": "2026-11-14T04:52:48.267Z",
       "since": "2026-11-14T04:21:59.524Z"
     },
     "cutscene-bot": {
