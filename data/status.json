@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T10:36:50.702Z",
+  "updatedAt": "2026-11-14T10:44:46.120Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "P2d check: fixes sent; idle",
-      "project": "dragon game",
+      "state": "working",
+      "text": "Checking OG menu paste P2e",
+      "project": "Dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:33:27.768Z",
-      "since": "2026-11-14T05:33:27.768Z"
+      "ts": "2026-11-14T10:44:46.120Z",
+      "since": "2026-11-14T10:44:46.120Z"
     },
     "masterbot": {
       "state": "done",
