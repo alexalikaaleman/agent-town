@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:21:56.840Z",
+  "updatedAt": "2026-11-14T03:22:09.445Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1449,6 +1449,16 @@
       "text": "Record Bible core v1.8?",
       "project": null,
       "ts": "2026-11-14T03:21:56.840Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611140322-731c",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Logger core questions",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T03:22:09.445Z",
       "handled": false,
       "handledAt": null
     }

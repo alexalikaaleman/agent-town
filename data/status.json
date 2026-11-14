@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:21:56.840Z",
+  "updatedAt": "2026-11-14T03:22:09.445Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -38,12 +38,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Confirm new secrets rule",
+      "text": "Logger core questions",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T03:18:40.285Z",
-      "since": "2026-11-14T03:18:40.285Z"
+      "needs": {
+        "id": "n202611140322-731c",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T03:22:09.445Z",
+      "since": "2026-11-14T03:22:09.445Z"
     },
     "cutscene-bot": {
       "state": "done",
