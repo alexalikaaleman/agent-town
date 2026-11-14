@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:21:39.812Z",
+  "updatedAt": "2026-11-14T19:38:02.328Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Checking OG menu paste P2e",
+      "state": "needs-alex",
+      "text": "P2f v2 not a PASS; 2 scope Qs",
       "project": "Dragon OG",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T10:44:46.120Z",
-      "since": "2026-11-14T10:44:46.120Z"
+      "needs": {
+        "id": "n202611141938-5149",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T19:38:02.328Z",
+      "since": "2026-11-14T19:38:02.328Z"
     },
     "masterbot": {
       "state": "done",
