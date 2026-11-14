@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:14:48.061Z",
+  "updatedAt": "2026-11-14T19:17:38.823Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-14T19:14:48.061Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Map edges saved; idle, nothing queued",
+      "state": "working",
+      "text": "Piers and east strip research",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T19:13:43.758Z",
-      "since": "2026-11-14T19:13:43.758Z"
+      "ts": "2026-11-14T19:17:38.823Z",
+      "since": "2026-11-14T19:17:38.823Z"
     },
     "cutscene-bot": {
       "state": "done",

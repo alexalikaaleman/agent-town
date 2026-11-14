@@ -974,3 +974,4 @@
 {"ts":"2026-11-14T19:13:43.758Z","bot":"game-build-bible","state":"done","text":"Map edges saved; idle, nothing queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T19:13:50.169Z","bot":"game-revision-logger","state":"working","text":"Logging Bus Ninja map edges","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T19:14:48.061Z","bot":"game-revision-logger","state":"done","text":"Map edges logged; next: idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-14T19:17:38.823Z","bot":"game-build-bible","state":"working","text":"Piers and east strip research","project":"Bus Ninja 3D"}
