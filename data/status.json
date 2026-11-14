@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:42:21.668Z",
+  "updatedAt": "2026-11-14T03:42:47.811Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -35,12 +35,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Save 2010 businesses rule?",
+      "text": "Save Strand palms rule?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T03:41:40.274Z",
-      "since": "2026-11-14T03:41:40.274Z"
+      "needs": {
+        "id": "n202611140342-80df",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T03:42:47.811Z",
+      "since": "2026-11-14T03:42:47.811Z"
     },
     "cutscene-bot": {
       "state": "done",
