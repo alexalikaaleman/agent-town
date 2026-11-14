@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T04:08:52.016Z",
+  "updatedAt": "2026-11-14T04:20:47.106Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1491,6 +1491,16 @@
       "ts": "2026-11-14T04:08:06.836Z",
       "handled": true,
       "handledAt": "2026-11-14T04:08:52.016Z"
+    },
+    {
+      "id": "n202611140420-2997",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Save building detail rule?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T04:20:47.106Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
