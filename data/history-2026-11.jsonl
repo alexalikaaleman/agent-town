@@ -931,3 +931,4 @@
 {"ts":"2026-11-14T10:26:29.356Z","bot":"robotemplate","state":"working","text":"Dragon state file setup","project":"Dragon"}
 {"ts":"2026-11-14T10:27:37.027Z","bot":"robotemplate","needId":"n202611141027-8d95","state":"needs-alex","text":"Review dragon state file","project":"Dragon","needs":"question"}
 {"ts":"2026-11-14T10:36:03.388Z","bot":"robotemplate","handled":"n202611141027-8d95"}
+{"ts":"2026-11-14T10:36:07.348Z","bot":"robotemplate","state":"working","text":"Play-test menu fonts and offset","project":"Dragon"}

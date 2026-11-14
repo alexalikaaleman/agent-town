@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T10:36:03.388Z",
+  "updatedAt": "2026-11-14T10:36:07.348Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Review dragon state file",
+      "state": "working",
+      "text": "Play-test menu fonts and offset",
       "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T10:27:37.027Z",
-      "since": "2026-11-14T10:27:37.027Z"
+      "ts": "2026-11-14T10:36:07.348Z",
+      "since": "2026-11-14T10:36:07.348Z"
     },
     "game-design-document-bot": {
       "state": "done",
