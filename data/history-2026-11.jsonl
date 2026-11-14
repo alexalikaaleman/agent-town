@@ -942,3 +942,4 @@
 {"ts":"2026-11-14T11:59:12.246Z","bot":"playtest-qa-bot","state":"done","text":"Changelog done; idle, nothing queued"}
 {"ts":"2026-11-14T15:32:24.059Z","bot":"game-build-bible","state":"done","text":"Map research done; idle, nothing queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T15:53:18.905Z","bot":"garage-sale-bot","state":"working","text":"Maui garage sale search"}
+{"ts":"2026-11-14T15:53:38.381Z","bot":"garage-sale-bot","state":"done","text":"Sale search done; next: 8am run"}
