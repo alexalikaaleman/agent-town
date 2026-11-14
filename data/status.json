@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T04:08:52.016Z",
+  "updatedAt": "2026-11-14T04:09:15.646Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-14T03:46:30.349Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Save camera decision?",
+      "state": "working",
+      "text": "Bus Ninja map research",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T04:08:06.836Z",
-      "since": "2026-11-14T04:08:06.836Z"
+      "ts": "2026-11-14T04:09:15.646Z",
+      "since": "2026-11-14T04:09:15.646Z"
     },
     "cutscene-bot": {
       "state": "done",
