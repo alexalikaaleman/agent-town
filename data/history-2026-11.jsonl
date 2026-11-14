@@ -904,3 +904,4 @@
 {"ts":"2026-11-14T04:23:22.648Z","bot":"game-revision-logger","state":"done","text":"D-005 logged; next: Alex to MasterBot"}
 {"ts":"2026-11-14T04:52:48.267Z","bot":"game-build-bible","state":"working","text":"Bus Ninja business sweep","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T05:26:33.358Z","bot":"playtest-qa-bot","state":"working","text":"OG P3 phone checklist v3","project":"Dragon game"}
+{"ts":"2026-11-14T05:26:40.540Z","bot":"gitwriter-3d-bot","state":"blocked","text":"Dragon P2d check: usage cap","project":"dragon game"}

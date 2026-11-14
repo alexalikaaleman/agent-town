@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:26:33.358Z",
+  "updatedAt": "2026-11-14T05:26:40.540Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "P2b check: fixes sent; idle",
+      "state": "blocked",
+      "text": "Dragon P2d check: usage cap",
       "project": "dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T01:50:43.364Z",
-      "since": "2026-11-14T01:50:43.364Z"
+      "ts": "2026-11-14T05:26:40.540Z",
+      "since": "2026-11-14T05:26:40.540Z"
     },
     "masterbot": {
       "state": "done",
