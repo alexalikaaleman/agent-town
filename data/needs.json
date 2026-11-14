@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T10:36:50.702Z",
+  "updatedAt": "2026-11-14T10:46:42.917Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1539,8 +1539,8 @@
       "text": "Dragon blockers need Alex",
       "project": "Dragon",
       "ts": "2026-11-14T10:36:50.702Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T10:46:42.917Z"
     }
   ]
 }
