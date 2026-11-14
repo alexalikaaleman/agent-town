@@ -908,3 +908,4 @@
 {"ts":"2026-11-14T05:26:48.559Z","bot":"game-design-document-bot","state":"working","text":"Dragon P4/P5 + default v2 specs","project":"Dragon","handled":"n202611132229-cebb"}
 {"ts":"2026-11-14T05:26:52.954Z","bot":"concept-art-bot","state":"working","text":"Missing dragon art, P4-P8 first","project":"Dragon game"}
 {"ts":"2026-11-14T05:26:58.752Z","bot":"cutscene-bot","state":"working","text":"Bus Ninja 3D map style sheet","project":"Bus Ninja 3D"}
+{"ts":"2026-11-14T05:28:14.994Z","bot":"game-build-bible","needId":"n202611140528-0b91","state":"needs-alex","text":"Copy map research to Drive?","project":"Bus Ninja 3D","needs":"question"}

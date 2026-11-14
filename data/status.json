@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:26:58.752Z",
+  "updatedAt": "2026-11-14T05:28:14.994Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-14T04:23:22.648Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Bus Ninja business sweep",
+      "state": "needs-alex",
+      "text": "Copy map research to Drive?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T04:52:48.267Z",
-      "since": "2026-11-14T04:21:59.524Z"
+      "needs": {
+        "id": "n202611140528-0b91",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T05:28:14.994Z",
+      "since": "2026-11-14T05:28:14.994Z"
     },
     "cutscene-bot": {
       "state": "working",
