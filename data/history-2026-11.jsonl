@@ -944,3 +944,4 @@
 {"ts":"2026-11-14T15:53:18.905Z","bot":"garage-sale-bot","state":"working","text":"Maui garage sale search"}
 {"ts":"2026-11-14T15:53:38.381Z","bot":"garage-sale-bot","state":"done","text":"Sale search done; next: 8am run"}
 {"ts":"2026-11-14T16:09:04.185Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep","project":"maintenance"}
+{"ts":"2026-11-14T16:11:59.690Z","bot":"robo-maintenance-bot","state":"done","text":"Daily sweep done; idle, nothing queued","project":"maintenance"}
