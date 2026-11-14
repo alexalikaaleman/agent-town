@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T20:41:26.570Z",
+  "updatedAt": "2026-11-14T21:05:00.116Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Re-checking OG P2f v4",
+      "state": "done",
+      "text": "P2f v5 check done; next: v6 re-check",
       "project": "Dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T20:40:17.962Z",
-      "since": "2026-11-14T20:40:17.962Z"
+      "ts": "2026-11-14T21:05:00.116Z",
+      "since": "2026-11-14T21:05:00.116Z"
     },
     "masterbot": {
       "state": "done",
