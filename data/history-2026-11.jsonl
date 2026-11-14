@@ -911,3 +911,4 @@
 {"ts":"2026-11-14T05:28:14.994Z","bot":"game-build-bible","needId":"n202611140528-0b91","state":"needs-alex","text":"Copy map research to Drive?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-14T05:29:03.280Z","bot":"game-build-bible","handled":"n202611140528-0b91"}
 {"ts":"2026-11-14T05:29:07.024Z","bot":"game-build-bible","state":"working","text":"Copy map research to Drive","project":"Bus Ninja 3D"}
+{"ts":"2026-11-14T05:29:25.775Z","bot":"playtest-qa-bot","state":"done","text":"OG lists done; idle","project":"Dragon game"}
