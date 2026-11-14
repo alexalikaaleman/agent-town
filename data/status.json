@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:24:57.394Z",
+  "updatedAt": "2026-11-14T03:25:00.959Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-12T12:54:53.153Z"
     },
     "game-revision-logger": {
-      "state": "needs-alex",
-      "text": "Record Bible core v1.8?",
+      "state": "working",
+      "text": "Recording Bible core v1.8",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T03:21:56.840Z",
-      "since": "2026-11-14T03:21:56.840Z"
+      "ts": "2026-11-14T03:25:00.959Z",
+      "since": "2026-11-14T03:25:00.959Z"
     },
     "game-build-bible": {
       "state": "working",
