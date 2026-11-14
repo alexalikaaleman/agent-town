@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:26:40.540Z",
+  "updatedAt": "2026-11-14T05:26:48.559Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -61,16 +61,13 @@
       "since": "2026-11-14T02:05:45.066Z"
     },
     "game-design-document-bot": {
-      "state": "needs-alex",
-      "text": "OK P2-P28 open questions list?",
+      "state": "working",
+      "text": "Dragon P4/P5 + default v2 specs",
       "project": "Dragon",
       "with": [],
-      "needs": {
-        "id": "n202611132229-cebb",
-        "kind": "question"
-      },
-      "ts": "2026-11-13T22:29:23.765Z",
-      "since": "2026-11-13T22:29:23.765Z"
+      "needs": null,
+      "ts": "2026-11-14T05:26:48.559Z",
+      "since": "2026-11-14T05:26:48.559Z"
     },
     "concept-art-bot": {
       "state": "done",

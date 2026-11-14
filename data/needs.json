@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T04:21:42.283Z",
+  "updatedAt": "2026-11-14T05:26:48.559Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1329,8 +1329,8 @@
       "text": "OK P2-P28 open questions list?",
       "project": "Dragon",
       "ts": "2026-11-13T22:29:23.765Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T05:26:48.559Z"
     },
     {
       "id": "n202611132250-38bb",
