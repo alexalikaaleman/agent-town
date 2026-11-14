@@ -998,3 +998,4 @@
 {"ts":"2026-11-14T21:11:43.509Z","bot":"robotemplate","needId":"n202611142111-595e","state":"needs-alex","text":"Paste P2f v6, then republish","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-14T22:35:40.489Z","bot":"robotemplate","handled":"n202611142111-595e"}
 {"ts":"2026-11-14T22:35:44.286Z","bot":"robotemplate","state":"working","text":"P2f v6 live play-test","project":"Dragon game"}
+{"ts":"2026-11-14T23:02:03.195Z","bot":"robotemplate","state":"done","text":"P2f play-test done; next: Alex picks","project":"Dragon game"}
