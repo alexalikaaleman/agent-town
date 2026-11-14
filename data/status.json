@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:59:33.663Z",
+  "updatedAt": "2026-11-14T19:02:06.987Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-14T18:59:33.663Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Redondo decision saved; idle",
+      "state": "needs-alex",
+      "text": "Extend map east of PCH?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T18:58:26.736Z",
-      "since": "2026-11-14T18:58:26.736Z"
+      "needs": {
+        "id": "n202611141902-9947",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T19:02:06.987Z",
+      "since": "2026-11-14T19:02:06.987Z"
     },
     "cutscene-bot": {
       "state": "done",
