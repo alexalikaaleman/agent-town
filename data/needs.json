@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T01:29:39.317Z",
+  "updatedAt": "2026-11-14T01:30:13.206Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1349,8 +1349,8 @@
       "text": "Which paste and republish?",
       "project": "Dragon game",
       "ts": "2026-11-14T01:29:39.317Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T01:30:13.206Z"
     }
   ]
 }
