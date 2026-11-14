@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:45:34.540Z",
+  "updatedAt": "2026-11-14T05:48:39.843Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -35,12 +35,12 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Map pass done; idle, nothing queued",
+      "text": "Drive copy done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:45:34.540Z",
-      "since": "2026-11-14T05:45:34.540Z"
+      "ts": "2026-11-14T05:48:39.843Z",
+      "since": "2026-11-14T05:48:39.843Z"
     },
     "cutscene-bot": {
       "state": "done",
