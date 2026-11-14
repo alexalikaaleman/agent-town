@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T01:43:38.831Z",
+  "updatedAt": "2026-11-14T01:48:42.432Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -53,12 +53,15 @@
     },
     "robotemplate": {
       "state": "needs-alex",
-      "text": "P2 builder reply",
+      "text": "P2b spacing paste ready",
       "project": "Dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T01:35:54.723Z",
-      "since": "2026-11-14T01:35:54.723Z"
+      "needs": {
+        "id": "n202611140148-cd2d",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T01:48:42.432Z",
+      "since": "2026-11-14T01:48:42.432Z"
     },
     "game-design-document-bot": {
       "state": "needs-alex",
