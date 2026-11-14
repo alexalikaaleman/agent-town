@@ -995,3 +995,4 @@
 {"ts":"2026-11-14T21:10:40.891Z","bot":"gitwriter-3d-bot","state":"done","text":"P2f v6 PASS; next: Alex paste + playtest","project":"Dragon OG"}
 {"ts":"2026-11-14T21:11:06.525Z","bot":"playtest-qa-bot","state":"done","text":"OG P2f checklist done; idle","project":"Dragon game"}
 {"ts":"2026-11-14T21:11:15.177Z","bot":"robotemplate","state":"working","text":"Waiting QA checklist","project":"Dragon game"}
+{"ts":"2026-11-14T21:11:43.509Z","bot":"robotemplate","needId":"n202611142111-595e","state":"needs-alex","text":"Paste P2f v6, then republish","project":"Dragon game","needs":"question"}
