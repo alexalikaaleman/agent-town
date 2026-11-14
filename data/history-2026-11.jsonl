@@ -843,3 +843,4 @@
 {"ts":"2026-11-14T01:30:50.575Z","bot":"robotemplate","state":"working","text":"P2 browser test","project":"Dragon game"}
 {"ts":"2026-11-14T01:31:40.112Z","bot":"chief-of-staff","state":"done","text":"Dragon watch done; idle, nothing queued","project":"Dragon game"}
 {"ts":"2026-11-14T01:35:54.723Z","bot":"robotemplate","needId":"n202611140135-946d","state":"needs-alex","text":"P2 builder reply","project":"Dragon game","needs":"question"}
+{"ts":"2026-11-14T01:42:12.257Z","bot":"robotemplate","handled":"n202611140135-946d"}

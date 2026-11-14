@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T01:35:54.723Z",
+  "updatedAt": "2026-11-14T01:42:12.257Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "P2 builder reply",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611140135-946d",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T01:35:54.723Z",
       "since": "2026-11-14T01:35:54.723Z"
     },
