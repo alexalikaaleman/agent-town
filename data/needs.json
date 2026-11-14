@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T01:48:42.432Z",
+  "updatedAt": "2026-11-14T02:05:45.066Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1369,6 +1369,16 @@
       "text": "P2b spacing paste ready",
       "project": "Dragon game",
       "ts": "2026-11-14T01:48:42.432Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611140205-ad88",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Bus Ninja 3D map plan",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T02:05:45.066Z",
       "handled": false,
       "handledAt": null
     }
