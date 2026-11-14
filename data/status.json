@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:38:53.926Z",
+  "updatedAt": "2026-11-14T05:45:34.540Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-14T05:38:14.131Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Short map research pass",
+      "state": "done",
+      "text": "Map pass done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:38:53.926Z",
-      "since": "2026-11-14T05:38:53.926Z"
+      "ts": "2026-11-14T05:45:34.540Z",
+      "since": "2026-11-14T05:45:34.540Z"
     },
     "cutscene-bot": {
       "state": "done",
