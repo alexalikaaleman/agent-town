@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:57:28.760Z",
+  "updatedAt": "2026-11-14T20:05:23.388Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1641,6 +1641,16 @@
       "ts": "2026-11-14T19:45:27.066Z",
       "handled": true,
       "handledAt": "2026-11-14T19:57:28.760Z"
+    },
+    {
+      "id": "n202611142005-c0eb",
+      "bot": "gitwriter-3d-bot",
+      "kind": "question",
+      "text": "P2f v4 ready; need go to check",
+      "project": "Dragon OG",
+      "ts": "2026-11-14T20:05:23.388Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
