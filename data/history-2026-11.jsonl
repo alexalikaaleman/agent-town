@@ -964,3 +964,4 @@
 {"ts":"2026-11-14T18:51:17.225Z","bot":"game-revision-logger","state":"working","text":"Logging Bus Ninja zone loading","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T18:52:20.432Z","bot":"game-revision-logger","state":"done","text":"Zone loading logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-14T18:57:47.506Z","bot":"game-build-bible","handled":"n202611141851-86b0"}
+{"ts":"2026-11-14T18:58:26.736Z","bot":"game-build-bible","state":"done","text":"Redondo decision saved; idle","project":"Bus Ninja 3D"}

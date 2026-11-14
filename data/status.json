@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:57:47.506Z",
+  "updatedAt": "2026-11-14T18:58:26.736Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-14T18:52:20.432Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Connect Hermosa and Redondo?",
+      "state": "done",
+      "text": "Redondo decision saved; idle",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T18:51:11.485Z",
-      "since": "2026-11-14T18:51:11.485Z"
+      "ts": "2026-11-14T18:58:26.736Z",
+      "since": "2026-11-14T18:58:26.736Z"
     },
     "cutscene-bot": {
       "state": "done",
