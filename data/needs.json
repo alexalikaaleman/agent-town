@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T22:50:47.400Z",
+  "updatedAt": "2026-11-14T01:29:39.317Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1339,6 +1339,16 @@
       "text": "GDD P2-P28 questions list OK?",
       "project": "dragon game",
       "ts": "2026-11-13T22:50:47.400Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611140129-7cc2",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "Which paste and republish?",
+      "project": "Dragon game",
+      "ts": "2026-11-14T01:29:39.317Z",
       "handled": false,
       "handledAt": null
     }

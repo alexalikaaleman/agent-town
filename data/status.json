@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T01:09:35.967Z",
+  "updatedAt": "2026-11-14T01:29:39.317Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,16 +73,16 @@
       "since": "2026-11-13T22:29:23.765Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Missing-art list done; idle, none queued",
+      "state": "needs-alex",
+      "text": "Which paste and republish?",
       "project": "Dragon game",
       "with": [],
       "needs": {
-        "id": "n202611130535-abd2",
+        "id": "n202611140129-7cc2",
         "kind": "question"
       },
-      "ts": "2026-11-13T22:38:33.584Z",
-      "since": "2026-11-13T22:38:33.584Z"
+      "ts": "2026-11-14T01:29:39.317Z",
+      "since": "2026-11-14T01:29:39.317Z"
     },
     "garage-sale-bot": {
       "state": "done",
