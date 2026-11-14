@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:16:33.837Z",
+  "updatedAt": "2026-11-14T03:18:40.285Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1429,6 +1429,16 @@
       "text": "Secret check flag on change note",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T03:16:33.837Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611140318-6df9",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Confirm new secrets rule",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-14T03:18:40.285Z",
       "handled": false,
       "handledAt": null
     }
