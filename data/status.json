@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:05:45.066Z",
+  "updatedAt": "2026-11-14T02:12:07.447Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Bus Ninja 3D map plan",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611140205-ad88",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T02:05:45.066Z",
       "since": "2026-11-14T02:05:45.066Z"
     },

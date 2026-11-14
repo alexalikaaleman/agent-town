@@ -850,3 +850,4 @@
 {"ts":"2026-11-14T01:50:04.054Z","bot":"gitwriter-3d-bot","state":"done","text":"P2b v2 PASS; idle, nothing queued","project":"dragon game"}
 {"ts":"2026-11-14T01:50:43.364Z","bot":"gitwriter-3d-bot","state":"done","text":"P2b check: fixes sent; idle","project":"dragon game"}
 {"ts":"2026-11-14T02:05:45.066Z","bot":"robotemplate","needId":"n202611140205-ad88","state":"needs-alex","text":"Bus Ninja 3D map plan","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-14T02:12:07.447Z","bot":"robotemplate","handled":"n202611140205-ad88"}
