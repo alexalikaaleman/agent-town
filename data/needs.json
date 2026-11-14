@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:18:40.285Z",
+  "updatedAt": "2026-11-14T03:21:41.020Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1439,8 +1439,8 @@
       "text": "Confirm new secrets rule",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T03:18:40.285Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T03:21:41.020Z"
     }
   ]
 }
