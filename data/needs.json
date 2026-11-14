@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:02:06.987Z",
+  "updatedAt": "2026-11-14T19:09:01.259Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1599,8 +1599,8 @@
       "text": "Extend map east of PCH?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-14T19:02:06.987Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T19:09:01.259Z"
     }
   ]
 }
