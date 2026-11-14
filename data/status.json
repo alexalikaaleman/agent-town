@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:22:26.428Z",
+  "updatedAt": "2026-11-14T18:22:30.905Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-14T05:53:08.478Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Height units fix",
+      "state": "needs-alex",
+      "text": "Save empty-lot decision?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T18:22:26.428Z",
-      "since": "2026-11-14T18:22:26.428Z"
+      "needs": {
+        "id": "n202611141822-974a",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T18:22:30.905Z",
+      "since": "2026-11-14T18:22:30.905Z"
     },
     "cutscene-bot": {
       "state": "done",
