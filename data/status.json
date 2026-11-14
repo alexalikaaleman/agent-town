@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:32:55.090Z",
+  "updatedAt": "2026-11-14T18:35:10.588Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-14T18:26:09.381Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Redo floor counts",
+      "state": "done",
+      "text": "Floor counts done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T18:32:55.090Z",
-      "since": "2026-11-14T18:32:55.090Z"
+      "ts": "2026-11-14T18:35:10.588Z",
+      "since": "2026-11-14T18:35:10.588Z"
     },
     "cutscene-bot": {
       "state": "done",
