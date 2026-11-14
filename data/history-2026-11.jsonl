@@ -906,3 +906,4 @@
 {"ts":"2026-11-14T05:26:33.358Z","bot":"playtest-qa-bot","state":"working","text":"OG P3 phone checklist v3","project":"Dragon game"}
 {"ts":"2026-11-14T05:26:40.540Z","bot":"gitwriter-3d-bot","state":"blocked","text":"Dragon P2d check: usage cap","project":"dragon game"}
 {"ts":"2026-11-14T05:26:48.559Z","bot":"game-design-document-bot","state":"working","text":"Dragon P4/P5 + default v2 specs","project":"Dragon","handled":"n202611132229-cebb"}
+{"ts":"2026-11-14T05:26:52.954Z","bot":"concept-art-bot","state":"working","text":"Missing dragon art, P4-P8 first","project":"Dragon game"}
