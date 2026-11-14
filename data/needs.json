@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T10:27:37.027Z",
+  "updatedAt": "2026-11-14T10:36:03.388Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1529,8 +1529,8 @@
       "text": "Review dragon state file",
       "project": "Dragon",
       "ts": "2026-11-14T10:27:37.027Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T10:36:03.388Z"
     }
   ]
 }
