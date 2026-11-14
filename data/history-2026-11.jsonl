@@ -852,3 +852,4 @@
 {"ts":"2026-11-14T02:05:45.066Z","bot":"robotemplate","needId":"n202611140205-ad88","state":"needs-alex","text":"Bus Ninja 3D map plan","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-14T02:12:07.447Z","bot":"robotemplate","handled":"n202611140205-ad88"}
 {"ts":"2026-11-14T02:12:19.362Z","bot":"game-build-bible","needId":"n202611140212-2366","state":"needs-alex","text":"Bus Ninja 3D: when to start?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-14T02:12:26.763Z","bot":"cutscene-bot","state":"working","text":"Bus Ninja 3D refs for GBB","project":"Bus Ninja 3D"}
