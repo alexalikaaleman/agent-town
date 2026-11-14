@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:05:38.073Z",
+  "updatedAt": "2026-11-14T18:13:10.656Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Menu paste: font + scope",
       "project": "Dragon",
       "with": [],
-      "needs": {
-        "id": "n202611141059-b913",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T10:59:04.296Z",
       "since": "2026-11-14T10:59:04.296Z"
     },
