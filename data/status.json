@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T02:59:20.663Z",
+  "updatedAt": "2026-11-14T03:01:59.844Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-14T02:59:20.663Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Bus Ninja folder done; next: map resear…",
+      "state": "needs-alex",
+      "text": "Copy map research to Drive?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T02:59:05.002Z",
-      "since": "2026-11-14T02:59:05.002Z"
+      "needs": {
+        "id": "n202611140301-87f2",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T03:01:59.844Z",
+      "since": "2026-11-14T03:01:59.844Z"
     },
     "cutscene-bot": {
       "state": "done",
