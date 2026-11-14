@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:58:26.736Z",
+  "updatedAt": "2026-11-14T18:58:32.598Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-14T08:35:40.336Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Zone loading logged; next: idle",
+      "state": "working",
+      "text": "Logging Bus Ninja Redondo link",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T18:52:20.432Z",
-      "since": "2026-11-14T18:52:20.432Z"
+      "ts": "2026-11-14T18:58:32.598Z",
+      "since": "2026-11-14T18:58:32.598Z"
     },
     "game-build-bible": {
       "state": "done",
