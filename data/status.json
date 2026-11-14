@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:24:07.195Z",
+  "updatedAt": "2026-11-14T18:26:09.381Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-14T08:35:40.336Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging Bus Ninja yards decision",
+      "state": "done",
+      "text": "Yards logged; next: Alex to MasterBot",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T18:24:07.195Z",
-      "since": "2026-11-14T18:24:07.195Z"
+      "ts": "2026-11-14T18:26:09.381Z",
+      "since": "2026-11-14T18:26:09.381Z"
     },
     "game-build-bible": {
       "state": "needs-alex",
