@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T05:28:14.994Z",
+  "updatedAt": "2026-11-14T05:29:03.280Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -38,10 +38,7 @@
       "text": "Copy map research to Drive?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611140528-0b91",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T05:28:14.994Z",
       "since": "2026-11-14T05:28:14.994Z"
     },
