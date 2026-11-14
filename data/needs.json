@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:18:46.361Z",
+  "updatedAt": "2026-11-14T19:21:35.260Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1579,8 +1579,8 @@
       "text": "Menu paste: 3 layout picks",
       "project": "Dragon game",
       "ts": "2026-11-14T18:32:03.952Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-14T19:21:35.260Z"
     },
     {
       "id": "n202611141851-86b0",

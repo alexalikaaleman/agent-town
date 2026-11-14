@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T19:18:51.175Z",
+  "updatedAt": "2026-11-14T19:21:35.260Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Menu paste: 3 layout picks",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611141832-170f",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-14T18:32:03.952Z",
       "since": "2026-11-14T18:32:03.952Z"
     },
