@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T15:32:24.059Z",
+  "updatedAt": "2026-11-14T15:53:18.905Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -82,13 +82,13 @@
       "since": "2026-11-14T05:33:34.185Z"
     },
     "garage-sale-bot": {
-      "state": "done",
-      "text": "8am search done; idle, nothing queued",
-      "project": "garage-sales",
+      "state": "working",
+      "text": "Maui garage sale search",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-07T18:07:28.732Z",
-      "since": "2026-11-07T18:07:28.732Z"
+      "ts": "2026-11-14T15:53:18.905Z",
+      "since": "2026-11-14T15:53:18.905Z"
     },
     "playtest-qa-bot": {
       "state": "done",
