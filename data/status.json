@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T18:27:03.420Z",
+  "updatedAt": "2026-11-14T18:27:07.018Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-14T18:26:09.381Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Units fix done; next: Alex on floors",
+      "state": "needs-alex",
+      "text": "Fix floor counts too?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T18:27:03.420Z",
-      "since": "2026-11-14T18:27:03.420Z"
+      "needs": {
+        "id": "n202611141827-5ae0",
+        "kind": "question"
+      },
+      "ts": "2026-11-14T18:27:07.018Z",
+      "since": "2026-11-14T18:27:07.018Z"
     },
     "cutscene-bot": {
       "state": "done",
