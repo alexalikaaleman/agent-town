@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T03:21:41.020Z",
+  "updatedAt": "2026-11-14T03:21:56.840Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1441,6 +1441,16 @@
       "ts": "2026-11-14T03:18:40.285Z",
       "handled": true,
       "handledAt": "2026-11-14T03:21:41.020Z"
+    },
+    {
+      "id": "n202611140321-722b",
+      "bot": "game-revision-logger",
+      "kind": "question",
+      "text": "Record Bible core v1.8?",
+      "project": null,
+      "ts": "2026-11-14T03:21:56.840Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
