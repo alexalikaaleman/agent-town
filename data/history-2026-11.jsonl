@@ -1047,3 +1047,4 @@
 {"ts":"2026-11-15T10:27:40.304Z","bot":"gitwriter-3d-bot","state":"working","text":"OG UNKO damage check","project":"dragon OG"}
 {"ts":"2026-11-15T10:41:01.208Z","bot":"robotemplate","state":"blocked","text":"Usage cap reached; enemy audit queued","project":"Dragon game"}
 {"ts":"2026-11-15T10:41:36.051Z","bot":"gitwriter-3d-bot","state":"done","text":"UNKO check done; next: Alex picks fix","project":"dragon OG"}
+{"ts":"2026-11-15T10:42:55.357Z","bot":"robotemplate","state":"working","text":"OG enemy behaviour audit","project":"Dragon game"}

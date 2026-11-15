@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T10:41:36.051Z",
+  "updatedAt": "2026-11-15T10:42:55.357Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,16 +52,16 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "blocked",
-      "text": "Usage cap reached; enemy audit queued",
+      "state": "working",
+      "text": "OG enemy behaviour audit",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611150236-6eaa",
         "kind": "question"
       },
-      "ts": "2026-11-15T10:41:01.208Z",
-      "since": "2026-11-15T10:41:01.208Z"
+      "ts": "2026-11-15T10:42:55.357Z",
+      "since": "2026-11-15T10:42:55.357Z"
     },
     "game-design-document-bot": {
       "state": "done",
