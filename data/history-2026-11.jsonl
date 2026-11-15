@@ -1041,3 +1041,4 @@
 {"ts":"2026-11-15T09:25:55.239Z","bot":"game-build-bible","state":"working","text":"Uploading house checks","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T09:26:02.209Z","bot":"robotemplate","state":"working","text":"B2 v6 live play-test","project":"Dragon game"}
 {"ts":"2026-11-15T09:28:57.921Z","bot":"game-build-bible","state":"done","text":"House checks saved; idle, nothing queued","project":"Bus Ninja 3D"}
+{"ts":"2026-11-15T09:29:10.391Z","bot":"game-revision-logger","state":"working","text":"Logging house checks note","project":"Bus Ninja 3D"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T09:28:57.921Z",
+  "updatedAt": "2026-11-15T09:29:10.391Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-15T00:57:55.037Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Garage note logged; next: idle",
+      "state": "working",
+      "text": "Logging house checks note",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T07:27:28.791Z",
-      "since": "2026-11-15T07:27:28.791Z"
+      "ts": "2026-11-15T09:29:10.391Z",
+      "since": "2026-11-15T09:29:10.391Z"
     },
     "game-build-bible": {
       "state": "done",
