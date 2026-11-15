@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T22:02:20.854Z",
+  "updatedAt": "2026-11-15T22:11:28.259Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1801,6 +1801,16 @@
       "ts": "2026-11-15T21:43:40.469Z",
       "handled": true,
       "handledAt": "2026-11-15T22:02:20.854Z"
+    },
+    {
+      "id": "n202611152211-1d95",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Confirm off-pier report fix",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-15T22:11:28.259Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
