@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:29:54.897Z",
+  "updatedAt": "2026-11-15T11:30:21.187Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1739,8 +1739,8 @@
       "text": "Pick next map research",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-15T11:29:54.897Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-15T11:30:21.187Z"
     }
   ]
 }
