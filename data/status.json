@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T01:00:19.062Z",
+  "updatedAt": "2026-11-15T01:01:39.506Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-15T01:00:19.062Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Pier research done; next: Alex review",
+      "state": "working",
+      "text": "Pier and garage height estimates",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T23:39:57.183Z",
-      "since": "2026-11-14T23:39:57.183Z"
+      "ts": "2026-11-15T01:01:39.506Z",
+      "since": "2026-11-15T01:01:39.506Z"
     },
     "cutscene-bot": {
       "state": "done",
