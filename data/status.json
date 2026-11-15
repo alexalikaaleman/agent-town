@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:50:57.151Z",
+  "updatedAt": "2026-11-15T11:51:24.420Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "Engine design done; next: RT checks",
+      "state": "working",
+      "text": "OG engine design: car avoidance",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T11:40:13.397Z",
-      "since": "2026-11-15T11:40:13.397Z"
+      "ts": "2026-11-15T11:51:24.420Z",
+      "since": "2026-11-15T11:51:24.420Z"
     },
     "masterbot": {
       "state": "done",
