@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:20:39.574Z",
+  "updatedAt": "2026-11-15T11:20:43.563Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Audit done; next: cap for fix",
+      "state": "working",
+      "text": "OG all-in-one fix draft",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T11:09:37.193Z",
-      "since": "2026-11-15T11:09:37.193Z"
+      "ts": "2026-11-15T11:20:43.563Z",
+      "since": "2026-11-15T11:20:43.563Z"
     },
     "game-design-document-bot": {
       "state": "done",
