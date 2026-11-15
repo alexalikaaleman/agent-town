@@ -1076,3 +1076,4 @@
 {"ts":"2026-11-15T12:10:37.164Z","bot":"gitwriter-3d-bot","state":"done","text":"UNKO review done; next: RT fixes part 3","project":"dragon OG"}
 {"ts":"2026-11-15T12:16:53.033Z","bot":"gitwriter-3d-bot","state":"working","text":"Designing UNKO water leap","project":"dragon OG"}
 {"ts":"2026-11-15T12:18:29.447Z","bot":"game-build-bible","state":"done","text":"Table renamed; idle, nothing queued","project":"Bus Ninja 3D"}
+{"ts":"2026-11-15T12:18:38.381Z","bot":"game-revision-logger","state":"working","text":"Logging house csv rename","project":"Bus Ninja 3D"}
