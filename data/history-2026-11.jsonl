@@ -1053,3 +1053,4 @@
 {"ts":"2026-11-15T10:59:10.668Z","bot":"robotemplate","state":"working","text":"Wizard + effects audit","project":"Dragon game"}
 {"ts":"2026-11-15T11:03:50.433Z","bot":"gitwriter-3d-bot","state":"working","text":"OG enemy behaviour check","project":"dragon OG"}
 {"ts":"2026-11-15T11:08:34.146Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
+{"ts":"2026-11-15T11:09:37.193Z","bot":"robotemplate","needId":"n202611151109-0606","state":"needs-alex","text":"Audit done; next: cap for fix","project":"Dragon game","needs":"question"}
