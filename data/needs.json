@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:20:39.574Z",
+  "updatedAt": "2026-11-15T11:29:54.897Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1731,6 +1731,16 @@
       "ts": "2026-11-15T11:09:37.193Z",
       "handled": true,
       "handledAt": "2026-11-15T11:20:39.574Z"
+    },
+    {
+      "id": "n202611151129-3804",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Pick next map research",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-15T11:29:54.897Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
