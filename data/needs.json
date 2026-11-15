@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T02:36:49.441Z",
+  "updatedAt": "2026-11-15T07:47:42.732Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1699,6 +1699,16 @@
       "text": "B2 v6 paste ready for Alex",
       "project": "Dragon game",
       "ts": "2026-11-15T02:36:49.441Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611150747-2b2c",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Upload house checks?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-15T07:47:42.732Z",
       "handled": false,
       "handledAt": null
     }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T07:33:50.102Z",
+  "updatedAt": "2026-11-15T07:47:42.732Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-15T07:27:28.791Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "House 2009 checks",
+      "state": "needs-alex",
+      "text": "Upload house checks?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-15T07:33:50.102Z",
-      "since": "2026-11-15T07:33:50.102Z"
+      "needs": {
+        "id": "n202611150747-2b2c",
+        "kind": "question"
+      },
+      "ts": "2026-11-15T07:47:42.732Z",
+      "since": "2026-11-15T07:47:42.732Z"
     },
     "cutscene-bot": {
       "state": "done",
