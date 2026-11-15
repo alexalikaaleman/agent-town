@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:40:13.397Z",
+  "updatedAt": "2026-11-15T11:44:29.128Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-15T09:30:09.664Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Redondo businesses and house checks",
+      "state": "needs-alex",
+      "text": "Upload new map research?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-15T11:30:25.107Z",
-      "since": "2026-11-15T11:30:25.107Z"
+      "needs": {
+        "id": "n202611151144-7b23",
+        "kind": "question"
+      },
+      "ts": "2026-11-15T11:44:29.128Z",
+      "since": "2026-11-15T11:44:29.128Z"
     },
     "cutscene-bot": {
       "state": "done",

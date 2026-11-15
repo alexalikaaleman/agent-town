@@ -1065,3 +1065,4 @@
 {"ts":"2026-11-15T11:31:58.399Z","bot":"playtest-qa-bot","state":"done","text":"Nightly QA done; idle, nothing queued"}
 {"ts":"2026-11-15T11:33:27.393Z","bot":"gitwriter-3d-bot","state":"working","text":"OG P3 engine fix design","project":"dragon OG"}
 {"ts":"2026-11-15T11:40:13.397Z","bot":"gitwriter-3d-bot","state":"done","text":"Engine design done; next: RT checks","project":"dragon OG"}
+{"ts":"2026-11-15T11:44:29.128Z","bot":"game-build-bible","needId":"n202611151144-7b23","state":"needs-alex","text":"Upload new map research?","project":"Bus Ninja 3D","needs":"question"}
