@@ -1008,3 +1008,4 @@
 {"ts":"2026-11-15T01:00:19.062Z","bot":"game-revision-logger","state":"done","text":"Piers csv logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T01:01:39.506Z","bot":"game-build-bible","state":"working","text":"Pier and garage height estimates","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T01:18:01.937Z","bot":"robotemplate","state":"blocked","text":"B2 v5 waits: usage cap","project":"Dragon game"}
+{"ts":"2026-11-15T01:18:55.948Z","bot":"robotemplate","state":"working","text":"Drafting B2 v5","project":"Dragon game"}
