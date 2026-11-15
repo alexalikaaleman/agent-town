@@ -1001,3 +1001,4 @@
 {"ts":"2026-11-14T23:02:03.195Z","bot":"robotemplate","state":"done","text":"P2f play-test done; next: Alex picks","project":"Dragon game"}
 {"ts":"2026-11-14T23:39:57.183Z","bot":"game-build-bible","state":"done","text":"Pier research done; next: Alex review","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T00:40:51.909Z","bot":"game-revision-logger","state":"working","text":"Logging Bus Ninja piers research","project":"Bus Ninja 3D"}
+{"ts":"2026-11-15T00:44:00.361Z","bot":"game-revision-logger","state":"done","text":"Piers research logged; next: idle","project":"Bus Ninja 3D"}
