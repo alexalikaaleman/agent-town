@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T02:11:37.376Z",
+  "updatedAt": "2026-11-15T02:12:11.854Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "P2f v6 PASS; next: Alex paste + playtest",
-      "project": "Dragon OG",
+      "state": "needs-alex",
+      "text": "OG B2 v5 check: needs Alex go",
+      "project": "dragon OG",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T21:10:40.891Z",
-      "since": "2026-11-14T21:10:40.891Z"
+      "needs": {
+        "id": "n202611150212-1e4d",
+        "kind": "question"
+      },
+      "ts": "2026-11-15T02:12:11.854Z",
+      "since": "2026-11-15T02:12:11.854Z"
     },
     "masterbot": {
       "state": "done",

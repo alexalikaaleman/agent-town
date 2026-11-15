@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T02:11:30.043Z",
+  "updatedAt": "2026-11-15T02:12:11.854Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1671,6 +1671,16 @@
       "ts": "2026-11-15T01:26:53.874Z",
       "handled": true,
       "handledAt": "2026-11-15T02:11:30.043Z"
+    },
+    {
+      "id": "n202611150212-1e4d",
+      "bot": "gitwriter-3d-bot",
+      "kind": "question",
+      "text": "OG B2 v5 check: needs Alex go",
+      "project": "dragon OG",
+      "ts": "2026-11-15T02:12:11.854Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
