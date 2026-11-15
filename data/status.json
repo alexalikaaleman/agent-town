@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T06:48:14.811Z",
+  "updatedAt": "2026-11-15T06:48:52.168Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "B2 v6 PASS; next: Alex paste+playtest",
+      "state": "working",
+      "text": "OG B2 v6 completeness check",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T06:48:14.811Z",
-      "since": "2026-11-15T06:48:14.811Z"
+      "ts": "2026-11-15T06:48:52.168Z",
+      "since": "2026-11-15T06:48:52.168Z"
     },
     "masterbot": {
       "state": "done",
