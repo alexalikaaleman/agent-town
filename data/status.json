@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:24:19.340Z",
+  "updatedAt": "2026-11-15T12:27:37.126Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,16 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "OG all-in-one fix draft",
+      "state": "needs-alex",
+      "text": "OG P3 allfix: play-test timing",
       "project": "Dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-15T11:20:43.563Z",
-      "since": "2026-11-15T11:20:43.563Z"
+      "needs": {
+        "id": "n202611151227-1a55",
+        "kind": "question"
+      },
+      "ts": "2026-11-15T12:27:37.126Z",
+      "since": "2026-11-15T12:27:37.126Z"
     },
     "game-design-document-bot": {
       "state": "done",

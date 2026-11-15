@@ -1079,3 +1079,4 @@
 {"ts":"2026-11-15T12:18:38.381Z","bot":"game-revision-logger","state":"working","text":"Logging house csv rename","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T12:19:45.453Z","bot":"game-revision-logger","state":"done","text":"Rename logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T12:24:19.340Z","bot":"gitwriter-3d-bot","state":"done","text":"Leap design done; next: v4 check","project":"dragon OG"}
+{"ts":"2026-11-15T12:27:37.126Z","bot":"robotemplate","needId":"n202611151227-1a55","state":"needs-alex","text":"OG P3 allfix: play-test timing","project":"Dragon game","needs":"question"}
