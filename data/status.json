@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T21:30:01.751Z",
+  "updatedAt": "2026-11-15T21:33:36.875Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-15T21:30:01.751Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Terrain saved; idle, nothing queued",
+      "state": "working",
+      "text": "Map research gaps",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T21:23:20.321Z",
-      "since": "2026-11-15T21:23:20.321Z"
+      "ts": "2026-11-15T21:33:36.875Z",
+      "since": "2026-11-15T21:33:36.875Z"
     },
     "cutscene-bot": {
       "state": "done",
