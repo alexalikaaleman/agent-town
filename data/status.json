@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T21:23:20.321Z",
+  "updatedAt": "2026-11-15T21:23:29.280Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-15T00:57:55.037Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Renames logged; next: idle",
+      "state": "working",
+      "text": "Logging terrain research note",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T12:40:11.186Z",
-      "since": "2026-11-15T12:40:11.186Z"
+      "ts": "2026-11-15T21:23:29.280Z",
+      "since": "2026-11-15T21:23:29.280Z"
     },
     "game-build-bible": {
       "state": "done",

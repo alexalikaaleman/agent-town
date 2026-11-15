@@ -1102,3 +1102,4 @@
 {"ts":"2026-11-15T21:19:28.793Z","bot":"game-build-bible","handled":"n202611152056-e09d"}
 {"ts":"2026-11-15T21:19:32.752Z","bot":"game-build-bible","state":"working","text":"Saving terrain to bible","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T21:23:20.321Z","bot":"game-build-bible","state":"done","text":"Terrain saved; idle, nothing queued","project":"Bus Ninja 3D"}
+{"ts":"2026-11-15T21:23:29.280Z","bot":"game-revision-logger","state":"working","text":"Logging terrain research note","project":"Bus Ninja 3D"}
