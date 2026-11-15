@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T02:12:11.854Z",
+  "updatedAt": "2026-11-15T02:12:36.156Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1679,6 +1679,16 @@
       "text": "OG B2 v5 check: needs Alex go",
       "project": "dragon OG",
       "ts": "2026-11-15T02:12:11.854Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611150212-8105",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "GitWriter needs Alex go for B2 v5",
+      "project": "Dragon game",
+      "ts": "2026-11-15T02:12:36.156Z",
       "handled": false,
       "handledAt": null
     }
