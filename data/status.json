@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T10:59:06.656Z",
+  "updatedAt": "2026-11-15T10:59:10.668Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "Audit done; next: fix go",
+      "state": "working",
+      "text": "Wizard + effects audit",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T10:58:30.067Z",
-      "since": "2026-11-15T10:58:30.067Z"
+      "ts": "2026-11-15T10:59:10.668Z",
+      "since": "2026-11-15T10:59:10.668Z"
     },
     "game-design-document-bot": {
       "state": "done",
