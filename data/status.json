@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T20:43:49.017Z",
+  "updatedAt": "2026-11-15T20:56:35.666Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,16 @@
       "since": "2026-11-15T12:40:11.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Terrain for Redondo and east PCH",
+      "state": "needs-alex",
+      "text": "Upload terrain research?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-15T20:43:49.017Z",
-      "since": "2026-11-15T20:43:49.017Z"
+      "needs": {
+        "id": "n202611152056-e09d",
+        "kind": "question"
+      },
+      "ts": "2026-11-15T20:56:35.666Z",
+      "since": "2026-11-15T20:56:35.666Z"
     },
     "cutscene-bot": {
       "state": "done",

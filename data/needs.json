@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T20:25:02.128Z",
+  "updatedAt": "2026-11-15T20:56:35.666Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1769,6 +1769,16 @@
       "text": "Weekly receipts: any new ones?",
       "project": "Accounting",
       "ts": "2026-11-15T20:25:02.128Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611152056-e09d",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Upload terrain research?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-15T20:56:35.666Z",
       "handled": false,
       "handledAt": null
     }
