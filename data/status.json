@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:50:51.611Z",
+  "updatedAt": "2026-11-15T11:50:57.151Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-15T00:57:55.037Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "House note logged; next: idle",
+      "state": "working",
+      "text": "Logging Redondo research note",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T09:30:09.664Z",
-      "since": "2026-11-15T09:30:09.664Z"
+      "ts": "2026-11-15T11:50:57.151Z",
+      "since": "2026-11-15T11:50:57.151Z"
     },
     "game-build-bible": {
       "state": "done",
