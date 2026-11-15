@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T21:19:28.793Z",
+  "updatedAt": "2026-11-15T21:19:32.752Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-15T12:40:11.186Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Upload terrain research?",
+      "state": "working",
+      "text": "Saving terrain to bible",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T20:56:35.666Z",
-      "since": "2026-11-15T20:56:35.666Z"
+      "ts": "2026-11-15T21:19:32.752Z",
+      "since": "2026-11-15T21:19:32.752Z"
     },
     "cutscene-bot": {
       "state": "done",
