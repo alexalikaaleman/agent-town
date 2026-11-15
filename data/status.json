@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T23:39:57.183Z",
+  "updatedAt": "2026-11-15T00:40:51.909Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-14T08:35:40.336Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Map edges logged; next: idle",
+      "state": "working",
+      "text": "Logging Bus Ninja piers research",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T19:14:48.061Z",
-      "since": "2026-11-14T19:14:48.061Z"
+      "ts": "2026-11-15T00:40:51.909Z",
+      "since": "2026-11-15T00:40:51.909Z"
     },
     "game-build-bible": {
       "state": "done",
