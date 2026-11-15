@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T09:25:55.239Z",
+  "updatedAt": "2026-11-15T09:26:02.209Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,16 +52,16 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "B2 v6 paste ready for Alex",
+      "state": "working",
+      "text": "B2 v6 live play-test",
       "project": "Dragon game",
       "with": [],
       "needs": {
         "id": "n202611150236-6eaa",
         "kind": "question"
       },
-      "ts": "2026-11-15T02:36:49.441Z",
-      "since": "2026-11-15T02:36:49.441Z"
+      "ts": "2026-11-15T09:26:02.209Z",
+      "since": "2026-11-15T09:26:02.209Z"
     },
     "game-design-document-bot": {
       "state": "done",
