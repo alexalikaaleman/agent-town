@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T11:47:05.623Z",
+  "updatedAt": "2026-11-15T11:47:09.285Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-15T09:30:09.664Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Upload new map research?",
+      "state": "working",
+      "text": "Saving map research to bible",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T11:44:29.128Z",
-      "since": "2026-11-15T11:44:29.128Z"
+      "ts": "2026-11-15T11:47:09.285Z",
+      "since": "2026-11-15T11:47:09.285Z"
     },
     "cutscene-bot": {
       "state": "done",
