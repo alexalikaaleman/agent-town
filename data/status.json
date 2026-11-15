@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T21:43:40.469Z",
+  "updatedAt": "2026-11-15T22:02:20.854Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,10 +41,7 @@
       "text": "Upload gap research?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611152143-1346",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-15T21:43:40.469Z",
       "since": "2026-11-15T21:43:40.469Z"
     },
