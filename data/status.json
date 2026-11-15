@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T22:11:54.932Z",
+  "updatedAt": "2026-11-15T22:11:59.297Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-15T22:09:15.790Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Confirm off-pier report fix",
+      "state": "working",
+      "text": "Saving fixed off-pier report",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T22:11:28.259Z",
-      "since": "2026-11-15T22:11:28.259Z"
+      "ts": "2026-11-15T22:11:59.297Z",
+      "since": "2026-11-15T22:11:59.297Z"
     },
     "cutscene-bot": {
       "state": "done",
