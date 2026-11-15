@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T09:42:43.120Z",
+  "updatedAt": "2026-11-15T10:27:40.304Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "P2f v6 check: 1 gap; next: BACK fix",
+      "state": "working",
+      "text": "OG UNKO damage check",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T07:09:23.068Z",
-      "since": "2026-11-15T07:09:23.068Z"
+      "ts": "2026-11-15T10:27:40.304Z",
+      "since": "2026-11-15T10:27:40.304Z"
     },
     "masterbot": {
       "state": "done",
