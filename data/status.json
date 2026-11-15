@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T10:58:30.067Z",
+  "updatedAt": "2026-11-15T10:59:06.656Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "Audit done; next: fix go",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611151058-271d",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-15T10:58:30.067Z",
       "since": "2026-11-15T10:58:30.067Z"
     },
