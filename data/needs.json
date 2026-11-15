@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:27:37.126Z",
+  "updatedAt": "2026-11-15T12:34:42.729Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1759,8 +1759,8 @@
       "text": "OG P3 allfix: play-test timing",
       "project": "Dragon game",
       "ts": "2026-11-15T12:27:37.126Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-15T12:34:42.729Z"
     }
   ]
 }
