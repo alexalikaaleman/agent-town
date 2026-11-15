@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T22:13:09.325Z",
+  "updatedAt": "2026-11-15T22:13:17.810Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,16 +25,16 @@
       "since": "2026-11-15T00:57:55.037Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Gap note logged; next: Alex slope reply",
+      "state": "working",
+      "text": "Logging off-pier report fix",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611152130-e6ad",
         "kind": "question"
       },
-      "ts": "2026-11-15T22:09:15.790Z",
-      "since": "2026-11-15T22:09:15.790Z"
+      "ts": "2026-11-15T22:13:17.810Z",
+      "since": "2026-11-15T22:13:17.810Z"
     },
     "game-build-bible": {
       "state": "done",
