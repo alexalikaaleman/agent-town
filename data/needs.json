@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T22:11:28.259Z",
+  "updatedAt": "2026-11-15T22:11:54.932Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1809,8 +1809,8 @@
       "text": "Confirm off-pier report fix",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-15T22:11:28.259Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-15T22:11:54.932Z"
     }
   ]
 }
