@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:34:42.729Z",
+  "updatedAt": "2026-11-15T20:25:02.128Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1761,6 +1761,16 @@
       "ts": "2026-11-15T12:27:37.126Z",
       "handled": true,
       "handledAt": "2026-11-15T12:34:42.729Z"
+    },
+    {
+      "id": "n202611152025-106d",
+      "bot": "accounting-bot",
+      "kind": "question",
+      "text": "Weekly receipts: any new ones?",
+      "project": "Accounting",
+      "ts": "2026-11-15T20:25:02.128Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

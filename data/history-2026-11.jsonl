@@ -1095,3 +1095,4 @@
 {"ts":"2026-11-15T13:40:18.049Z","bot":"context-bot","state":"done","text":"Backup done; idle, nothing queued"}
 {"ts":"2026-11-15T16:09:05.393Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep"}
 {"ts":"2026-11-15T16:11:06.619Z","bot":"robo-maintenance-bot","state":"done","text":"Daily sweep done; idle, nothing queued"}
+{"ts":"2026-11-15T20:25:02.128Z","bot":"accounting-bot","needId":"n202611152025-106d","state":"needs-alex","text":"Weekly receipts: any new ones?","project":"Accounting","needs":"question"}
