@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:18:38.381Z",
+  "updatedAt": "2026-11-15T12:19:45.453Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-15T00:57:55.037Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging house csv rename",
+      "state": "done",
+      "text": "Rename logged; next: idle",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T12:18:38.381Z",
-      "since": "2026-11-15T12:18:38.381Z"
+      "ts": "2026-11-15T12:19:45.453Z",
+      "since": "2026-11-15T12:19:45.453Z"
     },
     "game-build-bible": {
       "state": "done",
