@@ -1005,3 +1005,4 @@
 {"ts":"2026-11-15T00:53:20.178Z","bot":"masterbot","state":"working","text":"RT rules 7/11 controls review","project":"Dragon"}
 {"ts":"2026-11-15T00:57:55.037Z","bot":"masterbot","state":"done","text":"RT controls fix done; idle, nothing que…","project":"Dragon"}
 {"ts":"2026-11-15T00:59:19.074Z","bot":"game-revision-logger","state":"working","text":"Logging Bus Ninja piers csv","project":"Bus Ninja 3D"}
+{"ts":"2026-11-15T01:00:19.062Z","bot":"game-revision-logger","state":"done","text":"Piers csv logged; next: idle","project":"Bus Ninja 3D"}
