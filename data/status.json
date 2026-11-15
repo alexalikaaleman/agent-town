@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T01:35:26.933Z",
+  "updatedAt": "2026-11-15T02:11:30.043Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -56,10 +56,7 @@
       "text": "B2 v5 drafted; GitWriter check go?",
       "project": "Dragon game",
       "with": [],
-      "needs": {
-        "id": "n202611150126-03b1",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-15T01:26:53.874Z",
       "since": "2026-11-15T01:26:53.874Z"
     },
