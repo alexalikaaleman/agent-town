@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:10:37.164Z",
+  "updatedAt": "2026-11-15T12:16:53.033Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "UNKO review done; next: RT fixes part 3",
+      "state": "working",
+      "text": "Designing UNKO water leap",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T12:10:37.164Z",
-      "since": "2026-11-15T12:10:37.164Z"
+      "ts": "2026-11-15T12:16:53.033Z",
+      "since": "2026-11-15T12:16:53.033Z"
     },
     "masterbot": {
       "state": "done",
