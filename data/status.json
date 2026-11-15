@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:34:42.729Z",
+  "updatedAt": "2026-11-15T12:34:46.658Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -88,13 +88,13 @@
       "since": "2026-11-14T15:53:38.381Z"
     },
     "playtest-qa-bot": {
-      "state": "done",
-      "text": "Nightly QA done; idle, nothing queued",
-      "project": null,
+      "state": "working",
+      "text": "OG P3 allfix v6 checklist",
+      "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T11:31:58.399Z",
-      "since": "2026-11-15T11:31:58.399Z"
+      "ts": "2026-11-15T12:34:46.658Z",
+      "since": "2026-11-15T12:34:46.658Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
