@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T02:12:36.156Z",
+  "updatedAt": "2026-11-15T02:18:30.326Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -11,10 +11,7 @@
       "text": "OG B2 v5 check: needs Alex go",
       "project": "dragon OG",
       "with": [],
-      "needs": {
-        "id": "n202611150212-1e4d",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-15T02:12:11.854Z",
       "since": "2026-11-15T02:12:11.854Z"
     },
