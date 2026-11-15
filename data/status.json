@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T10:41:01.208Z",
+  "updatedAt": "2026-11-15T10:41:36.051Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "OG UNKO damage check",
+      "state": "done",
+      "text": "UNKO check done; next: Alex picks fix",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T10:27:40.304Z",
-      "since": "2026-11-15T10:27:40.304Z"
+      "ts": "2026-11-15T10:41:36.051Z",
+      "since": "2026-11-15T10:41:36.051Z"
     },
     "masterbot": {
       "state": "done",
