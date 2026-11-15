@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T07:25:57.713Z",
+  "updatedAt": "2026-11-15T07:26:06.804Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -25,13 +25,13 @@
       "since": "2026-11-15T00:57:55.037Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Piers csv logged; next: idle",
+      "state": "working",
+      "text": "Logging pier garage note",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T01:00:19.062Z",
-      "since": "2026-11-15T01:00:19.062Z"
+      "ts": "2026-11-15T07:26:06.804Z",
+      "since": "2026-11-15T07:26:06.804Z"
     },
     "game-build-bible": {
       "state": "done",
