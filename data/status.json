@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T00:44:00.361Z",
+  "updatedAt": "2026-11-15T00:53:20.178Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -16,13 +16,13 @@
       "since": "2026-11-14T21:10:40.891Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "RT rules 7-8 added in v3",
-      "project": null,
+      "state": "working",
+      "text": "RT rules 7/11 controls review",
+      "project": "Dragon",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T08:35:40.336Z",
-      "since": "2026-11-14T08:35:40.336Z"
+      "ts": "2026-11-15T00:53:20.178Z",
+      "since": "2026-11-15T00:53:20.178Z"
     },
     "game-revision-logger": {
       "state": "done",
