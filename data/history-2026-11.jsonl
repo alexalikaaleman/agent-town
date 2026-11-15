@@ -1084,3 +1084,4 @@
 {"ts":"2026-11-15T12:34:42.729Z","bot":"robotemplate","handled":"n202611151227-1a55"}
 {"ts":"2026-11-15T12:34:46.658Z","bot":"playtest-qa-bot","state":"working","text":"OG P3 allfix v6 checklist","project":"Dragon"}
 {"ts":"2026-11-15T12:34:51.432Z","bot":"robotemplate","state":"working","text":"OG P3 fix: QA checklist","project":"Dragon game"}
+{"ts":"2026-11-15T12:39:01.665Z","bot":"playtest-qa-bot","state":"done","text":"OG P3 allfix checklist done; idle","project":"Dragon"}
