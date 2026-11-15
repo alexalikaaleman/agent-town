@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T13:25:13.274Z",
+  "updatedAt": "2026-11-15T13:27:03.707Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -196,13 +196,13 @@
       "since": "2026-11-13T19:13:26.908Z"
     },
     "context-bot": {
-      "state": "done",
-      "text": "Tick handed off; next: main backup",
-      "project": "Bot Context",
+      "state": "working",
+      "text": "Weekly backup main run",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T13:25:13.274Z",
-      "since": "2026-11-15T13:25:13.274Z"
+      "ts": "2026-11-15T13:27:03.707Z",
+      "since": "2026-11-15T13:27:03.707Z"
     },
     "accounting-bot": {
       "state": "done",
