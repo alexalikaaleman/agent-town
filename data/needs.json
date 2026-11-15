@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T09:25:47.775Z",
+  "updatedAt": "2026-11-15T10:58:30.067Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1711,6 +1711,16 @@
       "ts": "2026-11-15T07:47:42.732Z",
       "handled": true,
       "handledAt": "2026-11-15T09:25:47.775Z"
+    },
+    {
+      "id": "n202611151058-271d",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Audit done; next: fix go",
+      "project": "Dragon game",
+      "ts": "2026-11-15T10:58:30.067Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
