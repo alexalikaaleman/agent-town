@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T07:27:28.791Z",
+  "updatedAt": "2026-11-15T07:33:50.102Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -34,13 +34,13 @@
       "since": "2026-11-15T07:27:28.791Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Estimates uploaded; next: Alex review",
+      "state": "working",
+      "text": "House 2009 checks",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T07:25:57.713Z",
-      "since": "2026-11-15T07:25:57.713Z"
+      "ts": "2026-11-15T07:33:50.102Z",
+      "since": "2026-11-15T07:33:50.102Z"
     },
     "cutscene-bot": {
       "state": "done",
