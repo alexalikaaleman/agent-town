@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T13:27:03.707Z",
+  "updatedAt": "2026-11-15T13:40:18.049Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -196,13 +196,13 @@
       "since": "2026-11-13T19:13:26.908Z"
     },
     "context-bot": {
-      "state": "working",
-      "text": "Weekly backup main run",
+      "state": "done",
+      "text": "Backup done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T13:27:03.707Z",
-      "since": "2026-11-15T13:27:03.707Z"
+      "ts": "2026-11-15T13:40:18.049Z",
+      "since": "2026-11-15T13:40:18.049Z"
     },
     "accounting-bot": {
       "state": "done",
