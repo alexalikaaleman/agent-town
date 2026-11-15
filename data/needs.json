@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T21:30:01.751Z",
+  "updatedAt": "2026-11-15T21:43:40.469Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1789,6 +1789,16 @@
       "text": "Secret check flag on terrain note",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-15T21:30:01.751Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611152143-1346",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Upload gap research?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-15T21:43:40.469Z",
       "handled": false,
       "handledAt": null
     }
