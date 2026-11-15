@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T12:34:46.658Z",
+  "updatedAt": "2026-11-15T12:34:51.432Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "OG P3 allfix: play-test timing",
+      "state": "working",
+      "text": "OG P3 fix: QA checklist",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-15T12:27:37.126Z",
-      "since": "2026-11-15T12:27:37.126Z"
+      "ts": "2026-11-15T12:34:51.432Z",
+      "since": "2026-11-15T12:34:51.432Z"
     },
     "game-design-document-bot": {
       "state": "done",
