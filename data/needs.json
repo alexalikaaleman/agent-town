@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:22:41.284Z",
+  "updatedAt": "2026-11-16T14:25:14.415Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2069,8 +2069,8 @@
       "text": "Bot Tube: how to read stats",
       "project": "Grok Bot channel",
       "ts": "2026-11-16T14:22:41.284Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T14:25:14.415Z"
     }
   ]
 }
