@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T23:13:08.587Z",
+  "updatedAt": "2026-11-16T23:23:04.122Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -59,11 +59,11 @@
     },
     "robotemplate": {
       "state": "working",
-      "text": "Dragon pastes to PDF",
+      "text": "Log v4.1 phone findings",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T20:14:02.506Z",
+      "ts": "2026-11-16T23:23:04.122Z",
       "since": "2026-11-16T20:14:02.506Z"
     },
     "game-design-document-bot": {
