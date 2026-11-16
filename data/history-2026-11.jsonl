@@ -1179,3 +1179,4 @@
 {"ts":"2026-11-16T13:49:12.172Z","bot":"game-build-bible","needId":"n202611161349-8d6b","state":"needs-alex","text":"Add phone controls to prototype?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T13:49:36.516Z","bot":"game-build-bible","handled":"n202611161349-8d6b"}
 {"ts":"2026-11-16T13:51:03.185Z","bot":"game-build-bible","handled":"n202611161338-f9f0"}
+{"ts":"2026-11-16T13:51:30.309Z","bot":"game-build-bible","state":"done","text":"Prototype prompt done; next: gap resear…","project":"Bus Ninja 3D"}
