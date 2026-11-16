@@ -1258,3 +1258,4 @@
 {"ts":"2026-11-16T18:13:51.490Z","bot":"game-revision-logger","state":"done","text":"Map PDF notes logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T18:14:20.125Z","bot":"game-build-bible","handled":"n202611161813-fc7e"}
 {"ts":"2026-11-16T18:14:24.049Z","bot":"game-build-bible","state":"working","text":"Test build folders","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T18:17:35.361Z","bot":"game-build-bible","needId":"n202611161817-b3d4","state":"needs-alex","text":"Tree placement note: confirm","project":"Bus Ninja 3D","needs":"question"}
