@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:16:06.385Z",
+  "updatedAt": "2026-11-16T14:16:30.252Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2019,8 +2019,8 @@
       "text": "YouTube bot: Malu split and name",
       "project": "Grok Bot channel",
       "ts": "2026-11-16T14:16:06.385Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T14:16:30.252Z"
     }
   ]
 }
