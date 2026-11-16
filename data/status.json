@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T11:43:35.096Z",
+  "updatedAt": "2026-11-16T11:43:57.101Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -61,16 +61,16 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Live check done; next: Alex pastes",
-      "project": "Dragon Game",
+      "state": "needs-alex",
+      "text": "Dragon cap for GitWriter",
+      "project": "Dragon OG",
       "with": [],
       "needs": {
-        "id": "n202611160505-9130",
+        "id": "n202611161143-4a9e",
         "kind": "question"
       },
-      "ts": "2026-11-16T06:19:46.393Z",
-      "since": "2026-11-16T06:19:46.393Z"
+      "ts": "2026-11-16T11:43:57.101Z",
+      "since": "2026-11-16T11:43:57.101Z"
     },
     "game-design-document-bot": {
       "state": "done",

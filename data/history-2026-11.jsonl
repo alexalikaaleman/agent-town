@@ -1159,3 +1159,4 @@
 {"ts":"2026-11-16T11:06:16.711Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
 {"ts":"2026-11-16T11:18:51.328Z","bot":"playtest-qa-bot","state":"done","text":"Nightly log done; idle, nothing queued"}
 {"ts":"2026-11-16T11:43:35.096Z","bot":"gitwriter-3d-bot","needId":"n202611161143-a5c9","state":"needs-alex","text":"OG 7 fixes parked: cap 63%","project":"dragon OG","needs":"question"}
+{"ts":"2026-11-16T11:43:57.101Z","bot":"robotemplate","needId":"n202611161143-4a9e","state":"needs-alex","text":"Dragon cap for GitWriter","project":"Dragon OG","needs":"question"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T11:43:35.096Z",
+  "updatedAt": "2026-11-16T11:43:57.101Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1909,6 +1909,16 @@
       "text": "OG 7 fixes parked: cap 63%",
       "project": "dragon OG",
       "ts": "2026-11-16T11:43:35.096Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611161143-4a9e",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "Dragon cap for GitWriter",
+      "project": "Dragon OG",
+      "ts": "2026-11-16T11:43:57.101Z",
       "handled": false,
       "handledAt": null
     }
