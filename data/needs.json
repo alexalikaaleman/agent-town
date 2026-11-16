@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:21:48.456Z",
+  "updatedAt": "2026-11-16T18:21:52.730Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2219,8 +2219,8 @@
       "text": "Save next-build notes?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T18:20:37.827Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T18:21:52.730Z"
     }
   ]
 }
