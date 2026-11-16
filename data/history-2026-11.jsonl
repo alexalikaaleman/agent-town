@@ -1240,3 +1240,4 @@
 {"ts":"2026-11-16T17:56:53.374Z","bot":"game-build-bible","state":"working","text":"Uploading full test map","project":"Bus Ninja 3D","handled":"n202611161752-8345"}
 {"ts":"2026-11-16T18:00:08.571Z","bot":"game-build-bible","state":"done","text":"Full map upload done; next: playtest","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T18:00:18.191Z","bot":"game-revision-logger","state":"working","text":"Logging full map test note","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T18:04:00.477Z","bot":"game-revision-logger","state":"done","text":"Full map note logged; next: idle","project":"Bus Ninja 3D"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:00:18.191Z",
+  "updatedAt": "2026-11-16T18:04:00.477Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -31,13 +31,13 @@
       "since": "2026-11-16T01:31:27.893Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging full map test note",
+      "state": "done",
+      "text": "Full map note logged; next: idle",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T18:00:18.191Z",
-      "since": "2026-11-16T18:00:18.191Z"
+      "ts": "2026-11-16T18:04:00.477Z",
+      "since": "2026-11-16T18:04:00.477Z"
     },
     "game-build-bible": {
       "state": "done",
