@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T13:38:44.368Z",
+  "updatedAt": "2026-11-16T13:49:12.172Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1969,6 +1969,16 @@
       "text": "Prototype map: shift east?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T13:38:44.368Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611161349-8d6b",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Add phone controls to prototype?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T13:49:12.172Z",
       "handled": false,
       "handledAt": null
     }
