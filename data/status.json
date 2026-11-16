@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:21:57.083Z",
+  "updatedAt": "2026-11-16T18:22:44.164Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-16T18:18:54.083Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Next-build notes + curb research",
+      "state": "needs-alex",
+      "text": "Save Strand walls note?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T18:21:57.083Z",
-      "since": "2026-11-16T18:21:57.083Z"
+      "needs": {
+        "id": "n202611161822-c252",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T18:22:44.164Z",
+      "since": "2026-11-16T18:22:44.164Z"
     },
     "cutscene-bot": {
       "state": "done",
