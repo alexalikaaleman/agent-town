@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:15:36.284Z",
+  "updatedAt": "2026-11-16T19:18:04.124Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,13 +52,13 @@
       "since": "2026-11-16T19:15:36.284Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "BN3D style sheet done; next: P7/P8 clips",
+      "state": "working",
+      "text": "Bus Ninja 3D BBQ alley stills",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:33:12.894Z",
-      "since": "2026-11-14T05:33:12.894Z"
+      "ts": "2026-11-16T19:18:04.124Z",
+      "since": "2026-11-16T19:18:04.124Z"
     },
     "robotemplate": {
       "state": "blocked",

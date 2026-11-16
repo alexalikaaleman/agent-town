@@ -1288,3 +1288,4 @@
 {"ts":"2026-11-16T19:14:42.241Z","bot":"game-build-bible","needId":"n202611161914-eb5e","state":"needs-alex","text":"Art helper folder and asks","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T19:15:15.539Z","bot":"game-build-bible","state":"working","text":"Painting research prep","project":"Bus Ninja 3D","handled":"n202611161914-eb5e"}
 {"ts":"2026-11-16T19:15:36.284Z","bot":"game-build-bible","needId":"n202611161915-bea7","state":"needs-alex","text":"Art references folder yes/no","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-16T19:18:04.124Z","bot":"cutscene-bot","state":"working","text":"Bus Ninja 3D BBQ alley stills","project":"Bus Ninja 3D"}
