@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:18:23.028Z",
+  "updatedAt": "2026-11-16T19:25:12.030Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T19:18:14.084Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Use GitWriter for map checks?",
+      "state": "working",
+      "text": "Map fixes; GitWriter tool design",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611161918-3419",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T19:18:23.028Z",
-      "since": "2026-11-16T19:18:23.028Z"
+      "needs": null,
+      "ts": "2026-11-16T19:25:12.030Z",
+      "since": "2026-11-16T19:25:12.030Z"
     },
     "cutscene-bot": {
       "state": "working",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:18:23.028Z",
+  "updatedAt": "2026-11-16T19:25:12.030Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2279,8 +2279,8 @@
       "text": "Use GitWriter for map checks?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T19:18:23.028Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T19:25:12.030Z"
     }
   ]
 }
