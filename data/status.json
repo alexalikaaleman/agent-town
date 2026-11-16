@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:19:16.003Z",
+  "updatedAt": "2026-11-16T18:20:37.827Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,15 +41,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Tree placement note: confirm",
+      "text": "Save next-build notes?",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611161817-b3d4",
+        "id": "n202611161820-2cdc",
         "kind": "question"
       },
-      "ts": "2026-11-16T18:17:35.361Z",
-      "since": "2026-11-16T18:17:35.361Z"
+      "ts": "2026-11-16T18:20:37.827Z",
+      "since": "2026-11-16T18:20:37.827Z"
     },
     "cutscene-bot": {
       "state": "done",

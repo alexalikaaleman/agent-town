@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:17:35.361Z",
+  "updatedAt": "2026-11-16T18:20:37.827Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2209,6 +2209,16 @@
       "text": "Tree placement note: confirm",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T18:17:35.361Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611161820-2cdc",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Save next-build notes?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T18:20:37.827Z",
       "handled": false,
       "handledAt": null
     }
