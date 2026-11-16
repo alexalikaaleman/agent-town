@@ -1339,3 +1339,4 @@
 {"ts":"2026-11-16T21:00:16.955Z","bot":"game-revision-logger","state":"done","text":"Paint logged; next: wait Alex on core","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T21:04:51.706Z","bot":"game-build-bible","needId":"n202611162104-6843","state":"needs-alex","text":"Save parody sign names?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T21:05:13.347Z","bot":"game-build-bible","state":"working","text":"Saving parody sign names","project":"Bus Ninja 3D","handled":"n202611162104-6843"}
+{"ts":"2026-11-16T21:09:52.774Z","bot":"game-build-bible","state":"done","text":"Sign names saved; next: map package","project":"Bus Ninja 3D"}
