@@ -1342,3 +1342,4 @@
 {"ts":"2026-11-16T21:09:52.774Z","bot":"game-build-bible","state":"done","text":"Sign names saved; next: map package","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T21:09:58.152Z","bot":"game-revision-logger","state":"working","text":"Logging parody sign names","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T21:11:14.295Z","bot":"game-revision-logger","state":"done","text":"Signs logged; next: wait Alex on core","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T21:11:55.486Z","bot":"game-build-bible","needId":"n202611162111-177a","state":"needs-alex","text":"Save Nogard sign color?","project":"Bus Ninja 3D","needs":"question"}
