@@ -1285,3 +1285,4 @@
 {"ts":"2026-11-16T19:03:09.524Z","bot":"game-revision-logger","state":"working","text":"Logging checklist note","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T19:03:48.586Z","bot":"game-build-bible","state":"working","text":"Guess log gap research","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T19:06:39.076Z","bot":"game-revision-logger","state":"done","text":"Checklist logged; next: idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T19:14:42.241Z","bot":"game-build-bible","needId":"n202611161914-eb5e","state":"needs-alex","text":"Art helper folder and asks","project":"Bus Ninja 3D","needs":"question"}
