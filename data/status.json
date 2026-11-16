@@ -1,22 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:25:12.030Z",
+  "updatedAt": "2026-11-16T19:25:43.274Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "needs-alex",
-      "text": "OG 5 v4.1 pastes out; need popup picks",
-      "project": "dragon OG",
+      "state": "working",
+      "text": "Bus Ninja 3D debug tools design",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611161311-e78f",
         "kind": "question"
       },
-      "ts": "2026-11-16T13:11:25.892Z",
-      "since": "2026-11-16T13:11:25.892Z"
+      "ts": "2026-11-16T19:25:43.274Z",
+      "since": "2026-11-16T19:25:43.274Z"
     },
     "masterbot": {
       "state": "needs-alex",
