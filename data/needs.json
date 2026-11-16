@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:49:44.571Z",
+  "updatedAt": "2026-11-16T19:50:59.803Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2309,8 +2309,8 @@
       "text": "Last 3 map gaps: research now?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T19:49:44.571Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T19:50:59.803Z"
     }
   ]
 }
