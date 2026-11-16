@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T13:11:25.892Z",
+  "updatedAt": "2026-11-16T13:15:51.750Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1819,8 +1819,8 @@
       "text": "Add loose-end research?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T00:29:17.049Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T13:15:51.750Z"
     },
     {
       "id": "n202611160049-34e6",
