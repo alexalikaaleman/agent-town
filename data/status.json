@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T22:30:27.167Z",
+  "updatedAt": "2026-11-16T22:31:56.693Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -28,13 +28,13 @@
       "since": "2026-11-16T21:38:21.272Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging golden hour lighting",
+      "state": "done",
+      "text": "Lighting logged; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T22:30:27.167Z",
-      "since": "2026-11-16T22:30:27.167Z"
+      "ts": "2026-11-16T22:31:56.693Z",
+      "since": "2026-11-16T22:31:56.693Z"
     },
     "game-build-bible": {
       "state": "needs-alex",

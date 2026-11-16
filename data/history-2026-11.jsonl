@@ -1404,3 +1404,4 @@
 {"ts":"2026-11-16T22:28:12.021Z","bot":"game-build-bible","needId":"n202611162228-0e92","state":"needs-alex","text":"Save golden hour lighting plan?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T22:29:13.379Z","bot":"game-build-bible","handled":"n202611162228-0e92"}
 {"ts":"2026-11-16T22:30:27.167Z","bot":"game-revision-logger","state":"working","text":"Logging golden hour lighting","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T22:31:56.693Z","bot":"game-revision-logger","state":"done","text":"Lighting logged; idle, nothing queued","project":"Bus Ninja 3D"}
