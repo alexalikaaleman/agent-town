@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:21:32.392Z",
+  "updatedAt": "2026-11-16T21:32:51.811Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2339,8 +2339,8 @@
       "text": "GBB core v1.9 secret hit: keep?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T20:08:39.046Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:32:51.811Z"
     },
     {
       "id": "n202611162015-3673",

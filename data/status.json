@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:25:42.678Z",
+  "updatedAt": "2026-11-16T21:32:51.811Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -32,10 +32,7 @@
       "text": "Color logged; next: wait Alex on core",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611162008-d643",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-16T21:15:13.717Z",
       "since": "2026-11-16T21:15:13.717Z"
     },
