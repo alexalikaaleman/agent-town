@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:26:45.645Z",
+  "updatedAt": "2026-11-16T05:28:55.802Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -11,10 +11,7 @@
       "text": "Respawn/SpaceSmoker paste; 3 Qs",
       "project": "dragon OG",
       "with": [],
-      "needs": {
-        "id": "n202611160526-daa7",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-16T05:26:45.645Z",
       "since": "2026-11-16T05:26:45.645Z"
     },

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:26:45.645Z",
+  "updatedAt": "2026-11-16T05:28:55.802Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1899,8 +1899,8 @@
       "text": "Respawn/SpaceSmoker paste; 3 Qs",
       "project": "dragon OG",
       "ts": "2026-11-16T05:26:45.645Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T05:28:55.802Z"
     }
   ]
 }
