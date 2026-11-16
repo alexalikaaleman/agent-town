@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:14:42.241Z",
+  "updatedAt": "2026-11-16T19:15:15.539Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T19:06:39.076Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Art helper folder and asks",
+      "state": "working",
+      "text": "Painting research prep",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611161914-eb5e",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T19:14:42.241Z",
-      "since": "2026-11-16T19:14:42.241Z"
+      "needs": null,
+      "ts": "2026-11-16T19:15:15.539Z",
+      "since": "2026-11-16T19:15:15.539Z"
     },
     "cutscene-bot": {
       "state": "done",
