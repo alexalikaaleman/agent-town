@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T03:02:11.861Z",
+  "updatedAt": "2026-11-16T03:33:12.400Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "lag hunt done; next: fix after RT report",
+      "state": "working",
+      "text": "OG fireball/L2 lag tests",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T03:02:11.861Z",
-      "since": "2026-11-16T03:02:11.861Z"
+      "ts": "2026-11-16T03:33:12.400Z",
+      "since": "2026-11-16T03:33:12.400Z"
     },
     "masterbot": {
       "state": "needs-alex",
