@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:46:28.392Z",
+  "updatedAt": "2026-11-16T21:46:32.586Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2499,6 +2499,16 @@
       "text": "BBQ front still: mural or guide?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:43:00.696Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611162146-2946",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Save Silvio's front decision?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T21:46:32.586Z",
       "handled": false,
       "handledAt": null
     }
