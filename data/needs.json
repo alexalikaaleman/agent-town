@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:46:32.586Z",
+  "updatedAt": "2026-11-16T21:47:31.795Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2509,8 +2509,8 @@
       "text": "Save Silvio's front decision?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:46:32.586Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:47:31.795Z"
     }
   ]
 }
