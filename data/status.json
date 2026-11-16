@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:49:44.571Z",
+  "updatedAt": "2026-11-16T19:50:52.461Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -49,13 +49,13 @@
       "since": "2026-11-16T19:49:44.571Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "Bus Ninja 3D BBQ alley stills",
+      "state": "done",
+      "text": "C001 BBQ stills in Art refs",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T19:18:04.124Z",
-      "since": "2026-11-16T19:18:04.124Z"
+      "ts": "2026-11-16T19:50:52.461Z",
+      "since": "2026-11-16T19:50:52.461Z"
     },
     "robotemplate": {
       "state": "blocked",
