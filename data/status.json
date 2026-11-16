@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T17:56:53.374Z",
+  "updatedAt": "2026-11-16T18:00:08.571Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,13 @@
       "since": "2026-11-16T17:41:54.415Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Uploading full test map",
+      "state": "done",
+      "text": "Full map upload done; next: playtest",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T17:56:53.374Z",
-      "since": "2026-11-16T17:56:53.374Z"
+      "ts": "2026-11-16T18:00:08.571Z",
+      "since": "2026-11-16T18:00:08.571Z"
     },
     "cutscene-bot": {
       "state": "done",
