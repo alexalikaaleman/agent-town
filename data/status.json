@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:46:20.472Z",
+  "updatedAt": "2026-11-16T06:08:38.664Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "OG 3 pastes done; next: Alex republish",
+      "state": "working",
+      "text": "OG Android all-effects lag audit",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T05:46:20.472Z",
-      "since": "2026-11-16T05:46:20.472Z"
+      "ts": "2026-11-16T06:08:38.664Z",
+      "since": "2026-11-16T06:08:38.664Z"
     },
     "masterbot": {
       "state": "needs-alex",
