@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:15:49.153Z",
+  "updatedAt": "2026-11-16T14:16:06.385Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2009,6 +2009,16 @@
       "text": "YouTube bot design: feature 1",
       "project": null,
       "ts": "2026-11-16T14:15:49.153Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611161416-dea0",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "YouTube bot: Malu split and name",
+      "project": "Grok Bot channel",
+      "ts": "2026-11-16T14:16:06.385Z",
       "handled": false,
       "handledAt": null
     }
