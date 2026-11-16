@@ -1247,3 +1247,4 @@
 {"ts":"2026-11-16T18:09:14.596Z","bot":"game-build-bible","needId":"n202611161809-a1ab","state":"needs-alex","text":"Guess log button in test PDF?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T18:09:39.672Z","bot":"game-build-bible","handled":"n202611161809-a1ab"}
 {"ts":"2026-11-16T18:09:43.788Z","bot":"game-build-bible","state":"working","text":"Test map PDF v02","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T18:11:00.724Z","bot":"game-build-bible","state":"done","text":"Map PDF done; next: Alex playtest","project":"Bus Ninja 3D"}
