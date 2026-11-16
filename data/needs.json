@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:21:08.049Z",
+  "updatedAt": "2026-11-16T14:22:41.284Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2061,6 +2061,16 @@
       "ts": "2026-11-16T14:20:44.596Z",
       "handled": true,
       "handledAt": "2026-11-16T14:21:08.049Z"
+    },
+    {
+      "id": "n202611161422-f90d",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Bot Tube: how to read stats",
+      "project": "Grok Bot channel",
+      "ts": "2026-11-16T14:22:41.284Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
