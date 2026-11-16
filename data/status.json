@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T17:14:47.169Z",
+  "updatedAt": "2026-11-16T17:15:49.787Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,15 +41,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Building colors: how to pick",
+      "text": "Save building color decision?",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611161714-b8d5",
+        "id": "n202611161715-7e42",
         "kind": "question"
       },
-      "ts": "2026-11-16T17:14:47.169Z",
-      "since": "2026-11-16T17:14:47.169Z"
+      "ts": "2026-11-16T17:15:49.787Z",
+      "since": "2026-11-16T17:15:49.787Z"
     },
     "cutscene-bot": {
       "state": "done",
