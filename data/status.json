@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T04:19:56.262Z",
+  "updatedAt": "2026-11-16T04:25:15.615Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -244,16 +244,16 @@
       "since": "2026-11-11T08:42:17.915Z"
     },
     "robo-helper-bot": {
-      "state": "working",
-      "text": "Weekly library audit",
+      "state": "needs-alex",
+      "text": "Weekly audit proposals",
       "project": "RoboTemplate",
       "with": [],
       "needs": {
-        "id": "n202611090405-9975",
+        "id": "n202611160425-2e27",
         "kind": "question"
       },
-      "ts": "2026-11-16T04:19:56.262Z",
-      "since": "2026-11-16T04:19:56.262Z"
+      "ts": "2026-11-16T04:25:15.615Z",
+      "since": "2026-11-16T04:25:15.615Z"
     },
     "ai-prompt-bot": {
       "state": "done",

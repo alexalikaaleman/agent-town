@@ -1138,3 +1138,4 @@
 {"ts":"2026-11-16T03:41:34.394Z","bot":"robotemplate","state":"done","text":"Lag hunt done; next: GitWriter fix","project":"Dragon Game"}
 {"ts":"2026-11-16T03:52:27.074Z","bot":"gitwriter-3d-bot","state":"done","text":"v6fix2 paste done; next: Alex republish","project":"dragon OG"}
 {"ts":"2026-11-16T04:19:56.262Z","bot":"robo-helper-bot","state":"working","text":"Weekly library audit","project":"RoboTemplate"}
+{"ts":"2026-11-16T04:25:15.615Z","bot":"robo-helper-bot","needId":"n202611160425-2e27","state":"needs-alex","text":"Weekly audit proposals","project":"RoboTemplate","needs":"question"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T03:35:49.678Z",
+  "updatedAt": "2026-11-16T04:25:15.615Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1839,6 +1839,16 @@
       "text": "Daily bot review ready to start",
       "project": null,
       "ts": "2026-11-16T01:31:27.893Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611160425-2e27",
+      "bot": "robo-helper-bot",
+      "kind": "question",
+      "text": "Weekly audit proposals",
+      "project": "RoboTemplate",
+      "ts": "2026-11-16T04:25:15.615Z",
       "handled": false,
       "handledAt": null
     }
