@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T17:52:43.641Z",
+  "updatedAt": "2026-11-16T17:56:53.374Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2149,8 +2149,8 @@
       "text": "Upload full test map to Drive?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T17:52:43.641Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T17:56:53.374Z"
     }
   ]
 }

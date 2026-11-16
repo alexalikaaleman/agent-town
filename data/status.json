@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T17:52:43.641Z",
+  "updatedAt": "2026-11-16T17:56:53.374Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T17:41:54.415Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Upload full test map to Drive?",
+      "state": "working",
+      "text": "Uploading full test map",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611161752-8345",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T17:52:43.641Z",
-      "since": "2026-11-16T17:52:43.641Z"
+      "needs": null,
+      "ts": "2026-11-16T17:56:53.374Z",
+      "since": "2026-11-16T17:56:53.374Z"
     },
     "cutscene-bot": {
       "state": "done",
