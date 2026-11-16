@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T13:15:51.750Z",
+  "updatedAt": "2026-11-16T13:38:44.368Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1959,6 +1959,16 @@
       "text": "OG 5 v4.1 pastes out; need popup picks",
       "project": "dragon OG",
       "ts": "2026-11-16T13:11:25.892Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611161338-f9f0",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Prototype map: shift east?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T13:38:44.368Z",
       "handled": false,
       "handledAt": null
     }
