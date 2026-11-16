@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T23:23:12.891Z",
+  "updatedAt": "2026-11-16T23:23:17.273Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T22:37:17.849Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Add sign picks to build 4?",
+      "state": "working",
+      "text": "Build 3 upload, sign colors note",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T23:13:08.587Z",
-      "since": "2026-11-16T23:13:08.587Z"
+      "ts": "2026-11-16T23:23:17.273Z",
+      "since": "2026-11-16T23:23:17.273Z"
     },
     "cutscene-bot": {
       "state": "done",
