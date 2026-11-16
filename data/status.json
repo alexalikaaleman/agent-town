@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:47:19.738Z",
+  "updatedAt": "2026-11-16T19:49:44.571Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T19:47:19.738Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Logging tools into build 3",
+      "state": "needs-alex",
+      "text": "Last 3 map gaps: research now?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T19:46:43.955Z",
-      "since": "2026-11-16T19:46:43.955Z"
+      "needs": {
+        "id": "n202611161949-dd83",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T19:49:44.571Z",
+      "since": "2026-11-16T19:49:44.571Z"
     },
     "cutscene-bot": {
       "state": "working",

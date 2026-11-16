@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:46:43.955Z",
+  "updatedAt": "2026-11-16T19:49:44.571Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2301,6 +2301,16 @@
       "ts": "2026-11-16T19:35:01.587Z",
       "handled": true,
       "handledAt": "2026-11-16T19:46:43.955Z"
+    },
+    {
+      "id": "n202611161949-dd83",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Last 3 map gaps: research now?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T19:49:44.571Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
