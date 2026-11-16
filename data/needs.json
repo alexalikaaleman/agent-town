@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T00:49:20.245Z",
+  "updatedAt": "2026-11-16T00:51:15.682Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1829,8 +1829,8 @@
       "text": "OG P3 lag test: need new cap",
       "project": "Dragon game",
       "ts": "2026-11-16T00:49:20.245Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T00:51:15.682Z"
     }
   ]
 }
