@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:33:24.858Z",
+  "updatedAt": "2026-11-16T21:34:33.562Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -31,16 +31,16 @@
       "since": "2026-11-16T21:33:05.993Z"
     },
     "game-revision-logger": {
-      "state": "needs-alex",
-      "text": "Say yes in MasterBot chat for core",
+      "state": "done",
+      "text": "Bible core saved; next: my v1.7 core",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611162133-54ec",
         "kind": "question"
       },
-      "ts": "2026-11-16T21:33:24.858Z",
-      "since": "2026-11-16T21:33:24.858Z"
+      "ts": "2026-11-16T21:34:33.562Z",
+      "since": "2026-11-16T21:34:33.562Z"
     },
     "game-build-bible": {
       "state": "working",
