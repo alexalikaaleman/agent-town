@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:11:55.486Z",
+  "updatedAt": "2026-11-16T21:12:46.480Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T21:11:14.295Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Save Nogard sign color?",
+      "state": "working",
+      "text": "Saving Nogard sign color",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611162111-177a",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T21:11:55.486Z",
-      "since": "2026-11-16T21:11:55.486Z"
+      "needs": null,
+      "ts": "2026-11-16T21:12:46.480Z",
+      "since": "2026-11-16T21:12:46.480Z"
     },
     "cutscene-bot": {
       "state": "done",

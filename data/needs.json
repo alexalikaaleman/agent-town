@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:11:55.486Z",
+  "updatedAt": "2026-11-16T21:12:46.480Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2409,8 +2409,8 @@
       "text": "Save Nogard sign color?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:11:55.486Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:12:46.480Z"
     }
   ]
 }
