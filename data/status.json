@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T11:45:21.083Z",
+  "updatedAt": "2026-11-16T11:48:39.567Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -62,10 +62,7 @@
       "text": "Dragon cap for GitWriter",
       "project": "Dragon OG",
       "with": [],
-      "needs": {
-        "id": "n202611161143-4a9e",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-16T11:43:57.101Z",
       "since": "2026-11-16T11:43:57.101Z"
     },
