@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T12:48:12.297Z",
+  "updatedAt": "2026-11-16T13:11:25.892Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -8,15 +8,15 @@
   "bots": {
     "gitwriter-3d-bot": {
       "state": "needs-alex",
-      "text": "OG forbidden phrases paste sent",
+      "text": "OG 5 v4.1 pastes out; need popup picks",
       "project": "dragon OG",
       "with": [],
       "needs": {
-        "id": "n202611161248-bee2",
+        "id": "n202611161311-e78f",
         "kind": "question"
       },
-      "ts": "2026-11-16T12:48:12.297Z",
-      "since": "2026-11-16T12:48:12.297Z"
+      "ts": "2026-11-16T13:11:25.892Z",
+      "since": "2026-11-16T13:11:25.892Z"
     },
     "masterbot": {
       "state": "needs-alex",

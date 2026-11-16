@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T12:48:12.297Z",
+  "updatedAt": "2026-11-16T13:11:25.892Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1949,6 +1949,16 @@
       "text": "OG forbidden phrases paste sent",
       "project": "dragon OG",
       "ts": "2026-11-16T12:48:12.297Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611161311-e78f",
+      "bot": "gitwriter-3d-bot",
+      "kind": "question",
+      "text": "OG 5 v4.1 pastes out; need popup picks",
+      "project": "dragon OG",
+      "ts": "2026-11-16T13:11:25.892Z",
       "handled": false,
       "handledAt": null
     }
