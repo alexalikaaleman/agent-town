@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:04:52.888Z",
+  "updatedAt": "2026-11-16T05:05:09.546Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -61,13 +61,16 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Android lag test",
+      "state": "needs-alex",
+      "text": "GitWriter cap yes needed",
       "project": "Dragon Game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T05:04:29.724Z",
-      "since": "2026-11-16T05:04:29.724Z"
+      "needs": {
+        "id": "n202611160505-9130",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T05:05:09.546Z",
+      "since": "2026-11-16T05:05:09.546Z"
     },
     "game-design-document-bot": {
       "state": "done",
