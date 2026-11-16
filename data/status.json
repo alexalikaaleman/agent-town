@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T23:29:30.231Z",
+  "updatedAt": "2026-11-16T23:29:35.907Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T23:29:30.231Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3 upload, sign colors note",
+      "state": "done",
+      "text": "Build 3 sent; next: build 4 zone",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T23:23:17.273Z",
-      "since": "2026-11-16T23:23:17.273Z"
+      "ts": "2026-11-16T23:29:35.907Z",
+      "since": "2026-11-16T23:29:35.907Z"
     },
     "cutscene-bot": {
       "state": "done",
