@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:31:56.092Z",
+  "updatedAt": "2026-11-16T20:32:00.535Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,13 @@
       "since": "2026-11-16T20:08:39.046Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Silvio's front sign decision",
+      "state": "working",
+      "text": "Saving Silvio's sign decision",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T20:31:03.204Z",
-      "since": "2026-11-16T20:31:03.204Z"
+      "ts": "2026-11-16T20:32:00.535Z",
+      "since": "2026-11-16T20:32:00.535Z"
     },
     "cutscene-bot": {
       "state": "done",
