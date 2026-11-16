@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:21:32.392Z",
+  "updatedAt": "2026-11-16T21:25:42.678Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,13 @@
       "since": "2026-11-16T21:15:13.717Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Helper note saved; next: map package",
+      "state": "working",
+      "text": "Build 3 map package",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T21:21:32.392Z",
-      "since": "2026-11-16T21:21:32.392Z"
+      "ts": "2026-11-16T21:25:42.678Z",
+      "since": "2026-11-16T21:25:42.678Z"
     },
     "cutscene-bot": {
       "state": "done",
