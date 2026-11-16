@@ -1382,3 +1382,4 @@
 {"ts":"2026-11-16T21:49:24.490Z","bot":"game-build-bible","handled":"n202611162147-a27e"}
 {"ts":"2026-11-16T21:49:28.448Z","bot":"game-build-bible","state":"working","text":"Build 3 fixes and decisions save","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T21:49:42.097Z","bot":"cutscene-bot","state":"done","text":"C004 front still done; idle, none queued","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T21:49:48.628Z","bot":"game-build-bible","needId":"n202611162149-f8ec","state":"needs-alex","text":"Pick Silvio's front guide still","project":"Bus Ninja 3D","needs":"question"}

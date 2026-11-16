@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:49:42.097Z",
+  "updatedAt": "2026-11-16T21:49:48.628Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T21:43:59.971Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3 fixes and decisions save",
+      "state": "needs-alex",
+      "text": "Pick Silvio's front guide still",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T21:49:28.448Z",
-      "since": "2026-11-16T21:49:28.448Z"
+      "needs": {
+        "id": "n202611162149-f8ec",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T21:49:48.628Z",
+      "since": "2026-11-16T21:49:48.628Z"
     },
     "cutscene-bot": {
       "state": "done",
