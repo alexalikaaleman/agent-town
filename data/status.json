@@ -1,22 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:29:43.970Z",
+  "updatedAt": "2026-11-16T20:30:00.554Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "OG v4.1 PDF paste check",
+      "state": "done",
+      "text": "OG: skip PDF; paste 5 txts next",
       "project": "dragon OG",
       "with": [],
       "needs": {
         "id": "n202611161311-e78f",
         "kind": "question"
       },
-      "ts": "2026-11-16T20:17:42.523Z",
-      "since": "2026-11-16T20:17:42.523Z"
+      "ts": "2026-11-16T20:30:00.554Z",
+      "since": "2026-11-16T20:30:00.554Z"
     },
     "masterbot": {
       "state": "done",
