@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:04:29.724Z",
+  "updatedAt": "2026-11-16T05:04:52.888Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "v6fix2 paste done; next: Alex republish",
+      "state": "needs-alex",
+      "text": "Android lag: need cap yes in my chat",
       "project": "dragon OG",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T03:52:27.074Z",
-      "since": "2026-11-16T03:52:27.074Z"
+      "needs": {
+        "id": "n202611160504-207d",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T05:04:52.888Z",
+      "since": "2026-11-16T05:04:52.888Z"
     },
     "masterbot": {
       "state": "needs-alex",
