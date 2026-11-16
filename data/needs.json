@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:16:57.422Z",
+  "updatedAt": "2026-11-16T14:17:20.203Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2029,8 +2029,8 @@
       "text": "YouTube bot: Shorts and bot name",
       "project": "Grok Bot channel",
       "ts": "2026-11-16T14:16:57.422Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T14:17:20.203Z"
     }
   ]
 }
