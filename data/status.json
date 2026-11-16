@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T00:58:29.747Z",
+  "updatedAt": "2026-11-16T01:09:42.968Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "v6 lag check done; next: fix paste?",
+      "state": "working",
+      "text": "OG v6 test 2: buttons + stars",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T00:58:29.747Z",
-      "since": "2026-11-16T00:58:29.747Z"
+      "ts": "2026-11-16T01:09:42.968Z",
+      "since": "2026-11-16T01:09:42.968Z"
     },
     "masterbot": {
       "state": "done",
