@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:17:46.743Z",
+  "updatedAt": "2026-11-16T21:20:03.454Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2419,8 +2419,8 @@
       "text": "Character in build 3?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:17:46.743Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:20:03.454Z"
     }
   ]
 }

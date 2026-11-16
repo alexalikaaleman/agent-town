@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:17:46.743Z",
+  "updatedAt": "2026-11-16T21:20:03.454Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T21:15:13.717Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Character in build 3?",
-      "project": "Bus Ninja 3D",
+      "state": "working",
+      "text": "Checking Sidewalk Wrestlers",
+      "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611162117-fdcd",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T21:17:46.743Z",
-      "since": "2026-11-16T21:17:46.743Z"
+      "needs": null,
+      "ts": "2026-11-16T21:20:03.454Z",
+      "since": "2026-11-16T21:20:03.454Z"
     },
     "cutscene-bot": {
       "state": "done",
