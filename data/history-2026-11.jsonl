@@ -1242,3 +1242,4 @@
 {"ts":"2026-11-16T18:00:18.191Z","bot":"game-revision-logger","state":"working","text":"Logging full map test note","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T18:04:00.477Z","bot":"game-revision-logger","state":"done","text":"Full map note logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T18:06:54.374Z","bot":"game-build-bible","needId":"n202611161806-660e","state":"needs-alex","text":"Build order section for test PDF?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-16T18:07:31.556Z","bot":"game-build-bible","handled":"n202611161806-660e"}

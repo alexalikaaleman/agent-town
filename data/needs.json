@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:06:54.374Z",
+  "updatedAt": "2026-11-16T18:07:31.556Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2159,8 +2159,8 @@
       "text": "Build order section for test PDF?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T18:06:54.374Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T18:07:31.556Z"
     }
   ]
 }
