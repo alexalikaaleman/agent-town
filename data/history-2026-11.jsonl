@@ -1393,3 +1393,4 @@
 {"ts":"2026-11-16T22:08:14.480Z","bot":"game-build-bible","handled":"n202611162207-00e7"}
 {"ts":"2026-11-16T22:08:18.868Z","bot":"game-build-bible","state":"working","text":"Saving real-names decision","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T22:11:13.835Z","bot":"game-build-bible","state":"done","text":"Names saved; next: GitWriter recheck","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T22:11:21.450Z","bot":"game-revision-logger","state":"working","text":"Logging decisions part 2","project":"Bus Ninja 3D"}
