@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T22:13:16.205Z",
+  "updatedAt": "2026-11-16T22:18:24.153Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T22:12:45.114Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3 v04 fixes",
+      "state": "done",
+      "text": "v04 fixes done; next: GitWriter check",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T22:13:16.205Z",
-      "since": "2026-11-16T22:13:16.205Z"
+      "ts": "2026-11-16T22:18:24.153Z",
+      "since": "2026-11-16T22:18:24.153Z"
     },
     "cutscene-bot": {
       "state": "done",
