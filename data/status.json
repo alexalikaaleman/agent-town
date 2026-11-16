@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:04:00.477Z",
+  "updatedAt": "2026-11-16T18:06:54.374Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-16T18:04:00.477Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Full map upload done; next: playtest",
+      "state": "needs-alex",
+      "text": "Build order section for test PDF?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T18:00:08.571Z",
-      "since": "2026-11-16T18:00:08.571Z"
+      "needs": {
+        "id": "n202611161806-660e",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T18:06:54.374Z",
+      "since": "2026-11-16T18:06:54.374Z"
     },
     "cutscene-bot": {
       "state": "done",
