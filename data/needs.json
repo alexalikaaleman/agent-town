@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:15:04.950Z",
+  "updatedAt": "2026-11-16T20:25:59.802Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2349,6 +2349,16 @@
       "text": "Start-zone paint picks",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T20:15:04.950Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611162025-1d78",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Income ideas: pick next step",
+      "project": "Income",
+      "ts": "2026-11-16T20:25:59.802Z",
       "handled": false,
       "handledAt": null
     }
