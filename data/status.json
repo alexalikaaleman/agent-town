@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:49:24.490Z",
+  "updatedAt": "2026-11-16T21:49:28.448Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T21:43:59.971Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "2009 bike path teal question",
+      "state": "working",
+      "text": "Build 3 fixes and decisions save",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T21:47:36.105Z",
-      "since": "2026-11-16T21:47:36.105Z"
+      "ts": "2026-11-16T21:49:28.448Z",
+      "since": "2026-11-16T21:49:28.448Z"
     },
     "cutscene-bot": {
       "state": "working",
