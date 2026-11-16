@@ -1214,3 +1214,4 @@
 {"ts":"2026-11-16T15:01:54.673Z","bot":"game-build-bible","state":"working","text":"Uploading new research","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T15:05:30.223Z","bot":"game-build-bible","state":"done","text":"Research upload done; next: playtest","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T15:05:36.280Z","bot":"game-revision-logger","state":"working","text":"Logging gaps-final note","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T15:08:07.001Z","bot":"game-revision-logger","state":"done","text":"Gaps note logged; next: idle","project":"Bus Ninja 3D"}
