@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:36:43.995Z",
+  "updatedAt": "2026-11-16T18:39:28.846Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2239,8 +2239,8 @@
       "text": "Save paint start zone note?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T18:36:43.995Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T18:39:28.846Z"
     }
   ]
 }
