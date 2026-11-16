@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:47:56.708Z",
+  "updatedAt": "2026-11-16T21:49:24.490Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2519,8 +2519,8 @@
       "text": "2009 bike path teal question",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:47:36.105Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:49:24.490Z"
     }
   ]
 }
