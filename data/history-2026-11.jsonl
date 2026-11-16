@@ -1216,3 +1216,4 @@
 {"ts":"2026-11-16T15:05:36.280Z","bot":"game-revision-logger","state":"working","text":"Logging gaps-final note","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T15:08:07.001Z","bot":"game-revision-logger","state":"done","text":"Gaps note logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T16:16:46.699Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep"}
+{"ts":"2026-11-16T16:20:11.093Z","bot":"robo-maintenance-bot","state":"done","text":"Daily sweep done; idle, nothing queued"}
