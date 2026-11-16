@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:14:15.025Z",
+  "updatedAt": "2026-11-16T21:15:13.717Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -28,16 +28,16 @@
       "since": "2026-11-16T19:40:02.548Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging sign color",
+      "state": "done",
+      "text": "Color logged; next: wait Alex on core",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611162008-d643",
         "kind": "question"
       },
-      "ts": "2026-11-16T21:14:15.025Z",
-      "since": "2026-11-16T21:14:15.025Z"
+      "ts": "2026-11-16T21:15:13.717Z",
+      "since": "2026-11-16T21:15:13.717Z"
     },
     "game-build-bible": {
       "state": "done",
