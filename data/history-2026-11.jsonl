@@ -1349,3 +1349,4 @@
 {"ts":"2026-11-16T21:15:13.717Z","bot":"game-revision-logger","state":"done","text":"Color logged; next: wait Alex on core","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T21:17:46.743Z","bot":"game-build-bible","needId":"n202611162117-fdcd","state":"needs-alex","text":"Character in build 3?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T21:20:03.454Z","bot":"game-build-bible","state":"working","text":"Checking Sidewalk Wrestlers","handled":"n202611162117-fdcd"}
+{"ts":"2026-11-16T21:20:18.216Z","bot":"game-build-bible","needId":"n202611162120-91e7","state":"needs-alex","text":"Sidewalk Wrestlers: first bot job?","needs":"question"}
