@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T17:15:49.787Z",
+  "updatedAt": "2026-11-16T17:22:47.674Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2089,8 +2089,8 @@
       "text": "Save building color decision?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T17:15:49.787Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T17:22:47.674Z"
     }
   ]
 }
