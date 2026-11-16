@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T22:46:40.284Z",
+  "updatedAt": "2026-11-16T22:47:28.355Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T22:37:17.849Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "v05 sent; awaiting GitWriter check",
+      "state": "needs-alex",
+      "text": "Pick guessed sign colors",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T22:34:14.501Z",
-      "since": "2026-11-16T22:34:14.501Z"
+      "needs": {
+        "id": "n202611162247-bfa9",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T22:47:28.355Z",
+      "since": "2026-11-16T22:47:28.355Z"
     },
     "cutscene-bot": {
       "state": "done",
