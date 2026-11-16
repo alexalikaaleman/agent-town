@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:13:08.733Z",
+  "updatedAt": "2026-11-16T05:26:45.645Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "OG Android title lag test",
+      "state": "needs-alex",
+      "text": "Respawn/SpaceSmoker paste; 3 Qs",
       "project": "dragon OG",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T05:13:08.733Z",
-      "since": "2026-11-16T05:13:08.733Z"
+      "needs": {
+        "id": "n202611160526-daa7",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T05:26:45.645Z",
+      "since": "2026-11-16T05:26:45.645Z"
     },
     "masterbot": {
       "state": "needs-alex",
