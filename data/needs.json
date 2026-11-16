@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T23:13:08.587Z",
+  "updatedAt": "2026-11-16T23:23:12.891Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2589,8 +2589,8 @@
       "text": "Add sign picks to build 4?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T23:13:08.587Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T23:23:12.891Z"
     }
   ]
 }
