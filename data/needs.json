@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:05:09.546Z",
+  "updatedAt": "2026-11-16T05:10:38.478Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1879,8 +1879,8 @@
       "text": "Android lag: need cap yes in my chat",
       "project": "dragon OG",
       "ts": "2026-11-16T05:04:52.888Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T05:10:38.478Z"
     },
     {
       "id": "n202611160505-9130",
