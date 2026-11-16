@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:00:09.425Z",
+  "updatedAt": "2026-11-16T20:01:02.841Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-16T19:47:19.738Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Save 3D alley paint style?",
+      "state": "working",
+      "text": "Paint style saved; gaps research next",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611162000-5b37",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T20:00:09.425Z",
-      "since": "2026-11-16T20:00:09.425Z"
+      "needs": null,
+      "ts": "2026-11-16T20:01:02.841Z",
+      "since": "2026-11-16T20:01:02.841Z"
     },
     "cutscene-bot": {
       "state": "done",
