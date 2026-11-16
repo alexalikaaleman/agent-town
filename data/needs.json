@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:52:19.398Z",
+  "updatedAt": "2026-11-16T21:04:51.706Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2389,6 +2389,16 @@
       "text": "Save Nogard building decision?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T20:51:46.571Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611162104-6843",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Save parody sign names?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T21:04:51.706Z",
       "handled": false,
       "handledAt": null
     }
