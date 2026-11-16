@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:51:46.571Z",
+  "updatedAt": "2026-11-16T20:52:19.398Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,16 @@
       "since": "2026-11-16T20:34:18.854Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Save Nogard building decision?",
+      "state": "working",
+      "text": "Saving building paint colors",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611162051-a656",
         "kind": "question"
       },
-      "ts": "2026-11-16T20:51:46.571Z",
-      "since": "2026-11-16T20:51:46.571Z"
+      "ts": "2026-11-16T20:52:19.398Z",
+      "since": "2026-11-16T20:52:19.398Z"
     },
     "cutscene-bot": {
       "state": "done",
