@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:34:18.854Z",
+  "updatedAt": "2026-11-16T20:51:46.571Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,15 +41,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Start-zone paint review",
+      "text": "Save Nogard building decision?",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611162033-c748",
+        "id": "n202611162051-a656",
         "kind": "question"
       },
-      "ts": "2026-11-16T20:33:38.572Z",
-      "since": "2026-11-16T20:33:38.572Z"
+      "ts": "2026-11-16T20:51:46.571Z",
+      "since": "2026-11-16T20:51:46.571Z"
     },
     "cutscene-bot": {
       "state": "done",
