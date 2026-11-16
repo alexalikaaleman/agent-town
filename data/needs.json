@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:36:27.907Z",
+  "updatedAt": "2026-11-16T21:38:42.156Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2449,8 +2449,8 @@
       "text": "Say yes in MasterBot chat for core",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:33:24.858Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:38:42.156Z"
     },
     {
       "id": "n202611162136-3918",
