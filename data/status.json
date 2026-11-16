@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T22:08:14.480Z",
+  "updatedAt": "2026-11-16T22:08:18.868Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T22:05:38.418Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Save real-names decision?",
+      "state": "working",
+      "text": "Saving real-names decision",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T22:07:15.447Z",
-      "since": "2026-11-16T22:07:15.447Z"
+      "ts": "2026-11-16T22:08:18.868Z",
+      "since": "2026-11-16T22:08:18.868Z"
     },
     "cutscene-bot": {
       "state": "done",
