@@ -1,22 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:37:17.465Z",
+  "updatedAt": "2026-11-16T21:37:42.709Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "done",
-      "text": "OG: skip PDF; paste 5 txts next",
-      "project": "dragon OG",
+      "state": "working",
+      "text": "BN3D build 3 package check",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611161311-e78f",
         "kind": "question"
       },
-      "ts": "2026-11-16T20:30:00.554Z",
-      "since": "2026-11-16T20:30:00.554Z"
+      "ts": "2026-11-16T21:37:42.709Z",
+      "since": "2026-11-16T21:37:42.709Z"
     },
     "masterbot": {
       "state": "needs-alex",
