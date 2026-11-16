@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:16:30.252Z",
+  "updatedAt": "2026-11-16T14:16:57.422Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2021,6 +2021,16 @@
       "ts": "2026-11-16T14:16:06.385Z",
       "handled": true,
       "handledAt": "2026-11-16T14:16:30.252Z"
+    },
+    {
+      "id": "n202611161416-b1ba",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "YouTube bot: Shorts and bot name",
+      "project": "Grok Bot channel",
+      "ts": "2026-11-16T14:16:57.422Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
