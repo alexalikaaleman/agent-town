@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:17:42.523Z",
+  "updatedAt": "2026-11-16T20:24:41.637Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -175,13 +175,13 @@
       "since": "2026-11-10T18:18:06.262Z"
     },
     "hustle-bot": {
-      "state": "done",
-      "text": "Bot Tube paused; next: Alex returns",
-      "project": "Grok Bot channel",
+      "state": "working",
+      "text": "Income strategy session",
+      "project": "Income",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T14:25:18.647Z",
-      "since": "2026-11-16T14:25:18.647Z"
+      "ts": "2026-11-16T20:24:41.637Z",
+      "since": "2026-11-16T20:24:41.637Z"
     },
     "larry-h-robot": {
       "state": "done",
