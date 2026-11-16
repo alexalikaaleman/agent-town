@@ -1117,3 +1117,4 @@
 {"ts":"2026-11-15T22:13:09.325Z","bot":"game-build-bible","state":"done","text":"Off-pier fix saved; next: Logger receipt","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T22:13:17.810Z","bot":"game-revision-logger","state":"working","text":"Logging off-pier report fix","project":"Bus Ninja 3D"}
 {"ts":"2026-11-15T22:14:38.411Z","bot":"game-revision-logger","state":"done","text":"Fix logged; next: Alex slope reply","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T00:14:31.169Z","bot":"game-build-bible","state":"working","text":"Bus Ninja research loose ends","project":"Bus Ninja 3D"}
