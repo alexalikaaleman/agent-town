@@ -1422,3 +1422,4 @@
 {"ts":"2026-11-16T23:23:17.273Z","bot":"game-build-bible","state":"working","text":"Build 3 upload, sign colors note","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T23:29:30.231Z","bot":"game-revision-logger","state":"working","text":"Logging sign colors build 4","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T23:29:35.907Z","bot":"game-build-bible","state":"done","text":"Build 3 sent; next: build 4 zone","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T23:30:57.624Z","bot":"game-revision-logger","state":"done","text":"Colors logged; idle, nothing queued","project":"Bus Ninja 3D"}
