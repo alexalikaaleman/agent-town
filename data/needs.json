@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:42:46.259Z",
+  "updatedAt": "2026-11-16T21:43:00.696Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2489,6 +2489,16 @@
       "text": "How Silvio's still goes in build 3",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:42:46.259Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611162143-1cb9",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "BBQ front still: mural or guide?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T21:43:00.696Z",
       "handled": false,
       "handledAt": null
     }

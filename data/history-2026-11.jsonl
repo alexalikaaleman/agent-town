@@ -1370,3 +1370,4 @@
 {"ts":"2026-11-16T21:41:59.840Z","bot":"cutscene-bot","state":"working","text":"Silvio's front still","project":"Bus Ninja 3D","handled":"n202611162140-dc12"}
 {"ts":"2026-11-16T21:42:07.223Z","bot":"game-build-bible","state":"working","text":"Waiting on GitWriter check","project":"Bus Ninja 3D","handled":"n202611162140-57f2"}
 {"ts":"2026-11-16T21:42:46.259Z","bot":"game-build-bible","needId":"n202611162142-3b1e","state":"needs-alex","text":"How Silvio's still goes in build 3","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-16T21:43:00.696Z","bot":"cutscene-bot","needId":"n202611162143-1cb9","state":"needs-alex","text":"BBQ front still: mural or guide?","project":"Bus Ninja 3D","needs":"question"}
