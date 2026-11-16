@@ -1230,3 +1230,4 @@
 {"ts":"2026-11-16T17:28:13.666Z","bot":"game-build-bible","state":"working","text":"Building 7x7 test map files","project":"Bus Ninja 3D","handled":"n202611161727-0cfa"}
 {"ts":"2026-11-16T17:28:57.954Z","bot":"game-build-bible","needId":"n202611161728-2f76","state":"needs-alex","text":"Bus Ninja index and file sizes?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T17:29:05.255Z","bot":"game-revision-logger","state":"working","text":"Logging business detail note","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T17:29:58.797Z","bot":"game-revision-logger","state":"done","text":"Business note logged; next: idle","project":"Bus Ninja 3D"}
