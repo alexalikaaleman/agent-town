@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:25:59.802Z",
+  "updatedAt": "2026-11-16T20:31:03.204Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2359,6 +2359,16 @@
       "text": "Income ideas: pick next step",
       "project": "Income",
       "ts": "2026-11-16T20:25:59.802Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611162031-9b5f",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Silvio's front sign decision",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T20:31:03.204Z",
       "handled": false,
       "handledAt": null
     }

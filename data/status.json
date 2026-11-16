@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:30:47.976Z",
+  "updatedAt": "2026-11-16T20:31:03.204Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,15 +41,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Start-zone paint picks",
+      "text": "Silvio's front sign decision",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611162015-3673",
+        "id": "n202611162031-9b5f",
         "kind": "question"
       },
-      "ts": "2026-11-16T20:15:04.950Z",
-      "since": "2026-11-16T20:15:04.950Z"
+      "ts": "2026-11-16T20:31:03.204Z",
+      "since": "2026-11-16T20:31:03.204Z"
     },
     "cutscene-bot": {
       "state": "done",
