@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T01:31:43.037Z",
+  "updatedAt": "2026-11-16T01:38:16.670Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
   },
   "bots": {
     "gitwriter-3d-bot": {
-      "state": "working",
-      "text": "Writing OG v6 lag/effects fix paste",
+      "state": "done",
+      "text": "OG v6 fix paste done; next: Alex paste",
       "project": "dragon OG",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T01:31:43.037Z",
-      "since": "2026-11-16T01:09:42.968Z"
+      "ts": "2026-11-16T01:38:16.670Z",
+      "since": "2026-11-16T01:38:16.670Z"
     },
     "masterbot": {
       "state": "needs-alex",
