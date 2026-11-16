@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T22:02:11.892Z",
+  "updatedAt": "2026-11-16T22:07:10.272Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2539,8 +2539,8 @@
       "text": "Is test build 3 a public build?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T22:02:11.892Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T22:07:10.272Z"
     }
   ]
 }
