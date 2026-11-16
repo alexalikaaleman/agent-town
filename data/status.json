@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T23:30:57.624Z",
+  "updatedAt": "2026-11-16T23:36:33.286Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,16 @@
       "since": "2026-11-16T21:49:42.097Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Log v4.1 phone findings",
+      "state": "needs-alex",
+      "text": "4 dragon v4.1 questions",
       "project": "Dragon game",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T23:23:04.122Z",
-      "since": "2026-11-16T20:14:02.506Z"
+      "needs": {
+        "id": "n202611162336-1bfb",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T23:36:33.286Z",
+      "since": "2026-11-16T23:36:33.286Z"
     },
     "game-design-document-bot": {
       "state": "done",
