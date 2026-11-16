@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:49:48.628Z",
+  "updatedAt": "2026-11-16T21:52:06.833Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,10 +41,7 @@
       "text": "Pick Silvio's front guide still",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611162149-f8ec",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-16T21:49:48.628Z",
       "since": "2026-11-16T21:49:48.628Z"
     },
