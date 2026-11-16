@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:28:55.802Z",
+  "updatedAt": "2026-11-16T11:43:35.096Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1901,6 +1901,16 @@
       "ts": "2026-11-16T05:26:45.645Z",
       "handled": true,
       "handledAt": "2026-11-16T05:28:55.802Z"
+    },
+    {
+      "id": "n202611161143-a5c9",
+      "bot": "gitwriter-3d-bot",
+      "kind": "question",
+      "text": "OG 7 fixes parked: cap 63%",
+      "project": "dragon OG",
+      "ts": "2026-11-16T11:43:35.096Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
