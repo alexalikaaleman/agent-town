@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T20:08:39.046Z",
+  "updatedAt": "2026-11-16T20:15:04.950Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2339,6 +2339,16 @@
       "text": "GBB core v1.9 secret hit: keep?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T20:08:39.046Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611162015-3673",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Start-zone paint picks",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T20:15:04.950Z",
       "handled": false,
       "handledAt": null
     }

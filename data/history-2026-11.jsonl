@@ -1319,3 +1319,4 @@
 {"ts":"2026-11-16T20:03:11.412Z","bot":"game-build-bible","state":"done","text":"Core v1.9 done; next: map package","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T20:08:39.046Z","bot":"game-revision-logger","needId":"n202611162008-d643","state":"needs-alex","text":"GBB core v1.9 secret hit: keep?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-16T20:14:02.506Z","bot":"robotemplate","state":"working","text":"Dragon pastes to PDF","project":"Dragon game"}
+{"ts":"2026-11-16T20:15:04.950Z","bot":"game-build-bible","needId":"n202611162015-3673","state":"needs-alex","text":"Start-zone paint picks","project":"Bus Ninja 3D","needs":"question"}
