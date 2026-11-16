@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:19:05.203Z",
+  "updatedAt": "2026-11-16T14:19:46.935Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -178,16 +178,16 @@
       "since": "2026-11-10T18:18:06.262Z"
     },
     "hustle-bot": {
-      "state": "needs-alex",
-      "text": "Bot Tube: who records footage",
-      "project": "Grok Bot channel",
+      "state": "done",
+      "text": "Channel plan done; next: Alex review",
+      "project": "Grok Bot YouTube channel",
       "with": [],
       "needs": {
         "id": "n202611161419-e897",
         "kind": "question"
       },
-      "ts": "2026-11-16T14:19:05.203Z",
-      "since": "2026-11-16T14:19:05.203Z"
+      "ts": "2026-11-16T14:19:46.935Z",
+      "since": "2026-11-16T14:19:46.935Z"
     },
     "larry-h-robot": {
       "state": "done",
