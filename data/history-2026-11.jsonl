@@ -1305,3 +1305,4 @@
 {"ts":"2026-11-16T19:35:16.143Z","bot":"masterbot","state":"working","text":"Bus Ninja collab lines, 3 bots","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T19:35:20.442Z","bot":"masterbot","handled":"n202611160131-9634"}
 {"ts":"2026-11-16T19:37:16.187Z","bot":"game-revision-logger","state":"done","text":"Collab r2 logged; next: idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T19:40:02.548Z","bot":"masterbot","state":"done","text":"Collab lines done; idle, nothing queued","project":"Bus Ninja 3D"}
