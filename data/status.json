@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:33:44.558Z",
+  "updatedAt": "2026-11-16T19:34:29.440Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T19:33:02.167Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Apply 6 collab log upgrades?",
+      "state": "working",
+      "text": "Collab log r2 saved; map gaps next",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611161933-9afe",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T19:33:09.462Z",
-      "since": "2026-11-16T19:33:09.462Z"
+      "needs": null,
+      "ts": "2026-11-16T19:34:29.440Z",
+      "since": "2026-11-16T19:34:29.440Z"
     },
     "cutscene-bot": {
       "state": "working",

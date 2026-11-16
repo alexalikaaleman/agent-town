@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:33:09.462Z",
+  "updatedAt": "2026-11-16T19:34:29.440Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2289,8 +2289,8 @@
       "text": "Apply 6 collab log upgrades?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T19:33:09.462Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T19:34:29.440Z"
     }
   ]
 }
