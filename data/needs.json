@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T18:09:14.596Z",
+  "updatedAt": "2026-11-16T18:09:39.672Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2169,8 +2169,8 @@
       "text": "Guess log button in test PDF?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T18:09:14.596Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T18:09:39.672Z"
     }
   ]
 }
