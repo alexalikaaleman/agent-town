@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:42:07.223Z",
+  "updatedAt": "2026-11-16T21:42:46.259Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T21:38:46.546Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Waiting on GitWriter check",
+      "state": "needs-alex",
+      "text": "How Silvio's still goes in build 3",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-16T21:42:07.223Z",
-      "since": "2026-11-16T21:42:07.223Z"
+      "needs": {
+        "id": "n202611162142-3b1e",
+        "kind": "question"
+      },
+      "ts": "2026-11-16T21:42:46.259Z",
+      "since": "2026-11-16T21:42:46.259Z"
     },
     "cutscene-bot": {
       "state": "working",

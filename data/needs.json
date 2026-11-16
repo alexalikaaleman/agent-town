@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:42:07.223Z",
+  "updatedAt": "2026-11-16T21:42:46.259Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2481,6 +2481,16 @@
       "ts": "2026-11-16T21:40:16.795Z",
       "handled": true,
       "handledAt": "2026-11-16T21:41:59.840Z"
+    },
+    {
+      "id": "n202611162142-3b1e",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "How Silvio's still goes in build 3",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T21:42:46.259Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
