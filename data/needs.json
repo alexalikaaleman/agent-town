@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:25:14.415Z",
+  "updatedAt": "2026-11-16T14:25:27.843Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2009,8 +2009,8 @@
       "text": "YouTube bot design: feature 1",
       "project": null,
       "ts": "2026-11-16T14:15:49.153Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T14:25:27.843Z"
     },
     {
       "id": "n202611161416-dea0",
