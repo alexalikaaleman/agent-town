@@ -1327,3 +1327,4 @@
 {"ts":"2026-11-16T20:30:00.554Z","bot":"gitwriter-3d-bot","state":"done","text":"OG: skip PDF; paste 5 txts next","project":"dragon OG"}
 {"ts":"2026-11-16T20:30:47.976Z","bot":"chief-of-staff","state":"done","text":"Urgent check done; idle, nothing queued"}
 {"ts":"2026-11-16T20:31:03.204Z","bot":"game-build-bible","needId":"n202611162031-9b5f","state":"needs-alex","text":"Silvio's front sign decision","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-16T20:31:56.092Z","bot":"game-build-bible","handled":"n202611162031-9b5f"}
