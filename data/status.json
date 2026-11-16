@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T11:00:16.570Z",
+  "updatedAt": "2026-11-16T11:00:38.611Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -88,13 +88,13 @@
       "since": "2026-11-14T05:33:34.185Z"
     },
     "garage-sale-bot": {
-      "state": "working",
-      "text": "Weekly list reset",
+      "state": "done",
+      "text": "List reset done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T11:00:16.570Z",
-      "since": "2026-11-16T11:00:16.570Z"
+      "ts": "2026-11-16T11:00:38.611Z",
+      "since": "2026-11-16T11:00:38.611Z"
     },
     "playtest-qa-bot": {
       "state": "done",
