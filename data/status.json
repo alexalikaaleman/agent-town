@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T15:08:07.001Z",
+  "updatedAt": "2026-11-16T16:16:46.699Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -103,16 +103,16 @@
       "since": "2026-11-16T11:18:51.328Z"
     },
     "robo-maintenance-bot": {
-      "state": "done",
-      "text": "Daily sweep done; idle, nothing queued",
+      "state": "working",
+      "text": "Daily sweep",
       "project": null,
       "with": [],
       "needs": {
         "id": "n202611070624-3c1e",
         "kind": "question"
       },
-      "ts": "2026-11-15T16:11:06.619Z",
-      "since": "2026-11-15T16:11:06.619Z"
+      "ts": "2026-11-16T16:16:46.699Z",
+      "since": "2026-11-16T16:16:46.699Z"
     },
     "chief-of-staff": {
       "state": "done",
