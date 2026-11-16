@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T00:29:17.049Z",
+  "updatedAt": "2026-11-16T00:49:20.245Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1819,6 +1819,16 @@
       "text": "Add loose-end research?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T00:29:17.049Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611160049-34e6",
+      "bot": "robotemplate",
+      "kind": "question",
+      "text": "OG P3 lag test: need new cap",
+      "project": "Dragon game",
+      "ts": "2026-11-16T00:49:20.245Z",
       "handled": false,
       "handledAt": null
     }
