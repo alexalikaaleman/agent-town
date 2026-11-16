@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:17:57.273Z",
+  "updatedAt": "2026-11-16T14:18:39.260Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2039,8 +2039,8 @@
       "text": "Bot Tube: how often for ideas",
       "project": "Grok Bot channel",
       "ts": "2026-11-16T14:17:57.273Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T14:18:39.260Z"
     }
   ]
 }
