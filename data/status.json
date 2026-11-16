@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:41:59.840Z",
+  "updatedAt": "2026-11-16T21:42:07.223Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-16T21:38:46.546Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Silvio's front art plan?",
+      "state": "working",
+      "text": "Waiting on GitWriter check",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611162140-57f2",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T21:40:09.260Z",
-      "since": "2026-11-16T21:40:09.260Z"
+      "needs": null,
+      "ts": "2026-11-16T21:42:07.223Z",
+      "since": "2026-11-16T21:42:07.223Z"
     },
     "cutscene-bot": {
       "state": "working",

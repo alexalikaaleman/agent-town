@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:41:59.840Z",
+  "updatedAt": "2026-11-16T21:42:07.223Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2469,8 +2469,8 @@
       "text": "Silvio's front art plan?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T21:40:09.260Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:42:07.223Z"
     },
     {
       "id": "n202611162140-dc12",
