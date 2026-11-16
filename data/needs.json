@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T14:17:20.203Z",
+  "updatedAt": "2026-11-16T14:17:57.273Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2031,6 +2031,16 @@
       "ts": "2026-11-16T14:16:57.422Z",
       "handled": true,
       "handledAt": "2026-11-16T14:17:20.203Z"
+    },
+    {
+      "id": "n202611161417-730b",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Bot Tube: how often for ideas",
+      "project": "Grok Bot channel",
+      "ts": "2026-11-16T14:17:57.273Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
