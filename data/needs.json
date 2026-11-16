@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T19:15:15.539Z",
+  "updatedAt": "2026-11-16T19:15:36.284Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2261,6 +2261,16 @@
       "ts": "2026-11-16T19:14:42.241Z",
       "handled": true,
       "handledAt": "2026-11-16T19:15:15.539Z"
+    },
+    {
+      "id": "n202611161915-bea7",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Art references folder yes/no",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-16T19:15:36.284Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
