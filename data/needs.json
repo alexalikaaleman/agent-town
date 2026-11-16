@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T22:07:15.447Z",
+  "updatedAt": "2026-11-16T22:08:14.480Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2549,8 +2549,8 @@
       "text": "Save real-names decision?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-16T22:07:15.447Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T22:08:14.480Z"
     }
   ]
 }
