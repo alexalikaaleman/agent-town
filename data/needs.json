@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T05:04:00.484Z",
+  "updatedAt": "2026-11-16T05:04:25.370Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -1869,8 +1869,8 @@
       "text": "Cap for Android lag test",
       "project": "Dragon Game",
       "ts": "2026-11-16T05:04:00.484Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T05:04:25.370Z"
     }
   ]
 }
