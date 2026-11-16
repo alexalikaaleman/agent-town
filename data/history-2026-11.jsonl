@@ -1202,3 +1202,4 @@
 {"ts":"2026-11-16T14:19:46.935Z","bot":"hustle-bot","state":"done","text":"Channel plan done; next: Alex review","project":"Grok Bot YouTube channel"}
 {"ts":"2026-11-16T14:20:05.810Z","bot":"hustle-bot","handled":"n202611161419-e897"}
 {"ts":"2026-11-16T14:20:09.840Z","bot":"hustle-bot","state":"working","text":"Alika Bots growth plan","project":"Grok Bot channel"}
+{"ts":"2026-11-16T14:20:44.596Z","bot":"hustle-bot","needId":"n202611161420-ca9f","state":"needs-alex","text":"Bot Tube: footage and usage cap","project":"Grok Bot channel","needs":"question"}
