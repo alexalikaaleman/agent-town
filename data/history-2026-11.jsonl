@@ -1248,3 +1248,4 @@
 {"ts":"2026-11-16T18:09:39.672Z","bot":"game-build-bible","handled":"n202611161809-a1ab"}
 {"ts":"2026-11-16T18:09:43.788Z","bot":"game-build-bible","state":"working","text":"Test map PDF v02","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T18:11:00.724Z","bot":"game-build-bible","state":"done","text":"Map PDF done; next: Alex playtest","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T18:11:08.611Z","bot":"game-revision-logger","state":"working","text":"Logging two map PDF notes","project":"Bus Ninja 3D"}
