@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T00:51:15.682Z",
+  "updatedAt": "2026-11-16T00:51:19.590Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -58,13 +58,13 @@
       "since": "2026-11-14T05:33:12.894Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "OG P3 lag test: need new cap",
+      "state": "working",
+      "text": "OG P3 lag and effects test",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T00:49:20.245Z",
-      "since": "2026-11-16T00:49:20.245Z"
+      "ts": "2026-11-16T00:51:19.590Z",
+      "since": "2026-11-16T00:51:19.590Z"
     },
     "game-design-document-bot": {
       "state": "done",
