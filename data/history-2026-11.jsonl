@@ -1186,3 +1186,4 @@
 {"ts":"2026-11-16T13:59:14.826Z","bot":"game-revision-logger","state":"working","text":"Logging prototype test note","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T14:00:33.899Z","bot":"game-revision-logger","state":"done","text":"Proto note logged; next: idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-16T14:03:28.414Z","bot":"game-build-bible","state":"done","text":"Gap research done; next: upload OK?","project":"Bus Ninja 3D"}
+{"ts":"2026-11-16T14:03:32.970Z","bot":"game-build-bible","needId":"n202611161403-9e7c","state":"needs-alex","text":"OK to upload research to Drive?","project":"Bus Ninja 3D","needs":"question"}
