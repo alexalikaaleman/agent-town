@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:20:18.216Z",
+  "updatedAt": "2026-11-16T21:21:32.392Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2429,8 +2429,8 @@
       "text": "Sidewalk Wrestlers: first bot job?",
       "project": null,
       "ts": "2026-11-16T21:20:18.216Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-16T21:21:32.392Z"
     }
   ]
 }

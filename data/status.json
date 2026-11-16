@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T21:20:18.216Z",
+  "updatedAt": "2026-11-16T21:21:32.392Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T21:15:13.717Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Sidewalk Wrestlers: first bot job?",
-      "project": null,
+      "state": "done",
+      "text": "Helper note saved; next: map package",
+      "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611162120-91e7",
-        "kind": "question"
-      },
-      "ts": "2026-11-16T21:20:18.216Z",
-      "since": "2026-11-16T21:20:18.216Z"
+      "needs": null,
+      "ts": "2026-11-16T21:21:32.392Z",
+      "since": "2026-11-16T21:21:32.392Z"
     },
     "cutscene-bot": {
       "state": "done",
