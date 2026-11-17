@@ -1427,3 +1427,4 @@
 {"ts":"2026-11-16T23:40:55.631Z","bot":"robotemplate","needId":"n202611162340-1537","state":"needs-alex","text":"v4.1 check done; 4 Qs open","project":"Dragon game","needs":"question"}
 {"ts":"2026-11-17T00:21:57.444Z","bot":"robotemplate","handled":"n202611162340-1537"}
 {"ts":"2026-11-17T00:22:01.917Z","bot":"robotemplate","handled":"n202611162336-1bfb"}
+{"ts":"2026-11-17T00:22:05.875Z","bot":"robotemplate","state":"done","text":"v4.1 Qs done; next: GitWriter go","project":"Dragon game"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T00:21:57.444Z",
+  "updatedAt": "2026-11-17T00:22:05.875Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,13 @@
       "since": "2026-11-16T21:49:42.097Z"
     },
     "robotemplate": {
-      "state": "needs-alex",
-      "text": "v4.1 check done; 4 Qs open",
+      "state": "done",
+      "text": "v4.1 Qs done; next: GitWriter go",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T23:40:55.631Z",
-      "since": "2026-11-16T23:40:55.631Z"
+      "ts": "2026-11-17T00:22:05.875Z",
+      "since": "2026-11-17T00:22:05.875Z"
     },
     "game-design-document-bot": {
       "state": "done",
