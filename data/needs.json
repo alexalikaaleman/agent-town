@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T00:22:01.917Z",
+  "updatedAt": "2026-11-17T00:49:48.839Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2611,6 +2611,16 @@
       "ts": "2026-11-16T23:40:55.631Z",
       "handled": true,
       "handledAt": "2026-11-17T00:21:57.444Z"
+    },
+    {
+      "id": "n202611170049-beb5",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "OK fix plan for missing buildings?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T00:49:48.839Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
