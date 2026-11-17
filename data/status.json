@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T23:40:44.866Z",
+  "updatedAt": "2026-11-17T23:42:47.430Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -44,10 +44,7 @@
       "text": "Redondo pier: yes on all six?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611172340-97f5",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-17T23:40:44.866Z",
       "since": "2026-11-17T23:40:44.866Z"
     },
