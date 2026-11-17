@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T02:08:37.422Z",
+  "updatedAt": "2026-11-17T04:15:03.181Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Build 3.1 sent; next: live test",
+      "state": "working",
+      "text": "Build 3.2 package v08",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T02:08:37.422Z",
-      "since": "2026-11-17T02:08:37.422Z"
+      "ts": "2026-11-17T04:15:03.181Z",
+      "since": "2026-11-17T04:15:03.181Z"
     },
     "cutscene-bot": {
       "state": "done",
