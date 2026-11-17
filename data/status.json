@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:50:24.007Z",
+  "updatedAt": "2026-11-17T06:52:30.176Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,13 +73,13 @@
       "since": "2026-11-14T05:37:15.455Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Garage ramp search",
+      "state": "done",
+      "text": "Ramp search done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T06:41:16.240Z",
-      "since": "2026-11-17T06:41:16.240Z"
+      "ts": "2026-11-17T06:52:30.176Z",
+      "since": "2026-11-17T06:52:30.176Z"
     },
     "garage-sale-bot": {
       "state": "done",
