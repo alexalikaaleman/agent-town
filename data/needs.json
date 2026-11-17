@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:42:27.393Z",
+  "updatedAt": "2026-11-17T07:43:45.515Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2819,8 +2819,8 @@
       "text": "Garage join step: OK 0.10 m?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T07:42:27.393Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T07:43:45.515Z"
     }
   ]
 }
