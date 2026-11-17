@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T23:40:55.631Z",
+  "updatedAt": "2026-11-17T00:21:57.444Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2609,8 +2609,8 @@
       "text": "v4.1 check done; 4 Qs open",
       "project": "Dragon game",
       "ts": "2026-11-16T23:40:55.631Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T00:21:57.444Z"
     }
   ]
 }
