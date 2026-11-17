@@ -1496,3 +1496,4 @@
 {"ts":"2026-11-17T07:01:01.525Z","bot":"game-build-bible","state":"working","text":"Build 3.2 garage rebuild","project":"Bus Ninja 3D","handled":"n202611170658-7244"}
 {"ts":"2026-11-17T07:01:11.525Z","bot":"cutscene-bot","state":"working","text":"Garage v03 checks","project":"Bus Ninja 3D","handled":"n202611170654-e1db"}
 {"ts":"2026-11-17T07:04:34.890Z","bot":"concept-art-bot","state":"done","text":"Rear entrance done; idle, nothing queued","project":"Bus Ninja 3D"}
+{"ts":"2026-11-17T07:07:23.408Z","bot":"game-build-bible","needId":"n202611170707-a010","state":"needs-alex","text":"Where garage ramp ends","project":"Bus Ninja 3D","needs":"question"}
