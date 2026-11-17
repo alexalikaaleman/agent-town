@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:50:18.488Z",
+  "updatedAt": "2026-11-17T06:50:24.007Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2729,8 +2729,8 @@
       "text": "Garage banner: add it?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T06:46:08.012Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T06:50:24.007Z"
     },
     {
       "id": "n202611170646-3e74",
