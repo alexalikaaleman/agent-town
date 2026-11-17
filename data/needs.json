@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:18:30.604Z",
+  "updatedAt": "2026-11-17T07:25:36.483Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2779,8 +2779,8 @@
       "text": "Garage north ramp vs bike path",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T07:18:30.604Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T07:25:36.483Z"
     }
   ]
 }
