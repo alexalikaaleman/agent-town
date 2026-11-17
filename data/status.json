@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T18:12:06.312Z",
+  "updatedAt": "2026-11-17T18:15:25.069Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -58,13 +58,13 @@
       "since": "2026-11-17T09:18:56.586Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "BN 3.2 Qs answered; next: final check",
-      "project": "Bus Ninja 3D",
+      "state": "working",
+      "text": "Weekly design sweep",
+      "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T09:19:45.284Z",
-      "since": "2026-11-17T09:19:45.284Z"
+      "ts": "2026-11-17T18:15:25.069Z",
+      "since": "2026-11-17T18:15:25.069Z"
     },
     "game-design-document-bot": {
       "state": "done",
