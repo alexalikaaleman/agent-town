@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:25:36.483Z",
+  "updatedAt": "2026-11-17T07:29:51.204Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Garage pass 3 fixes",
+      "state": "needs-alex",
+      "text": "Who takes over the garage",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T07:25:36.483Z",
-      "since": "2026-11-17T07:25:36.483Z"
+      "needs": {
+        "id": "n202611170729-fa30",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T07:29:51.204Z",
+      "since": "2026-11-17T07:29:51.204Z"
     },
     "cutscene-bot": {
       "state": "working",
