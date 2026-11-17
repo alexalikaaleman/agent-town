@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T04:50:00.892Z",
+  "updatedAt": "2026-11-17T05:13:31.573Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -46,13 +46,13 @@
       "since": "2026-11-17T04:38:25.893Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "C005 draft done; next: walk notes",
+      "state": "working",
+      "text": "C005 Redondo spec final",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T04:43:44.181Z",
-      "since": "2026-11-17T04:43:44.181Z"
+      "ts": "2026-11-17T05:13:31.573Z",
+      "since": "2026-11-17T05:13:31.573Z"
     },
     "robotemplate": {
       "state": "done",
