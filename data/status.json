@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:23:11.375Z",
+  "updatedAt": "2026-11-17T06:28:45.089Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -47,12 +47,12 @@
     },
     "cutscene-bot": {
       "state": "done",
-      "text": "Garage addendum done; next: judge redo",
+      "text": "Garage v02 done; next: judge rebuild",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T06:22:14.984Z",
-      "since": "2026-11-17T06:22:14.984Z"
+      "ts": "2026-11-17T06:28:45.089Z",
+      "since": "2026-11-17T06:28:45.089Z"
     },
     "robotemplate": {
       "state": "done",
