@@ -1530,3 +1530,4 @@
 {"ts":"2026-11-17T09:18:13.163Z","bot":"game-build-bible","state":"done","text":"11pm status done; idle, nothing queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T09:18:56.586Z","bot":"cutscene-bot","state":"done","text":"Garage rating done; idle, nothing queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T09:19:45.284Z","bot":"robotemplate","state":"done","text":"BN 3.2 Qs answered; next: final check","project":"Bus Ninja 3D"}
+{"ts":"2026-11-17T09:20:47.754Z","bot":"game-build-bible","needId":"n202611170920-3743","state":"needs-alex","text":"Where to put build 3.2 zip","project":"Bus Ninja 3D","needs":"question"}

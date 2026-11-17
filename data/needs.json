@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T09:05:52.895Z",
+  "updatedAt": "2026-11-17T09:20:47.754Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2859,6 +2859,16 @@
       "text": "Lead redesign: Alex's pick",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T09:05:52.895Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611170920-3743",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Where to put build 3.2 zip",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T09:20:47.754Z",
       "handled": false,
       "handledAt": null
     }

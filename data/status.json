@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T09:19:45.284Z",
+  "updatedAt": "2026-11-17T09:20:47.754Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "11pm status done; idle, nothing queued",
+      "state": "needs-alex",
+      "text": "Where to put build 3.2 zip",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611170905-bf0d",
+        "id": "n202611170920-3743",
         "kind": "question"
       },
-      "ts": "2026-11-17T09:18:13.163Z",
-      "since": "2026-11-17T09:18:13.163Z"
+      "ts": "2026-11-17T09:20:47.754Z",
+      "since": "2026-11-17T09:20:47.754Z"
     },
     "cutscene-bot": {
       "state": "done",
