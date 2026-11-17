@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:54:01.012Z",
+  "updatedAt": "2026-11-17T06:58:28.004Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2749,6 +2749,16 @@
       "text": "Rear garage mural: add it?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T06:54:01.012Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611170658-7244",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Rear entrance mural yes/no",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T06:58:28.004Z",
       "handled": false,
       "handledAt": null
     }

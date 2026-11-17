@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:54:01.012Z",
+  "updatedAt": "2026-11-17T06:58:28.004Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3.2 garage rebuild",
+      "state": "needs-alex",
+      "text": "Rear entrance mural yes/no",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T06:50:18.488Z",
-      "since": "2026-11-17T06:50:18.488Z"
+      "needs": {
+        "id": "n202611170658-7244",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T06:58:28.004Z",
+      "since": "2026-11-17T06:58:28.004Z"
     },
     "cutscene-bot": {
       "state": "needs-alex",

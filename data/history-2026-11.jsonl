@@ -1492,3 +1492,4 @@
 {"ts":"2026-11-17T06:52:30.176Z","bot":"concept-art-bot","state":"done","text":"Ramp search done; idle, nothing queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T06:53:10.523Z","bot":"concept-art-bot","state":"working","text":"Garage rear entrance check","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T06:54:01.012Z","bot":"cutscene-bot","needId":"n202611170654-e1db","state":"needs-alex","text":"Rear garage mural: add it?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-17T06:58:28.004Z","bot":"game-build-bible","needId":"n202611170658-7244","state":"needs-alex","text":"Rear entrance mural yes/no","project":"Bus Ninja 3D","needs":"question"}
