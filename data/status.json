@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:53:54.569Z",
+  "updatedAt": "2026-11-17T07:59:24.474Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,13 @@
       "since": "2026-11-17T07:43:45.515Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Bus Ninja C005 check index",
+      "state": "done",
+      "text": "C005 index done; next: track hand-ins",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T07:53:54.569Z",
-      "since": "2026-11-17T07:53:54.569Z"
+      "ts": "2026-11-17T07:59:24.474Z",
+      "since": "2026-11-17T07:59:24.474Z"
     },
     "game-design-document-bot": {
       "state": "done",
