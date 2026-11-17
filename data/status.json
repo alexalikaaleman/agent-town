@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:28:45.089Z",
+  "updatedAt": "2026-11-17T06:40:34.150Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,13 +73,16 @@
       "since": "2026-11-14T05:37:15.455Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Garage research done; idle, none queued",
+      "state": "needs-alex",
+      "text": "Garage gate question",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T06:23:11.375Z",
-      "since": "2026-11-17T06:23:11.375Z"
+      "needs": {
+        "id": "n202611170640-8cd9",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T06:40:34.150Z",
+      "since": "2026-11-17T06:40:34.150Z"
     },
     "garage-sale-bot": {
       "state": "done",

@@ -1480,3 +1480,4 @@
 {"ts":"2026-11-17T06:22:14.984Z","bot":"cutscene-bot","state":"done","text":"Garage addendum done; next: judge redo","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T06:23:11.375Z","bot":"concept-art-bot","state":"done","text":"Garage research done; idle, none queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T06:28:45.089Z","bot":"cutscene-bot","state":"done","text":"Garage v02 done; next: judge rebuild","project":"Bus Ninja 3D"}
+{"ts":"2026-11-17T06:40:34.150Z","bot":"concept-art-bot","needId":"n202611170640-8cd9","state":"needs-alex","text":"Garage gate question","project":"Bus Ninja 3D","needs":"question"}

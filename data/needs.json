@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T05:49:58.006Z",
+  "updatedAt": "2026-11-17T06:40:34.150Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2701,6 +2701,16 @@
       "ts": "2026-11-17T05:48:28.969Z",
       "handled": true,
       "handledAt": "2026-11-17T05:49:58.006Z"
+    },
+    {
+      "id": "n202611170640-8cd9",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "Garage gate question",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T06:40:34.150Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
