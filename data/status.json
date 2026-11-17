@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:40:36.671Z",
+  "updatedAt": "2026-11-17T07:40:55.866Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Garage phase checker: which bot",
+      "state": "working",
+      "text": "Garage inside, phases A-C",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611170740-3d83",
-        "kind": "question"
-      },
-      "ts": "2026-11-17T07:40:36.671Z",
-      "since": "2026-11-17T07:40:36.671Z"
+      "needs": null,
+      "ts": "2026-11-17T07:40:55.866Z",
+      "since": "2026-11-17T07:40:55.866Z"
     },
     "cutscene-bot": {
       "state": "working",
