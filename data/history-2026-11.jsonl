@@ -1560,3 +1560,4 @@
 {"ts":"2026-11-17T19:15:46.833Z","bot":"concept-art-bot","state":"done","text":"Bank #27 refs done; next: shot check","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T19:44:05.327Z","bot":"game-build-bible","state":"working","text":"Pier Plaza 5% progress check","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T19:48:33.734Z","bot":"game-build-bible","state":"done","text":"5% update sent; next: 9:49 check","project":"Bus Ninja 3D"}
+{"ts":"2026-11-17T19:48:48.214Z","bot":"game-build-bible","needId":"n202611171948-8cc7","state":"needs-alex","text":"Citibank #27: Alex yes or no","project":"Bus Ninja 3D","needs":"question"}
