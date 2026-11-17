@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T08:37:24.662Z",
+  "updatedAt": "2026-11-17T08:51:48.430Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2831,6 +2831,16 @@
       "ts": "2026-11-17T08:36:46.875Z",
       "handled": true,
       "handledAt": "2026-11-17T08:37:24.662Z"
+    },
+    {
+      "id": "n202611170851-7cfb",
+      "bot": "game-build-bible",
+      "kind": "urgent",
+      "text": "Bus Ninja cap raise?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T08:51:48.430Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
