@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T04:23:19.124Z",
+  "updatedAt": "2026-11-17T04:23:29.563Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3.2 team discussion",
+      "state": "needs-alex",
+      "text": "Build 3.2 team plan: OK?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T04:21:14.939Z",
-      "since": "2026-11-17T04:21:14.939Z"
+      "needs": {
+        "id": "n202611170423-e30c",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T04:23:29.563Z",
+      "since": "2026-11-17T04:23:29.563Z"
     },
     "cutscene-bot": {
       "state": "done",
