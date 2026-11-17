@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:41:34.738Z",
+  "updatedAt": "2026-11-17T06:41:39.073Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Garage gate style question",
+      "state": "working",
+      "text": "Build 3.2 garage rebuild",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T06:40:40.361Z",
-      "since": "2026-11-17T06:40:40.361Z"
+      "ts": "2026-11-17T06:41:39.073Z",
+      "since": "2026-11-17T06:41:39.073Z"
     },
     "cutscene-bot": {
       "state": "done",
