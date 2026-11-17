@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:58:28.004Z",
+  "updatedAt": "2026-11-17T07:01:01.525Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2759,8 +2759,8 @@
       "text": "Rear entrance mural yes/no",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T06:58:28.004Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T07:01:01.525Z"
     }
   ]
 }
