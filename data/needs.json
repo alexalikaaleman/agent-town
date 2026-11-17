@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T04:35:54.911Z",
+  "updatedAt": "2026-11-17T04:38:21.956Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2679,8 +2679,8 @@
       "text": "Pier shop and wall color picks",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T04:35:54.911Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T04:38:21.956Z"
     }
   ]
 }
