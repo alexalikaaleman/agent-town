@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T09:05:36.408Z",
+  "updatedAt": "2026-11-17T09:05:52.895Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2849,6 +2849,16 @@
       "text": "GBB redesign: lead choice",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T09:05:36.408Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611170905-bf0d",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Lead redesign: Alex's pick",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T09:05:52.895Z",
       "handled": false,
       "handledAt": null
     }

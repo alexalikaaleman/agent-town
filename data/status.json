@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T09:05:36.408Z",
+  "updatedAt": "2026-11-17T09:05:52.895Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Garage slope, cap 67%",
+      "state": "needs-alex",
+      "text": "Lead redesign: Alex's pick",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T08:52:29.942Z",
-      "since": "2026-11-17T08:52:29.942Z"
+      "needs": {
+        "id": "n202611170905-bf0d",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T09:05:52.895Z",
+      "since": "2026-11-17T09:05:52.895Z"
     },
     "cutscene-bot": {
       "state": "working",
