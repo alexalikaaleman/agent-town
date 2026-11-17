@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T08:36:46.875Z",
+  "updatedAt": "2026-11-17T08:37:24.662Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,10 +41,7 @@
       "text": "Save garage sloped-floors fact?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611170836-a4ff",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-17T08:36:46.875Z",
       "since": "2026-11-17T08:36:46.875Z"
     },
