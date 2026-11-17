@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T04:20:26.545Z",
+  "updatedAt": "2026-11-17T04:20:35.296Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -49,13 +49,13 @@
       "since": "2026-11-17T04:20:26.545Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "C004 front still done; idle, none queued",
+      "state": "working",
+      "text": "C005 Redondo pier art spec",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-16T21:49:42.097Z",
-      "since": "2026-11-16T21:49:42.097Z"
+      "ts": "2026-11-17T04:20:35.296Z",
+      "since": "2026-11-17T04:20:35.296Z"
     },
     "robotemplate": {
       "state": "done",
