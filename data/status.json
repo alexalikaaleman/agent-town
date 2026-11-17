@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:29:08.674Z",
+  "updatedAt": "2026-11-17T01:29:50.792Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,10 +41,7 @@
       "text": "Three picks for build 3.1",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611170129-bdb4",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-17T01:29:08.674Z",
       "since": "2026-11-17T01:29:08.674Z"
     },
