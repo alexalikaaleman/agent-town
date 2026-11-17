@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T23:57:49.255Z",
+  "updatedAt": "2026-11-17T23:58:15.517Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Hermosa Pier upper street zone",
+      "state": "done",
+      "text": "Hermosa zone started; Redondo parked",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T23:57:49.255Z",
-      "since": "2026-11-17T23:48:27.884Z"
+      "ts": "2026-11-17T23:58:15.517Z",
+      "since": "2026-11-17T23:58:15.517Z"
     },
     "cutscene-bot": {
       "state": "done",
