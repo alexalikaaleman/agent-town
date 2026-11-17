@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T09:20:47.754Z",
+  "updatedAt": "2026-11-17T09:22:20.519Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -44,10 +44,7 @@
       "text": "Where to put build 3.2 zip",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611170920-3743",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-17T09:20:47.754Z",
       "since": "2026-11-17T09:20:47.754Z"
     },
