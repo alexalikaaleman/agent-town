@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T04:20:26.545Z",
+  "updatedAt": "2026-11-17T04:21:10.737Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2659,8 +2659,8 @@
       "text": "Build 3.2: street signs?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T04:20:26.545Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T04:21:10.737Z"
     }
   ]
 }
