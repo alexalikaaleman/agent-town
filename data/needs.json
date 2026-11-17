@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:57:47.291Z",
+  "updatedAt": "2026-11-17T01:59:03.113Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2649,8 +2649,8 @@
       "text": "Build 3.1: ledge fix and upload?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T01:57:47.291Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T01:59:03.113Z"
     }
   ]
 }
