@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:29:51.204Z",
+  "updatedAt": "2026-11-17T07:33:12.746Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2789,8 +2789,8 @@
       "text": "Who takes over the garage",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T07:29:51.204Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T07:33:12.746Z"
     }
   ]
 }
