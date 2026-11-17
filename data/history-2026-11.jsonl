@@ -1547,3 +1547,4 @@
 {"ts":"2026-11-17T18:22:56.507Z","bot":"bot-scout","state":"done","text":"Template scout done; idle, nothing queu…"}
 {"ts":"2026-11-17T18:23:20.565Z","bot":"bot-scout","needId":"n202611171823-d455","state":"needs-alex","text":"Weekly picks Nov 17: yes or no?","needs":"question"}
 {"ts":"2026-11-17T18:49:15.056Z","bot":"robo-library","state":"working","text":"Per-building usage estimate","project":"Redondo map"}
+{"ts":"2026-11-17T18:49:46.993Z","bot":"robo-library","state":"done","text":"Usage estimate done; idle, nothing queu…","project":"Redondo map"}
