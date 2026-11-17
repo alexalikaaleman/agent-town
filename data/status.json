@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T18:49:46.993Z",
+  "updatedAt": "2026-11-17T18:55:58.407Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "Feedback relayed; idle, nothing queued",
+      "state": "needs-alex",
+      "text": "Test building pick: OK to start?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T17:35:14.456Z",
-      "since": "2026-11-17T17:35:14.456Z"
+      "needs": {
+        "id": "n202611171855-9b82",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T18:55:58.407Z",
+      "since": "2026-11-17T18:55:58.407Z"
     },
     "cutscene-bot": {
       "state": "done",

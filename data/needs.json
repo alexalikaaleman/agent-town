@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T18:23:20.565Z",
+  "updatedAt": "2026-11-17T18:55:58.407Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2889,6 +2889,16 @@
       "text": "Weekly picks Nov 17: yes or no?",
       "project": null,
       "ts": "2026-11-17T18:23:20.565Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611171855-9b82",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Test building pick: OK to start?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T18:55:58.407Z",
       "handled": false,
       "handledAt": null
     }
