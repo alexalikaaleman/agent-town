@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T19:01:45.671Z",
+  "updatedAt": "2026-11-17T19:02:15.845Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2909,8 +2909,8 @@
       "text": "Add 3D rules to my core too?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T19:01:45.671Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T19:02:15.845Z"
     }
   ]
 }
