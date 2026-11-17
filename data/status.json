@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T19:59:22.675Z",
+  "updatedAt": "2026-11-17T20:09:10.791Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,15 +41,15 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Citibank update sent; next: 10:04 run",
+      "text": "Plaza 10:05 update done; next: 10:19",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611171948-8cc7",
         "kind": "question"
       },
-      "ts": "2026-11-17T19:59:22.675Z",
-      "since": "2026-11-17T19:59:22.675Z"
+      "ts": "2026-11-17T20:09:10.791Z",
+      "since": "2026-11-17T20:09:10.791Z"
     },
     "cutscene-bot": {
       "state": "done",
