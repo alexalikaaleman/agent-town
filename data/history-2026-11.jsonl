@@ -1486,3 +1486,4 @@
 {"ts":"2026-11-17T06:41:34.738Z","bot":"game-build-bible","handled":"n202611170640-74ce"}
 {"ts":"2026-11-17T06:41:39.073Z","bot":"game-build-bible","state":"working","text":"Build 3.2 garage rebuild","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T06:46:08.012Z","bot":"cutscene-bot","needId":"n202611170646-8a03","state":"needs-alex","text":"Garage banner: add it?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-17T06:46:37.125Z","bot":"game-build-bible","needId":"n202611170646-3e74","state":"needs-alex","text":"Garage welcome banner yes/no","project":"Bus Ninja 3D","needs":"question"}
