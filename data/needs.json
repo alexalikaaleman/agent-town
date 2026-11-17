@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T21:56:09.416Z",
+  "updatedAt": "2026-11-17T23:40:44.866Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2939,6 +2939,16 @@
       "text": "Redondo R1-R3: yes or no",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T21:56:09.416Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611172340-97f5",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Redondo pier: yes on all six?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T23:40:44.866Z",
       "handled": false,
       "handledAt": null
     }
