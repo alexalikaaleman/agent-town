@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:40:34.150Z",
+  "updatedAt": "2026-11-17T06:40:40.361Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2709,6 +2709,16 @@
       "text": "Garage gate question",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T06:40:34.150Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611170640-74ce",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Garage gate style question",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T06:40:40.361Z",
       "handled": false,
       "handledAt": null
     }

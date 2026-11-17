@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:40:34.150Z",
+  "updatedAt": "2026-11-17T06:40:40.361Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3.2 pier and colors",
+      "state": "needs-alex",
+      "text": "Garage gate style question",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T05:49:58.006Z",
-      "since": "2026-11-17T05:49:58.006Z"
+      "needs": {
+        "id": "n202611170640-74ce",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T06:40:40.361Z",
+      "since": "2026-11-17T06:40:40.361Z"
     },
     "cutscene-bot": {
       "state": "done",
