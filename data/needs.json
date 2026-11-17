@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:34:22.311Z",
+  "updatedAt": "2026-11-17T07:40:36.671Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2801,6 +2801,16 @@
       "ts": "2026-11-17T07:33:54.616Z",
       "handled": true,
       "handledAt": "2026-11-17T07:34:22.311Z"
+    },
+    {
+      "id": "n202611170740-3d83",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Garage phase checker: which bot",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T07:40:36.671Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
