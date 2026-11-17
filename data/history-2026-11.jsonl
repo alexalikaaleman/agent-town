@@ -1554,3 +1554,4 @@
 {"ts":"2026-11-17T19:02:15.845Z","bot":"game-design-document-bot","state":"done","text":"3D rule request cancelled; idle","project":"Bus Ninja 3D","handled":"n202611171901-4c73"}
 {"ts":"2026-11-17T19:02:39.636Z","bot":"game-build-bible","needId":"n202611171902-37e4","state":"needs-alex","text":"GitWriter needs Alex's go for bank","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-17T19:03:30.858Z","bot":"masterbot","state":"working","text":"GBB core: Pier Plaza rules","project":"Bus Ninja 3D"}
+{"ts":"2026-11-17T19:05:11.722Z","bot":"masterbot","state":"done","text":"GBB v2.1 done; next: await GBB ok","project":"Bus Ninja 3D"}

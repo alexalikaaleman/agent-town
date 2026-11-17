@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T19:03:30.858Z",
+  "updatedAt": "2026-11-17T19:05:11.722Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,16 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "GBB core: Pier Plaza rules",
+      "state": "done",
+      "text": "GBB v2.1 done; next: await GBB ok",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611170905-d76f",
         "kind": "question"
       },
-      "ts": "2026-11-17T19:03:30.858Z",
-      "since": "2026-11-17T19:03:30.858Z"
+      "ts": "2026-11-17T19:05:11.722Z",
+      "since": "2026-11-17T19:05:11.722Z"
     },
     "game-revision-logger": {
       "state": "done",
