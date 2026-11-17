@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T08:03:32.950Z",
+  "updatedAt": "2026-11-17T08:36:46.875Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Garage inside, phases A-C",
+      "state": "needs-alex",
+      "text": "Save garage sloped-floors fact?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T07:40:55.866Z",
-      "since": "2026-11-17T07:40:55.866Z"
+      "needs": {
+        "id": "n202611170836-a4ff",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T08:36:46.875Z",
+      "since": "2026-11-17T08:36:46.875Z"
     },
     "cutscene-bot": {
       "state": "blocked",
