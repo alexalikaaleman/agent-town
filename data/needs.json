@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:41:34.738Z",
+  "updatedAt": "2026-11-17T06:46:08.012Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2721,6 +2721,16 @@
       "ts": "2026-11-17T06:40:40.361Z",
       "handled": true,
       "handledAt": "2026-11-17T06:41:34.738Z"
+    },
+    {
+      "id": "n202611170646-8a03",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "Garage banner: add it?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T06:46:08.012Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
