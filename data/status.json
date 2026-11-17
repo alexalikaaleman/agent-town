@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T17:35:14.456Z",
+  "updatedAt": "2026-11-17T18:12:06.312Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -160,16 +160,16 @@
       "since": "2026-11-16T18:19:16.003Z"
     },
     "bot-scout": {
-      "state": "needs-alex",
-      "text": "Weekly picks: go one at a time?",
+      "state": "working",
+      "text": "Weekly template scout",
       "project": null,
       "with": [],
       "needs": {
         "id": "n202611101818-ab7d",
         "kind": "question"
       },
-      "ts": "2026-11-10T18:18:06.262Z",
-      "since": "2026-11-10T18:18:06.262Z"
+      "ts": "2026-11-17T18:12:06.312Z",
+      "since": "2026-11-17T18:12:06.312Z"
     },
     "hustle-bot": {
       "state": "needs-alex",
