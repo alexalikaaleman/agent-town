@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:08:00.324Z",
+  "updatedAt": "2026-11-17T07:18:30.604Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3.2 garage rebuild",
+      "state": "needs-alex",
+      "text": "Garage north ramp vs bike path",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T07:08:00.324Z",
-      "since": "2026-11-17T07:08:00.324Z"
+      "needs": {
+        "id": "n202611170718-6a02",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T07:18:30.604Z",
+      "since": "2026-11-17T07:18:30.604Z"
     },
     "cutscene-bot": {
       "state": "working",
