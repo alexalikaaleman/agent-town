@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T04:38:25.893Z",
+  "updatedAt": "2026-11-17T04:40:42.670Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,13 +73,13 @@
       "since": "2026-11-14T05:37:15.455Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "4 dragon art made; next: Steam vent",
-      "project": "Dragon game",
+      "state": "working",
+      "text": "Garage photo research",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-14T05:33:34.185Z",
-      "since": "2026-11-14T05:33:34.185Z"
+      "ts": "2026-11-17T04:40:42.670Z",
+      "since": "2026-11-17T04:40:42.670Z"
     },
     "garage-sale-bot": {
       "state": "done",
