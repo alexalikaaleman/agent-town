@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:33:54.616Z",
+  "updatedAt": "2026-11-17T07:34:22.311Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2799,8 +2799,8 @@
       "text": "Garage: switch to GitWriter?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T07:33:54.616Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T07:34:22.311Z"
     }
   ]
 }
