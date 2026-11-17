@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T20:12:47.966Z",
+  "updatedAt": "2026-11-17T20:12:58.105Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Bank #27 refs done; next: shot check",
+      "state": "working",
+      "text": "Waterman's #10 refs",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T19:15:46.833Z",
-      "since": "2026-11-17T19:15:46.833Z"
+      "ts": "2026-11-17T20:12:58.105Z",
+      "since": "2026-11-17T20:12:58.105Z"
     },
     "garage-sale-bot": {
       "state": "done",
