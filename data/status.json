@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T20:43:23.960Z",
+  "updatedAt": "2026-11-17T20:45:48.895Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Redondo pier batch refs",
+      "state": "done",
+      "text": "Redondo lists done; next: match checks",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T20:20:07.305Z",
-      "since": "2026-11-17T20:12:58.105Z"
+      "ts": "2026-11-17T20:45:48.895Z",
+      "since": "2026-11-17T20:45:48.895Z"
     },
     "garage-sale-bot": {
       "state": "done",
