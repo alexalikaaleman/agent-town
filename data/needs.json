@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:46:37.125Z",
+  "updatedAt": "2026-11-17T06:50:18.488Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2739,8 +2739,8 @@
       "text": "Garage welcome banner yes/no",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T06:46:37.125Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T06:50:18.488Z"
     }
   ]
 }

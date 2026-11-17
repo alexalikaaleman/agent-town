@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:46:37.125Z",
+  "updatedAt": "2026-11-17T06:50:18.488Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Garage welcome banner yes/no",
+      "state": "working",
+      "text": "Build 3.2 garage rebuild",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611170646-3e74",
-        "kind": "question"
-      },
-      "ts": "2026-11-17T06:46:37.125Z",
-      "since": "2026-11-17T06:46:37.125Z"
+      "needs": null,
+      "ts": "2026-11-17T06:50:18.488Z",
+      "since": "2026-11-17T06:50:18.488Z"
     },
     "cutscene-bot": {
       "state": "needs-alex",
