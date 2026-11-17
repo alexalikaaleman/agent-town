@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T21:05:48.320Z",
+  "updatedAt": "2026-11-17T21:09:24.962Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Pier Plaza progress check",
+      "state": "done",
+      "text": "11:05 update sent; next: 11:19 check",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T21:05:48.320Z",
-      "since": "2026-11-17T21:05:48.320Z"
+      "ts": "2026-11-17T21:09:24.962Z",
+      "since": "2026-11-17T21:09:24.962Z"
     },
     "cutscene-bot": {
       "state": "done",
