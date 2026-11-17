@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:59:03.113Z",
+  "updatedAt": "2026-11-17T01:59:07.562Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Build 3.1: ledge fix and upload?",
+      "state": "working",
+      "text": "Build 3.1 Strand slope fix",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T01:57:47.291Z",
-      "since": "2026-11-17T01:57:47.291Z"
+      "ts": "2026-11-17T01:59:07.562Z",
+      "since": "2026-11-17T01:59:07.562Z"
     },
     "cutscene-bot": {
       "state": "done",
