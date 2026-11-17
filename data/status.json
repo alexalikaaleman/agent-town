@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T07:07:23.408Z",
+  "updatedAt": "2026-11-17T07:08:00.324Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Where garage ramp ends",
+      "state": "working",
+      "text": "Build 3.2 garage rebuild",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611170707-a010",
-        "kind": "question"
-      },
-      "ts": "2026-11-17T07:07:23.408Z",
-      "since": "2026-11-17T07:07:23.408Z"
+      "needs": null,
+      "ts": "2026-11-17T07:08:00.324Z",
+      "since": "2026-11-17T07:08:00.324Z"
     },
     "cutscene-bot": {
       "state": "working",
