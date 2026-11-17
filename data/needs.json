@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:46:28.775Z",
+  "updatedAt": "2026-11-17T01:57:47.291Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2641,6 +2641,16 @@
       "ts": "2026-11-17T01:31:32.051Z",
       "handled": true,
       "handledAt": "2026-11-17T01:46:28.775Z"
+    },
+    {
+      "id": "n202611170157-0d9a",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Build 3.1: ledge fix and upload?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T01:57:47.291Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

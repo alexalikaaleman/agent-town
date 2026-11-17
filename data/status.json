@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:49:30.214Z",
+  "updatedAt": "2026-11-17T01:57:47.291Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Build 3.1 check by GitWriter",
+      "state": "needs-alex",
+      "text": "Build 3.1: ledge fix and upload?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T01:49:30.214Z",
-      "since": "2026-11-17T01:30:03.879Z"
+      "needs": {
+        "id": "n202611170157-0d9a",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T01:57:47.291Z",
+      "since": "2026-11-17T01:57:47.291Z"
     },
     "cutscene-bot": {
       "state": "done",
