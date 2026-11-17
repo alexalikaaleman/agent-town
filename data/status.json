@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T08:37:24.662Z",
+  "updatedAt": "2026-11-17T08:39:44.161Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -46,13 +46,13 @@
       "since": "2026-11-17T08:36:46.875Z"
     },
     "cutscene-bot": {
-      "state": "blocked",
-      "text": "Garage judging paused by Alex",
+      "state": "working",
+      "text": "Garage phase judging resumed",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T08:00:18.369Z",
-      "since": "2026-11-17T08:00:18.369Z"
+      "ts": "2026-11-17T08:39:44.161Z",
+      "since": "2026-11-17T08:39:44.161Z"
     },
     "robotemplate": {
       "state": "done",
