@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T19:48:48.214Z",
+  "updatedAt": "2026-11-17T19:55:37.068Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Citibank #27: Alex yes or no",
+      "state": "working",
+      "text": "Pier Plaza 15-min update",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611171948-8cc7",
         "kind": "question"
       },
-      "ts": "2026-11-17T19:48:48.214Z",
-      "since": "2026-11-17T19:48:48.214Z"
+      "ts": "2026-11-17T19:55:37.068Z",
+      "since": "2026-11-17T19:55:37.068Z"
     },
     "cutscene-bot": {
       "state": "done",
