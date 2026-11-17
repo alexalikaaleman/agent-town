@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:31:32.051Z",
+  "updatedAt": "2026-11-17T01:46:28.775Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "Daily bot-review session ready",
       "project": null,
       "with": [],
-      "needs": {
-        "id": "n202611170131-0fdd",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-17T01:31:32.051Z",
       "since": "2026-11-17T01:31:32.051Z"
     },

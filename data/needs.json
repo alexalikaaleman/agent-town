@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T01:31:32.051Z",
+  "updatedAt": "2026-11-17T01:46:28.775Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2639,8 +2639,8 @@
       "text": "Daily bot-review session ready",
       "project": null,
       "ts": "2026-11-17T01:31:32.051Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T01:46:28.775Z"
     }
   ]
 }
