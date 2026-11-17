@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T06:40:40.361Z",
+  "updatedAt": "2026-11-17T06:41:16.240Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2709,8 +2709,8 @@
       "text": "Garage gate question",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T06:40:34.150Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T06:41:16.240Z"
     },
     {
       "id": "n202611170640-74ce",
