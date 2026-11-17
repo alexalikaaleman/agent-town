@@ -1545,3 +1545,4 @@
 {"ts":"2026-11-17T18:15:25.069Z","bot":"robotemplate","state":"working","text":"Weekly design sweep"}
 {"ts":"2026-11-17T18:17:34.145Z","bot":"robotemplate","state":"done","text":"Weekly sweep done; idle, nothing queued"}
 {"ts":"2026-11-17T18:22:56.507Z","bot":"bot-scout","state":"done","text":"Template scout done; idle, nothing queu…"}
+{"ts":"2026-11-17T18:23:20.565Z","bot":"bot-scout","needId":"n202611171823-d455","state":"needs-alex","text":"Weekly picks Nov 17: yes or no?","needs":"question"}
