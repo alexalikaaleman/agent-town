@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T08:51:48.430Z",
+  "updatedAt": "2026-11-17T08:52:26.230Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2839,8 +2839,8 @@
       "text": "Bus Ninja cap raise?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T08:51:48.430Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T08:52:26.230Z"
     }
   ]
 }
