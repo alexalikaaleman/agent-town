@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T05:48:28.969Z",
+  "updatedAt": "2026-11-17T05:49:58.006Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2699,8 +2699,8 @@
       "text": "Pier gap pass: go?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T05:48:28.969Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-17T05:49:58.006Z"
     }
   ]
 }
