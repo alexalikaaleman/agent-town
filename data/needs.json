@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T18:55:58.407Z",
+  "updatedAt": "2026-11-17T19:01:45.671Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2899,6 +2899,16 @@
       "text": "Test building pick: OK to start?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-17T18:55:58.407Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611171901-4c73",
+      "bot": "game-design-document-bot",
+      "kind": "question",
+      "text": "Add 3D rules to my core too?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-17T19:01:45.671Z",
       "handled": false,
       "handledAt": null
     }

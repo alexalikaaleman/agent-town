@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T19:01:06.496Z",
+  "updatedAt": "2026-11-17T19:01:45.671Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -70,13 +70,16 @@
       "since": "2026-11-17T18:17:34.145Z"
     },
     "game-design-document-bot": {
-      "state": "done",
-      "text": "P4/P5+P25-28 v2 done; next: more v2s",
-      "project": "Dragon",
+      "state": "needs-alex",
+      "text": "Add 3D rules to my core too?",
+      "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-14T05:37:15.455Z",
-      "since": "2026-11-14T05:37:15.455Z"
+      "needs": {
+        "id": "n202611171901-4c73",
+        "kind": "question"
+      },
+      "ts": "2026-11-17T19:01:45.671Z",
+      "since": "2026-11-17T19:01:45.671Z"
     },
     "concept-art-bot": {
       "state": "working",
