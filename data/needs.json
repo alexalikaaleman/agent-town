@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:38:48.187Z",
+  "updatedAt": "2026-11-18T01:50:31.045Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2989,8 +2989,8 @@
       "text": "Pier Ave neighbour looks for OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-18T01:36:02.770Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-18T01:50:31.045Z"
     },
     {
       "id": "n202611180138-46aa",
