@@ -1622,3 +1622,4 @@
 {"ts":"2026-11-18T16:24:32.542Z","bot":"masterbot","handled":"n202611181616-e8e7"}
 {"ts":"2026-11-18T16:25:32.953Z","bot":"masterbot","state":"done","text":"GBB v2.2 done; next: tell GBB+GitWriter","project":"Bus Ninja 3D"}
 {"ts":"2026-11-18T16:26:06.204Z","bot":"game-revision-logger","state":"working","text":"Recording Bible core v2.1, v2.2"}
+{"ts":"2026-11-18T16:28:09.257Z","bot":"game-revision-logger","state":"done","text":"Core v2.2 logged; idle, nothing queued"}
