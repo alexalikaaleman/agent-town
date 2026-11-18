@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T00:10:04.920Z",
+  "updatedAt": "2026-11-18T00:32:51.894Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,16 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Pier Ave refs done; next: SV after OK",
+      "state": "needs-alex",
+      "text": "Pier Ave B01-B06 look OK?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-18T00:10:04.920Z",
-      "since": "2026-11-18T00:10:04.920Z"
+      "needs": {
+        "id": "n202611180032-43d0",
+        "kind": "question"
+      },
+      "ts": "2026-11-18T00:32:51.894Z",
+      "since": "2026-11-18T00:32:51.894Z"
     },
     "garage-sale-bot": {
       "state": "done",

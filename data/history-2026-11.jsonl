@@ -1591,3 +1591,4 @@
 {"ts":"2026-11-17T23:58:15.517Z","bot":"game-build-bible","state":"done","text":"Hermosa zone started; Redondo parked","project":"Bus Ninja 3D"}
 {"ts":"2026-11-17T23:58:31.366Z","bot":"concept-art-bot","state":"working","text":"Hermosa Pier Ave block 1 refs","project":"Bus Ninja 3D"}
 {"ts":"2026-11-18T00:10:04.920Z","bot":"concept-art-bot","state":"done","text":"Pier Ave refs done; next: SV after OK","project":"Bus Ninja 3D"}
+{"ts":"2026-11-18T00:32:51.894Z","bot":"concept-art-bot","needId":"n202611180032-43d0","state":"needs-alex","text":"Pier Ave B01-B06 look OK?","project":"Bus Ninja 3D","needs":"question"}
