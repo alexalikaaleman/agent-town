@@ -1611,3 +1611,4 @@
 {"ts":"2026-11-18T06:50:34.473Z","bot":"game-build-bible","state":"done","text":"3.5 base saved; idle, nothing queued","project":"Bus Ninja 3D","handled":"n202611180635-6b78"}
 {"ts":"2026-11-18T06:55:28.166Z","bot":"game-build-bible","needId":"n202611180655-bbb2","state":"needs-alex","text":"Confirm 3.6 perf as build base","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-18T07:13:59.684Z","bot":"game-build-bible","state":"done","text":"3.6 base saved; idle, nothing queued","project":"Bus Ninja 3D","handled":"n202611180655-bbb2"}
+{"ts":"2026-11-18T11:10:12.941Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
