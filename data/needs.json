@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:58:53.348Z",
+  "updatedAt": "2026-11-18T02:02:07.477Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2999,6 +2999,16 @@
       "text": "Daily bot review ready",
       "project": null,
       "ts": "2026-11-18T01:38:48.187Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611180202-0105",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Neighbour buildings yes or no",
+      "project": "Hermosa Pier Plaza",
+      "ts": "2026-11-18T02:02:07.477Z",
       "handled": false,
       "handledAt": null
     }
