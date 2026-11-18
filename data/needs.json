@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:34:36.517Z",
+  "updatedAt": "2026-11-18T01:36:02.770Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2979,6 +2979,16 @@
       "text": "Pier Ave block 1 v2: yes or no?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-18T01:34:36.517Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611180136-1ed1",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "Pier Ave neighbour looks for OK",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-18T01:36:02.770Z",
       "handled": false,
       "handledAt": null
     }

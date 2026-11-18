@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:34:36.517Z",
+  "updatedAt": "2026-11-18T01:36:02.770Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -79,13 +79,16 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Pier Ave match check when SBS land",
+      "state": "needs-alex",
+      "text": "Pier Ave neighbour looks for OK",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-18T01:09:15.638Z",
-      "since": "2026-11-18T01:09:15.638Z"
+      "needs": {
+        "id": "n202611180136-1ed1",
+        "kind": "question"
+      },
+      "ts": "2026-11-18T01:36:02.770Z",
+      "since": "2026-11-18T01:36:02.770Z"
     },
     "garage-sale-bot": {
       "state": "done",
