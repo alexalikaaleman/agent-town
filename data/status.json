@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T00:33:02.867Z",
+  "updatedAt": "2026-11-18T01:05:47.251Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -44,10 +44,7 @@
       "text": "Pier Ave block 1 looks: OK?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611180033-1041",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-18T00:33:02.867Z",
       "since": "2026-11-18T00:33:02.867Z"
     },
