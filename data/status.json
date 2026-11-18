@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T23:58:31.366Z",
+  "updatedAt": "2026-11-18T00:10:04.920Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Hermosa Pier Ave block 1 refs",
+      "state": "done",
+      "text": "Pier Ave refs done; next: SV after OK",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T23:58:31.366Z",
-      "since": "2026-11-17T23:58:31.366Z"
+      "ts": "2026-11-18T00:10:04.920Z",
+      "since": "2026-11-18T00:10:04.920Z"
     },
     "garage-sale-bot": {
       "state": "done",
