@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T02:02:07.477Z",
+  "updatedAt": "2026-11-18T02:28:10.507Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -44,10 +44,7 @@
       "text": "Neighbour buildings yes or no",
       "project": "Hermosa Pier Plaza",
       "with": [],
-      "needs": {
-        "id": "n202611180202-0105",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-18T02:02:07.477Z",
       "since": "2026-11-18T02:02:07.477Z"
     },
