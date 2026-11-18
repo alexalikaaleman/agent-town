@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T16:12:25.313Z",
+  "updatedAt": "2026-11-18T16:14:27.967Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Confirm 3.7 ground as build base",
+      "state": "done",
+      "text": "3.7 base saved; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611181448-48ee",
-        "kind": "question"
-      },
-      "ts": "2026-11-18T14:48:19.640Z",
-      "since": "2026-11-18T14:48:19.640Z"
+      "needs": null,
+      "ts": "2026-11-18T16:14:27.967Z",
+      "since": "2026-11-18T16:14:27.967Z"
     },
     "cutscene-bot": {
       "state": "done",
