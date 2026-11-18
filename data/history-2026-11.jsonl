@@ -1608,3 +1608,4 @@
 {"ts":"2026-11-18T02:28:10.507Z","bot":"game-build-bible","handled":"n202611180202-0105"}
 {"ts":"2026-11-18T02:32:20.764Z","bot":"game-build-bible","state":"done","text":"Build 3.4 done; next: Fri detail pass","project":"Hermosa Pier Plaza"}
 {"ts":"2026-11-18T06:35:00.698Z","bot":"game-build-bible","needId":"n202611180635-6b78","state":"needs-alex","text":"Confirm 3.5 perf as build base","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-18T06:50:34.473Z","bot":"game-build-bible","state":"done","text":"3.5 base saved; idle, nothing queued","project":"Bus Ninja 3D","handled":"n202611180635-6b78"}
