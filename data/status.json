@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T06:50:34.473Z",
+  "updatedAt": "2026-11-18T06:55:28.166Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "3.5 base saved; idle, nothing queued",
+      "state": "needs-alex",
+      "text": "Confirm 3.6 perf as build base",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-18T06:50:34.473Z",
-      "since": "2026-11-18T06:50:34.473Z"
+      "needs": {
+        "id": "n202611180655-bbb2",
+        "kind": "question"
+      },
+      "ts": "2026-11-18T06:55:28.166Z",
+      "since": "2026-11-18T06:55:28.166Z"
     },
     "cutscene-bot": {
       "state": "done",

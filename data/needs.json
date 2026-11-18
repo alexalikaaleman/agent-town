@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T06:50:34.473Z",
+  "updatedAt": "2026-11-18T06:55:28.166Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3021,6 +3021,16 @@
       "ts": "2026-11-18T06:35:00.698Z",
       "handled": true,
       "handledAt": "2026-11-18T06:50:34.473Z"
+    },
+    {
+      "id": "n202611180655-bbb2",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Confirm 3.6 perf as build base",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-18T06:55:28.166Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
