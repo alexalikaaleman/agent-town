@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:50:31.045Z",
+  "updatedAt": "2026-11-18T01:52:40.734Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Pier Ave block 1 v2: yes or no?",
+      "state": "working",
+      "text": "Pier Ave build; flip-face fix queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611180134-084a",
         "kind": "question"
       },
-      "ts": "2026-11-18T01:34:36.517Z",
-      "since": "2026-11-18T01:34:36.517Z"
+      "ts": "2026-11-18T01:52:40.734Z",
+      "since": "2026-11-18T01:52:40.734Z"
     },
     "cutscene-bot": {
       "state": "done",
