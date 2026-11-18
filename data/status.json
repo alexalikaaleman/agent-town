@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:36:02.770Z",
+  "updatedAt": "2026-11-18T01:38:48.187Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,16 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "GBB v2.1 done; next: await GBB ok",
-      "project": "Bus Ninja 3D",
+      "state": "needs-alex",
+      "text": "Daily bot review ready",
+      "project": null,
       "with": [],
       "needs": {
-        "id": "n202611170905-d76f",
+        "id": "n202611180138-46aa",
         "kind": "question"
       },
-      "ts": "2026-11-17T19:05:11.722Z",
-      "since": "2026-11-17T19:05:11.722Z"
+      "ts": "2026-11-18T01:38:48.187Z",
+      "since": "2026-11-18T01:38:48.187Z"
     },
     "game-revision-logger": {
       "state": "done",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:36:02.770Z",
+  "updatedAt": "2026-11-18T01:38:48.187Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2989,6 +2989,16 @@
       "text": "Pier Ave neighbour looks for OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-18T01:36:02.770Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611180138-46aa",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Daily bot review ready",
+      "project": null,
+      "ts": "2026-11-18T01:38:48.187Z",
       "handled": false,
       "handledAt": null
     }
