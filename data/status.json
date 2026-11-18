@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T16:24:16.786Z",
+  "updatedAt": "2026-11-18T16:24:32.542Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "GBB core v2.2",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611181616-e8e7",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-18T16:24:16.786Z",
       "since": "2026-11-18T16:24:16.786Z"
     },
