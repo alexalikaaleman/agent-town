@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:09:15.638Z",
+  "updatedAt": "2026-11-18T01:34:36.517Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-16T23:30:57.624Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Pier Ave block 1 buildings",
+      "state": "needs-alex",
+      "text": "Pier Ave block 1 v2: yes or no?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-18T01:05:54.865Z",
-      "since": "2026-11-18T01:05:54.865Z"
+      "needs": {
+        "id": "n202611180134-084a",
+        "kind": "question"
+      },
+      "ts": "2026-11-18T01:34:36.517Z",
+      "since": "2026-11-18T01:34:36.517Z"
     },
     "cutscene-bot": {
       "state": "done",
