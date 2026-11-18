@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:58:11.494Z",
+  "updatedAt": "2026-11-18T01:58:53.348Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -44,10 +44,7 @@
       "text": "Pier Ave build; flip-face fix queued",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611180134-084a",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-18T01:52:40.734Z",
       "since": "2026-11-18T01:52:40.734Z"
     },
