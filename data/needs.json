@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T01:05:47.251Z",
+  "updatedAt": "2026-11-18T01:09:08.514Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -2959,8 +2959,8 @@
       "text": "Pier Ave B01-B06 look OK?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-18T00:32:51.894Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-18T01:09:08.514Z"
     },
     {
       "id": "n202611180033-1041",
