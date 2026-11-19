@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-19T07:36:09.177Z",
+  "updatedAt": "2026-11-19T07:36:43.454Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,13 +76,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Pier Ave done; next: roads after Fri",
+      "state": "working",
+      "text": "Hermosa Ave S refs head start",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-18T16:30:28.238Z",
-      "since": "2026-11-18T16:30:28.238Z"
+      "ts": "2026-11-19T07:36:43.454Z",
+      "since": "2026-11-19T07:36:43.454Z"
     },
     "garage-sale-bot": {
       "state": "done",
