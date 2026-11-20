@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-19T20:22:41.293Z",
+  "updatedAt": "2026-11-20T01:40:05.823Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3069,6 +3069,16 @@
       "text": "Income ideas Nov 19: pick yes/no",
       "project": "Income",
       "ts": "2026-11-19T20:22:41.293Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611200140-986c",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Daily bot review ready",
+      "project": null,
+      "ts": "2026-11-20T01:40:05.823Z",
       "handled": false,
       "handledAt": null
     }
