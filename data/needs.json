@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:24:28.040Z",
+  "updatedAt": "2026-11-21T08:25:41.642Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3109,8 +3109,8 @@
       "text": "OK cell tracker setup?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T08:20:51.130Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T08:25:41.642Z"
     },
     {
       "id": "n202611210824-cc68",
