@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:48:33.042Z",
+  "updatedAt": "2026-11-21T21:50:40.618Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3229,8 +3229,8 @@
       "text": "Tree types side-by-side go-ahead",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T21:48:33.042Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T21:50:40.618Z"
     }
   ]
 }
