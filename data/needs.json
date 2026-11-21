@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T22:23:29.869Z",
+  "updatedAt": "2026-11-21T23:44:30.396Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3261,6 +3261,16 @@
       "ts": "2026-11-21T22:19:13.868Z",
       "handled": true,
       "handledAt": "2026-11-21T22:23:29.869Z"
+    },
+    {
+      "id": "n202611212344-c01e",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Review passed houses one by one",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T23:44:30.396Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
