@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:51:38.584Z",
+  "updatedAt": "2026-11-21T21:52:07.222Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -38,15 +38,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Z_S6E4 storefront looks OK",
+      "text": "Yard grass sample go-ahead",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611212151-386f",
+        "id": "n202611212152-eda7",
         "kind": "question"
       },
-      "ts": "2026-11-21T21:51:38.584Z",
-      "since": "2026-11-21T21:51:38.584Z"
+      "ts": "2026-11-21T21:52:07.222Z",
+      "since": "2026-11-21T21:52:07.222Z"
     },
     "cutscene-bot": {
       "state": "done",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:51:38.584Z",
+  "updatedAt": "2026-11-21T21:52:07.222Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3239,6 +3239,16 @@
       "text": "Z_S6E4 storefront looks OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T21:51:38.584Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611212152-eda7",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Yard grass sample go-ahead",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T21:52:07.222Z",
       "handled": false,
       "handledAt": null
     }
