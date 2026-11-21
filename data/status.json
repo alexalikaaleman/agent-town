@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-20T19:22:26.352Z",
+  "updatedAt": "2026-11-21T06:11:32.785Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -8,14 +8,14 @@
   "bots": {
     "gitwriter-3d-bot": {
       "state": "working",
-      "text": "BN3D package v07 build",
+      "text": "Bus Ninja lag fixes 1+2 (3.8)",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611161311-e78f",
         "kind": "question"
       },
-      "ts": "2026-11-17T01:27:25.803Z",
+      "ts": "2026-11-21T06:11:32.785Z",
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
