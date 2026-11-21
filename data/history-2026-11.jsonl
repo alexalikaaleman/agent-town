@@ -1651,3 +1651,4 @@
 {"ts":"2026-11-21T08:14:21.533Z","bot":"game-build-bible","handled":"n202611210813-2f88"}
 {"ts":"2026-11-21T08:14:25.221Z","bot":"game-build-bible","state":"done","text":"Work batches saved; idle","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T08:18:56.111Z","bot":"game-build-bible","state":"done","text":"All-cell batches saved; idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-21T08:20:51.130Z","bot":"game-build-bible","needId":"n202611210820-2669","state":"needs-alex","text":"OK cell tracker setup?","project":"Bus Ninja 3D","needs":"question"}
