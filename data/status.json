@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T22:19:09.476Z",
+  "updatedAt": "2026-11-21T22:19:13.868Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "House match check with CAB",
+      "state": "needs-alex",
+      "text": "Who edits the shared coast files?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-21T22:18:59.959Z",
-      "since": "2026-11-21T22:18:59.959Z"
+      "needs": {
+        "id": "n202611212219-4450",
+        "kind": "question"
+      },
+      "ts": "2026-11-21T22:19:13.868Z",
+      "since": "2026-11-21T22:19:13.868Z"
     },
     "cutscene-bot": {
       "state": "done",

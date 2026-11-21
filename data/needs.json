@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:54:07.173Z",
+  "updatedAt": "2026-11-21T22:19:13.868Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3251,6 +3251,16 @@
       "ts": "2026-11-21T21:52:07.222Z",
       "handled": true,
       "handledAt": "2026-11-21T21:54:07.173Z"
+    },
+    {
+      "id": "n202611212219-4450",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Who edits the shared coast files?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T22:19:13.868Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
