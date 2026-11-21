@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:04:09.004Z",
+  "updatedAt": "2026-11-21T21:10:41.667Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3171,6 +3171,16 @@
       "ts": "2026-11-21T21:01:43.653Z",
       "handled": true,
       "handledAt": "2026-11-21T21:04:09.004Z"
+    },
+    {
+      "id": "n202611212110-6d13",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Parallel rule vs old one-at-a-time",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T21:10:41.667Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

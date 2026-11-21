@@ -1684,3 +1684,4 @@
 {"ts":"2026-11-21T21:01:43.653Z","bot":"game-build-bible","needId":"n202611212101-43a4","state":"needs-alex","text":"CAB speed-up option choice","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-21T21:03:59.817Z","bot":"game-build-bible","state":"working","text":"Timing cell + pits fix updates","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T21:04:09.004Z","bot":"game-build-bible","handled":"n202611212101-43a4"}
+{"ts":"2026-11-21T21:10:41.667Z","bot":"game-build-bible","needId":"n202611212110-6d13","state":"needs-alex","text":"Parallel rule vs old one-at-a-time","project":"Bus Ninja 3D","needs":"question"}
