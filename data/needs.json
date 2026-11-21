@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T20:33:22.825Z",
+  "updatedAt": "2026-11-21T20:57:59.939Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3151,6 +3151,16 @@
       "ts": "2026-11-21T20:12:44.454Z",
       "handled": true,
       "handledAt": "2026-11-21T20:33:22.825Z"
+    },
+    {
+      "id": "n202611212057-32be",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Add helpers to photo work?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T20:57:59.939Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
