@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:15:05.603Z",
+  "updatedAt": "2026-11-21T21:15:47.477Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3189,8 +3189,8 @@
       "text": "GBB v2.3 needs Alex yes",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T21:14:42.248Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T21:15:47.477Z"
     },
     {
       "id": "n202611212115-cd09",
