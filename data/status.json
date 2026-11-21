@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:18:42.186Z",
+  "updatedAt": "2026-11-21T21:41:12.765Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Bus Ninja 3D timing cell",
+      "state": "needs-alex",
+      "text": "Z_S6E4 houses look OK",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-21T21:16:15.855Z",
-      "since": "2026-11-21T21:16:15.855Z"
+      "needs": {
+        "id": "n202611212141-09ca",
+        "kind": "question"
+      },
+      "ts": "2026-11-21T21:41:12.765Z",
+      "since": "2026-11-21T21:41:12.765Z"
     },
     "cutscene-bot": {
       "state": "done",
