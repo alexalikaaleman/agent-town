@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:25:41.642Z",
+  "updatedAt": "2026-11-21T08:32:24.526Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3119,6 +3119,16 @@
       "text": "Cell tracker + Redondo still open",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T08:24:28.040Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611210832-11a5",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "3 small map edge questions",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T08:32:24.526Z",
       "handled": false,
       "handledAt": null
     }
