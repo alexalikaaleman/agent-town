@@ -1699,3 +1699,4 @@
 {"ts":"2026-11-21T21:41:12.765Z","bot":"game-build-bible","needId":"n202611212141-09ca","state":"needs-alex","text":"Z_S6E4 houses look OK","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-21T21:44:06.728Z","bot":"game-build-bible","handled":"n202611212141-09ca"}
 {"ts":"2026-11-21T21:44:12.015Z","bot":"game-build-bible","state":"done","text":"45-min update done; next: 12:27 check","project":"Bus Ninja 3D"}
+{"ts":"2026-11-21T21:44:24.644Z","bot":"game-build-bible","needId":"n202611212144-58b9","state":"needs-alex","text":"Pick which tall buildings get detail","project":"Bus Ninja 3D","needs":"question"}

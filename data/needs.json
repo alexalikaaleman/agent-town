@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:44:06.728Z",
+  "updatedAt": "2026-11-21T21:44:24.644Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3211,6 +3211,16 @@
       "ts": "2026-11-21T21:41:12.765Z",
       "handled": true,
       "handledAt": "2026-11-21T21:44:06.728Z"
+    },
+    {
+      "id": "n202611212144-58b9",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Pick which tall buildings get detail",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T21:44:24.644Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:44:12.015Z",
+  "updatedAt": "2026-11-21T21:44:24.644Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "45-min update done; next: 12:27 check",
+      "state": "needs-alex",
+      "text": "Pick which tall buildings get detail",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-21T21:44:12.015Z",
-      "since": "2026-11-21T21:44:12.015Z"
+      "needs": {
+        "id": "n202611212144-58b9",
+        "kind": "question"
+      },
+      "ts": "2026-11-21T21:44:24.644Z",
+      "since": "2026-11-21T21:44:24.644Z"
     },
     "cutscene-bot": {
       "state": "done",
