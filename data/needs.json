@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-20T01:40:05.823Z",
+  "updatedAt": "2026-11-21T08:08:57.220Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3079,6 +3079,16 @@
       "text": "Daily bot review ready",
       "project": null,
       "ts": "2026-11-20T01:40:05.823Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611210808-3802",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Detail levels for dense zones?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T08:08:57.220Z",
       "handled": false,
       "handledAt": null
     }
