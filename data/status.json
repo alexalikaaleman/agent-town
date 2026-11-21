@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T17:29:55.709Z",
+  "updatedAt": "2026-11-21T17:36:36.896Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,12 +41,12 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Off-map roads logged; next: 3.9 test",
+      "text": "3.9 base rule logged; next: 3.9 test",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-21T17:29:55.709Z",
-      "since": "2026-11-21T17:29:55.709Z"
+      "ts": "2026-11-21T17:36:36.896Z",
+      "since": "2026-11-21T17:36:36.896Z"
     },
     "cutscene-bot": {
       "state": "done",
