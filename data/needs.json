@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:08:57.220Z",
+  "updatedAt": "2026-11-21T08:10:59.905Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3089,8 +3089,8 @@
       "text": "Detail levels for dense zones?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T08:08:57.220Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T08:10:59.905Z"
     }
   ]
 }
