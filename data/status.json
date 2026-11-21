@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T09:43:14.484Z",
+  "updatedAt": "2026-11-21T09:43:24.980Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-18T16:28:09.257Z"
     },
     "game-build-bible": {
-      "state": "done",
-      "text": "3.9 logged; next: Alex test",
+      "state": "needs-alex",
+      "text": "Off-map roads: keep in data?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-21T09:43:14.484Z",
-      "since": "2026-11-21T09:43:14.484Z"
+      "needs": {
+        "id": "n202611210943-0b22",
+        "kind": "question"
+      },
+      "ts": "2026-11-21T09:43:24.980Z",
+      "since": "2026-11-21T09:43:24.980Z"
     },
     "cutscene-bot": {
       "state": "done",

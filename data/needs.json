@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:45:54.076Z",
+  "updatedAt": "2026-11-21T09:43:24.980Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3131,6 +3131,16 @@
       "ts": "2026-11-21T08:32:24.526Z",
       "handled": true,
       "handledAt": "2026-11-21T08:45:54.076Z"
+    },
+    {
+      "id": "n202611210943-0b22",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Off-map roads: keep in data?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T09:43:24.980Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
