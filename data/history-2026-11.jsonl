@@ -1646,3 +1646,4 @@
 {"ts":"2026-11-21T06:11:32.785Z","bot":"gitwriter-3d-bot","state":"working","text":"Bus Ninja lag fixes 1+2 (3.8)","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T08:08:57.220Z","bot":"game-build-bible","needId":"n202611210808-3802","state":"needs-alex","text":"Detail levels for dense zones?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-21T08:10:59.905Z","bot":"game-build-bible","state":"working","text":"Saving two detail levels","project":"Bus Ninja 3D","handled":"n202611210808-3802"}
+{"ts":"2026-11-21T08:11:26.332Z","bot":"game-build-bible","state":"done","text":"Detail levels saved; idle","project":"Bus Ninja 3D"}
