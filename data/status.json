@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:20:51.130Z",
+  "updatedAt": "2026-11-21T08:24:28.040Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,15 +41,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "OK cell tracker setup?",
+      "text": "Cell tracker + Redondo still open",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611210820-2669",
+        "id": "n202611210824-cc68",
         "kind": "question"
       },
-      "ts": "2026-11-21T08:20:51.130Z",
-      "since": "2026-11-21T08:20:51.130Z"
+      "ts": "2026-11-21T08:24:28.040Z",
+      "since": "2026-11-21T08:24:28.040Z"
     },
     "cutscene-bot": {
       "state": "done",
