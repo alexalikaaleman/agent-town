@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:13:02.943Z",
+  "updatedAt": "2026-11-21T08:14:21.533Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3099,8 +3099,8 @@
       "text": "Split big zones into cell batches?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T08:13:02.943Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T08:14:21.533Z"
     }
   ]
 }
