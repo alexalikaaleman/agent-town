@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:10:41.667Z",
+  "updatedAt": "2026-11-21T21:12:38.290Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -44,10 +44,7 @@
       "text": "Parallel rule vs old one-at-a-time",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611212110-6d13",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-21T21:10:41.667Z",
       "since": "2026-11-21T21:10:41.667Z"
     },
