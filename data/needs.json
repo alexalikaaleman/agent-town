@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T23:55:43.565Z",
+  "updatedAt": "2026-11-21T23:58:01.340Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3281,6 +3281,16 @@
       "ts": "2026-11-21T23:49:08.578Z",
       "handled": true,
       "handledAt": "2026-11-21T23:55:43.565Z"
+    },
+    {
+      "id": "n202611212358-e3bc",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Cap 27% or split zone?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T23:58:01.340Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

@@ -1727,3 +1727,4 @@
 {"ts":"2026-11-21T23:49:32.697Z","bot":"game-build-bible","state":"working","text":"45-min progress check","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T23:51:05.837Z","bot":"game-build-bible","state":"done","text":"Progress check done; next: 2:33 update","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T23:55:43.565Z","bot":"game-build-bible","state":"working","text":"Finish PCH and Diamond zone","project":"Bus Ninja 3D","handled":"n202611212349-b4d6"}
+{"ts":"2026-11-21T23:58:01.340Z","bot":"game-build-bible","needId":"n202611212358-e3bc","state":"needs-alex","text":"Cap 27% or split zone?","project":"Bus Ninja 3D","needs":"question"}

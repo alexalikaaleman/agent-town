@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T23:55:43.565Z",
+  "updatedAt": "2026-11-21T23:58:01.340Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Finish PCH and Diamond zone",
+      "state": "needs-alex",
+      "text": "Cap 27% or split zone?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-21T23:55:43.565Z",
-      "since": "2026-11-21T23:55:43.565Z"
+      "needs": {
+        "id": "n202611212358-e3bc",
+        "kind": "question"
+      },
+      "ts": "2026-11-21T23:58:01.340Z",
+      "since": "2026-11-21T23:58:01.340Z"
     },
     "cutscene-bot": {
       "state": "done",
