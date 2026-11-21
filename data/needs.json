@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T09:43:24.980Z",
+  "updatedAt": "2026-11-21T17:29:44.647Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3139,8 +3139,8 @@
       "text": "Off-map roads: keep in data?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T09:43:24.980Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T17:29:44.647Z"
     }
   ]
 }
