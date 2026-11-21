@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T23:49:08.578Z",
+  "updatedAt": "2026-11-21T23:55:43.565Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3279,8 +3279,8 @@
       "text": "House faces: guess rule and order",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T23:49:08.578Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T23:55:43.565Z"
     }
   ]
 }
