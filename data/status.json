@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:52:07.222Z",
+  "updatedAt": "2026-11-21T21:54:07.173Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,10 +41,7 @@
       "text": "Yard grass sample go-ahead",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611212152-eda7",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-21T21:52:07.222Z",
       "since": "2026-11-21T21:52:07.222Z"
     },
