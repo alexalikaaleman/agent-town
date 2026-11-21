@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:41:12.765Z",
+  "updatedAt": "2026-11-21T21:44:06.728Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3209,8 +3209,8 @@
       "text": "Z_S6E4 houses look OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T21:41:12.765Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T21:44:06.728Z"
     }
   ]
 }
