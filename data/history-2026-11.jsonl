@@ -1666,3 +1666,4 @@
 {"ts":"2026-11-21T11:18:08.914Z","bot":"playtest-qa-bot","state":"done","text":"CL check done; idle, nothing queued"}
 {"ts":"2026-11-21T13:55:28.021Z","bot":"garage-sale-bot","state":"working","text":"Maui sale search"}
 {"ts":"2026-11-21T13:55:48.425Z","bot":"garage-sale-bot","state":"done","text":"Maui search done; next: 6am run"}
+{"ts":"2026-11-21T16:18:28.747Z","bot":"robo-maintenance-bot","state":"done","text":"Sweep done; idle, nothing queued","project":"maintenance"}
