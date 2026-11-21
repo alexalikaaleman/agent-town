@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:15:47.477Z",
+  "updatedAt": "2026-11-21T21:15:51.593Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,13 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "needs-alex",
-      "text": "GBB v2.3 needs Alex yes",
+      "state": "working",
+      "text": "GBB core v2.3",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-21T21:14:42.248Z",
-      "since": "2026-11-21T21:14:42.248Z"
+      "ts": "2026-11-21T21:15:51.593Z",
+      "since": "2026-11-21T21:15:51.593Z"
     },
     "game-revision-logger": {
       "state": "done",
