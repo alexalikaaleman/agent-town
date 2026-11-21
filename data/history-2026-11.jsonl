@@ -1706,3 +1706,4 @@
 {"ts":"2026-11-21T21:50:40.618Z","bot":"game-build-bible","handled":"n202611212148-de28"}
 {"ts":"2026-11-21T21:50:58.879Z","bot":"game-build-bible","state":"working","text":"Bus Ninja 3D timing cell","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T21:51:28.850Z","bot":"concept-art-bot","state":"done","text":"Z_S6E4 lists done; next: match check","project":"Bus Ninja 3D"}
+{"ts":"2026-11-21T21:51:38.584Z","bot":"game-build-bible","needId":"n202611212151-386f","state":"needs-alex","text":"Z_S6E4 storefront looks OK","project":"Bus Ninja 3D","needs":"question"}
