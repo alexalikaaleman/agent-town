@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:45:58.177Z",
+  "updatedAt": "2026-11-21T08:48:31.390Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,12 +41,12 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Edge Qs logged; next: 3.8 test",
+      "text": "3.8 OK logged; next: 3.9 watch",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-21T08:45:58.177Z",
-      "since": "2026-11-21T08:45:58.177Z"
+      "ts": "2026-11-21T08:48:31.390Z",
+      "since": "2026-11-21T08:48:31.390Z"
     },
     "cutscene-bot": {
       "state": "done",
