@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:32:24.526Z",
+  "updatedAt": "2026-11-21T08:45:54.076Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3129,8 +3129,8 @@
       "text": "3 small map edge questions",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T08:32:24.526Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T08:45:54.076Z"
     }
   ]
 }
