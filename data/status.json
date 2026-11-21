@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T22:29:01.605Z",
+  "updatedAt": "2026-11-21T23:11:43.722Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "House match check with CAB",
+      "state": "done",
+      "text": "45-min update done; next: idle",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-21T22:23:29.869Z",
-      "since": "2026-11-21T22:23:29.869Z"
+      "ts": "2026-11-21T23:11:43.722Z",
+      "since": "2026-11-21T23:11:43.722Z"
     },
     "cutscene-bot": {
       "state": "done",
