@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T08:14:25.221Z",
+  "updatedAt": "2026-11-21T08:18:56.111Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,12 +41,12 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Work batches saved; idle",
+      "text": "All-cell batches saved; idle",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-21T08:14:25.221Z",
-      "since": "2026-11-21T08:14:25.221Z"
+      "ts": "2026-11-21T08:18:56.111Z",
+      "since": "2026-11-21T08:18:56.111Z"
     },
     "cutscene-bot": {
       "state": "done",
