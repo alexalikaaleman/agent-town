@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T21:52:07.222Z",
+  "updatedAt": "2026-11-21T21:53:05.577Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3239,8 +3239,8 @@
       "text": "Z_S6E4 storefront looks OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T21:51:38.584Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-21T21:53:05.577Z"
     },
     {
       "id": "n202611212152-eda7",
