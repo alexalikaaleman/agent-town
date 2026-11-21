@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T23:34:04.579Z",
+  "updatedAt": "2026-11-21T23:39:54.141Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,13 +73,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Z_S6E4 Tier B r2 check",
+      "state": "done",
+      "text": "B r2 check done; next: next rounds",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-21T23:34:04.579Z",
-      "since": "2026-11-21T23:34:04.579Z"
+      "ts": "2026-11-21T23:39:54.141Z",
+      "since": "2026-11-21T23:39:54.141Z"
     },
     "garage-sale-bot": {
       "state": "done",
