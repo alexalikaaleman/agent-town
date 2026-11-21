@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T20:59:31.635Z",
+  "updatedAt": "2026-11-21T21:01:43.653Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,16 @@
       "since": "2026-11-18T16:28:09.257Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Timing cell + pits fix updates",
+      "state": "needs-alex",
+      "text": "CAB speed-up option choice",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611212057-32be",
+        "id": "n202611212101-43a4",
         "kind": "question"
       },
-      "ts": "2026-11-21T20:59:31.635Z",
-      "since": "2026-11-21T20:59:31.635Z"
+      "ts": "2026-11-21T21:01:43.653Z",
+      "since": "2026-11-21T21:01:43.653Z"
     },
     "cutscene-bot": {
       "state": "done",

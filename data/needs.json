@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T20:57:59.939Z",
+  "updatedAt": "2026-11-21T21:01:43.653Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3159,6 +3159,16 @@
       "text": "Add helpers to photo work?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T20:57:59.939Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611212101-43a4",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "CAB speed-up option choice",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T21:01:43.653Z",
       "handled": false,
       "handledAt": null
     }
