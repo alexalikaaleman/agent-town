@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T20:12:44.454Z",
+  "updatedAt": "2026-11-21T20:13:09.102Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -79,13 +79,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Hermosa S gaps saved; next: Fri lists",
+      "state": "working",
+      "text": "Cell Z_S6E4 refs + piece lists",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-19T09:11:06.190Z",
-      "since": "2026-11-19T09:11:06.190Z"
+      "ts": "2026-11-21T20:13:09.102Z",
+      "since": "2026-11-21T20:13:09.102Z"
     },
     "garage-sale-bot": {
       "state": "done",
