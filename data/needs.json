@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T17:29:44.647Z",
+  "updatedAt": "2026-11-21T20:12:44.454Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3141,6 +3141,16 @@
       "ts": "2026-11-21T09:43:24.980Z",
       "handled": true,
       "handledAt": "2026-11-21T17:29:44.647Z"
+    },
+    {
+      "id": "n202611212012-491e",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Tier A triangle budget choice",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-21T20:12:44.454Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

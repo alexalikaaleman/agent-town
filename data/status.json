@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T20:04:07.052Z",
+  "updatedAt": "2026-11-21T20:12:44.454Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-18T16:28:09.257Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Timing cell + pits fix updates",
+      "state": "needs-alex",
+      "text": "Tier A triangle budget choice",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-21T20:04:07.052Z",
-      "since": "2026-11-21T20:04:07.052Z"
+      "needs": {
+        "id": "n202611212012-491e",
+        "kind": "question"
+      },
+      "ts": "2026-11-21T20:12:44.454Z",
+      "since": "2026-11-21T20:12:44.454Z"
     },
     "cutscene-bot": {
       "state": "done",

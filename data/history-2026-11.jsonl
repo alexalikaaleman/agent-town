@@ -1673,3 +1673,4 @@
 {"ts":"2026-11-21T19:32:08.510Z","bot":"game-build-bible","state":"working","text":"3.9 publish rules relay","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T19:32:29.453Z","bot":"game-build-bible","state":"done","text":"Publish rules undone; next: 3.9 test","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T20:04:07.052Z","bot":"game-build-bible","state":"working","text":"Timing cell + pits fix updates","project":"Bus Ninja 3D"}
+{"ts":"2026-11-21T20:12:44.454Z","bot":"game-build-bible","needId":"n202611212012-491e","state":"needs-alex","text":"Tier A triangle budget choice","project":"Bus Ninja 3D","needs":"question"}
