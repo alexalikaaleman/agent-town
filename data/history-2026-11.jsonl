@@ -1723,3 +1723,4 @@
 {"ts":"2026-11-21T23:39:54.141Z","bot":"concept-art-bot","state":"done","text":"B r2 check done; next: next rounds","project":"Bus Ninja 3D"}
 {"ts":"2026-11-21T23:44:30.396Z","bot":"game-build-bible","needId":"n202611212344-c01e","state":"needs-alex","text":"Review passed houses one by one","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-21T23:48:17.882Z","bot":"concept-art-bot","state":"working","text":"Wall refs for 3 Z_S6E4 houses","project":"Bus Ninja 3D"}
+{"ts":"2026-11-21T23:49:08.578Z","bot":"game-build-bible","needId":"n202611212349-b4d6","state":"needs-alex","text":"House faces: guess rule and order","project":"Bus Ninja 3D","needs":"question"}

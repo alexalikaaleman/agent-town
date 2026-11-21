@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T23:48:17.882Z",
+  "updatedAt": "2026-11-21T23:49:08.578Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -38,15 +38,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Review passed houses one by one",
+      "text": "House faces: guess rule and order",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611212344-c01e",
+        "id": "n202611212349-b4d6",
         "kind": "question"
       },
-      "ts": "2026-11-21T23:44:30.396Z",
-      "since": "2026-11-21T23:44:30.396Z"
+      "ts": "2026-11-21T23:49:08.578Z",
+      "since": "2026-11-21T23:49:08.578Z"
     },
     "cutscene-bot": {
       "state": "done",
