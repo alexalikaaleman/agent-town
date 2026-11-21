@@ -1664,3 +1664,4 @@
 {"ts":"2026-11-21T09:43:24.980Z","bot":"game-build-bible","needId":"n202611210943-0b22","state":"needs-alex","text":"Off-map roads: keep in data?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-21T11:05:41.902Z","bot":"playtest-qa-bot","state":"working","text":"Nightly changelog check"}
 {"ts":"2026-11-21T11:18:08.914Z","bot":"playtest-qa-bot","state":"done","text":"CL check done; idle, nothing queued"}
+{"ts":"2026-11-21T13:55:28.021Z","bot":"garage-sale-bot","state":"working","text":"Maui sale search"}
