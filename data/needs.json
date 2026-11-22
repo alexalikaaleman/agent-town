@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T01:44:44.697Z",
+  "updatedAt": "2026-11-22T01:53:52.396Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3419,6 +3419,16 @@
       "text": "Daily bot-review session",
       "project": null,
       "ts": "2026-11-22T01:35:16.093Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611220153-3da9",
+      "bot": "concept-art-bot",
+      "kind": "question",
+      "text": "OK for second wall photo sweep",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T01:53:52.396Z",
       "handled": false,
       "handledAt": null
     }
