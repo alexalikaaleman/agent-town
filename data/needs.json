@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:21:20.648Z",
+  "updatedAt": "2026-11-22T00:22:06.512Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3359,8 +3359,8 @@
       "text": "Zone cap block: raise or wait",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:21:20.648Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T00:22:06.512Z"
     }
   ]
 }
