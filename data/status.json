@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:11:50.365Z",
+  "updatedAt": "2026-11-22T05:11:54.203Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -316,13 +316,13 @@
       "since": "2026-11-22T05:11:09.324Z"
     },
     "feedback-bot": {
-      "state": "working",
-      "text": "BN3D map plan debate input",
+      "state": "done",
+      "text": "BN3D input done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T05:11:38.144Z",
-      "since": "2026-11-22T05:11:38.144Z"
+      "ts": "2026-11-22T05:11:54.203Z",
+      "since": "2026-11-22T05:11:54.203Z"
     },
     "language-bot": {
       "state": "done",
