@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T04:54:43.196Z",
+  "updatedAt": "2026-11-22T04:55:01.068Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,12 +41,12 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Wall sweep B done; next: zone relays",
+      "text": "Mistake review sent; idle, on hold",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T03:50:33.109Z",
-      "since": "2026-11-22T03:50:33.109Z"
+      "ts": "2026-11-22T04:55:01.068Z",
+      "since": "2026-11-22T04:55:01.068Z"
     },
     "cutscene-bot": {
       "state": "done",
