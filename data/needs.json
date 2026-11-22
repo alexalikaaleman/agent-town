@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:15:26.103Z",
+  "updatedAt": "2026-11-22T00:15:31.285Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3329,8 +3329,8 @@
       "text": "Corner house photo dates?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:13:37.392Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T00:15:31.285Z"
     }
   ]
 }

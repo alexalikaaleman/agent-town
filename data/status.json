@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:15:26.103Z",
+  "updatedAt": "2026-11-22T00:15:31.285Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -73,16 +73,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "needs-alex",
-      "text": "Corner house photo dates?",
+      "state": "working",
+      "text": "Wall coverage pilot",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611220013-ba2c",
-        "kind": "question"
-      },
-      "ts": "2026-11-22T00:13:37.392Z",
-      "since": "2026-11-22T00:13:37.392Z"
+      "needs": null,
+      "ts": "2026-11-22T00:15:31.285Z",
+      "since": "2026-11-22T00:15:31.285Z"
     },
     "garage-sale-bot": {
       "state": "done",
