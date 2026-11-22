@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:48:38.222Z",
+  "updatedAt": "2026-11-22T22:45:11.800Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3591,6 +3591,16 @@
       "ts": "2026-11-22T21:46:47.756Z",
       "handled": true,
       "handledAt": "2026-11-22T21:48:38.222Z"
+    },
+    {
+      "id": "n202611222245-8dbc",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Loosen photo rule to Google-only?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T22:45:11.800Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

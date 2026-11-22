@@ -1855,3 +1855,4 @@
 {"ts":"2026-11-22T21:46:47.756Z","bot":"masterbot","needId":"n202611222146-84eb","state":"needs-alex","text":"Source rules + Drive zip OK","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-22T21:48:38.222Z","bot":"masterbot","handled":"n202611222146-84eb"}
 {"ts":"2026-11-22T22:34:27.547Z","bot":"robotemplate","state":"done","text":"Lead bot design v05 done; idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-22T22:45:11.800Z","bot":"masterbot","needId":"n202611222245-8dbc","state":"needs-alex","text":"Loosen photo rule to Google-only?","project":"Bus Ninja 3D","needs":"question"}

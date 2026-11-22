@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T22:34:27.547Z",
+  "updatedAt": "2026-11-22T22:45:11.800Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -20,12 +20,15 @@
     },
     "masterbot": {
       "state": "needs-alex",
-      "text": "Source rules + Drive zip OK",
+      "text": "Loosen photo rule to Google-only?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T21:46:47.756Z",
-      "since": "2026-11-22T21:46:47.756Z"
+      "needs": {
+        "id": "n202611222245-8dbc",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T22:45:11.800Z",
+      "since": "2026-11-22T22:45:11.800Z"
     },
     "game-revision-logger": {
       "state": "done",
