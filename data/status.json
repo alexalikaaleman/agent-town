@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:14:08.775Z",
+  "updatedAt": "2026-11-22T05:16:55.214Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "All-bot map plan debate",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611220506-da70",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T05:12:18.671Z",
       "since": "2026-11-22T05:12:18.671Z"
     },
