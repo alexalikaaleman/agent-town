@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T22:45:36.593Z",
+  "updatedAt": "2026-11-22T22:45:50.652Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3599,8 +3599,8 @@
       "text": "Loosen photo rule to Google-only?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T22:45:11.800Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T22:45:50.652Z"
     },
     {
       "id": "n202611222245-f489",
