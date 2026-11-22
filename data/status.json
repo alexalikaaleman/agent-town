@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:11:38.144Z",
+  "updatedAt": "2026-11-22T05:11:45.100Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -323,6 +323,15 @@
       "needs": null,
       "ts": "2026-11-22T05:11:38.144Z",
       "since": "2026-11-22T05:11:38.144Z"
+    },
+    "language-bot": {
+      "state": "done",
+      "text": "BN3D debate reply; idle, nothing queued",
+      "project": null,
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-22T05:11:45.100Z",
+      "since": "2026-11-22T05:11:45.100Z"
     }
   }
 }
