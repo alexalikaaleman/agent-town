@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:16:55.214Z",
+  "updatedAt": "2026-11-22T05:16:58.780Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "All-bot map plan debate",
+      "state": "needs-alex",
+      "text": "BN3D top 10 plan: pick one",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T05:12:18.671Z",
-      "since": "2026-11-22T05:12:18.671Z"
+      "needs": {
+        "id": "n202611220516-b634",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T05:16:58.780Z",
+      "since": "2026-11-22T05:16:58.780Z"
     },
     "game-revision-logger": {
       "state": "done",
