@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:30:16.501Z",
+  "updatedAt": "2026-11-22T07:30:24.727Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -50,15 +50,15 @@
     },
     "cutscene-bot": {
       "state": "done",
-      "text": "Track H check done; next: reshoots",
+      "text": "BN3D debate dropped; idle, nothing queu…",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611220045-9e8c",
         "kind": "question"
       },
-      "ts": "2026-11-22T01:43:24.431Z",
-      "since": "2026-11-22T01:43:24.431Z"
+      "ts": "2026-11-22T07:30:24.727Z",
+      "since": "2026-11-22T07:30:24.727Z"
     },
     "robotemplate": {
       "state": "done",
