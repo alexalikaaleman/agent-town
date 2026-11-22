@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:17:15.026Z",
+  "updatedAt": "2026-11-22T00:19:15.222Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "OK Bus Ninja core corrections?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611220016-1845",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T00:16:52.149Z",
       "since": "2026-11-22T00:16:52.149Z"
     },

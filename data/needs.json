@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:17:15.026Z",
+  "updatedAt": "2026-11-22T00:19:15.222Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3339,8 +3339,8 @@
       "text": "OK Bus Ninja core corrections?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:16:52.149Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T00:19:15.222Z"
     },
     {
       "id": "n202611220017-41b4",
