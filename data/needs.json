@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T22:45:11.800Z",
+  "updatedAt": "2026-11-22T22:45:36.593Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3599,6 +3599,16 @@
       "text": "Loosen photo rule to Google-only?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T22:45:11.800Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611222245-f489",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Restore 24 REDO buildings + walls?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T22:45:36.593Z",
       "handled": false,
       "handledAt": null
     }
