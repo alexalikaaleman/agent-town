@@ -1843,3 +1843,4 @@
 {"ts":"2026-11-22T21:00:33.318Z","bot":"masterbot","state":"done","text":"Zone process in; next: Alex on 5 items","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T21:00:46.670Z","bot":"masterbot","needId":"n202611222100-4de0","state":"needs-alex","text":"5 zone rule fixes need yes","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-22T21:00:53.521Z","bot":"game-revision-logger","state":"working","text":"Logging Bible core v2.8","project":"Pandoras Xbox"}
+{"ts":"2026-11-22T21:01:44.022Z","bot":"game-revision-logger","state":"done","text":"Core v2.8 logged; idle, nothing queued","project":"Pandoras Xbox"}
