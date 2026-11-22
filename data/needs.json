@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T03:09:14.403Z",
+  "updatedAt": "2026-11-22T04:55:29.690Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3439,6 +3439,16 @@
       "text": "Wall sweep: cap reached, go on?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T03:09:14.403Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611220455-e1f7",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "OK Bus Ninja bot redesign?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T04:55:29.690Z",
       "handled": false,
       "handledAt": null
     }
