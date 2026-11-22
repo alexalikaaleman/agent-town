@@ -1733,3 +1733,4 @@
 {"ts":"2026-11-22T00:06:47.584Z","bot":"game-build-bible","state":"working","text":"Workflow plan rework","project":"Bus Ninja 3D","handled":"n202611220005-f432"}
 {"ts":"2026-11-22T00:07:09.223Z","bot":"game-build-bible","needId":"n202611220007-ee28","state":"needs-alex","text":"OK workflow plan v2?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-22T00:08:07.433Z","bot":"game-build-bible","state":"working","text":"Holding plan Qs for Alex","project":"Bus Ninja 3D","handled":"n202611220007-ee28"}
+{"ts":"2026-11-22T00:13:15.322Z","bot":"game-build-bible","needId":"n202611220013-17c0","state":"needs-alex","text":"Corner house photo dates?","project":"Bus Ninja 3D","needs":"question"}

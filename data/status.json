@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:08:07.433Z",
+  "updatedAt": "2026-11-22T00:13:15.322Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,16 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Holding plan Qs for Alex",
+      "state": "needs-alex",
+      "text": "Corner house photo dates?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T00:08:07.433Z",
-      "since": "2026-11-22T00:08:07.433Z"
+      "needs": {
+        "id": "n202611220013-17c0",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T00:13:15.322Z",
+      "since": "2026-11-22T00:13:15.322Z"
     },
     "cutscene-bot": {
       "state": "done",
