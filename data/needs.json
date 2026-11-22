@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:43:15.920Z",
+  "updatedAt": "2026-11-22T00:44:07.352Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3379,8 +3379,8 @@
       "text": "Cap question from GitWriter",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:43:15.920Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T00:44:07.352Z"
     }
   ]
 }
