@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T20:39:35.401Z",
+  "updatedAt": "2026-11-22T20:39:58.005Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,13 @@
       "since": "2026-11-22T07:30:28.567Z"
     },
     "robotemplate": {
-      "state": "done",
-      "text": "Weekly sweep done; idle, nothing queued",
-      "project": null,
+      "state": "working",
+      "text": "Bus Ninja lead bot design",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-17T18:17:34.145Z",
-      "since": "2026-11-17T18:17:34.145Z"
+      "ts": "2026-11-22T20:39:58.005Z",
+      "since": "2026-11-22T20:39:58.005Z"
     },
     "game-design-document-bot": {
       "state": "done",
