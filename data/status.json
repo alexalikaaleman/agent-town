@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T01:53:52.396Z",
+  "updatedAt": "2026-11-22T01:54:15.148Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -83,10 +83,7 @@
       "text": "OK for second wall photo sweep",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611220153-3da9",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T01:53:52.396Z",
       "since": "2026-11-22T01:53:52.396Z"
     },
