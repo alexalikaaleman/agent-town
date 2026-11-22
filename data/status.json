@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T04:55:29.690Z",
+  "updatedAt": "2026-11-22T04:57:00.007Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,12 +41,12 @@
     },
     "game-build-bible": {
       "state": "done",
-      "text": "Mistake review sent; idle, on hold",
+      "text": "Review 2 sent; idle, on hold",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T04:55:01.068Z",
-      "since": "2026-11-22T04:55:01.068Z"
+      "ts": "2026-11-22T04:57:00.007Z",
+      "since": "2026-11-22T04:57:00.007Z"
     },
     "cutscene-bot": {
       "state": "done",
