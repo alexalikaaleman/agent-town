@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:44:07.352Z",
+  "updatedAt": "2026-11-22T00:44:11.454Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-22T00:35:17.086Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Cap question from GitWriter",
+      "state": "working",
+      "text": "Bus Ninja zone relay",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T00:43:15.920Z",
-      "since": "2026-11-22T00:43:15.920Z"
+      "ts": "2026-11-22T00:44:11.454Z",
+      "since": "2026-11-22T00:44:11.454Z"
     },
     "cutscene-bot": {
       "state": "done",
