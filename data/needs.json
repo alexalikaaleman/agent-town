@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:31:10.723Z",
+  "updatedAt": "2026-11-22T07:31:50.571Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3491,6 +3491,16 @@
       "ts": "2026-11-22T07:26:51.050Z",
       "handled": true,
       "handledAt": "2026-11-22T07:31:10.723Z"
+    },
+    {
+      "id": "n202611220731-cb90",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Undo earlier core edits too?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T07:31:50.571Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

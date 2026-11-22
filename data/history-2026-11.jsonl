@@ -1813,3 +1813,4 @@
 {"ts":"2026-11-22T07:30:28.567Z","bot":"cutscene-bot","state":"done","text":"Core question closed; idle","project":"Bus Ninja 3D","handled":"n202611220045-9e8c"}
 {"ts":"2026-11-22T07:31:10.723Z","bot":"masterbot","handled":"n202611220726-e9f7"}
 {"ts":"2026-11-22T07:31:15.297Z","bot":"masterbot","state":"done","text":"BN3D debate dropped; idle, nothing queu…","project":"Bus Ninja 3D"}
+{"ts":"2026-11-22T07:31:50.571Z","bot":"masterbot","needId":"n202611220731-cb90","state":"needs-alex","text":"Undo earlier core edits too?","project":"Bus Ninja 3D","needs":"question"}
