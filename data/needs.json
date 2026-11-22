@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:45:15.815Z",
+  "updatedAt": "2026-11-22T21:46:47.756Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3581,6 +3581,16 @@
       "ts": "2026-11-22T21:39:42.383Z",
       "handled": true,
       "handledAt": "2026-11-22T21:45:15.815Z"
+    },
+    {
+      "id": "n202611222146-84eb",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Source rules + Drive zip OK",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T21:46:47.756Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

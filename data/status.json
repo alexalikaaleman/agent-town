@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:45:20.278Z",
+  "updatedAt": "2026-11-22T21:46:47.756Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Clean legal map build prep",
+      "state": "needs-alex",
+      "text": "Source rules + Drive zip OK",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T21:45:20.278Z",
-      "since": "2026-11-22T21:45:20.278Z"
+      "needs": {
+        "id": "n202611222146-84eb",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T21:46:47.756Z",
+      "since": "2026-11-22T21:46:47.756Z"
     },
     "game-revision-logger": {
       "state": "done",
