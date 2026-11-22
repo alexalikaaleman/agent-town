@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:06:47.584Z",
+  "updatedAt": "2026-11-22T00:07:09.223Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3301,6 +3301,16 @@
       "ts": "2026-11-22T00:05:20.222Z",
       "handled": true,
       "handledAt": "2026-11-22T00:06:47.584Z"
+    },
+    {
+      "id": "n202611220007-ee28",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "OK workflow plan v2?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T00:07:09.223Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
