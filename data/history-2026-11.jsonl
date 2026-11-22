@@ -1800,3 +1800,4 @@
 {"ts":"2026-11-22T05:11:54.203Z","bot":"feedback-bot","state":"done","text":"BN3D input done; idle, nothing queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T05:11:59.457Z","bot":"ai-prompt-bot","state":"done","text":"BN3D debate input done; idle, nothing q…"}
 {"ts":"2026-11-22T05:12:04.464Z","bot":"malu-bot","state":"done","text":"Map debate reply done; idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-22T05:12:12.165Z","bot":"trivia-bot","state":"done","text":"BN3D debate input done; next: trivia","project":"Bus Ninja 3D"}
