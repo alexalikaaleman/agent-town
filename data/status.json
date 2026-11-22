@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:07:09.223Z",
+  "updatedAt": "2026-11-22T00:08:07.433Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "OK workflow plan v2?",
+      "state": "working",
+      "text": "Holding plan Qs for Alex",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611220007-ee28",
-        "kind": "question"
-      },
-      "ts": "2026-11-22T00:07:09.223Z",
-      "since": "2026-11-22T00:07:09.223Z"
+      "needs": null,
+      "ts": "2026-11-22T00:08:07.433Z",
+      "since": "2026-11-22T00:08:07.433Z"
     },
     "cutscene-bot": {
       "state": "done",
