@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T20:28:12.447Z",
+  "updatedAt": "2026-11-22T20:28:25.437Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3519,6 +3519,16 @@
       "text": "Pick income ideas to try",
       "project": "Income",
       "ts": "2026-11-22T20:28:12.447Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611222028-bb4a",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "GitWriter photo rule: Alex OK?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T20:28:25.437Z",
       "handled": false,
       "handledAt": null
     }
