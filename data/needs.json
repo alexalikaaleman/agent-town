@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:16:58.780Z",
+  "updatedAt": "2026-11-22T07:25:59.266Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3479,8 +3479,8 @@
       "text": "BN3D top 10 plan: pick one",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T05:16:58.780Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T07:25:59.266Z"
     }
   ]
 }
