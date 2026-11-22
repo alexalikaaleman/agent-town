@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:44:20.254Z",
+  "updatedAt": "2026-11-22T00:45:14.482Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -49,13 +49,16 @@
       "since": "2026-11-22T00:44:11.454Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "Garage rating done; idle, nothing queued",
+      "state": "needs-alex",
+      "text": "OK judging fixes for my core?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-17T09:18:56.586Z",
-      "since": "2026-11-17T09:18:56.586Z"
+      "needs": {
+        "id": "n202611220045-9e8c",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T00:45:14.482Z",
+      "since": "2026-11-22T00:45:14.482Z"
     },
     "robotemplate": {
       "state": "done",

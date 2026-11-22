@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:44:20.254Z",
+  "updatedAt": "2026-11-22T00:45:14.482Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3389,6 +3389,16 @@
       "text": "OK Cutscene judging fix?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:44:20.254Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611220045-9e8c",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "OK judging fixes for my core?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T00:45:14.482Z",
       "handled": false,
       "handledAt": null
     }
