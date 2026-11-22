@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:11:16.020Z",
+  "updatedAt": "2026-11-22T05:11:23.799Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -289,13 +289,13 @@
       "since": "2026-11-22T05:11:01.178Z"
     },
     "help-bot": {
-      "state": "working",
-      "text": "Roster directory update",
+      "state": "done",
+      "text": "Roster update done; idle, nothing queued",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T05:11:05.708Z",
-      "since": "2026-11-22T05:11:05.708Z"
+      "ts": "2026-11-22T05:11:23.799Z",
+      "since": "2026-11-22T05:11:23.799Z"
     },
     "budget-bot": {
       "state": "done",
