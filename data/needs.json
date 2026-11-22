@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:20:16.698Z",
+  "updatedAt": "2026-11-22T00:21:20.648Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3351,6 +3351,16 @@
       "ts": "2026-11-22T00:17:15.026Z",
       "handled": true,
       "handledAt": "2026-11-22T00:20:16.698Z"
+    },
+    {
+      "id": "n202611220021-fb18",
+      "bot": "game-build-bible",
+      "kind": "urgent",
+      "text": "Zone cap block: raise or wait",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T00:21:20.648Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
