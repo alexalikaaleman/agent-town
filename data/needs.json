@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:19:15.222Z",
+  "updatedAt": "2026-11-22T00:20:16.698Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3349,8 +3349,8 @@
       "text": "Rule bundle yes in MasterBot",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:17:15.026Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T00:20:16.698Z"
     }
   ]
 }

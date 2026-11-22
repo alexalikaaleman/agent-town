@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:19:19.332Z",
+  "updatedAt": "2026-11-22T00:20:16.698Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,16 +37,13 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "Rule bundle yes in MasterBot",
+      "state": "working",
+      "text": "Zones finish after rule yes",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611220017-41b4",
-        "kind": "question"
-      },
-      "ts": "2026-11-22T00:17:15.026Z",
-      "since": "2026-11-22T00:17:15.026Z"
+      "needs": null,
+      "ts": "2026-11-22T00:20:16.698Z",
+      "since": "2026-11-22T00:20:16.698Z"
     },
     "cutscene-bot": {
       "state": "done",
