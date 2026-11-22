@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T01:55:16.863Z",
+  "updatedAt": "2026-11-22T02:10:51.729Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -41,11 +41,11 @@
     },
     "game-build-bible": {
       "state": "working",
-      "text": "Bus Ninja zone relay",
+      "text": "Bus Ninja wall sweep half B",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T01:44:36.913Z",
+      "ts": "2026-11-22T02:10:51.729Z",
       "since": "2026-11-22T01:44:36.913Z"
     },
     "cutscene-bot": {
