@@ -1730,3 +1730,4 @@
 {"ts":"2026-11-21T23:58:01.340Z","bot":"game-build-bible","needId":"n202611212358-e3bc","state":"needs-alex","text":"Cap 27% or split zone?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-22T00:03:39.516Z","bot":"masterbot","state":"working","text":"Bus Ninja core corrections","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T00:05:20.222Z","bot":"game-build-bible","needId":"n202611220005-f432","state":"needs-alex","text":"OK new zone workflow plan?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-22T00:06:47.584Z","bot":"game-build-bible","state":"working","text":"Workflow plan rework","project":"Bus Ninja 3D","handled":"n202611220005-f432"}

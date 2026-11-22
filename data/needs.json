@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:05:20.222Z",
+  "updatedAt": "2026-11-22T00:06:47.584Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3299,8 +3299,8 @@
       "text": "OK new zone workflow plan?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:05:20.222Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T00:06:47.584Z"
     }
   ]
 }
