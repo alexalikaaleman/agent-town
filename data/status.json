@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:16:52.149Z",
+  "updatedAt": "2026-11-22T00:17:15.026Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-21T21:18:42.186Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Relaying plan answers",
+      "state": "needs-alex",
+      "text": "Rule bundle yes in MasterBot",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T00:15:26.103Z",
-      "since": "2026-11-22T00:15:26.103Z"
+      "needs": {
+        "id": "n202611220017-41b4",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T00:17:15.026Z",
+      "since": "2026-11-22T00:17:15.026Z"
     },
     "cutscene-bot": {
       "state": "done",

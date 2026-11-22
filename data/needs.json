@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:16:52.149Z",
+  "updatedAt": "2026-11-22T00:17:15.026Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3339,6 +3339,16 @@
       "text": "OK Bus Ninja core corrections?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:16:52.149Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611220017-41b4",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "Rule bundle yes in MasterBot",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T00:17:15.026Z",
       "handled": false,
       "handledAt": null
     }
