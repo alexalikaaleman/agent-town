@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:21:20.648Z",
+  "updatedAt": "2026-11-22T00:21:41.369Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,13 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Installing Bus Ninja corrections",
+      "state": "done",
+      "text": "Core fixes done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T00:19:19.332Z",
-      "since": "2026-11-22T00:19:19.332Z"
+      "ts": "2026-11-22T00:21:41.369Z",
+      "since": "2026-11-22T00:21:41.369Z"
     },
     "game-revision-logger": {
       "state": "done",
