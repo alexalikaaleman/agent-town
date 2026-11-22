@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:45:14.482Z",
+  "updatedAt": "2026-11-22T00:56:26.887Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -79,13 +79,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "working",
-      "text": "Z_S6E4 one-sweep research",
+      "state": "done",
+      "text": "Zone rows done; next: sheet checks",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T00:23:39.965Z",
-      "since": "2026-11-22T00:23:39.965Z"
+      "ts": "2026-11-22T00:56:26.887Z",
+      "since": "2026-11-22T00:56:26.887Z"
     },
     "garage-sale-bot": {
       "state": "done",
