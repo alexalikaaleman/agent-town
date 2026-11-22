@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:30:28.567Z",
+  "updatedAt": "2026-11-22T07:31:10.723Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3489,8 +3489,8 @@
       "text": "BN3D one plan: yes or no",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T07:26:51.050Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T07:31:10.723Z"
     }
   ]
 }
