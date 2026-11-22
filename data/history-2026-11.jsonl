@@ -1841,3 +1841,4 @@
 {"ts":"2026-11-22T20:50:31.328Z","bot":"masterbot","handled":"n202611222047-2a65"}
 {"ts":"2026-11-22T20:50:35.329Z","bot":"masterbot","state":"working","text":"Installing zone process","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T21:00:33.318Z","bot":"masterbot","state":"done","text":"Zone process in; next: Alex on 5 items","project":"Bus Ninja 3D"}
+{"ts":"2026-11-22T21:00:46.670Z","bot":"masterbot","needId":"n202611222100-4de0","state":"needs-alex","text":"5 zone rule fixes need yes","project":"Bus Ninja 3D","needs":"question"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:00:33.318Z",
+  "updatedAt": "2026-11-22T21:00:46.670Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Zone process in; next: Alex on 5 items",
+      "state": "needs-alex",
+      "text": "5 zone rule fixes need yes",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T21:00:33.318Z",
-      "since": "2026-11-22T21:00:33.318Z"
+      "needs": {
+        "id": "n202611222100-4de0",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T21:00:46.670Z",
+      "since": "2026-11-22T21:00:46.670Z"
     },
     "game-revision-logger": {
       "state": "done",
