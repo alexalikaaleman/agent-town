@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:03:39.516Z",
+  "updatedAt": "2026-11-22T00:05:20.222Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -38,15 +38,15 @@
     },
     "game-build-bible": {
       "state": "needs-alex",
-      "text": "Cap 27% or split zone?",
+      "text": "OK new zone workflow plan?",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611212358-e3bc",
+        "id": "n202611220005-f432",
         "kind": "question"
       },
-      "ts": "2026-11-21T23:58:01.340Z",
-      "since": "2026-11-21T23:58:01.340Z"
+      "ts": "2026-11-22T00:05:20.222Z",
+      "since": "2026-11-22T00:05:20.222Z"
     },
     "cutscene-bot": {
       "state": "done",

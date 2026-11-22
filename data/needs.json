@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-21T23:58:01.340Z",
+  "updatedAt": "2026-11-22T00:05:20.222Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3289,6 +3289,16 @@
       "text": "Cap 27% or split zone?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-21T23:58:01.340Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611220005-f432",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "OK new zone workflow plan?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T00:05:20.222Z",
       "handled": false,
       "handledAt": null
     }
