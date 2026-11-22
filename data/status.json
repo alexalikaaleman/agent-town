@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:36:02.399Z",
+  "updatedAt": "2026-11-22T07:36:05.781Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,13 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "needs-alex",
-      "text": "Undo earlier core edits too?",
+      "state": "done",
+      "text": "Revert to 3.9 done; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T07:31:50.571Z",
-      "since": "2026-11-22T07:31:50.571Z"
+      "ts": "2026-11-22T07:36:05.781Z",
+      "since": "2026-11-22T07:36:05.781Z"
     },
     "game-revision-logger": {
       "state": "done",
