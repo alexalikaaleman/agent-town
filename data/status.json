@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T01:35:16.093Z",
+  "updatedAt": "2026-11-22T01:41:41.248Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -52,16 +52,16 @@
       "since": "2026-11-22T01:24:13.102Z"
     },
     "cutscene-bot": {
-      "state": "needs-alex",
-      "text": "OK judging fixes for my core?",
+      "state": "working",
+      "text": "One-sided check, Track H sheets",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611220045-9e8c",
         "kind": "question"
       },
-      "ts": "2026-11-22T00:45:14.482Z",
-      "since": "2026-11-22T00:45:14.482Z"
+      "ts": "2026-11-22T01:41:41.248Z",
+      "since": "2026-11-22T01:41:41.248Z"
     },
     "robotemplate": {
       "state": "done",
