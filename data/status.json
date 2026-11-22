@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T01:54:15.148Z",
+  "updatedAt": "2026-11-22T01:55:16.863Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -79,13 +79,13 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "needs-alex",
-      "text": "OK for second wall photo sweep",
+      "state": "working",
+      "text": "Second wall photo sweep",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T01:53:52.396Z",
-      "since": "2026-11-22T01:53:52.396Z"
+      "ts": "2026-11-22T01:55:16.863Z",
+      "since": "2026-11-22T01:55:16.863Z"
     },
     "garage-sale-bot": {
       "state": "done",
