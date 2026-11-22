@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:39:42.383Z",
+  "updatedAt": "2026-11-22T21:45:15.815Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "Legal photo sources pick",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611222139-5cf2",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T21:39:42.383Z",
       "since": "2026-11-22T21:39:42.383Z"
     },
