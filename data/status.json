@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:11:23.799Z",
+  "updatedAt": "2026-11-22T05:11:29.390Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -178,16 +178,16 @@
       "since": "2026-11-17T18:23:20.565Z"
     },
     "hustle-bot": {
-      "state": "needs-alex",
-      "text": "Income ideas Nov 19: pick yes/no",
-      "project": "Income",
+      "state": "done",
+      "text": "BN3D debate input done; idle",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611192022-de33",
         "kind": "question"
       },
-      "ts": "2026-11-19T20:22:41.293Z",
-      "since": "2026-11-19T20:22:41.293Z"
+      "ts": "2026-11-22T05:11:29.390Z",
+      "since": "2026-11-22T05:11:29.390Z"
     },
     "larry-h-robot": {
       "state": "done",
