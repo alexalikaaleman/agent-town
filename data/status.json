@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:11:29.390Z",
+  "updatedAt": "2026-11-22T05:11:33.096Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -242,12 +242,12 @@
     },
     "release-marketing-bot": {
       "state": "done",
-      "text": "Channel compare done; idle, nothing que…",
-      "project": null,
+      "text": "BN3D debate input; idle, nothing queued",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-11T08:42:17.915Z",
-      "since": "2026-11-11T08:42:17.915Z"
+      "ts": "2026-11-22T05:11:33.096Z",
+      "since": "2026-11-22T05:11:33.096Z"
     },
     "robo-helper-bot": {
       "state": "needs-alex",
