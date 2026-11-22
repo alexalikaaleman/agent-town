@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T22:45:54.250Z",
+  "updatedAt": "2026-11-22T22:47:46.792Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "Loosen photo rule, 4 bots",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611222245-f489",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T22:45:54.250Z",
       "since": "2026-11-22T22:45:54.250Z"
     },

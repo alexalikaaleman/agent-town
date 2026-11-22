@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T22:45:50.652Z",
+  "updatedAt": "2026-11-22T22:47:46.792Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3609,8 +3609,8 @@
       "text": "Restore 24 REDO buildings + walls?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T22:45:36.593Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T22:47:46.792Z"
     }
   ]
 }
