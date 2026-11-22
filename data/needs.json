@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:36:02.399Z",
+  "updatedAt": "2026-11-22T20:23:37.870Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3501,6 +3501,16 @@
       "ts": "2026-11-22T07:31:50.571Z",
       "handled": true,
       "handledAt": "2026-11-22T07:36:02.399Z"
+    },
+    {
+      "id": "n202611222023-fd8d",
+      "bot": "accounting-bot",
+      "kind": "question",
+      "text": "Weekly receipts check-in",
+      "project": null,
+      "ts": "2026-11-22T20:23:37.870Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
