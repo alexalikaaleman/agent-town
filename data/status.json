@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T20:33:01.087Z",
+  "updatedAt": "2026-11-22T20:34:24.541Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "GitWriter photo rule: Alex OK?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611222028-bb4a",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T20:28:25.437Z",
       "since": "2026-11-22T20:28:25.437Z"
     },

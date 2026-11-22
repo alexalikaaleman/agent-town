@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T20:33:01.087Z",
+  "updatedAt": "2026-11-22T20:34:24.541Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3529,8 +3529,8 @@
       "text": "GitWriter photo rule: Alex OK?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T20:28:25.437Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T20:34:24.541Z"
     },
     {
       "id": "n202611222033-f2fd",
