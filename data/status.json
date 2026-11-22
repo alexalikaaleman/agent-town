@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T05:06:20.262Z",
+  "updatedAt": "2026-11-22T05:10:36.055Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -287,6 +287,15 @@
       "needs": null,
       "ts": "2026-11-17T18:49:46.993Z",
       "since": "2026-11-17T18:49:46.993Z"
+    },
+    "help-bot": {
+      "state": "working",
+      "text": "BN3D plan debate input",
+      "project": "Bus Ninja 3D",
+      "with": [],
+      "needs": null,
+      "ts": "2026-11-22T05:10:36.055Z",
+      "since": "2026-11-22T05:10:36.055Z"
     }
   }
 }
