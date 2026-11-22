@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T20:28:25.437Z",
+  "updatedAt": "2026-11-22T20:33:01.087Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -118,16 +118,16 @@
       "since": "2026-11-22T16:10:47.146Z"
     },
     "chief-of-staff": {
-      "state": "done",
-      "text": "Urgent check done; next: flag to Alex",
-      "project": null,
+      "state": "needs-alex",
+      "text": "Weekly usage going fast",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
-        "id": "n202611132250-38bb",
-        "kind": "question"
+        "id": "n202611222033-f2fd",
+        "kind": "urgent"
       },
-      "ts": "2026-11-18T20:31:29.679Z",
-      "since": "2026-11-18T20:31:29.679Z"
+      "ts": "2026-11-22T20:33:01.087Z",
+      "since": "2026-11-22T20:33:01.087Z"
     },
     "brainstorm-bot": {
       "state": "done",

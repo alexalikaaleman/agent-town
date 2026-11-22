@@ -1829,3 +1829,4 @@
 {"ts":"2026-11-22T20:28:12.447Z","bot":"hustle-bot","needId":"n202611222028-cd6a","state":"needs-alex","text":"Pick income ideas to try","project":"Income","needs":"question"}
 {"ts":"2026-11-22T20:28:17.207Z","bot":"hustle-bot","state":"done","text":"Income session done; next: Alex's picks","project":"Income"}
 {"ts":"2026-11-22T20:28:25.437Z","bot":"masterbot","needId":"n202611222028-bb4a","state":"needs-alex","text":"GitWriter photo rule: Alex OK?","project":"Bus Ninja 3D","needs":"question"}
+{"ts":"2026-11-22T20:33:01.087Z","bot":"chief-of-staff","needId":"n202611222033-f2fd","state":"needs-alex","text":"Weekly usage going fast","project":"Bus Ninja 3D","needs":"urgent"}
