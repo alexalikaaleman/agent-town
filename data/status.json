@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:56:26.887Z",
+  "updatedAt": "2026-11-22T01:24:13.102Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,13 +40,16 @@
       "since": "2026-11-22T00:35:17.086Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "Bus Ninja zone relay",
+      "state": "needs-alex",
+      "text": "Track S look board yes/no",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T00:44:11.454Z",
-      "since": "2026-11-22T00:44:11.454Z"
+      "needs": {
+        "id": "n202611220124-a0c2",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T01:24:13.102Z",
+      "since": "2026-11-22T01:24:13.102Z"
     },
     "cutscene-bot": {
       "state": "needs-alex",
