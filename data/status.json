@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:46:47.756Z",
+  "updatedAt": "2026-11-22T21:48:38.222Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,10 +23,7 @@
       "text": "Source rules + Drive zip OK",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611222146-84eb",
-        "kind": "question"
-      },
+      "needs": null,
       "ts": "2026-11-22T21:46:47.756Z",
       "since": "2026-11-22T21:46:47.756Z"
     },

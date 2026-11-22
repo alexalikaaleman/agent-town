@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:46:47.756Z",
+  "updatedAt": "2026-11-22T21:48:38.222Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3589,8 +3589,8 @@
       "text": "Source rules + Drive zip OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T21:46:47.756Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T21:48:38.222Z"
     }
   ]
 }
