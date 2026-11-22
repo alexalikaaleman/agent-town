@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T00:15:31.285Z",
+  "updatedAt": "2026-11-22T00:16:52.149Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "working",
-      "text": "Bus Ninja core corrections",
+      "state": "needs-alex",
+      "text": "OK Bus Ninja core corrections?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T00:03:39.516Z",
-      "since": "2026-11-22T00:03:39.516Z"
+      "needs": {
+        "id": "n202611220016-1845",
+        "kind": "question"
+      },
+      "ts": "2026-11-22T00:16:52.149Z",
+      "since": "2026-11-22T00:16:52.149Z"
     },
     "game-revision-logger": {
       "state": "done",

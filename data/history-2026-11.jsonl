@@ -1737,3 +1737,4 @@
 {"ts":"2026-11-22T00:13:37.392Z","bot":"concept-art-bot","needId":"n202611220013-ba2c","state":"needs-alex","text":"Corner house photo dates?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-22T00:15:26.103Z","bot":"game-build-bible","state":"working","text":"Relaying plan answers","project":"Bus Ninja 3D","handled":"n202611220013-17c0"}
 {"ts":"2026-11-22T00:15:31.285Z","bot":"concept-art-bot","state":"working","text":"Wall coverage pilot","project":"Bus Ninja 3D","handled":"n202611220013-ba2c"}
+{"ts":"2026-11-22T00:16:52.149Z","bot":"masterbot","needId":"n202611220016-1845","state":"needs-alex","text":"OK Bus Ninja core corrections?","project":"Bus Ninja 3D","needs":"question"}
