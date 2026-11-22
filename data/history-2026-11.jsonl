@@ -1849,3 +1849,4 @@
 {"ts":"2026-11-22T21:32:44.885Z","bot":"masterbot","state":"working","text":"Allowed photo sources switch","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T21:32:50.425Z","bot":"robotemplate","state":"working","text":"Lead bot design v04 sources","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T21:39:26.749Z","bot":"robotemplate","state":"done","text":"Lead bot design v04 done; idle","project":"Bus Ninja 3D"}
+{"ts":"2026-11-22T21:39:42.383Z","bot":"masterbot","needId":"n202611222139-5cf2","state":"needs-alex","text":"Legal photo sources pick","project":"Bus Ninja 3D","needs":"question"}

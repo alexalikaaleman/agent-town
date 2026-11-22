@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T21:03:47.640Z",
+  "updatedAt": "2026-11-22T21:39:42.383Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3569,6 +3569,16 @@
       "text": "Lead bot design ready for OK",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T21:03:47.640Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611222139-5cf2",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Legal photo sources pick",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-22T21:39:42.383Z",
       "handled": false,
       "handledAt": null
     }
