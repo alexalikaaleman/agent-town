@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:36:28.861Z",
+  "updatedAt": "2026-11-22T07:37:07.059Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -28,13 +28,13 @@
       "since": "2026-11-22T07:36:05.781Z"
     },
     "game-revision-logger": {
-      "state": "working",
-      "text": "Logging Bible core restore",
+      "state": "done",
+      "text": "Core restore logged; idle, none queued",
       "project": "Pandoras Xbox",
       "with": [],
       "needs": null,
-      "ts": "2026-11-22T07:36:28.861Z",
-      "since": "2026-11-22T07:36:28.861Z"
+      "ts": "2026-11-22T07:37:07.059Z",
+      "since": "2026-11-22T07:37:07.059Z"
     },
     "game-build-bible": {
       "state": "done",
