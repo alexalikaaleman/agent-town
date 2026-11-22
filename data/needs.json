@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:26:51.050Z",
+  "updatedAt": "2026-11-22T07:30:28.567Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3399,8 +3399,8 @@
       "text": "OK judging fixes for my core?",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-22T00:45:14.482Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-22T07:30:28.567Z"
     },
     {
       "id": "n202611220124-a0c2",
