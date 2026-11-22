@@ -1784,3 +1784,4 @@
 {"ts":"2026-11-22T05:06:20.262Z","bot":"masterbot","needId":"n202611220506-da70","state":"needs-alex","text":"OK whole-map plan v05?","project":"Bus Ninja 3D","needs":"question"}
 {"ts":"2026-11-22T05:06:30.292Z","bot":"masterbot","handled":"n202611220457-802e"}
 {"ts":"2026-11-22T05:10:36.055Z","bot":"help-bot","state":"working","text":"BN3D plan debate input","project":"Bus Ninja 3D"}
+{"ts":"2026-11-22T05:10:46.774Z","bot":"budget-bot","state":"done","text":"BN3D debate reply done; idle, nothing q"}
