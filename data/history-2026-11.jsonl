@@ -1871,3 +1871,4 @@
 {"ts":"2026-11-23T04:21:44.570Z","bot":"robo-helper-bot","state":"working","text":"Weekly library audit","project":"RoboTemplate"}
 {"ts":"2026-11-23T04:25:23.576Z","bot":"robo-helper-bot","state":"done","text":"Weekly audit done; idle, nothing queued","project":"RoboTemplate"}
 {"ts":"2026-11-23T10:55:56.822Z","bot":"garage-sale-bot","state":"working","text":"Weekly sale list reset"}
+{"ts":"2026-11-23T10:56:24.999Z","bot":"garage-sale-bot","state":"done","text":"Week reset done; idle, nothing queued"}
