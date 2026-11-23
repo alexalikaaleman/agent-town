@@ -1861,3 +1861,4 @@
 {"ts":"2026-11-22T22:45:54.250Z","bot":"masterbot","state":"working","text":"Loosen photo rule, 4 bots","project":"Bus Ninja 3D"}
 {"ts":"2026-11-22T22:47:46.792Z","bot":"masterbot","handled":"n202611222245-f489"}
 {"ts":"2026-11-22T22:53:38.932Z","bot":"masterbot","state":"done","text":"Photo rule loosened; next: relay build","project":"Bus Ninja 3D"}
+{"ts":"2026-11-23T01:35:32.324Z","bot":"masterbot","needId":"n202611230135-6a44","state":"needs-alex","text":"Daily bot-review session","needs":"question"}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T22:47:46.792Z",
+  "updatedAt": "2026-11-23T01:35:32.324Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3611,6 +3611,16 @@
       "ts": "2026-11-22T22:45:36.593Z",
       "handled": true,
       "handledAt": "2026-11-22T22:47:46.792Z"
+    },
+    {
+      "id": "n202611230135-6a44",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Daily bot-review session",
+      "project": null,
+      "ts": "2026-11-23T01:35:32.324Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
