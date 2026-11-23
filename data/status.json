@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T03:01:08.759Z",
+  "updatedAt": "2026-11-23T03:38:27.326Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -49,13 +49,13 @@
       "since": "2026-11-22T07:30:16.501Z"
     },
     "cutscene-bot": {
-      "state": "working",
-      "text": "BN3D player animation clips",
+      "state": "done",
+      "text": "BN3D anim clips done; idle",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-23T03:01:08.759Z",
-      "since": "2026-11-23T03:01:08.759Z"
+      "ts": "2026-11-23T03:38:27.326Z",
+      "since": "2026-11-23T03:38:27.326Z"
     },
     "robotemplate": {
       "state": "done",
