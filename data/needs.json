@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T03:01:08.759Z",
+  "updatedAt": "2026-11-23T03:39:51.734Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3631,6 +3631,16 @@
       "ts": "2026-11-23T02:50:18.244Z",
       "handled": true,
       "handledAt": "2026-11-23T03:01:08.759Z"
+    },
+    {
+      "id": "n202611230339-d478",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "Clip remake approval",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-23T03:39:51.734Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }

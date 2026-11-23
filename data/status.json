@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T03:38:27.326Z",
+  "updatedAt": "2026-11-23T03:39:51.734Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -49,13 +49,16 @@
       "since": "2026-11-22T07:30:16.501Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "BN3D anim clips done; idle",
+      "state": "needs-alex",
+      "text": "Clip remake approval",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-23T03:38:27.326Z",
-      "since": "2026-11-23T03:38:27.326Z"
+      "needs": {
+        "id": "n202611230339-d478",
+        "kind": "question"
+      },
+      "ts": "2026-11-23T03:39:51.734Z",
+      "since": "2026-11-23T03:39:51.734Z"
     },
     "robotemplate": {
       "state": "done",
