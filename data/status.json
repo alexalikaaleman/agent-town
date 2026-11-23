@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T16:16:21.444Z",
+  "updatedAt": "2026-11-23T18:17:17.350Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -151,16 +151,16 @@
       "since": "2026-11-22T05:11:16.020Z"
     },
     "alika-treed-business-bot": {
-      "state": "done",
-      "text": "Sales check done; idle, nothing queued",
+      "state": "working",
+      "text": "Weekly sales check",
       "project": "Alika TreeD",
       "with": [],
       "needs": {
         "id": "n202611031031-b755",
         "kind": "question"
       },
-      "ts": "2026-11-16T18:19:16.003Z",
-      "since": "2026-11-16T18:19:16.003Z"
+      "ts": "2026-11-23T18:17:17.350Z",
+      "since": "2026-11-23T18:17:17.350Z"
     },
     "bot-scout": {
       "state": "needs-alex",
