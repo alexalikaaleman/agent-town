@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T01:35:32.324Z",
+  "updatedAt": "2026-11-23T02:50:18.244Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -49,13 +49,16 @@
       "since": "2026-11-22T07:30:16.501Z"
     },
     "cutscene-bot": {
-      "state": "done",
-      "text": "Core question closed; idle",
+      "state": "needs-alex",
+      "text": "OK to make BN3D player anim clips?",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T07:30:28.567Z",
-      "since": "2026-11-22T07:30:28.567Z"
+      "needs": {
+        "id": "n202611230250-bcbd",
+        "kind": "question"
+      },
+      "ts": "2026-11-23T02:50:18.244Z",
+      "since": "2026-11-23T02:50:18.244Z"
     },
     "robotemplate": {
       "state": "done",

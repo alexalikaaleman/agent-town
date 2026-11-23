@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T01:35:32.324Z",
+  "updatedAt": "2026-11-23T02:50:18.244Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3619,6 +3619,16 @@
       "text": "Daily bot-review session",
       "project": null,
       "ts": "2026-11-23T01:35:32.324Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611230250-bcbd",
+      "bot": "cutscene-bot",
+      "kind": "question",
+      "text": "OK to make BN3D player anim clips?",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-23T02:50:18.244Z",
       "handled": false,
       "handledAt": null
     }
