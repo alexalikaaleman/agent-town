@@ -1889,3 +1889,4 @@
 {"ts":"2026-11-24T10:37:34.647Z","bot":"concept-art-bot","state":"done","text":"Drunk peds redo done; idle, none queued","project":"Bus Ninja 3D"}
 {"ts":"2026-11-24T10:39:16.965Z","bot":"game-build-bible","state":"working","text":"Bar and restaurant list","project":"Bus Ninja 3D"}
 {"ts":"2026-11-24T10:43:34.566Z","bot":"concept-art-bot","state":"working","text":"Drunk peds round 3","project":"Bus Ninja 3D"}
+{"ts":"2026-11-24T10:45:32.299Z","bot":"game-build-bible","needId":"n202611241045-1bff","state":"needs-alex","text":"NPC rule conflict in plan","project":"Bus Ninja 3D","needs":"question"}
