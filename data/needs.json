@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:57:14.142Z",
+  "updatedAt": "2026-11-24T18:21:41.499Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3671,6 +3671,16 @@
       "ts": "2026-11-24T10:45:38.549Z",
       "handled": true,
       "handledAt": "2026-11-24T10:57:14.142Z"
+    },
+    {
+      "id": "n202611241821-abf3",
+      "bot": "bot-scout",
+      "kind": "question",
+      "text": "Weekly picks Nov 24: yes or no?",
+      "project": null,
+      "ts": "2026-11-24T18:21:41.499Z",
+      "handled": false,
+      "handledAt": null
     }
   ]
 }
