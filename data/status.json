@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:59:48.008Z",
+  "updatedAt": "2026-11-24T11:03:53.142Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -76,16 +76,16 @@
       "since": "2026-11-17T19:02:15.845Z"
     },
     "concept-art-bot": {
-      "state": "done",
-      "text": "Drunk peds+NPCs done; next: Alex picks",
+      "state": "working",
+      "text": "Drunk ped 09 redo",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611220309-9ce4",
         "kind": "question"
       },
-      "ts": "2026-11-24T10:59:31.290Z",
-      "since": "2026-11-24T10:59:31.290Z"
+      "ts": "2026-11-24T11:03:53.142Z",
+      "since": "2026-11-24T11:03:53.142Z"
     },
     "garage-sale-bot": {
       "state": "done",
