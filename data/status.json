@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T11:04:52.171Z",
+  "updatedAt": "2026-11-24T11:14:57.270Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -97,13 +97,13 @@
       "since": "2026-11-23T10:56:24.999Z"
     },
     "playtest-qa-bot": {
-      "state": "working",
-      "text": "Nightly changelog check",
+      "state": "done",
+      "text": "CL check done; idle, nothing queued",
       "project": "published games",
       "with": [],
       "needs": null,
-      "ts": "2026-11-24T11:04:14.013Z",
-      "since": "2026-11-24T11:04:14.013Z"
+      "ts": "2026-11-24T11:14:57.270Z",
+      "since": "2026-11-24T11:14:57.270Z"
     },
     "robo-maintenance-bot": {
       "state": "done",
