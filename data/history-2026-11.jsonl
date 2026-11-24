@@ -1880,3 +1880,4 @@
 {"ts":"2026-11-23T18:17:57.694Z","bot":"alika-treed-business-bot","state":"done","text":"Sales check done; idle, nothing queued","project":"Alika TreeD"}
 {"ts":"2026-11-23T19:28:15.542Z","bot":"chief-of-staff","state":"done","text":"Weekly rundown done; next: urgent check"}
 {"ts":"2026-11-24T01:36:21.533Z","bot":"masterbot","handled":"n202611230135-6a44"}
+{"ts":"2026-11-24T01:36:26.615Z","bot":"masterbot","needId":"n202611240136-17f6","state":"needs-alex","text":"Daily bot-review session","needs":"question"}

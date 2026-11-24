@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T01:36:21.533Z",
+  "updatedAt": "2026-11-24T01:36:26.615Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -23,9 +23,12 @@
       "text": "Daily bot-review session",
       "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-23T01:35:32.324Z",
-      "since": "2026-11-23T01:35:32.324Z"
+      "needs": {
+        "id": "n202611240136-17f6",
+        "kind": "question"
+      },
+      "ts": "2026-11-24T01:36:26.615Z",
+      "since": "2026-11-24T01:36:26.615Z"
     },
     "game-revision-logger": {
       "state": "done",
