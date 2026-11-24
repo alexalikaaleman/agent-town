@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:59:31.290Z",
+  "updatedAt": "2026-11-24T10:59:48.008Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -31,13 +31,13 @@
       "since": "2026-11-24T01:36:26.615Z"
     },
     "game-revision-logger": {
-      "state": "done",
-      "text": "Bus Ninja note logged; idle",
+      "state": "working",
+      "text": "Logging Bus Ninja plan note",
       "project": "Pandoras Xbox",
       "with": [],
       "needs": null,
-      "ts": "2026-11-24T10:52:15.076Z",
-      "since": "2026-11-24T10:52:15.076Z"
+      "ts": "2026-11-24T10:59:48.008Z",
+      "since": "2026-11-24T10:59:48.008Z"
     },
     "game-build-bible": {
       "state": "working",
