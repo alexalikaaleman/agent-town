@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:45:32.299Z",
+  "updatedAt": "2026-11-24T10:45:38.549Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3659,6 +3659,16 @@
       "text": "NPC rule conflict in plan",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-24T10:45:32.299Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611241045-4d65",
+      "bot": "game-build-bible",
+      "kind": "question",
+      "text": "NPC rule conflict in plan",
+      "project": "Bus Ninja 3D",
+      "ts": "2026-11-24T10:45:38.549Z",
       "handled": false,
       "handledAt": null
     }
