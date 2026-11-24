@@ -1903,3 +1903,4 @@
 {"ts":"2026-11-24T16:11:16.809Z","bot":"robo-maintenance-bot","state":"working","text":"Daily sweep"}
 {"ts":"2026-11-24T16:13:28.285Z","bot":"robo-maintenance-bot","state":"done","text":"Daily sweep done; idle, nothing queued"}
 {"ts":"2026-11-24T18:15:56.806Z","bot":"bot-scout","state":"working","text":"Weekly template scout"}
+{"ts":"2026-11-24T18:20:20.737Z","bot":"bot-scout","state":"done","text":"Template scout done; idle, nothing queu…"}
