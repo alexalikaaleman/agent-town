@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:52:15.076Z",
+  "updatedAt": "2026-11-24T10:57:14.142Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -40,16 +40,13 @@
       "since": "2026-11-24T10:52:15.076Z"
     },
     "game-build-bible": {
-      "state": "needs-alex",
-      "text": "NPC rule conflict in plan",
+      "state": "working",
+      "text": "Plan update: NPC rule",
       "project": "Bus Ninja 3D",
       "with": [],
-      "needs": {
-        "id": "n202611241045-4d65",
-        "kind": "question"
-      },
-      "ts": "2026-11-24T10:45:38.549Z",
-      "since": "2026-11-24T10:45:38.549Z"
+      "needs": null,
+      "ts": "2026-11-24T10:57:14.142Z",
+      "since": "2026-11-24T10:57:14.142Z"
     },
     "cutscene-bot": {
       "state": "done",

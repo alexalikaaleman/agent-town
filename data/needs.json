@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:45:38.549Z",
+  "updatedAt": "2026-11-24T10:57:14.142Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3669,8 +3669,8 @@
       "text": "NPC rule conflict in plan",
       "project": "Bus Ninja 3D",
       "ts": "2026-11-24T10:45:38.549Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-24T10:57:14.142Z"
     }
   ]
 }
