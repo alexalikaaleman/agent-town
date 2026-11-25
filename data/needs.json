@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T18:21:41.499Z",
+  "updatedAt": "2026-11-25T20:21:23.570Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3679,6 +3679,16 @@
       "text": "Weekly picks Nov 24: yes or no?",
       "project": null,
       "ts": "2026-11-24T18:21:41.499Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611252021-c1bf",
+      "bot": "hustle-bot",
+      "kind": "question",
+      "text": "Pick income ideas to try",
+      "project": "Income",
+      "ts": "2026-11-25T20:21:23.570Z",
       "handled": false,
       "handledAt": null
     }
