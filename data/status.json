@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T16:15:09.235Z",
+  "updatedAt": "2026-11-25T20:19:54.493Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -175,16 +175,16 @@
       "since": "2026-11-24T18:21:41.499Z"
     },
     "hustle-bot": {
-      "state": "done",
-      "text": "Income session done; next: Alex's picks",
+      "state": "working",
+      "text": "Income strategy session",
       "project": "Income",
       "with": [],
       "needs": {
         "id": "n202611222028-cd6a",
         "kind": "question"
       },
-      "ts": "2026-11-22T20:28:17.207Z",
-      "since": "2026-11-22T20:28:17.207Z"
+      "ts": "2026-11-25T20:19:54.493Z",
+      "since": "2026-11-25T20:19:54.493Z"
     },
     "larry-h-robot": {
       "state": "done",
