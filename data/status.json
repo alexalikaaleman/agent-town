@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T18:25:59.083Z",
+  "updatedAt": "2026-11-25T02:05:24.085Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,16 +19,16 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "needs-alex",
-      "text": "Daily bot-review session",
-      "project": null,
+      "state": "working",
+      "text": "Mapillary note to GitWriter",
+      "project": "Bus Ninja 3D",
       "with": [],
       "needs": {
         "id": "n202611240136-17f6",
         "kind": "question"
       },
-      "ts": "2026-11-24T01:36:26.615Z",
-      "since": "2026-11-24T01:36:26.615Z"
+      "ts": "2026-11-25T02:05:24.085Z",
+      "since": "2026-11-25T02:05:24.085Z"
     },
     "game-revision-logger": {
       "state": "working",
