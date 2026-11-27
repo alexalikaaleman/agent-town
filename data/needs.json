@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T20:21:23.570Z",
+  "updatedAt": "2026-11-27T17:50:44.801Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3689,6 +3689,16 @@
       "text": "Pick income ideas to try",
       "project": "Income",
       "ts": "2026-11-25T20:21:23.570Z",
+      "handled": false,
+      "handledAt": null
+    },
+    {
+      "id": "n202611271750-597f",
+      "bot": "masterbot",
+      "kind": "question",
+      "text": "Resume paused bots: when?",
+      "project": null,
+      "ts": "2026-11-27T17:50:44.801Z",
       "handled": false,
       "handledAt": null
     }
