@@ -1925,3 +1925,4 @@
 {"ts":"2026-11-27T17:50:44.801Z","bot":"masterbot","needId":"n202611271750-597f","state":"needs-alex","text":"Resume paused bots: when?","needs":"question"}
 {"ts":"2026-11-27T20:35:48.050Z","bot":"masterbot","handled":"n202611271750-597f"}
 {"ts":"2026-11-27T20:35:54.014Z","bot":"masterbot","state":"working","text":"Schedule bot resume"}
+{"ts":"2026-11-27T20:36:11.806Z","bot":"masterbot","state":"done","text":"Resume set; next: wake bots 7:55pm"}
