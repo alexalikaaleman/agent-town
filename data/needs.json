@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-27T17:50:44.801Z",
+  "updatedAt": "2026-11-27T20:35:48.050Z",
   "items": [
     {
       "id": "n202611020715-e42e",
@@ -3699,8 +3699,8 @@
       "text": "Resume paused bots: when?",
       "project": null,
       "ts": "2026-11-27T17:50:44.801Z",
-      "handled": false,
-      "handledAt": null
+      "handled": true,
+      "handledAt": "2026-11-27T20:35:48.050Z"
     }
   ]
 }
