@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-27T20:35:48.050Z",
+  "updatedAt": "2026-11-27T20:35:54.014Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,13 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "needs-alex",
-      "text": "Resume paused bots: when?",
+      "state": "working",
+      "text": "Schedule bot resume",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-27T17:50:44.801Z",
-      "since": "2026-11-27T17:50:44.801Z"
+      "ts": "2026-11-27T20:35:54.014Z",
+      "since": "2026-11-27T20:35:54.014Z"
     },
     "game-revision-logger": {
       "state": "working",
