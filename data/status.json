@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-28T07:29:39.248Z",
+  "updatedAt": "2026-11-28T07:34:26.039Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -265,13 +265,13 @@
       "since": "2026-11-22T05:11:59.457Z"
     },
     "mochizuki-bot": {
-      "state": "done",
-      "text": "Uncle fix done; idle, nothing queued",
+      "state": "working",
+      "text": "Short car lesson",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-12T01:33:25.372Z",
-      "since": "2026-11-12T01:33:25.372Z"
+      "ts": "2026-11-28T07:34:26.039Z",
+      "since": "2026-11-28T07:34:26.039Z"
     },
     "robo-library": {
       "state": "done",
