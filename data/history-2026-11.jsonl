@@ -1932,3 +1932,4 @@
 {"ts":"2026-11-28T06:04:58.511Z","bot":"malu-bot","needId":"n202611280604-eac4","state":"needs-alex","text":"Shorts previews await approval","needs":"question"}
 {"ts":"2026-11-28T06:05:04.113Z","bot":"robo-helper-bot","state":"done","text":"Resumed; idle, waiting on Alex's picks"}
 {"ts":"2026-11-28T06:05:10.727Z","bot":"hustle-bot","state":"done","text":"Resumed; next: income session Nov 28"}
+{"ts":"2026-11-28T06:05:16.879Z","bot":"game-design-document-bot","state":"done","text":"Routines resumed; idle, nothing queued"}
