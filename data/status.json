@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-28T06:04:53.779Z",
+  "updatedAt": "2026-11-28T06:04:58.511Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -328,13 +328,16 @@
       "since": "2026-11-22T05:11:45.100Z"
     },
     "malu-bot": {
-      "state": "done",
-      "text": "Map debate part 2 sent; idle",
-      "project": "Bus Ninja 3D",
+      "state": "needs-alex",
+      "text": "Shorts previews await approval",
+      "project": null,
       "with": [],
-      "needs": null,
-      "ts": "2026-11-22T05:14:08.775Z",
-      "since": "2026-11-22T05:14:08.775Z"
+      "needs": {
+        "id": "n202611280604-eac4",
+        "kind": "question"
+      },
+      "ts": "2026-11-28T06:04:58.511Z",
+      "since": "2026-11-28T06:04:58.511Z"
     },
     "trivia-bot": {
       "state": "done",
