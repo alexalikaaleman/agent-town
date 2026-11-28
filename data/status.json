@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-28T07:28:10.128Z",
+  "updatedAt": "2026-11-28T07:29:39.248Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -55,13 +55,13 @@
       "since": "2026-11-26T06:40:01.373Z"
     },
     "robotemplate": {
-      "state": "working",
-      "text": "Reading dragon state files",
+      "state": "done",
+      "text": "Dragon state read; idle, nothing queued",
       "project": "Dragon game",
       "with": [],
       "needs": null,
-      "ts": "2026-11-28T07:28:10.128Z",
-      "since": "2026-11-28T07:28:10.128Z"
+      "ts": "2026-11-28T07:29:39.248Z",
+      "since": "2026-11-28T07:29:39.248Z"
     },
     "game-design-document-bot": {
       "state": "done",
