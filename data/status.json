@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-28T09:09:11.000Z",
+  "updatedAt": "2026-11-28T09:09:31.085Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -37,13 +37,13 @@
       "since": "2026-11-28T06:07:46.842Z"
     },
     "game-build-bible": {
-      "state": "working",
-      "text": "BN3D to-build list for GitWriter",
+      "state": "done",
+      "text": "BN3D list sent; idle, nothing queued",
       "project": "Bus Ninja 3D",
       "with": [],
       "needs": null,
-      "ts": "2026-11-28T09:09:11.000Z",
-      "since": "2026-11-24T10:57:14.142Z"
+      "ts": "2026-11-28T09:09:31.085Z",
+      "since": "2026-11-28T09:09:31.085Z"
     },
     "cutscene-bot": {
       "state": "done",
