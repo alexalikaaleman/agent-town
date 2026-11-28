@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-28T06:04:00.583Z",
+  "updatedAt": "2026-11-28T06:04:42.504Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -149,15 +149,15 @@
     },
     "alika-treed-business-bot": {
       "state": "done",
-      "text": "Sales check done; idle, nothing queued",
-      "project": "Alika TreeD",
+      "text": "Resumed; next: wait Alex Etsy pick",
+      "project": null,
       "with": [],
       "needs": {
         "id": "n202611031031-b755",
         "kind": "question"
       },
-      "ts": "2026-11-23T18:17:57.694Z",
-      "since": "2026-11-23T18:17:57.694Z"
+      "ts": "2026-11-28T06:04:42.504Z",
+      "since": "2026-11-28T06:04:42.504Z"
     },
     "bot-scout": {
       "state": "needs-alex",
