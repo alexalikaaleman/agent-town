@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-27T20:36:11.806Z",
+  "updatedAt": "2026-11-28T06:04:00.583Z",
   "usage": {
     "weeklyPct": 59,
     "ts": "2026-11-02T06:03:13.301Z"
@@ -19,13 +19,13 @@
       "since": "2026-11-17T01:27:25.803Z"
     },
     "masterbot": {
-      "state": "done",
-      "text": "Resume set; next: wake bots 7:55pm",
+      "state": "working",
+      "text": "Resume all bots",
       "project": null,
       "with": [],
       "needs": null,
-      "ts": "2026-11-27T20:36:11.806Z",
-      "since": "2026-11-27T20:36:11.806Z"
+      "ts": "2026-11-28T06:04:00.583Z",
+      "since": "2026-11-28T06:04:00.583Z"
     },
     "game-revision-logger": {
       "state": "working",
